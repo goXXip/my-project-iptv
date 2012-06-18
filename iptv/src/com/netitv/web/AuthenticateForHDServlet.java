@@ -16,18 +16,18 @@ import com.netitv.util.Constants;
  *身份认证请求(向VAS平台请求),需传入以下参数：UserID,ReturnURL(认证成功后跳转地址)
  * @Todo:TODO
  * @author: zhuqh
- * @CreateTime:2011-10-24 05:30:41
+ * @CreateTime:2012-6-24 05:30:41
  */
-public class AuthenticateServlet  extends HttpServlet{
+public class AuthenticateForHDServlet {
 
 	private static final long serialVersionUID = -2058552092655034339L;
 	
-	private static Logger logger = Logger.getLogger(AuthenticateServlet.class);
+	private static Logger logger = Logger.getLogger(AuthenticateForHDServlet.class);
 	
 	  /**
      * @see HttpServlet#HttpServlet()
      */
-    public AuthenticateServlet() {
+    public AuthenticateForHDServlet() {
         super();
     }
 
@@ -38,13 +38,13 @@ public class AuthenticateServlet  extends HttpServlet{
 		
 		String UserID = request.getParameter("userId");
 		String flag = request.getParameter("flag");//频道标识:(1:孕育早教  2:疯狂英语)
-		String ReturnURL = getRequestPrefix(request)+"/servlet/authenticateResponse";
+		String ReturnURL = getRequestPrefix(request)+"/servlet/authenticateResponse_hd";
 		String action_url = getRequestPrefix(request);
 		if("1".equals(flag)){
-			action_url += "/yyzj/filmAction!eduIndex.do";
+			action_url += "/yyzj_hd/filmAction!eduIndex.do";
 		}
 		else if("2".equals(flag)){
-			action_url += "/crazyenglish/filmAction!engIndex.do";
+			action_url += "/crazyenglish_hd/filmAction!engIndex.do";
 		}
 		
 		action_url = URLEncoder.encode(action_url, "utf-8");//应用首页地址(跳转到action地址)

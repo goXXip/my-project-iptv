@@ -19,7 +19,11 @@ import com.netitv.util.Constants;
 import com.netitv.util.HttpUtil;
 import com.netitv.util.PageBean;
 
-public class FilmAction extends BaseAction<Film>{
+/**
+ * 高清播放
+ * @author 朱庆辉
+ */
+public class FilmHDAction extends BaseAction<Film>{
 
 	private static final long serialVersionUID = 2892468747171603948L;
 	
@@ -28,7 +32,6 @@ public class FilmAction extends BaseAction<Film>{
 	private Film film ;
 	private String toAuthenticationUrl;//身份认证url
 	private String toAuthUrl;//鉴权url
-	private String playUrl;//视频播放url
 	
 	/**
 	 *@Todo:孕育早教首页
@@ -215,7 +218,7 @@ public class FilmAction extends BaseAction<Film>{
 		OrderDetailService orderDetailService = (OrderDetailService) BeanFactory.getBeanByName("orderDetailService");
 		OrderDetail  orderDetail = orderDetailService.findByContentIdAndUserId(userID, contentID);
 		if( orderDetail == null){//未订购
-			this.setToAuthUrl(getRequestPrefix()+"/servlet/serviceAuth?ContentID="+contentID+"&filmId="+filmID+"&channelId="+channelId);
+			this.setToAuthUrl(getRequestPrefix()+"/servlet/serviceAuth_hd?ContentID="+contentID+"&filmId="+filmID+"&channelId="+channelId);
 			return "toAuth";
 		}else{
 			
@@ -293,40 +296,6 @@ public class FilmAction extends BaseAction<Film>{
 	}
 	
 	/**
-	 * 视频播放
-	 */
-	protected String toPlay(){
-		
-		String fileID = request.getParameter("fileID");//视频ID
-		String id  = request.getParameter("id");//视频ID
-		String ztID  = request.getParameter("ztID");//父集ID
-		
-		String localIp = HttpUtil.getCookieValue(request, "localIp");
-		
-		String play_url = "";
-		if( localIp != null &&  localIp.indexOf("defaultwghd") > 0 ){
-			 AssetService assetService = (AssetService) BeanFactory.getBeanByName("assetService");
-			 Asset asset = assetService.findById(Integer.valueOf(id));
-			 if( asset != null ){
-				 String vodName = asset.getName();
-				 play_url = localIp + "HD_Authorization.jsp?CONTENTTYPE=0&BUSINESSTYPE=1&PROGID="+fileID+"&TYPE_ID=-1&PLAYTYPE=1&vodName="+vodName;
-			 }
-			 else{
-				 play_url = localIp + "HD_Authorization.jsp?CONTENTTYPE=0&BUSINESSTYPE=1&PROGID="+fileID+"&TYPE_ID=-1&PLAYTYPE=1"; 
-			 }
-		}
-		else{
-			 play_url = localIp+ "au_PlayFilm.jsp?PROGID="+fileID+"&PLAYTYPE=1&CONTENTTYPE=0&BUSINESSTYPE=1&ONECEPRICE=0&ISTVSERIESFLAG=1&FATHERSERIESID="+ztID+"&TYPEID=-1";
-		}
-		
-		this.setPlayUrl( play_url );
-		
-		log("play_url====="+play_url);
-		
-		return "toPlay";
-	}
-	
-	/**
 	 * 检查是否已登录 
 	 * @param channelId 频道标识  1:孕育早教 2:疯狂英语 
 	 */
@@ -339,7 +308,7 @@ public class FilmAction extends BaseAction<Film>{
 			if( userId== null){
 				userId = HttpUtil.getCookieValue(request,"userID");
 			}
-			this.setToAuthenticationUrl(getRequestPrefix()+"/servlet/authenticate?flag="+channelId+"&userId="+userId);
+			setToAuthenticationUrl(getRequestPrefix()+"/servlet/authenticate_hd?flag="+channelId+"&userId="+userId);
 			return "toAuthentication";
 		}
 		return null;
@@ -431,13 +400,4 @@ public class FilmAction extends BaseAction<Film>{
 	public void setToAuthUrl(String toAuthUrl) {
 		this.toAuthUrl = toAuthUrl;
 	}
-
-	public String getPlayUrl() {
-		return playUrl;
-	}
-
-	public void setPlayUrl(String playUrl) {
-		this.playUrl = playUrl;
-	}
-
 }
