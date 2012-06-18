@@ -40,7 +40,7 @@
         <url-pattern>*.jsp</url-pattern>
     </filter-mapping>
     
-
+   <!-- 身份认证 标清 begin -->
 	<servlet>
 		<servlet-name>AuthenticateServlet</servlet-name>
 		<servlet-class>com.netitv.web.AuthenticateServlet</servlet-class>
@@ -58,6 +58,27 @@
 		<servlet-name>AuthenticateResponseServlet</servlet-name>
 		<url-pattern>/servlet/authenticateResponse</url-pattern>
 	</servlet-mapping>
+	<!-- 身份认证 标清 end -->
+	
+	<!-- 身份认证 高清 begin -->
+	<servlet>
+		<servlet-name>AuthenticateForHDServlet</servlet-name>
+		<servlet-class>com.netitv.web.AuthenticateForHDServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AuthenticateForHDServlet</servlet-name>
+		<url-pattern>/servlet/authenticate_hd</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AuthenticateResponseForHDServlet</servlet-name>
+		<servlet-class>com.netitv.web.AuthenticateResponseForHDServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AuthenticateResponseForHDServlet</servlet-name>
+		<url-pattern>/servlet/authenticateResponse_hd</url-pattern>
+	</servlet-mapping>
+	<!-- 身份认证 高清 end -->
 
 	<servlet>
 		<servlet-name>OrderServlet</servlet-name>
@@ -77,6 +98,7 @@
 		<url-pattern>/servlet/orderResponse</url-pattern>
 	</servlet-mapping>
 
+	<!-- 鉴权 标清 begin -->
 	<servlet>
 		<servlet-name>ServiceAuthServlet</servlet-name>
 		<servlet-class>com.netitv.web.ServiceAuthServlet</servlet-class>
@@ -85,6 +107,18 @@
 		<servlet-name>ServiceAuthServlet</servlet-name>
 		<url-pattern>/servlet/serviceAuth</url-pattern>
 	</servlet-mapping>
+	<!-- 鉴权 标清  end -->
+	
+	<!-- 鉴权 高清 begin -->
+	<servlet>
+		<servlet-name>ServiceAuthForHDServlet</servlet-name>
+		<servlet-class>com.netitv.web.ServiceAuthForHDServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServiceAuthForHDServlet</servlet-name>
+		<url-pattern>/servlet/serviceAuth_hd</url-pattern>
+	</servlet-mapping>
+	<!-- 鉴权 高清  end -->
 	
 	<!-- 初始化生成海报图片 -->
 	<servlet>
