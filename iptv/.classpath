@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="lib-remote/servlet-api.jar"/>
+	<classpathentry kind="lib" path="lib-remote/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="lib-remote/commons-lang-2.4.jar"/>
+	<classpathentry kind="lib" path="lib-remote/jaxb-impl-2.1.13.jar"/>
+	<classpathentry kind="lib" path="lib-remote/jaxb-xjc-2.1.13.jar"/>
+	<classpathentry kind="lib" path="lib-remote/velocity-1.6.4.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
+</classpath>

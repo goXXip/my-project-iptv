@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<project name="iptv_access" basedir=".">   
+   <property name="cxf.home" location ="${basedir}/WebContent/WEB-INF/"/>
+   <path id="cxf.classpath">
+      <fileset dir="${cxf.home}/lib">
+         <include name="*.jar"/>
+      </fileset>
+   </path>   
+	
+   <target name="cxfWSDLToJava">
+   	<echo message="filepath:${basedir}/src/CountPeople.wsdl"></echo>
+      <java classname="org.apache.cxf.tools.wsdlto.WSDLToJava" fork="true">
+         <arg value="-client"/>
+         <arg value="-d"/>
+         <arg value="src"/>
+         <!--<arg value="http://user.sh.vnet.cn:8001/SHSoapLocal/services/ProvinceForFuse?wsdl"/>-->
+       	<arg value="http://localhost:8080/firstweb/services/vote?wsdl"/>
+         <classpath>
+            <path refid="cxf.classpath"/>
+         </classpath>
+      </java>
+   </target>
+	
+	 <target name="portalMsg_huawei">
+	   	<echo message="filepath:${basedir}/src/SVASService.wsdl"></echo>
+	      <java classname="org.apache.cxf.tools.wsdlto.WSDLToJava" fork="true">
+	         <arg value="-client"/>
+	         <arg value="-d"/>
+	         <arg value="src"/>
+	       	<arg value="${basedir}/src/VASService.wsdl"/>
+	         <classpath>
+	            <path refid="cxf.classpath"/>
+	         </classpath>
+	      </java>
+	   </target>
+</project>
