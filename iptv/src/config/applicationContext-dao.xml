@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                     http://www.springframework.org/schema/beans/spring-beans.xsd" default-autowire="byName">
+
+
+	<bean id="filmDao" class="com.netitv.dao.impl.FilmDaoImpl"/>
+	<bean id="imageInfoDao" class="com.netitv.dao.impl.ImageInfoDaoImpl"/>
+	<bean id="assetDao" class="com.netitv.dao.impl.AssetDaoImpl"/>
+	<bean id="columnDao" class="com.netitv.dao.impl.ColumnDaoImpl"/>
+	<bean id="channelDao" class="com.netitv.dao.impl.ChannelDaoImpl"/>
+	
+	<bean id="administratorInfoDao" class="com.netitv.dao.impl.AdministratorInfoDaoImpl"/>
+	<bean id="orderDetailDao" class="com.netitv.dao.impl.OrderDetailDaoImpl"/>
+	
+</beans>
