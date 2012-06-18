@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<include file="struts-default.xml" />
+	<constant name="struts.action.extension" value="do" />
+	<constant name="struts.locale" value="zh_CN" />
+	<constant name="struts.custom.i18n.resources" value="globalMessages" />
+	<constant name="struts.multipart.maxSize" value="10000000"/>
+	<constant name="struts.multipart.saveDir" value="/tmp" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.devMode" value="true" />
+	
+	<package name="mydefault" namespace="/" extends="struts-default">
+		<!--<global-results>
+			<result name="error">/common/error.jsp</result>
+		</global-results>
+	
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception" result="error" />
+		</global-exception-mappings>-->
+	</package>
+
+   <package name="manager" namespace="/manager" extends="struts-default">
+   
+       	<interceptors>  
+            <interceptor name="sessionout" class="com.netitv.util.SessionIterceptor"></interceptor>  
+        </interceptors> 
+        
+        <!-- 定义全局Result -->  
+        <global-results>  
+            <!-- 当返回login视图名时，转入/u_login.jsp页面 -->  
+            <result name="login">/login.jsp</result>  
+        </global-results>
+        
+          <action name="loginAction" class="com.netitv.web.manager.LoginAction">
+        	   <result name="login">/login.jsp</result>
+        	   <result name="logout">/login.jsp</result>
+        	   <result name="login_success" type="redirect">/manager/filmAction!list.do</result>
+          </action>
+          
+         <action name="orderAction" class="com.netitv.web.manager.OrderDetailAction">
+	            <interceptor-ref name="defaultStack"></interceptor-ref> 
+	            <interceptor-ref name="sessionout">
+	            	  <param name="excludeMethods"></param>
+	            </interceptor-ref> 
+        	   <result name="list">/manager/list_orderdetail.jsp</result>
+          </action>
+   
+		 <action name="filmAction" class="com.netitv.web.manager.FilmAction">
+		    <interceptor-ref name="defaultStack"></interceptor-ref> 
+            <interceptor-ref name="sessionout">
+            	  <param name="excludeMethods"></param>
+            </interceptor-ref>  
+            
+        	<result name="addPrepare">/manager/add_film.jsp</result>
+        	<result name="modifyPrepare">/manager/add_film.jsp</result>
+        	<result name="list">/manager/list_film.jsp</result>
+        	<result name="saved" type="redirect">/manager/filmAction!list.do?channelSelect=${channelSelect}</result>
+        	<result name="deleted" type="redirect">/manager/filmAction!list.do?channelSelect=${channelSelect}</result>
+        	<result name="assetList">/manager/list_asset.jsp</result>
+        	<result name="columnList">/manager/common/ajax_return.jsp</result>
+        	
+        	<result name="top" type="redirect">/manager/filmAction!list.do?channelSelect=${channelSelect}</result>
+        </action>
+        
+        <action name="assetAction" class="com.netitv.web.manager.AssetAction">
+            <interceptor-ref name="defaultStack"></interceptor-ref> 
+            <interceptor-ref name="sessionout">
+            	  <param name="excludeMethods"></param>
+            </interceptor-ref> 
+        	<result name="addPrepare">/manager/add_asset.jsp</result>
+        	<result name="modifyPrepare">/manager/add_asset.jsp</result>
+        	<result name="saved" type="redirect">/manager/filmAction!assetList.do?id=${filmId}</result>
+        	<result name="deleted" type="redirect">/manager/filmAction!assetList.do?id=${filmId}</result>
+        </action>
+        
+        <action name="channelAction" class="com.netitv.web.manager.ChannelAction">
+            <interceptor-ref name="defaultStack"></interceptor-ref> 
+            <interceptor-ref name="sessionout">
+            	  <param name="excludeMethods"></param>
+            </interceptor-ref> 
+            <result name="list">/manager/list_channel.jsp</result>
+        	<result name="addPrepare">/manager/add_channel.jsp</result>
+        	<result name="modifyPrepare">/manager/add_channel.jsp</result>
+        	<result name="saved" type="redirect">/manager/channelAction!list.do</result>
+        	<result name="deleted" type="redirect">/manager/channelAction!list.do</result>
+        </action>
+        
+        <action name="columnAction" class="com.netitv.web.manager.ColumnAction">
+            <interceptor-ref name="defaultStack"></interceptor-ref> 
+            <interceptor-ref name="sessionout">
+            	  <param name="excludeMethods"></param>
+            </interceptor-ref> 
+            <result name="list">/manager/list_column.jsp</result>
+        	<result name="addPrepare">/manager/add_column.jsp</result>
+        	<result name="modifyPrepare">/manager/add_column.jsp</result>
+        	<result name="saved" type="redirect">/manager/columnAction!list.do?channelSelect=${channelSelect}</result>
+        	<result name="deleted" type="redirect">/manager/columnAction!list.do?channelSelect=${channelSelect}</result>
+        </action>
+        
+   </package>
+   
+   <!-- 孕育早教   begin  -->
+    <package name="yyzj" namespace="/yyzj" extends="mydefault">
+    	<action name="filmAction" class="com.netitv.web.front.FilmAction">
+    		<result name="toAuthentication" type="redirect">${toAuthenticationUrl}</result>
+        	<result name="eduIndex">/yyzj/index.jsp</result>
+        	<result name="listByColumn">/yyzj/list.jsp</result>
+        	<result name="detail">/yyzj/detail.jsp</result>
+        	<result name="listAsset">/yyzj/episode.jsp</result>
+        	<result name="toAuth" type="redirect">${toAuthUrl}</result>
+        	<result name="orderConfirm">/yyzj/order.jsp</result>
+        	<result name="error">/yyzj/error.jsp</result>
+        </action>
+    </package>
+    <!-- 孕育早教   end  -->
+    
+     <!-- 疯狂英语   begin  -->
+    <package name="crazyenglish" namespace="/crazyenglish" extends="mydefault">
+    	<action name="filmAction" class="com.netitv.web.front.FilmAction">
+    		<result name="toAuthentication" type="redirect">${toAuthenticationUrl}</result>
+    		<result name="engIndex">/crazyenglish/index.jsp</result>
+    		<result name="listByColumn">/crazyenglish/list.jsp</result>
+        	<result name="detail">/crazyenglish/detail.jsp</result>
+        	<result name="listAsset">/crazyenglish/episode.jsp</result>
+        	<result name="toAuth" type="redirect">${toAuthUrl}</result>
+        	<result name="orderConfirm">/crazyenglish/order.jsp</result>
+        	<result name="error">/crazyenglish/error.jsp</result>
+    	</action>
+    </package>
+     <!-- 疯狂英语   end  -->
+     
+    <!-- 孕育早教 高清   begin  -->
+    <package name="yyzj" namespace="/yyzj_hd" extends="mydefault">
+    	<action name="filmAction" class="com.netitv.web.front.FilmAction">
+    		<result name="toAuthentication" type="redirect">${toAuthenticationUrl}</result>
+        	<result name="eduIndex">/yyzj/index.jsp</result>
+        	<result name="listByColumn">/yyzj/list.jsp</result>
+        	<result name="detail">/yyzj/detail.jsp</result>
+        	<result name="listAsset">/yyzj/episode.jsp</result>
+        	<result name="toAuth" type="redirect">${toAuthUrl}</result>
+        	<result name="orderConfirm">/yyzj/order.jsp</result>
+        	<result name="error">/yyzj/error.jsp</result>
+        </action>
+    </package>
+    <!-- 孕育早教  高清    end  -->
+    
+     <!-- 疯狂英语  高清    begin  -->
+    <package name="crazyenglish" namespace="/crazyenglish_hd" extends="mydefault">
+    	<action name="filmAction" class="com.netitv.web.front.FilmAction">
+    		<result name="toAuthentication" type="redirect">${toAuthenticationUrl}</result>
+    		<result name="engIndex">/crazyenglish/index.jsp</result>
+    		<result name="listByColumn">/crazyenglish/list.jsp</result>
+        	<result name="detail">/crazyenglish/detail.jsp</result>
+        	<result name="listAsset">/crazyenglish/episode.jsp</result>
+        	<result name="toAuth" type="redirect">${toAuthUrl}</result>
+        	<result name="orderConfirm">/crazyenglish/order.jsp</result>
+        	<result name="error">/crazyenglish/error.jsp</result>
+    	</action>
+    </package>
+     <!-- 疯狂英语  高清    end  -->
+	
+</struts>
