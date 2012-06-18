@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="iptv_access" version="2.4"
+	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>dr</display-name>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:config/applicationContext.xml</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+	
+	<!-- Struts2 Action Mapping -->
+    <filter>
+        <filter-name>action2</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>action2</filter-name>
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+     <filter-mapping>
+        <filter-name>action2</filter-name>
+        <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+    
+
+	<servlet>
+		<servlet-name>AuthenticateServlet</servlet-name>
+		<servlet-class>com.netitv.web.AuthenticateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AuthenticateServlet</servlet-name>
+		<url-pattern>/servlet/authenticate</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AuthenticateResponseServlet</servlet-name>
+		<servlet-class>com.netitv.web.AuthenticateResponseServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AuthenticateResponseServlet</servlet-name>
+		<url-pattern>/servlet/authenticateResponse</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>OrderServlet</servlet-name>
+		<servlet-class>com.netitv.web.OrderServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>OrderServlet</servlet-name>
+		<url-pattern>/servlet/order</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>OrderResponseServlet</servlet-name>
+		<servlet-class>com.netitv.web.OrderResponseServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>OrderResponseServlet</servlet-name>
+		<url-pattern>/servlet/orderResponse</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ServiceAuthServlet</servlet-name>
+		<servlet-class>com.netitv.web.ServiceAuthServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServiceAuthServlet</servlet-name>
+		<url-pattern>/servlet/serviceAuth</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 初始化生成海报图片 -->
+	<servlet>
+		<servlet-name>InitServlet</servlet-name>
+		<servlet-class>com.netitv.web.InitServlet</servlet-class>
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+</web-app>
