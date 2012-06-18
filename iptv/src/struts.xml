@@ -134,30 +134,30 @@
      
     <!-- 孕育早教 高清   begin  -->
     <package name="yyzj" namespace="/yyzj_hd" extends="mydefault">
-    	<action name="filmAction" class="com.netitv.web.front.FilmAction">
+    	<action name="filmAction" class="com.netitv.web.front.FilmHDAction">
     		<result name="toAuthentication" type="redirect">${toAuthenticationUrl}</result>
-        	<result name="eduIndex">/yyzj/index.jsp</result>
-        	<result name="listByColumn">/yyzj/list.jsp</result>
-        	<result name="detail">/yyzj/detail.jsp</result>
-        	<result name="listAsset">/yyzj/episode.jsp</result>
+        	<result name="eduIndex">/yyzj_hd/index.jsp</result>
+        	<result name="listByColumn">/yyzj_hd/list.jsp</result>
+        	<result name="detail">/yyzj_hd/detail.jsp</result>
+        	<result name="listAsset">/yyzj_hd/episode.jsp</result>
         	<result name="toAuth" type="redirect">${toAuthUrl}</result>
-        	<result name="orderConfirm">/yyzj/order.jsp</result>
-        	<result name="error">/yyzj/error.jsp</result>
+        	<result name="orderConfirm">/yyzj_hd/order.jsp</result>
+        	<result name="error">/yyzj_hd/error.jsp</result>
         </action>
     </package>
     <!-- 孕育早教  高清    end  -->
     
      <!-- 疯狂英语  高清    begin  -->
     <package name="crazyenglish" namespace="/crazyenglish_hd" extends="mydefault">
-    	<action name="filmAction" class="com.netitv.web.front.FilmAction">
+    	<action name="filmAction" class="com.netitv.web.front.FilmHDAction">
     		<result name="toAuthentication" type="redirect">${toAuthenticationUrl}</result>
-    		<result name="engIndex">/crazyenglish/index.jsp</result>
-    		<result name="listByColumn">/crazyenglish/list.jsp</result>
-        	<result name="detail">/crazyenglish/detail.jsp</result>
-        	<result name="listAsset">/crazyenglish/episode.jsp</result>
+    		<result name="engIndex">/crazyenglish_hd/index.jsp</result>
+    		<result name="listByColumn">/crazyenglish_hd/list.jsp</result>
+        	<result name="detail">/crazyenglish_hd/detail.jsp</result>
+        	<result name="listAsset">/crazyenglish_hd/episode.jsp</result>
         	<result name="toAuth" type="redirect">${toAuthUrl}</result>
-        	<result name="orderConfirm">/crazyenglish/order.jsp</result>
-        	<result name="error">/crazyenglish/error.jsp</result>
+        	<result name="orderConfirm">/crazyenglish_hd/order.jsp</result>
+        	<result name="error">/crazyenglish_hd/error.jsp</result>
     	</action>
     </package>
      <!-- 疯狂英语  高清    end  -->
