@@ -1,0 +1,77 @@
+package com.netitv.web;
+
+import java.io.IOException;
+import java.net.URLEncoder;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+
+import com.netitv.util.Constants;
+
+/**
+ *身份认证请求(向VAS平台请求),需传入以下参数：UserID,ReturnURL(认证成功后跳转地址)֤
+ * @Todo:TODO
+ * @author: zhuqh
+ * @CreateTime:2011-10-24 05:30:41
+ */
+public class AuthenticateServlet  extends HttpServlet{
+
+	private static final long serialVersionUID = -2058552092655034339L;
+	
+	private static Logger logger = Logger.getLogger(AuthenticateServlet.class);
+	
+	  /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public AuthenticateServlet() {
+        super();
+    }
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		
+		String UserID = request.getParameter("userId");
+		String flag = request.getParameter("flag");//频道标识:(1:孕育早教  2:疯狂英语)
+		String ReturnURL = getRequestPrefix(request)+"/servlet/authenticateResponse";
+		String action_url = getRequestPrefix(request);
+		if("1".equals(flag)){
+			action_url += "/yyzj/filmAction!eduIndex.do";
+		}
+		else if("2".equals(flag)){
+			action_url += "/crazyenglish/filmAction!engIndex.do";
+		}
+		
+		action_url = URLEncoder.encode(action_url, "utf-8");//应用首页地址(跳转到action地址)
+		ReturnURL += "?action_url="+action_url;
+		
+		String requestUrl = Constants.Authenticate_Url+"SPID="+Constants.SPID+"&UserID="+ UserID +"&ReturnURL="+ReturnURL
+		+"&Action="+Constants.Authenticate_Action;
+		
+		logger.debug("user_id==="+UserID);
+		logger.debug("channel flag==="+flag);
+		logger.debug("ReturnURL==="+ReturnURL);
+		logger.debug("requestUrl==="+requestUrl);
+		
+		request.getSession().setAttribute(Constants.UserID, UserID);
+		
+		response.sendRedirect(requestUrl);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+	
+	private String getRequestPrefix(HttpServletRequest request){
+		return request.getScheme()+"://"+ request.getServerName()+":"+request.getServerPort()+request.getContextPath();
+	}
+
+}
