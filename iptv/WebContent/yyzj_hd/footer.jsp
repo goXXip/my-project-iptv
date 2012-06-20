@@ -1,14 +1,10 @@
-<map name="Image6Map" id="Image6Map">
-  <area shape="rect" coords="6,10,133,60" href="${ctx }/yyzj/filmAction!listFilmByColumnId.do?columnId=1&channelId=1" />
+<map name="Map1" id="Map1"><area shape="rect" coords="15,24,244,89" href="${ctx }/yyzj_hd/filmAction!eduIndex.do" /></map>
+<map name="Map2" id="Map2">
+  <area shape="rect" coords="2,22,195,88" href="${ctx }/yyzj_hd/filmAction!listFilmByColumnId.do?columnId=1&channelId=1" />
 </map>
-<map name="Image5Map" id="Image5Map">
-  <area shape="rect" coords="30,10,170,60" href="${ctx }/yyzj/filmAction!eduIndex.do" />
+<map name="Map3" id="Map3">
+  <area shape="rect" coords="8,25,196,87" href="${ctx }/yyzj_hd/filmAction!listFilmByColumnId.do?columnId=2&channelId=1" />
 </map>
-
-<map name="Image7Map" id="Image7Map">
-  <area shape="rect" coords="1,10,128,60" href="${ctx }/yyzj/filmAction!listFilmByColumnId.do?columnId=2&channelId=1" />
-</map>
-
-<map name="Image8Map" id="Image8Map">
-  <area shape="rect" coords="1,10,128,60" href="${ctx }/yyzj/filmAction!listFilmByColumnId.do?columnId=3&channelId=1" />
+<map name="Map4" id="Map4">
+  <area shape="rect" coords="12,25,201,87" href="${ctx }/yyzj_hd/filmAction!listFilmByColumnId.do?columnId=3&channelId=1" />
 </map>
