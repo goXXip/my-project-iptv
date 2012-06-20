@@ -4,14 +4,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="page-view-size" content="1280*720" />
 <title>疯狂英语</title>
 <style type="text/css">
-<!--
 body {
+    letter-spacing: -1px;
 	margin-left: 0px;
 	margin-top: 0px;
 	margin-right: 0px;
 	margin-bottom: 0px;
+	font-family: "黑体";
+	width:1280px;
+	height:720px;
 }
 .STYLE13 {font-family: "黑体"; font-size: 15px; color: #FFFFFF; }
 .STYLE20 {font-size: 18px}
@@ -32,16 +36,16 @@ body {
 	font-size: 24px;
 	font-family: "黑体";
 }
--->
 </style>
+<script type="text/javascript" src="js/global.js"></script>
 <script type="text/javascript">
-<!--
+
 function MM_preloadImages() { //v3.0
   var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
     var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
     if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
 }
-//-->
+
 </script>
 </head>
 

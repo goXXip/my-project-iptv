@@ -4,14 +4,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="page-view-size" content="1280*720" />
 <title>疯狂英语</title>
 <style type="text/css">
-<!--
 body {
+    letter-spacing: -1px;
 	margin-left: 0px;
 	margin-top: 0px;
 	margin-right: 0px;
 	margin-bottom: 0px;
+	font-family: "黑体";
+	width:1280px;
+	height:720px;
 }
 .STYLE13 {font-family: "黑体"; font-size: 15px; color: #FFFFFF; }
 .STYLE18 {
@@ -26,8 +30,69 @@ body {
 .STYLE22 {font-size: 18}
 .STYLE23 {font-size: 20px}
 .STYLE24 {color: #FFFFFF}
--->
 </style>
+
+<script type="text/javascript">
+var curPage =  ${pageBean.curPage};
+var totalPages = ${pageBean.totalPages};
+var columnID = "${requestScope.columnID}";
+var $ = function(id){
+	var o = document.getElementById(id);
+	return o;
+};
+window.onload = function() {
+	if($("defaultFocus") != "undefined" && $("defaultFocus") != null) {
+		$("defaultFocus").focus();
+	}
+};
+function keyEvent() {
+	var keyCode;
+	var keyCode = event.keyCode;
+	if(!keyCode||keyCode=="undefined"){
+		keyCode = event.which;
+	}
+	switch(keyCode) {
+	case 8:
+	case 109:
+	case 283:
+		//window.history.back();
+		location.href = "${ctx }/crazyenglish_hd/filmAction!engIndex.do";
+		return 0;
+		break;
+	case 33://上一页
+		if(curPage > 1){
+			var pageNo = curPage-1 ;
+			var url = "${ctx }/crazyenglish_hd/filmAction!listFilmByColumnId.do?columnId="+columnID+"&curPage="+pageNo+"&pageSize=9";
+			location.href = url;
+		}
+		return 0;
+		break;
+	case 34://下一页
+		if( curPage < totalPages){
+			var pageNo = curPage+1 ;
+			var url = "${ctx }/crazyenglish_hd/filmAction!listFilmByColumnId.do?columnId="+columnID+"&curPage="+pageNo+"&pageSize=9";
+			location.href = url;
+		}
+		return 0;
+		break;
+	default:
+		return 1;
+	}
+}
+document.onirkeypress = keyEvent;
+document.onkeypress = keyEvent;
+
+/**
+ * 焦点时的样式
+ * @param target 焦点目标
+ */
+function focusStyle(target, className) {
+	if($(target) != "undefined") {
+		$(target).className = className;
+	}
+}
+</script>
+
 </head>
 
 <body onload="MM_preloadImages('images/lyfkyy-1-2-2.jpg','images/lyfkyy-1-3-2.jpg')">
