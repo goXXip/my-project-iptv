@@ -40,14 +40,10 @@ a:VISITED {text-decoration:none;}
 </style>
 </head>
 
-<body onload="MM_preloadImages('images/lyfkyy-1-2-2.jpg','images/lyfkyy-1-3-2.jpg')">
-<table width="1280" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><img src="images/fkyy-gq-1.jpg" width="302" height="101" /></td>
-    <td width="652" background="images/fkyy-gq-2.jpg">&nbsp;</td>
-    <td><img src="images/fkyy-gq-3.jpg" width="326" height="101" border="0" usemap="#Map" /></td>
-  </tr>
-</table>
+<body>
+
+<%@ include file="/crazyenglish_hd/head.jsp" %>
+
 <table width="1280" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td width="69"><img src="images/fkyy-gq-4.jpg" width="69" height="590"/></td>
@@ -166,9 +162,7 @@ a:VISITED {text-decoration:none;}
   </tr>
 </table>
 
-
-<map name="Map" id="Map"><area shape="rect" coords="15,24,244,89" href="#" /></map>
-
+<%@ include file="/crazyenglish_hd/footer.jsp" %>
 
 <script type="text/javascript">
 

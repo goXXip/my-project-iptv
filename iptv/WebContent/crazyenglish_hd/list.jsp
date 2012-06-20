@@ -90,19 +90,15 @@ function focusStyle(target, className) {
 	if($(target) != "undefined") {
 		$(target).className = className;
 	}
-}
+};
 </script>
 
 </head>
 
-<body onload="MM_preloadImages('images/lyfkyy-1-2-2.jpg','images/lyfkyy-1-3-2.jpg')">
-<table width="1280" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><img src="images/fkyy-gq-1.jpg" width="302" height="101" /></td>
-    <td width="652" background="images/fkyy-gq-2.jpg">&nbsp;</td>
-    <td><img src="images/fkyy-gq-3.jpg" width="326" height="101" border="0" usemap="#Map" /></td>
-  </tr>
-</table>
+<body>
+
+<%@ include file="/crazyenglish_hd/head.jsp" %>
+
 <table width="1280" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td width="69"><img src="images/fkyy-gq-4.jpg" width="69" height="590"/></td>
@@ -202,5 +198,8 @@ function focusStyle(target, className) {
     <td colspan="3"><img src="images/fkyy-gq-6.jpg" width="1280" height="29" /></td>
   </tr>
 </table>
+
+<%@ include file="/crazyenglish_hd/footer.jsp" %>
+
 </body>
 </html>
