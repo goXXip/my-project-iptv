@@ -4,14 +4,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="page-view-size" content="1280*720" />
 <title>孕育早教</title>
 <style type="text/css">
-<!--
 body {
+    letter-spacing: -1px;
 	margin-left: 0px;
 	margin-top: 0px;
 	margin-right: 0px;
 	margin-bottom: 0px;
+	font-family: "黑体";
+	width: 1280px;
+	height:720px;
+	background: transparent;
 }
 .STYLE17 {color: #FBB90B; font-size: 18px; font-family: "黑体"; }
 .STYLE18 {
@@ -32,7 +37,6 @@ body {
 	font-size: 18px;
 	font-family: "黑体";
 }
--->
 </style>
 </head>
 
@@ -148,5 +152,24 @@ body {
 </table>
 
 
-<map name="Map" id="Map"><area shape="rect" coords="15,24,244,89" href="#" /></map></body>
+<map name="Map" id="Map"><area shape="rect" coords="15,24,244,89" href="#" /></map>
+
+<script type="text/javascript">
+
+var firstFileID = "${requestScope.defaultPlayID}";//默认播放第一个影片第一集
+var prefix = "${requestScope.prefix}";
+
+	function init(){
+		if(prefix.indexOf("defaultwghd")>0){
+			$("freeVideo").src = prefix + "HD_PlayTrailerInVas.jsp?left=275&top=90&width=325&height=244&type=VOD&value=" + firstFileID+"contenttype=10";
+		}
+		else{
+			$("freeVideo").src = prefix + "PlayTrailerInVas.jsp?left=275&top=90&width=325&height=244&type=VOD&value=" + firstFileID;
+		}
+	}
+
+init();
+</script>
+
+</body>
 </html>

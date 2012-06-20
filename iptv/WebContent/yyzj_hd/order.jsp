@@ -4,14 +4,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="page-view-size" content="1280*720" />
 <title>孕育早教</title>
 <style type="text/css">
-<!--
 body {
+    letter-spacing: -1px;
 	margin-left: 0px;
 	margin-top: 0px;
 	margin-right: 0px;
 	margin-bottom: 0px;
+	font-family: "黑体";
+	width: 1280px;
+	height:720px;
 }
 .STYLE25 {
 	color: #FFFFFF;
@@ -30,8 +34,10 @@ body {
 	font-size: 24px;
 	color: #edff6f;
 }
--->
 </style>
+
+<script type="text/javascript" src="js/global.js"></script>
+
 </head>
 
 <body onload="MM_preloadImages('images/lyfkyy-1-2-2.jpg','images/lyfkyy-1-3-2.jpg')">
@@ -100,5 +106,7 @@ body {
 <map name="Map" id="Map"><area shape="rect" coords="15,24,244,89" href="#" /></map>
 <map name="Map2" id="Map2"><area shape="rect" coords="2,22,195,88" href="#" /></map>
 <map name="Map3" id="Map3"><area shape="rect" coords="8,25,196,87" href="#" /></map>
-<map name="Map4" id="Map4"><area shape="rect" coords="12,25,201,87" href="#" /></map></body>
+<map name="Map4" id="Map4"><area shape="rect" coords="12,25,201,87" href="#" /></map>
+
+</body>
 </html>
