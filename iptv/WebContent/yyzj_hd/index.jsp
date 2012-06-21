@@ -237,7 +237,7 @@ var firstFileID = "${requestScope.defaultPlayID}";//默认播放第一个影片�
 var prefix = "${requestScope.prefix}";
 
 	function init(){
-		$("freeVideo").src = prefix + "HD_PlayTrailerInVas.jsp?left=275&top=90&width=325&height=244&type=VOD&value=" + firstFileID+"contenttype=10";
+		$("freeVideo").src = prefix + "HD_PlayTrailerInVas.jsp?left=569&top=122&width=621&height=350&type=VOD&value=" + firstFileID+"contenttype=10";
 	}
 
 init();
