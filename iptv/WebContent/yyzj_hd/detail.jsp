@@ -17,25 +17,17 @@ body {
 	width: 1280px;
 	height:720px;
 }
-.STYLE25 {
-	color: #FFFFFF;
-	font-size: 18px;
-	font-family: "黑体";
-}
-.style151 {font-size: 24px;
-	color: #FFFFFF;
-	font-family: "黑体";
-}
-.STYLE27 {
-	font-size: 36px;
-	color: #edff6f;
-}
-.STYLE28 {
-	font-size: 24px;
-	color: #edff6f;
-}
+a:link{text-decoration:none;}
+a:hover{text-decoration:none;}
+a:VISITED {text-decoration:none;}
+.STYLE15 {color: #ffffff;font-size: 18px;font-family: "黑体";}
+.STYLE25 {color: #edff6f;font-size: 18px;font-family: "黑体";}
+.style151 {font-size: 22px;color: #FFFFFF;font-family: "黑体";}
+.STYLE27 {font-size: 28px;color: #FFFFFF;}
+.STYLE28 {font-size: 18px;color: #edff6f;}
 </style>
 
+<script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript">
 var from = "${requestScope.from}";
 var columnID = "${requestScope.columnID}";
@@ -58,7 +50,6 @@ function keyEvent() {
 	case 8:
 	case 109:
 	case 283:
-		//window.history.back();
 			if(from == "index"){
 				location.href = "${ctx }/yyzj_hd/filmAction!eduIndex.do";
 			}
@@ -79,11 +70,24 @@ document.onkeypress = keyEvent;
 
 /**
  * 焦点时的样式
- * @param target 焦点目标
  */
 function focusStyle(target, className) {
 	if($(target) != "undefined") {
 		$(target).className = className;
+	}
+}
+function focusImg(target, className) {
+	if($(target) != "undefined") {
+		$(target).className = className;
+	}
+	var titleObj = target+"_title";
+	if($(titleObj) != "undefined") {
+		if(className == "liston"){
+			$(titleObj).className = "STYLE25";
+		}
+		else if(className == "listoff"){
+			$(titleObj).className = "STYLE15";
+		}
 	}
 }
 
@@ -105,50 +109,35 @@ function focusStyle(target, className) {
     </table>
       <table width="1112" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
-          <td width="405" rowspan="4" valign="top"><img src="images/yyzj-gq-9.jpg" width="385" height="263" /></td>
-          <td height="70" colspan="3"><span class="STYLE27">《200天孕育百科》</span></td>
+          <td width="405" rowspan="4" valign="top"><img src="${ctx }/uploadImages/${film.bigImage_HD.id}.${film.bigImage_HD.suffix}" width="385" height="263" /></td>
+          <td colspan="3"><span class="STYLE27">《${film.name }》</span></td>
         </tr>
         <tr>
-          <td height="138" colspan="3" valign="top" class="style151">简介：<br />
-            李阳全新独创的发音手势符号，让你轻松掌握发音要诀！让你轻松掌握发音要诀！让你轻松掌握发音要诀！让你轻松掌握发音要诀！让你轻松掌握发音要诀！</td>
+          <td height="138" colspan="3" valign="top" class="style151">${film.description }</td>
         </tr>
         <tr>
-          <td height="70" valign="top"><span class="STYLE28">集数：20集 <br />
-            价格：5元/月</span> </td>
-          <td height="70" valign="top"><span class="STYLE28">适用：孕妇及其家人<br />
-            期限：3个月</span></td>
+          <td height="70" valign="top" class="STYLE28">集数：${film.serialCount }集 <br />价格：免费</td>
+          <td height="70" valign="top" class="STYLE28">适用：${film.audient }<br />期限：${film.period }</td>
           <td height="70" valign="top">&nbsp;</td>
         </tr>
         <tr>
-          <td width="256" height="76" valign="top"><a href="#"><img src="images/yyzj-gq-11.jpg" width="209" height="58" border="0" /></a></td>
-          <td width="230" valign="top"><a href="#"><img src="images/yyzj-gq-12.jpg" width="209" height="58" border="0" /></a></td>
+          <td width="256" height="60" valign="top">
+          	<a href="${ctx }/yyzj_hd/filmAction!listAssetByFilmId.do?filmId=${film.id}&channelId=1&from=${requestScope.from}" id="defaultFocus"  onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('play_img','','images/yyzj-gq-11-2.jpg',1)">
+          		<img src="images/yyzj-gq-11.jpg" width="209" height="58" border="0" id="play_img"/>
+          	</a>
+          </td>
+          <td width="230" valign="top"></td>
           <td width="221" valign="top"></td>
         </tr>
       </table>
-      <table border="0" align="center" cellpadding="0" cellspacing="5">
-        <tr>
-          <td width="223" height="168" align="center"><img src="images/yyzj-gq-10.jpg" width="220" height="150" /></td>
-          <td width="222" align="center"><img src="images/yyzj-gq-10.jpg" alt="" width="220" height="150" /></td>
-          <td width="222" align="center"><img src="images/yyzj-gq-10.jpg" alt="" width="220" height="150" /></td>
-          <td width="222" align="center"><img src="images/yyzj-gq-10.jpg" alt="" width="220" height="150" /></td>
-          <td width="223" align="center"><img src="images/yyzj-gq-10.jpg" alt="" width="220" height="150" /></td>
-        </tr>
-        <tr>
-          <td height="30" align="center" valign="top"><span class="STYLE25">孕妇保健与婴儿护理</span></td>
-          <td align="center" valign="top"><span class="STYLE25">孕妇保健与婴儿护理</span></td>
-          <td align="center" valign="top"><span class="STYLE25">孕妇保健与婴儿护理</span></td>
-          <td align="center" valign="top"><span class="STYLE25">孕妇保健与婴儿护理</span></td>
-          <td align="center" valign="top"><span class="STYLE25">孕妇保健与婴儿护理</span></td>
-        </tr>
-    </table></td>
+       <%@ include file="/yyzj_hd/relative_fragment.jsp" %>
+     </td>
     <td width="73"><img src="images/yyzj-gq-6.jpg" width="73" height="591" /></td>
   </tr>
   <tr>
     <td colspan="3"><img src="images/yyzj-gq-7.jpg" width="1280" height="28" /></td>
   </tr>
 </table>
-
-<%@ include file="/yyzj_hd/footer.jsp" %>
 
 </body>
 </html>

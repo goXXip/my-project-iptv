@@ -20,16 +20,6 @@ window.onload = function() {
 	if($("defaultFocus") != "undefined" && $("defaultFocus") != null) {
 		$("defaultFocus").focus();
 	}
-	/*
-	try {
-		localIP = getCookie("localIP");
-		userID = getCookie("userID");
-		backUrl = getCookie("backUrl");
-	} catch(e) {}
-	if(localIP == null || localIP == "undefined" || localIP == "") {
-		localIP = EPG_SERVER_DEFAULT;
-	}
-	*/
 };
 function keyEvent() {
 	var keyCode;

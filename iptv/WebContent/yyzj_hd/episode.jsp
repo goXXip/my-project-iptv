@@ -17,18 +17,46 @@ body {
 	width: 1280px;
 	height:720px;
 }
+a:link{text-decoration:none;}
+a:hover{text-decoration:none;}
+a:VISITED {text-decoration:none;}
 .STYLE17 {color: #FBB90B; font-size: 18px; font-family: "黑体"; }
-.STYLE18 {
+.STYLE18 {font-size: 24px;color: #FFFFFF;}
+.STYLE15 {color: #edff6f;font-size: 24px;font-family: "黑体";}
+.STYLE12 {font-family: "黑体";color: #FF9900;font-size: 24px;}
+.STYLE14 {font-family: "黑体";color:#ffffff;font-size: 24px;}/*color:#edff6f;*/
+
+.titleon {
+	float: left;
+	width:973px; 
+	height:65px;
+	overflow: hidden;
+	padding-left: 25px;
+	border-style: solid; 
+	border-width: 2px;
+	border-color: #C0F8F2; 
+	color: #FFFFFF; 
 	font-size: 24px;
-	color: #FFFFFF;
+	line-height: 70px;
+	background: url("images/bg-02.jpg");
 }
-.STYLE15 {
-	color: #edff6f;
+.titleoff {
+	float: left;
+	width: 975px; 
+	height: 65px;
+	overflow: hidden;
+	padding-left: 25px;
+	border-style: solid; 
+	border-width: 1px;
+	border-color: #8bf1e7; 
+	color: #edff6f; 
 	font-size: 24px;
-	font-family: "黑体";
+	line-height: 70px;
+	background: url("images/bg-01.jpg");
 }
 </style>
 
+<script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript">
 var curPage =  ${pageBean.curPage};
 var totalPages = ${pageBean.totalPages};
@@ -52,7 +80,6 @@ function keyEvent() {
 	case 8:
 	case 109:
 	case 283:
-		//window.history.back();
 		location.href =  "${ctx}/yyzj_hd/filmAction!detail.do?filmId=${requestScope.filmID }&from=${requestScope.from}";
 		return 0;
 		break;
@@ -85,13 +112,7 @@ document.onkeypress = keyEvent;
 		var pay_confirm_url = "${ctx}/yyzj_hd/filmAction!orderConfirm.do?filmId="+filmId;
 		var backUrl = "${ctx}/yyzj_hd/filmAction!listAssetByFilmId.do?filmId="+filmId+"&curPage=${pageBean.curPage}";
 		backUrl = escape(backUrl);
-		var vodName =  escape("太空娃娃1");
-		if(epg_server.indexOf("defaultwghd")>0){
-			//location.href = epg_server + "HD_Authorization.jsp?CONTENTTYPE=0&BUSINESSTYPE=1&PROGID="+fileID+"&TYPE_ID=-1&PLAYTYPE=1&vodName="+vodName;
-		}
-		else{
-			location.href = epg_server + "au_PlayFilm.jsp?PROGID="+fileID+"&PLAYTYPE=1&CONTENTTYPE=0&BUSINESSTYPE=1&ONECEPRICE=0&ISTVSERIESFLAG=1&FATHERSERIESID="+ztID+"&TYPEID=-1"+ "&backurl=" + backUrl;;
-		}
+		location.href = epg_server + "play.jsp?PROGID="+fileID+"&FATHERID="+ztID+"&TYPE_ID=-1&CONTENTTYPE=0&BUSINESSTYPE=1&TYPE_ID=-1&PLAYTYPE=1&ISTVSERIESFLAG=1&PROGNUM=&CHILDID="+fileID+"&backurl=" + backUrl;;
 	}
 
 	function focusStyle_episode(target, className) {
@@ -117,92 +138,57 @@ document.onkeypress = keyEvent;
       </tr>
     </table>
       <table border="0" align="center" cellpadding="0" cellspacing="0">
+	      <c:forEach items="${pageBean.items}" var="result" varStatus="status">
+		      	<c:if test="${status.count == 1}">
+			      	<tr>
+			          <td width="1017" height="75" valign="top">
+				           <a href="javascript:goto_play(${result.id },'${result.fileId }','${requestScope.contentID }','${result.filmid }');" id="defaultFocus" onfocus="focusStyle_episode('t${status.count }','titleon');" onblur="focusStyle_episode('t${status.count }','titleoff');">
+					          <div id="t${status.count }" class="titleoff">
+					              <table border="0" cellpadding="0" cellspacing="0" width="100%">
+					                  <tr>
+					                    <td>第${(pageBean.curPage-1)*7+status.count }集   ${result.name }</td>
+					                  </tr>
+					              </table>
+					          </div>
+				          </a>
+			          </td>
+			        </tr>
+		      	</c:if>
+		       <c:if test="${status.count != 1}">
+			      	<tr>
+			          <td width="1017" height="75" valign="top">
+				           <a href="javascript:goto_play(${result.id },'${result.fileId }','${requestScope.contentID }','${result.filmid }');" onfocus="focusStyle_episode('t${status.count }','titleon');" onblur="focusStyle_episode('t${status.count }','titleoff');">
+					          <div id="t${status.count }" class="titleoff">
+					              <table border="0" cellpadding="0" cellspacing="0" width="100%">
+					                  <tr>
+					                    <td>第${(pageBean.curPage-1)*7+status.count }集   ${result.name }</td>
+					                  </tr>
+					              </table>
+					          </div>
+				          </a>
+			          </td>
+			        </tr>
+		      	</c:if>
+	       </c:forEach>
         <tr>
-          <td width="1017" height="75" valign="top"><table border="1" cellpadding="0" cellspacing="0" bordercolor="#A0F3EB">
-            <tr>
-              <td width="998" height="65" bordercolor="214c47" background="images/yyzj-gq-8.jpg" bgcolor="214c47"><table border="0" align="center" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td width="933" height="45" class="STYLE17 STYLE18"><span class="STYLE15">第一集 孕妇保健与婴儿护理保健与</span><span class="STYLE15">保健与</span></td>
-                    <td width="17" class="STYLE17 STYLE18"><img src="images/sanjiao-1.png" width="12" height="18" /></td>
-                  </tr>
-              </table></td>
-            </tr>
-          </table></td>
-        </tr>
-        <tr>
-          <td height="75" valign="top"><table border="1" cellpadding="0" cellspacing="0" bordercolor="#A0F3EB">
-            <tr>
-              <td width="998" height="65" bordercolor="214c47" background="images/yyzj-gq-8.jpg" bgcolor="214c47"><table border="0" align="center" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td width="933" height="45" class="STYLE17 STYLE18"><span class="STYLE15">第二集 孕妇保健与婴儿护理保健</span></td>
-                    <td width="17" class="STYLE17 STYLE18"><img src="images/sanjiao-1.png" width="12" height="18" /></td>
-                  </tr>
-              </table></td>
-            </tr>
-          </table></td>
-        </tr>
-        <tr>
-          <td height="75" valign="top"><table border="1" cellpadding="0" cellspacing="0" bordercolor="#A0F3EB">
-            <tr>
-              <td width="998" height="65" bordercolor="214c47" background="images/yyzj-gq-8.jpg" bgcolor="214c47"><table border="0" align="center" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td width="933" height="45" class="STYLE17 STYLE18"><span class="STYLE15">第三集 孕妇保健与婴儿护</span><span class="STYLE15">健与</span></td>
-                    <td width="17" class="STYLE17 STYLE18"><img src="images/sanjiao-1.png" width="12" height="18" /></td>
-                  </tr>
-              </table></td>
-            </tr>
-          </table></td>
-        </tr>
-        <tr>
-          <td height="75" valign="top"><table border="1" cellpadding="0" cellspacing="0" bordercolor="#A0F3EB">
-            <tr>
-              <td width="998" height="65" bordercolor="214c47" background="images/yyzj-gq-8.jpg" bgcolor="214c47"><table border="0" align="center" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td width="933" height="45" class="STYLE17 STYLE18"><span class="STYLE15">第四集 孕妇保健与婴儿护理保健与</span><span class="STYLE15">保健与健与保健</span></td>
-                    <td width="17" class="STYLE17 STYLE18"><img src="images/sanjiao-1.png" width="12" height="18" /></td>
-                  </tr>
-              </table></td>
-            </tr>
-          </table></td>
-        </tr>
-        <tr>
-          <td height="75" valign="top"><table border="1" cellpadding="0" cellspacing="0" bordercolor="#A0F3EB">
-            <tr>
-              <td width="998" height="65" bordercolor="214c47" background="images/yyzj-gq-8.jpg" bgcolor="214c47"><table border="0" align="center" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td width="933" height="45" class="STYLE17 STYLE18"><span class="STYLE15">第五集 孕妇保健与婴儿护理保健与</span><span class="STYLE15">保健与</span></td>
-                    <td width="17" class="STYLE17 STYLE18"><img src="images/sanjiao-1.png" width="12" height="18" /></td>
-                  </tr>
-              </table></td>
-            </tr>
-          </table></td>
-        </tr>
-        <tr>
-          <td height="75" valign="top"><table border="1" cellpadding="0" cellspacing="0" bordercolor="#A0F3EB">
-            <tr>
-              <td width="998" height="65" bordercolor="214c47" background="images/yyzj-gq-8.jpg" bgcolor="214c47"><table border="0" align="center" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td width="933" height="45" class="STYLE17 STYLE18"><span class="STYLE15">第六集 孕妇保健与婴儿护理保健</span></td>
-                    <td width="17" class="STYLE17 STYLE18"><img src="images/sanjiao-1.png" width="12" height="18" /></td>
-                  </tr>
-              </table></td>
-            </tr>
-          </table></td>
-        </tr>
-        <tr>
-          <td height="75" valign="top"><table border="1" cellpadding="0" cellspacing="0" bordercolor="#A0F3EB">
-            <tr>
-              <td width="998" height="65" bordercolor="214c47" background="images/yyzj-gq-8.jpg" bgcolor="214c47"><table border="0" align="center" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td width="933" height="45" class="STYLE17 STYLE18"><span class="STYLE15">第七集 孕妇保健与婴儿护理保健与</span><span class="STYLE15">保健与</span><span class="STYLE15">健与</span><span class="STYLE15">保健健与保健</span></td>
-                    <td width="17" class="STYLE17 STYLE18"><img src="images/sanjiao-1.png" width="12" height="18" /></td>
-                  </tr>
-              </table></td>
-            </tr>
-          </table></td>
-        </tr>
-        <tr>
-          <td height="40" align="center"><span class="STYLE12 STYLE14 STYLE24 STYLE18">1/8  　上一页　下一页</span></td>
+          <td height="40" align="center" class="STYLE14">${pageBean.curPage}/${pageBean.totalPages} 
+		           　<c:choose>
+		           <c:when test="${pageBean.curPage > 1}">
+		           		<a href="${ctx }/yyzj_hd/filmAction!listAssetByFilmId.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage-1}" class="STYLE12">上一页</a>
+		           </c:when>
+		           <c:otherwise>
+		           		<a href="#" class="STYLE14">上一页</a>
+		           </c:otherwise>
+		      </c:choose>
+		           　<c:choose>
+		           <c:when test="${pageBean.curPage < pageBean.totalPages}">
+		           		<a href="${ctx }/yyzj_hd/filmAction!listAssetByFilmId.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage+1}" class="STYLE12">下一页</a>
+		           </c:when>
+		           <c:otherwise>
+		           		<a href="#" class="STYLE14">下一页</a>
+		           </c:otherwise>
+		      </c:choose>
+		   </td>
         </tr>
       </table></td>
     <td width="73"><img src="images/yyzj-gq-6.jpg" width="73" height="591" /></td>
@@ -211,8 +197,6 @@ document.onkeypress = keyEvent;
     <td colspan="3"><img src="images/yyzj-gq-7.jpg" width="1280" height="28" /></td>
   </tr>
 </table>
-
-<%@ include file="/yyzj_hd/footer.jsp" %>
 
 </body>
 </html>
