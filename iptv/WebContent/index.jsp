@@ -17,6 +17,8 @@
 <a href="${ctx }/crazyenglish/filmAction!engIndex.do?userId=20091065&backUrl=http://125.88.107.82:8014/school/test2.jsp&localIp=http://125.88.104.14:8082/EPG/jsp/defaultwghd/en/">疯狂英语</a><br/>
 <a href="${ctx }/yyzj/filmAction!eduIndex.do?userId=20091065&backUrl=http://125.88.107.82:8014/school/test2.jsp&localIp=http://125.88.104.14:8082/EPG/jsp/defaultwg/en/">孕育早教_标清</a><br/>
 <a href="${ctx }/crazyenglish/filmAction!engIndex.do?userId=20091065&backUrl=http://125.88.107.82:8014/school/test2.jsp&localIp=http://125.88.104.14:8082/EPG/jsp/defaultwg/en/">疯狂英语_标清</a><br/>
+<a href="${ctx }/yyzj_hd/filmAction!eduIndex.do?userId=20091065&backUrl=http://125.88.107.82:8014/school/test2.jsp&localIp=http://125.88.104.14:8082/EPG/jsp/defaultwghd/en/">孕育早教_高清</a><br/>
+<a href="${ctx }/crazyenglish_hd/filmAction!engIndex.do?userId=20091065&backUrl=http://125.88.107.82:8014/school/test2.jsp&localIp=http://125.88.104.14:8082/EPG/jsp/defaultwghd/en/">疯狂英语_高清</a><br/>
 <a href="${ctx }/manager/filmAction!list.do">资料录入</a><br/>
 </body>
 </html>
