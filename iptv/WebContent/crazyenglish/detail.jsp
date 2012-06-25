@@ -86,7 +86,6 @@ function keyEvent() {
 	case 8:
 	case 109:
 	case 283:
-		//window.history.back();
 		if(from == "index"){
 			location.href = "${ctx }/crazyenglish/filmAction!engIndex.do";
 		}
@@ -107,7 +106,6 @@ document.onkeypress = keyEvent;
 
 /**
  * 焦点时的样式
- * @param target 焦点目标
  */
 function focusStyle(target, className) {
 	if($(target) != "undefined") {

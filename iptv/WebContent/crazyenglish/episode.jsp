@@ -76,7 +76,6 @@ function keyEvent() {
 	case 8:
 	case 109:
 	case 283:
-		//window.history.back();
 		location.href =  "${ctx}/crazyenglish/filmAction!detail.do?filmId=${requestScope.filmID }&from=${requestScope.from}";
 		return 0;
 		break;
@@ -105,8 +104,6 @@ document.onkeypress = keyEvent;
 
 /**
  * 焦点时的样式
- * @param target 焦点目标
- * @param className
  */
 function focusStyle(target, className) {
 	if($(target) != "undefined") {
@@ -120,11 +117,7 @@ function goto_play(id,fileID,ztID,filmId){
 	var currentPage = "${pageBean.curPage}";
 	var backUrl = "${ctx}/crazyenglish/filmAction!listAssetByFilmId.do?filmId="+filmId+"&curPage="+currentPage;
 	backUrl = escape(backUrl);
-	if(epg_server.indexOf("defaultwghd")>0){
-		//location.href = epg_server + "HD_Authorization.jsp?CONTENTTYPE=0&BUSINESSTYPE=1&PROGID="+fileID+"&TYPE_ID=-1&PLAYTYPE=1&vodName=a";
-	}else{
-		location.href = epg_server + "au_PlayFilm.jsp?PROGID="+fileID+"&PLAYTYPE=1&CONTENTTYPE=0&BUSINESSTYPE=1&ONECEPRICE=0&ISTVSERIESFLAG=1&FATHERSERIESID="+ztID+"&TYPEID=-1"+ "&backurl=" + backUrl;
-	}
+	location.href = epg_server + "au_PlayFilm.jsp?PROGID="+fileID+"&PLAYTYPE=1&CONTENTTYPE=0&BUSINESSTYPE=1&ONECEPRICE=0&ISTVSERIESFLAG=1&FATHERSERIESID="+ztID+"&TYPEID=-1"+ "&backurl=" + backUrl;
 }
 </script>
 </head>
