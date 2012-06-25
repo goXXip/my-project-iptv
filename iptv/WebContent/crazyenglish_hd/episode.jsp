@@ -17,16 +17,42 @@ body {
 	width: 1280px;
 	height:720px;
 }
+a:link{text-decoration:none;}
+a:hover{text-decoration:none;}
+a:VISITED {text-decoration:none;}
+.STYLE12 {font-family: "黑体";color: #FF9900;font-size: 24px;}
+.STYLE14 {font-family: "黑体";color: #FFFFFF;font-size: 24px;}
 .STYLE17 {color: #FBB90B; font-size: 18px; font-family: "黑体"; }
-.STYLE18 {
-	font-size: 24px
-}
-.STYLE24 {
-	color: #FFFFFF;
+.STYLE18 {font-size: 24px}
+.titleon {
+	float: left;
+	width:973px; 
+	height:65px;
+	padding-left: 25px;
+	border-style: solid; 
+	border-width: 2px;
+	border-color: #FFA22F; 
+	color: #FFFFFF; 
 	font-size: 24px;
+	line-height: 70px;
+	background: url("images/bg-02.jpg");
+}
+.titleoff {
+	float: left;
+	width: 975px; 
+	height: 65px;
+	padding-left: 25px;
+	border-style: solid; 
+	border-width: 1px;
+	border-color: #CC7100; 
+	color: #FBB90B; 
+	font-size: 24px;
+	line-height: 70px;
+	background: url("images/bg-01.jpg");
 }
 </style>
 
+<script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript">
 var curPage =  ${pageBean.curPage};
 var totalPages = ${pageBean.totalPages};
@@ -50,7 +76,6 @@ function keyEvent() {
 	case 8:
 	case 109:
 	case 283:
-		//window.history.back();
 		location.href =  "${ctx}/crazyenglish_hd/filmAction!detail.do?filmId=${requestScope.filmID }&from=${requestScope.from}";
 		return 0;
 		break;
@@ -77,16 +102,11 @@ function keyEvent() {
 document.onirkeypress = keyEvent;
 document.onkeypress = keyEvent;
 
-/**
- * 焦点时的样式
- * @param target 焦点目标
- * @param className
- */
-function focusStyle(target, className) {
-	if($(target) != "undefined") {
-		$(target).className = className;
+function focusStyle_episode(target, className) {
+	if(document.getElementById(target) != "undefined") {
+		document.getElementById(target).className = className;
 	}
-}
+};
 
 var epg_server = '${requestScope.localIp}';
 function goto_play(id,fileID,ztID,filmId){
@@ -94,11 +114,7 @@ function goto_play(id,fileID,ztID,filmId){
 	var currentPage = "${pageBean.curPage}";
 	var backUrl = "${ctx}/crazyenglish_hd/filmAction!listAssetByFilmId.do?filmId="+filmId+"&curPage="+currentPage;
 	backUrl = escape(backUrl);
-	if(epg_server.indexOf("defaultwghd")>0){
-		//location.href = epg_server + "HD_Authorization.jsp?CONTENTTYPE=0&BUSINESSTYPE=1&PROGID="+fileID+"&TYPE_ID=-1&PLAYTYPE=1&vodName=a";
-	}else{
-		location.href = epg_server + "au_PlayFilm.jsp?PROGID="+fileID+"&PLAYTYPE=1&CONTENTTYPE=0&BUSINESSTYPE=1&ONECEPRICE=0&ISTVSERIESFLAG=1&FATHERSERIESID="+ztID+"&TYPEID=-1"+ "&backurl=" + backUrl;
-	}
+	location.href = epg_server + "play.jsp?PROGID="+fileID+"&FATHERID="+ztID+"&TYPE_ID=-1&CONTENTTYPE=0&BUSINESSTYPE=1&TYPE_ID=-1&PLAYTYPE=1&ISTVSERIESFLAG=1&PROGNUM=&CHILDID="+fileID+"&backurl=" + backUrl;
 }
 </script>
 
@@ -111,98 +127,64 @@ function goto_play(id,fileID,ztID,filmId){
 <table width="1280" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td width="69"><img src="images/fkyy-gq-4.jpg" width="69" height="590"/></td>
-    <td width="1142" valign="top" bgcolor="602121"><table width="100" border="0" cellspacing="0" cellpadding="0">
+    <td width="1142" valign="top" bgcolor="#602121">
+    <table width="1142" border="0" cellspacing="0" cellpadding="0">
       <tr>
         <td height="15"></td>
       </tr>
     </table>
       <table border="0" align="center" cellpadding="0" cellspacing="0">
+      	<c:forEach items="${pageBean.items}" var="result" varStatus="status">
+	      	<c:if test="${status.count == 1}">
+		      	<tr>
+		          <td width="1017" height="75" valign="top">
+			           <a href="javascript:goto_play(${result.id },'${result.fileId }','${requestScope.contentID }','${result.filmid }');" id="defaultFocus" onfocus="focusStyle_episode('t${status.count }','titleon');" onblur="focusStyle_episode('t${status.count }','titleoff');">
+				          <div id="t${status.count }" class="titleoff">
+				              <table border="0" cellpadding="0" cellspacing="0" width="100%">
+				                  <tr>
+				                    <td>第${(pageBean.curPage-1)*7+status.count }集   ${result.name }</td>
+				                  </tr>
+				              </table>
+				          </div>
+			          </a>
+		          </td>
+		        </tr>
+	      	</c:if>
+	       <c:if test="${status.count != 1}">
+		      	<tr>
+		          <td width="1017" height="75" valign="top">
+			           <a href="javascript:goto_play(${result.id },'${result.fileId }','${requestScope.contentID }','${result.filmid }');" onfocus="focusStyle_episode('t${status.count }','titleon');" onblur="focusStyle_episode('t${status.count }','titleoff');">
+				          <div id="t${status.count }" class="titleoff">
+				              <table border="0" cellpadding="0" cellspacing="0" width="100%">
+				                  <tr>
+				                    <td>第${(pageBean.curPage-1)*7+status.count }集   ${result.name }</td>
+				                  </tr>
+				              </table>
+				          </div>
+			          </a>
+		          </td>
+		        </tr>
+	      	</c:if>
+	     </c:forEach>
       <tr>
-        <td width="1017" height="75" valign="top"><table border="1" cellpadding="0" cellspacing="0" bordercolor="facb50">
-          <tr>
-            <td width="998" height="65" bordercolor="602121" background="images/fkyy-gq-8.jpg" bgcolor="602121"><table border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td width="933" height="45" class="STYLE17 STYLE18">第一集 疯狂英语集训英语集训英语集训营精彩视频</td>
-                  <td width="17" class="STYLE17 STYLE18"><img src="images/sanjiao-1.png" width="12" height="18" /></td>
-                </tr>
-            </table></td>
-          </tr>
-        </table></td>
-        </tr>
-      <tr>
-        <td height="75" valign="top"><table border="1" cellpadding="0" cellspacing="0" bordercolor="facb50">
-          <tr>
-            <td width="998" height="65" bordercolor="602121" background="images/fkyy-gq-8.jpg" bgcolor="602121"><table border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td width="933" height="45" class="STYLE17 STYLE18">第二集 疯狂英语训营精彩视频</td>
-                  <td width="17" class="STYLE17 STYLE18"><img src="images/sanjiao-1.png" alt="" width="12" height="18" /></td>
-                </tr>
-            </table></td>
-          </tr>
-        </table></td>
-      </tr>
-      <tr>
-        <td height="75" valign="top"><table border="1" cellpadding="0" cellspacing="0" bordercolor="facb50">
-          <tr>
-            <td width="998" height="65" bordercolor="602121" background="images/fkyy-gq-8.jpg" bgcolor="602121"><table border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td width="933" height="45" class="STYLE17 STYLE18">第三集 疯狂英语集英训营精彩视频</td>
-                  <td width="17" class="STYLE17 STYLE18"><img src="images/sanjiao-1.png" alt="" width="12" height="18" /></td>
-                </tr>
-            </table></td>
-          </tr>
-        </table></td>
-      </tr>
-      <tr>
-        <td height="75" valign="top"><table border="1" cellpadding="0" cellspacing="0" bordercolor="facb50">
-          <tr>
-            <td width="998" height="65" bordercolor="602121" background="images/fkyy-gq-8.jpg" bgcolor="602121"><table border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td width="933" height="45" class="STYLE17 STYLE18">第四集 疯狂英语集训营精彩视频</td>
-                  <td width="17" class="STYLE17 STYLE18"><img src="images/sanjiao-1.png" alt="" width="12" height="18" /></td>
-                </tr>
-            </table></td>
-          </tr>
-        </table></td>
-      </tr>
-      <tr>
-        <td height="75" valign="top"><table border="1" cellpadding="0" cellspacing="0" bordercolor="facb50">
-          <tr>
-            <td width="998" height="65" bordercolor="602121" background="images/fkyy-gq-8.jpg" bgcolor="602121"><table border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td width="933" height="45" class="STYLE17 STYLE18">第五集 疯狂英语集英语集训训营精彩视频</td>
-                  <td width="17" class="STYLE17 STYLE18"><img src="images/sanjiao-1.png" alt="" width="12" height="18" /></td>
-                </tr>
-            </table></td>
-          </tr>
-        </table></td>
-      </tr>
-      <tr>
-        <td height="75" valign="top"><table border="1" cellpadding="0" cellspacing="0" bordercolor="facb50">
-          <tr>
-            <td width="998" height="65" bordercolor="602121" background="images/fkyy-gq-8.jpg" bgcolor="602121"><table border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td width="933" height="45" class="STYLE17 STYLE18">第六集 疯狂英语集英语集训英训营精彩视频</td>
-                  <td width="17" class="STYLE17 STYLE18"><img src="images/sanjiao-1.png" alt="" width="12" height="18" /></td>
-                </tr>
-            </table></td>
-          </tr>
-        </table></td>
-      </tr>
-      <tr>
-        <td height="75" valign="top"><table border="1" cellpadding="0" cellspacing="0" bordercolor="facb50">
-          <tr>
-            <td width="998" height="65" bordercolor="602121" background="images/fkyy-gq-8.jpg" bgcolor="602121"><table border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td width="933" height="45" class="STYLE17 STYLE18">第七集 疯狂英语集营精彩视频</td>
-                  <td width="17" class="STYLE17 STYLE18"><img src="images/sanjiao-1.png" alt="" width="12" height="18" /></td>
-                </tr>
-            </table></td>
-          </tr>
-        </table></td>
-      </tr>
-      <tr>
-        <td height="40" align="center"><span class="STYLE12 STYLE14 STYLE24">1/8  　上一页　下一页</span></td>
+        <td height="40" align="center" class="STYLE14">${pageBean.curPage}/${pageBean.totalPages} 
+			           　<c:choose>
+			           <c:when test="${pageBean.curPage > 1}">
+			           		<a href="${ctx }/crazyenglish_hd/filmAction!listAssetByFilmId.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage-1}" class="STYLE12">上一页</a>
+			           </c:when>
+			           <c:otherwise>
+			           		<a href="#" class="STYLE14">上一页</a>
+			           </c:otherwise>
+			      </c:choose>
+			           　<c:choose>
+			           <c:when test="${pageBean.curPage < pageBean.totalPages}">
+			           		<a href="${ctx }/crazyenglish_hd/filmAction!listAssetByFilmId.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage+1}" class="STYLE12">下一页</a>
+			           </c:when>
+			           <c:otherwise>
+			           		<a href="#" class="STYLE14">下一页</a>
+			           </c:otherwise>
+			      </c:choose>
+		</td>
       </tr>
     </table>
     </td>
@@ -213,6 +195,5 @@ function goto_play(id,fileID,ztID,filmId){
   </tr>
 </table>
 
-<%@ include file="/crazyenglish_hd/footer.jsp" %>
 </body>
 </html>

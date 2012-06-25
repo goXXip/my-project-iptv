@@ -17,36 +17,16 @@ body {
 	width:1280px;
 	height:720px;
 }
-.STYLE13 {font-family: "黑体"; font-size: 15px; color: #FFFFFF; }
-.STYLE20 {font-size: 18px}
-.STYLE21 {
-	color: #FBB90B;
-	font-size: 18px;
-}
-.STYLE22 {font-size: 18}
-.STYLE23 {font-size: 20px}
-.style15 {	font-size: 24px;
-	color: #FFFFFF;
-	font-family: "黑体";
-}
-.style171 {color: #FF9900; font-size: 16px; font-family: "黑体"; }
+a:link{text-decoration:none;}
+a:hover{text-decoration:none;}
+a:VISITED {text-decoration:none;}
 .STYLE25 {font-size: 36px; color: #FFFFFF; font-family: "黑体"; }
-.STYLE26 {
-	color: #FF9900;
-	font-size: 24px;
-	font-family: "黑体";
-}
+.STYLE26 {color: #FF9900;font-size: 24px;font-family: "黑体";}
+.msgDiv{margin: 0 auto;margin-top: 200px;width: 800px;color: #ffffff;font-size: 24px; }
 </style>
+<script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript" src="js/global.js"></script>
-<script type="text/javascript">
 
-function MM_preloadImages() { //v3.0
-  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
-    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
-    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
-}
-
-</script>
 </head>
 
 <body>
@@ -62,76 +42,40 @@ function MM_preloadImages() { //v3.0
       </tr>
     </table>
       <table width="1112" border="0" align="center" cellpadding="0" cellspacing="0">
-        <tr>
-          <td width="252" rowspan="4" valign="top"><img src="images/fkyy-gq-9.jpg" width="200" height="275" /></td>
-          <td height="70" colspan="3"><span class="STYLE25">《中学生英语能力综合教程》</span></td>
-        </tr>
-        <tr>
-          <td height="138" colspan="3" valign="top" class="style15">简介：<br />
-            李阳全新独创的发音手势符号，让你轻松掌握发音要诀！让你轻松掌握发音要诀！让你轻松掌握发音要诀！让你轻松掌握发音要诀！让你轻松掌握发音要诀！3000个实用单词，500个精彩句子，使你成为叱咤风云的演讲家!</td>
-        </tr>
-        <tr>
-          <td height="70" valign="top" class="STYLE26">集数：120集 <br />
-            价格：免费 </td>
-          <td height="70" valign="top" class="STYLE26">主讲：李阳<br />
-            期限：3个月</td>
-          <td height="70" valign="top" class="STYLE26">适用：初中生</td>
-        </tr>
-        <tr>
-          <td width="286" height="76" valign="top"><a href="#"><img src="images/fkyy-gq-11.jpg" width="209" height="58" border="0" /></a></td>
-          <td width="286" valign="top"><a href="#"><img src="images/fkyy-gq-12.jpg" width="209" height="58" border="0" /></a></td>
-          <td width="288" valign="top"></td>
-        </tr>
+	      <tr><td>
+	      	 <div class="msgDiv">
+		      	 <table border="0" cellpadding="0" cellspacing="0">
+		      	      <tr>
+				          <td width="252" rowspan="4" valign="top"><img src="images/fkyy-gq-9.jpg" width="200" height="275" /></td>
+				          <td height="70" colspan="2"><span class="STYLE25">《${film.name }》</span></td>
+				      </tr>
+				      <tr>
+				          <td height="70" valign="top" class="STYLE26">集数：${film.serialCount }集 <br />
+				            价格：${film.price }</td>
+				          <td height="70" valign="top" class="STYLE26">主讲：${film.actor }<br />
+				            期限：${film.period }</td>
+				          <td height="70" valign="top" class="STYLE26">适用：${film.audient }</td>
+				        </tr>
+				        <tr>
+				          <td width="286" height="76" valign="top">
+					          <a href="${ctx }/servlet/order?ContentID=${film.contentId}&filmId=${film.id}&channelId=1" id="defaultFocus" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('order_img','','images/fkyy-gq-11-2.jpg',1)">
+					          	<img src="images/fkyy-gq-11.jpg" width="209" height="58" border="0" id="order_img"/>
+					          </a>
+				          </td>
+				          <td width="286" valign="top"></td>
+				          <td width="288" valign="top"></td>
+				        </tr>
+		      	 </table>	 
+	      	 </div>
+	      </td></tr>
       </table>
-      <table height="146" border="1" align="center" cellpadding="0" cellspacing="12" bordercolor="602121">
-        <tr>
-          <td width="268" height="185" bordercolor="facb50" bgcolor="#972C28"><table border="0" align="center" cellpadding="0" cellspacing="0">
-            <tr>
-              <td width="132" height="165"><img src="images/fkyy-gq-10.jpg" height="165" /></td>
-              <td width="116" valign="top"><p class="STYLE13"><span class="STYLE23">现代美国英语900句</span><br />
-                  <br />
-                  <span class="STYLE22"><span class="STYLE20">主讲：李阳</span><br />
-                  <span class="STYLE21">免费</span></span></p>                </td>
-            </tr>
-            
-          </table></td>
-          <td width="269" bordercolor="facb50" bgcolor="#972C28"><table border="0" align="center" cellpadding="0" cellspacing="0">
-            <tr>
-              <td width="132" height="165"><img src="images/fkyy-gq-10.jpg" height="165" /></td>
-              <td width="116" valign="top"><p class="STYLE13"><span class="STYLE23">现代美国英语900句</span><br />
-                      <br />
-                      <span class="STYLE22"><span class="STYLE20">主讲：李阳</span><br />
-                      <span class="STYLE21">免费</span></span></p></td>
-            </tr>
-          </table></td>
-          <td width="269" bordercolor="facb50" bgcolor="#972C28"><table border="0" align="center" cellpadding="0" cellspacing="0">
-            <tr>
-              <td width="132" height="165"><img src="images/fkyy-gq-10.jpg" height="165" /></td>
-              <td width="116" valign="top"><p class="STYLE13"><span class="STYLE23">现代美国英语900句</span><br />
-                      <br />
-                      <span class="STYLE22"><span class="STYLE20">主讲：李阳</span><br />
-                      <span class="STYLE21">免费</span></span></p></td>
-            </tr>
-          </table></td>
-          <td width="268" bordercolor="facb50" bgcolor="#972C28"><table border="0" align="center" cellpadding="0" cellspacing="0">
-            <tr>
-              <td width="132" height="165"><img src="images/fkyy-gq-10.jpg" height="165" /></td>
-              <td width="116" valign="top"><p class="STYLE13"><span class="STYLE23">现代美国英语900句</span><br />
-                      <br />
-                      <span class="STYLE22"><span class="STYLE20">主讲：李阳</span><br />
-                      <span class="STYLE21">免费</span></span></p></td>
-            </tr>
-          </table></td>
-        </tr>
-    </table></td>
+      </td>
     <td><img src="images/fkyy-gq-5.jpg" width="69" height="590" /></td>
   </tr>
   <tr>
     <td colspan="3"><img src="images/fkyy-gq-6.jpg" width="1280" height="29" /></td>
   </tr>
 </table>
-
-<%@ include file="/crazyenglish_hd/footer.jsp" %>
 
 </body>
 </html>

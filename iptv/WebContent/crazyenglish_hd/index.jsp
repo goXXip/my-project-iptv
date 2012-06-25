@@ -18,26 +18,117 @@ body {
 	height:720px;
 	background: transparent;
 }
+.titleon {
+	float: left;
+	width: 443px;
+	height: 65px;
+	overflow: hidden;
+	padding-left: 15px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #C0F8F2;
+	color: #FFFFFF;
+	font-size: 24px;
+	line-height: 70px;
+	background: url("images/bg-02.jpg");
+}
+
+.titleoff {
+	float: left;
+	width: 445px;
+	height: 65px;
+	overflow: hidden;
+	padding-left: 15px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #8bf1e7;
+	color: #edff6f;
+	font-size: 24px;
+	line-height: 70px;
+	background: url("images/bg-01.jpg");
+}
+.liston {
+	float: left;
+	width: 268px;
+	height: 185px;
+	border: solid 1px #facb50;
+	background-color: #972C28;
+	color: #ffffff;
+}
+
+.listoff {
+	float: left;
+	width: 268px;
+	height: 185px;
+	border: solid 1px #b96400;
+	color: #ffffff;
+}
 a:link{text-decoration:none;}
 a:hover{text-decoration:none;}
 a:VISITED {text-decoration:none;}
-.STYLE13 {font-family: "黑体"; font-size: 15px; color: #FFFFFF; }
-.STYLE17 {color: #FBB90B; font-size: 18px; font-family: "黑体"; }
-.STYLE18 {
-	font-size: 24px
-}
-.STYLE19 {
-	color: #FFFFFF;
-	font-size: 18px;
-}
-.STYLE20 {font-size: 18px}
-.STYLE21 {
-	color: #FBB90B;
-	font-size: 18px;
-}
-.STYLE22 {font-size: 18}
-.STYLE23 {font-size: 20px}
 </style>
+
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript">
+var backUrl = "";
+var $ = function(id){
+	var o = document.getElementById(id);
+	return o;
+};
+window.onload = function() {
+	if($("defaultFocus") != "undefined" && $("defaultFocus") != null) {
+		$("defaultFocus").focus();
+	}
+	backUrl = getCookie("backUrl_netitv");
+};
+function getCookie(key) {
+	   var search = key + "=";
+	   if(document.cookie.length > 0) {
+	      offset = document.cookie.indexOf(search);
+	      if(offset != -1) {
+	         offset += search.length;
+	         end = document.cookie.indexOf(";", offset);
+	         if(end == -1) end = document.cookie.length;
+	         return unescape(document.cookie.substring(offset, end));
+	      }
+	   }
+	   return "";
+}
+function keyEvent() {
+	var keyCode;
+	var keyCode = event.keyCode;
+	if(!keyCode||keyCode=="undefined"){
+		keyCode = event.which;
+	}
+	switch(keyCode) {
+	case 8:
+	case 109:
+	case 283:
+		if(backUrl != ""){
+			location.href = backUrl ;
+		}
+		else{
+			window.history.back();
+		}
+		return 0;
+		break;
+	default:
+		return 1;
+	}
+}
+document.onirkeypress = keyEvent;
+document.onkeypress = keyEvent;
+
+/**
+ * 焦点时的样式
+ */
+function focusStyle(target, className) {
+	if($(target) != "undefined") {
+		$(target).className = className;
+	}
+}
+</script>
+
 </head>
 
 <body>
@@ -47,114 +138,79 @@ a:VISITED {text-decoration:none;}
 <table width="1280" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td width="69"><img src="images/fkyy-gq-4.jpg" width="69" height="590"/></td>
-    <td width="1142" valign="top" bgcolor="602121"><table width="100" border="0" cellspacing="0" cellpadding="0">
+    <td width="1142" valign="top" bgcolor="#602121">
+    <table width="1142" border="0" cellspacing="0" cellpadding="0">
       <tr>
         <td height="15"></td>
       </tr>
     </table>
-      <table border="0" align="center" cellpadding="0" cellspacing="0">
+     <table border="0" align="center" cellpadding="0" cellspacing="0">
       <tr>
-        <td width="485" height="72" valign="top"><table border="1" cellpadding="0" cellspacing="0" bordercolor="facb50">
-          <tr>
-            <td width="460" height="65" bordercolor="602121" background="images/fkyy-gq-8.jpg" bgcolor="602121"><table border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td width="440" height="45" class="STYLE17 STYLE18">疯狂英语集训营精彩视频</td>
-                </tr>
-            </table></td>
-          </tr>
-        </table></td>
-        <td rowspan="5"><table border="1" cellpadding="0" cellspacing="2" bordercolor="facb50">
-          <tr>
-            <td width="621" height="350" align="center" bordercolor="602121" bgcolor="#000000"><span class="STYLE19">视频窗</span></td>
-          </tr>
-        </table></td>
+        	<c:if test="${fn:length(requestScope.filmList) > 0 }">
+			      <c:forEach items="${requestScope.filmList}" begin="0" end="0" var="result" varStatus="status">			        	
+			      		<td width="485"  height="72" bgcolor="#602121">
+				        	<a href="${ctx }/crazyenglish_hd/filmAction!detail.do?filmId=${result.id}&from=index" id="defaultFocus" onfocus="focusStyle('t_0_0','titleon');" onblur="focusStyle('t_0_0','titleoff');">
+				        		<div id="t_0_0" class="titleoff" >${result.name }</div>
+				        	</a>
+			        	</td>
+        		  </c:forEach>
+		    </c:if>
+        <td rowspan="5"><table border="1" cellpadding="0" cellspacing="2" bordercolor="#facb50">
+	          <tr>
+	            <td width="621" height="350" align="center" bordercolor="#000000" bgcolor="#000000">
+	             	<iframe id="freeVideo" frameborder="0" scrolling="no" style="background-color: transparent;" width="621" height="350"></iframe>
+	            </td>
+	          </tr>
+	        </table>
+       </td>
       </tr>
-      <tr>
-        <td height="72" valign="top"><table border="1" cellpadding="0" cellspacing="0" bordercolor="facb50">
-          <tr>
-            <td width="460" height="65" bordercolor="602121" background="images/fkyy-gq-8.jpg"><table border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td width="440" height="45" class="STYLE17 STYLE18">疯狂英语集训视频</td>
-                </tr>
-            </table></td>
-          </tr>
-        </table></td>
+	  <tr bgcolor="#602121">
+	  	<td height="72">
+       	  <c:if test="${fn:length(requestScope.filmList) > 1 }">
+      			<c:forEach items="${requestScope.filmList}" begin="1" end="1" var="result" varStatus="status">
+		        	<a href="${ctx }/crazyenglish_hd/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_1_1','titleon');" onblur="focusStyle('t_1_1','titleoff');">
+		        		<div id="t_1_1" class="titleoff" >${result.name }</div>
+		        	</a>
+	        	 </c:forEach>
+    				</c:if>
+       	</td>
       </tr>
-      <tr>
-        <td height="72" valign="top"><table border="1" cellpadding="0" cellspacing="0" bordercolor="facb50">
-          <tr>
-            <td width="460" height="65" bordercolor="602121" background="images/fkyy-gq-8.jpg"><table border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td width="440" height="45" class="STYLE17 STYLE18">疯狂英语集训营精彩集训营精彩视频</td>
-                </tr>
-            </table></td>
-          </tr>
-        </table></td>
-      </tr>
-      <tr>
-        <td height="72" valign="top"><table border="1" cellpadding="0" cellspacing="0" bordercolor="facb50">
-          <tr>
-            <td width="460" height="65" bordercolor="602121" background="images/fkyy-gq-8.jpg" bgcolor="602121"><table border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td width="440" height="45" class="STYLE17 STYLE18">疯狂英语集训营精彩视频</td>
-                </tr>
-            </table></td>
-          </tr>
-        </table></td>
-      </tr>
-      <tr>
-        <td height="72" valign="top"><table border="1" cellpadding="0" cellspacing="0" bordercolor="facb50">
-          <tr>
-            <td width="460" height="65" bordercolor="602121" background="images/fkyy-gq-8.jpg"><table border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td width="440" height="45" class="STYLE17 STYLE18">疯狂英语集营集训营彩精彩视频</td>
-                </tr>
-            </table></td>
-          </tr>
-        </table></td>
-      </tr>
+    <tr bgcolor="#602121">
+       	<td height="72">
+       	  <c:if test="${fn:length(requestScope.filmList) > 2 }">
+      			<c:forEach items="${requestScope.filmList}" begin="2" end="2" var="result" varStatus="status">
+		        	<a href="${ctx }/crazyenglish_hd/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_1_2','titleon');" onblur="focusStyle('t_1_2','titleoff');">
+		        		<div id="t_1_2" class="titleoff" >${result.name }</div>
+		        	</a>
+	        	 </c:forEach>
+    				</c:if>
+       	</td>
+	  </tr>
+	  <tr bgcolor="#602121">
+       	<td height="72">
+       	  <c:if test="${fn:length(requestScope.filmList) > 3 }">
+      			<c:forEach items="${requestScope.filmList}" begin="3" end="3" var="result" varStatus="status">
+		        	<a href="${ctx }/crazyenglish_hd/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_1_3','titleon');" onblur="focusStyle('t_1_3','titleoff');">
+		        		<div id="t_1_3" class="titleoff" >${result.name }</div>
+		        	</a>
+	        	 </c:forEach>
+    				</c:if>
+       	</td>
+	  </tr>
+	  <tr bgcolor="#602121">
+       	<td height="72">
+       	  <c:if test="${fn:length(requestScope.filmList) > 4 }">
+      			<c:forEach items="${requestScope.filmList}" begin="4" end="4" var="result" varStatus="status">
+		        	<a href="${ctx }/crazyenglish_hd/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_1_4','titleon');" onblur="focusStyle('t_1_4','titleoff');">
+		        		<div id="t_1_4" class="titleoff" >${result.name }</div>
+		        	</a>
+	        	 </c:forEach>
+    	  </c:if>
+       	</td>
+	  </tr>
     </table>
-      <table height="146" border="1" align="center" cellpadding="0" cellspacing="12" bordercolor="602121">
-        <tr>
-          <td width="268" height="185" bordercolor="facb50" bgcolor="#972C28"><table border="0" align="center" cellpadding="0" cellspacing="0">
-            <tr>
-              <td width="132" height="165"><img src="images/fkyy-gq-10.jpg" height="165" /></td>
-              <td width="116" valign="top"><p class="STYLE13"><span class="STYLE23">现代美国英语900句</span><br />
-                  <br />
-                  <span class="STYLE22"><span class="STYLE20">主讲：李阳</span><br />
-                  <span class="STYLE21">免费</span></span></p>                </td>
-            </tr>
-            
-          </table></td>
-          <td width="269" bordercolor="facb50" bgcolor="#972C28"><table border="0" align="center" cellpadding="0" cellspacing="0">
-            <tr>
-              <td width="132" height="165"><img src="images/fkyy-gq-10.jpg" height="165" /></td>
-              <td width="116" valign="top"><p class="STYLE13"><span class="STYLE23">现代美国英语900句</span><br />
-                      <br />
-                      <span class="STYLE22"><span class="STYLE20">主讲：李阳</span><br />
-                      <span class="STYLE21">免费</span></span></p></td>
-            </tr>
-          </table></td>
-          <td width="269" bordercolor="facb50" bgcolor="#972C28"><table border="0" align="center" cellpadding="0" cellspacing="0">
-            <tr>
-              <td width="132" height="165"><img src="images/fkyy-gq-10.jpg" height="165" /></td>
-              <td width="116" valign="top"><p class="STYLE13"><span class="STYLE23">现代美国英语900句</span><br />
-                      <br />
-                      <span class="STYLE22"><span class="STYLE20">主讲：李阳</span><br />
-                      <span class="STYLE21">免费</span></span></p></td>
-            </tr>
-          </table></td>
-          <td width="268" bordercolor="facb50" bgcolor="#972C28"><table border="0" align="center" cellpadding="0" cellspacing="0">
-            <tr>
-              <td width="132" height="165"><img src="images/fkyy-gq-10.jpg" height="165" /></td>
-              <td width="116" valign="top"><p class="STYLE13"><span class="STYLE23">现代美国英语900句</span><br />
-                      <br />
-                      <span class="STYLE22"><span class="STYLE20">主讲：李阳</span><br />
-                      <span class="STYLE21">免费</span></span></p></td>
-            </tr>
-          </table></td>
-        </tr>
-    </table></td>
+    <%@ include file="/crazyenglish_hd/relative_fromindex_fragment.jsp" %>
+    </td>
     <td><img src="images/fkyy-gq-5.jpg" width="69" height="590" /></td>
   </tr>
   <tr>
@@ -162,20 +218,14 @@ a:VISITED {text-decoration:none;}
   </tr>
 </table>
 
-<%@ include file="/crazyenglish_hd/footer.jsp" %>
-
 <script type="text/javascript">
 
 var firstFileID = "${requestScope.defaultPlayID}";//默认播放第一个影片第一集
 var prefix = "${requestScope.prefix}";
 
 function init(){
-	if(prefix.indexOf("defaultwghd")>0){
-		$("freeVideo").src = prefix + "HD_PlayTrailerInVas.jsp?left=275&top=90&width=325&height=244&type=VOD&value=" + firstFileID;
-	}
-	else{
-		$("freeVideo").src = prefix + "PlayTrailerInVas.jsp?left=275&top=90&width=325&height=244&type=VOD&value=" + firstFileID;
-	}
+	$("freeVideo").src = prefix + "HD_PlayTrailerInVas.jsp?left=569&top=122&width=621&height=350&type=VOD&value=" + firstFileID+"contenttype=10";
+
 }
 init();
 </script>

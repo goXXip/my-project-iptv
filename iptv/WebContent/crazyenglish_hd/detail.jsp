@@ -17,34 +17,31 @@ body {
 	width: 1280px;
 	height:720px;
 }
-.STYLE13 {font-family: "黑体"; font-size: 15px; color: #FFFFFF; }
-.STYLE20 {font-size: 18px}
-.STYLE21 {
-	color: #FBB90B;
-	font-size: 18px;
+.liston {
+	float: left;
+	width: 268px;
+	height: 185px;
+	border: solid 1px #facb50;
+	background-color: #972C28;
+	color: #ffffff;
 }
-.STYLE22 {font-size: 18}
-.STYLE23 {font-size: 20px}
-.style15 {	font-size: 24px;
-	color: #FFFFFF;
-	font-family: "黑体";
-}
-.style171 {color: #FF9900; font-size: 16px; font-family: "黑体"; }
-.STYLE25 {font-size: 36px; color: #FFFFFF; font-family: "黑体"; }
-.STYLE26 {
-	color: #FF9900;
-	font-size: 24px;
-	font-family: "黑体";
-}
-</style>
-<script type="text/javascript">
-function MM_preloadImages() { //v3.0
-  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
-    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
-    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
-}
-</script>
 
+.listoff {
+	float: left;
+	width: 268px;
+	height: 185px;
+	border: solid 1px #b96400;
+	color: #ffffff;
+}
+a:link{text-decoration:none;}
+a:hover{text-decoration:none;}
+a:VISITED {text-decoration:none;}
+.style15 {	font-size: 22px;color: #FFFFFF;font-family: "黑体";}
+.STYLE25 {font-size: 28px; color: #FFFFFF; font-family: "黑体"; }
+.STYLE26 {color: #FF9900;font-size: 18px;font-family: "黑体";}
+</style>
+
+<script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript">
 var from = "${requestScope.from}";
 var columnID = "${requestScope.columnID}";
@@ -67,7 +64,6 @@ function keyEvent() {
 	case 8:
 	case 109:
 	case 283:
-		//window.history.back();
 		if(from == "index"){
 			location.href = "${ctx }/crazyenglish_hd/filmAction!engIndex.do";
 		}
@@ -86,15 +82,6 @@ function keyEvent() {
 document.onirkeypress = keyEvent;
 document.onkeypress = keyEvent;
 
-/**
- * 焦点时的样式
- * @param target 焦点目标
- */
-function focusStyle(target, className) {
-	if($(target) != "undefined") {
-		$(target).className = className;
-	}
-}
 </script>
 </head>
 
@@ -112,67 +99,31 @@ function focusStyle(target, className) {
     </table>
       <table width="1112" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
-          <td width="252" rowspan="4" valign="top"><img src="images/fkyy-gq-9.jpg" width="200" height="275" /></td>
-          <td height="70" colspan="3"><span class="STYLE25">《中学生英语能力综合教程》</span></td>
+          <td width="252" rowspan="4" valign="top"><img src="${ctx }/uploadImages/${film.bigImage_HD.id}.${film.bigImage_HD.suffix}" width="200" height="275" /></td>
+          <td colspan="3"><span class="STYLE25">《${film.name }》</span></td>
         </tr>
         <tr>
-          <td height="138" colspan="3" valign="top" class="style15">简介：<br />
-            李阳全新独创的发音手势符号，让你轻松掌握发音要诀！让你轻松掌握发音要诀！让你轻松掌握发音要诀！让你轻松掌握发音要诀！让你轻松掌握发音要诀！3000个实用单词，500个精彩句子，使你成为叱咤风云的演讲家!</td>
+          <td height="138" colspan="3" valign="top" class="style15">${film.description }</td>
         </tr>
         <tr>
-          <td height="70" valign="top" class="STYLE26">集数：120集 <br />
+          <td  valign="top" class="STYLE26">集数：${film.serialCount }集 <br />
             价格：免费 </td>
-          <td height="70" valign="top" class="STYLE26">主讲：李阳<br />
-            期限：3个月</td>
-          <td height="70" valign="top" class="STYLE26">适用：初中生</td>
+          <td  valign="top" class="STYLE26">主讲：${film.actor }<br />
+            期限：${film.period }</td>
+          <td valign="top" class="STYLE26">适用：${film.audient }</td>
         </tr>
         <tr>
-          <td width="286" height="76" valign="top"><a href="#"><img src="images/fkyy-gq-13.jpg" width="209" height="58" border="0" /></a></td>
-          <td width="286" valign="top"><a href="#"><img src="images/fkyy-gq-12.jpg" width="209" height="58" border="0" /></a></td>
+          <td width="286" height="70">
+	         <a href="${ctx }/crazyenglish_hd/filmAction!listAssetByFilmId.do?filmId=${film.id}&channelId=2&from=${requestScope.from}" id="defaultFocus"  onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('play_img','','images/fkyy-gq-13-2.jpg',1)">
+	          	<img src="images/fkyy-gq-13.jpg" width="209" height="58" border="0"  id="play_img"/>
+	        </a>
+          </td>
+          <td width="286" valign="top"></td>
           <td width="288" valign="top"></td>
         </tr>
       </table>
-      <table height="146" border="1" align="center" cellpadding="0" cellspacing="12" bordercolor="602121">
-        <tr>
-          <td width="268" height="185" bordercolor="facb50" bgcolor="#972C28"><table border="0" align="center" cellpadding="0" cellspacing="0">
-            <tr>
-              <td width="132" height="165"><img src="images/fkyy-gq-10.jpg" height="165" /></td>
-              <td width="116" valign="top"><p class="STYLE13"><span class="STYLE23">现代美国英语900句</span><br />
-                  <br />
-                  <span class="STYLE22"><span class="STYLE20">主讲：李阳</span><br />
-                  <span class="STYLE21">免费</span></span></p>                </td>
-            </tr>
-            
-          </table></td>
-          <td width="269" bordercolor="facb50" bgcolor="#972C28"><table border="0" align="center" cellpadding="0" cellspacing="0">
-            <tr>
-              <td width="132" height="165"><img src="images/fkyy-gq-10.jpg" height="165" /></td>
-              <td width="116" valign="top"><p class="STYLE13"><span class="STYLE23">现代美国英语900句</span><br />
-                      <br />
-                      <span class="STYLE22"><span class="STYLE20">主讲：李阳</span><br />
-                      <span class="STYLE21">免费</span></span></p></td>
-            </tr>
-          </table></td>
-          <td width="269" bordercolor="facb50" bgcolor="#972C28"><table border="0" align="center" cellpadding="0" cellspacing="0">
-            <tr>
-              <td width="132" height="165"><img src="images/fkyy-gq-10.jpg" height="165" /></td>
-              <td width="116" valign="top"><p class="STYLE13"><span class="STYLE23">现代美国英语900句</span><br />
-                      <br />
-                      <span class="STYLE22"><span class="STYLE20">主讲：李阳</span><br />
-                      <span class="STYLE21">免费</span></span></p></td>
-            </tr>
-          </table></td>
-          <td width="268" bordercolor="facb50" bgcolor="#972C28"><table border="0" align="center" cellpadding="0" cellspacing="0">
-            <tr>
-              <td width="132" height="165"><img src="images/fkyy-gq-10.jpg" height="165" /></td>
-              <td width="116" valign="top"><p class="STYLE13"><span class="STYLE23">现代美国英语900句</span><br />
-                      <br />
-                      <span class="STYLE22"><span class="STYLE20">主讲：李阳</span><br />
-                      <span class="STYLE21">免费</span></span></p></td>
-            </tr>
-          </table></td>
-        </tr>
-    </table></td>
+     <%@ include file="/crazyenglish_hd/relative_fragment.jsp" %>
+      </td>
     <td><img src="images/fkyy-gq-5.jpg" width="69" height="590" /></td>
   </tr>
   <tr>
@@ -180,6 +131,5 @@ function focusStyle(target, className) {
   </tr>
 </table>
 
-<%@ include file="/crazyenglish_hd/footer.jsp" %>
 </body>
 </html>
