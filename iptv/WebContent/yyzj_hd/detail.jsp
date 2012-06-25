@@ -116,12 +116,12 @@ function focusImg(target, className) {
           <td height="138" colspan="3" valign="top" class="style151">${film.description }</td>
         </tr>
         <tr>
-          <td height="70" valign="top" class="STYLE28">集数：${film.serialCount }集 <br />价格：免费</td>
-          <td height="70" valign="top" class="STYLE28">适用：${film.audient }<br />期限：${film.period }</td>
-          <td height="70" valign="top">&nbsp;</td>
+          <td valign="top" class="STYLE28">集数：${film.serialCount }集 <br />价格：免费</td>
+          <td valign="top" class="STYLE28">适用：${film.audient }<br />期限：${film.period }</td>
+          <td valign="top">&nbsp;</td>
         </tr>
         <tr>
-          <td width="256" height="60" valign="top">
+          <td width="256" valign="top">
           	<a href="${ctx }/yyzj_hd/filmAction!listAssetByFilmId.do?filmId=${film.id}&channelId=1&from=${requestScope.from}" id="defaultFocus"  onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('play_img','','images/yyzj-gq-11-2.jpg',1)">
           		<img src="images/yyzj-gq-11.jpg" width="209" height="58" border="0" id="play_img"/>
           	</a>

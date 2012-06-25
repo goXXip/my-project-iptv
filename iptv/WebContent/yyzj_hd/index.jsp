@@ -161,7 +161,7 @@ function focusImg(target, className) {
 		       <c:if test="${fn:length(requestScope.filmList) > 0 }">
 			      <c:forEach items="${requestScope.filmList}" begin="0" end="0" var="result" varStatus="status">
 			        	<td width="485"  height="72" bgcolor="#214c47">
-				        	<a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}&from=index" id="defaultFocus" onfocus="focusStyle('t_0_0','titleon');" onblur="focusStyle('t_0_0','titleoff');">
+				        	<a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=index" id="defaultFocus" onfocus="focusStyle('t_0_0','titleon');" onblur="focusStyle('t_0_0','titleoff');">
 				        		<div id="t_0_0" class="titleoff" >${result.name }</div>
 				        	</a>
 			        	</td>
@@ -179,7 +179,7 @@ function focusImg(target, className) {
 			  	<td height="72">
 	        	  <c:if test="${fn:length(requestScope.filmList) > 1 }">
 		      			<c:forEach items="${requestScope.filmList}" begin="1" end="1" var="result" varStatus="status">
-				        	<a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_1_1','titleon');" onblur="focusStyle('t_1_1','titleoff');">
+				        	<a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_1_1','titleon');" onblur="focusStyle('t_1_1','titleoff');">
 				        		<div id="t_1_1" class="titleoff" >${result.name }</div>
 				        	</a>
 			        	 </c:forEach>
@@ -190,7 +190,7 @@ function focusImg(target, className) {
 	        	<td height="72">
 	        	  <c:if test="${fn:length(requestScope.filmList) > 2 }">
 		      			<c:forEach items="${requestScope.filmList}" begin="2" end="2" var="result" varStatus="status">
-				        	<a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_1_2','titleon');" onblur="focusStyle('t_1_2','titleoff');">
+				        	<a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_1_2','titleon');" onblur="focusStyle('t_1_2','titleoff');">
 				        		<div id="t_1_2" class="titleoff" >${result.name }</div>
 				        	</a>
 			        	 </c:forEach>
@@ -201,7 +201,7 @@ function focusImg(target, className) {
 	        	<td height="72">
 	        	  <c:if test="${fn:length(requestScope.filmList) > 3 }">
 		      			<c:forEach items="${requestScope.filmList}" begin="3" end="3" var="result" varStatus="status">
-				        	<a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_1_3','titleon');" onblur="focusStyle('t_1_3','titleoff');">
+				        	<a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_1_3','titleon');" onblur="focusStyle('t_1_3','titleoff');">
 				        		<div id="t_1_3" class="titleoff" >${result.name }</div>
 				        	</a>
 			        	 </c:forEach>
@@ -212,7 +212,7 @@ function focusImg(target, className) {
 	        	<td height="72">
 	        	  <c:if test="${fn:length(requestScope.filmList) > 4 }">
 		      			<c:forEach items="${requestScope.filmList}" begin="4" end="4" var="result" varStatus="status">
-				        	<a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_1_4','titleon');" onblur="focusStyle('t_1_4','titleoff');">
+				        	<a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_1_4','titleon');" onblur="focusStyle('t_1_4','titleoff');">
 				        		<div id="t_1_4" class="titleoff" >${result.name }</div>
 				        	</a>
 			        	 </c:forEach>
@@ -222,7 +222,7 @@ function focusImg(target, className) {
 	    </table>
     </td></tr>
     </table>
-    <%@ include file="/yyzj_hd/relative_fragment.jsp" %>
+    <%@ include file="/yyzj_hd/relative_fromindex_fragment.jsp" %>
       </td>
     <td width="73"><img src="images/yyzj-gq-6.jpg" width="73" height="591" /></td>
   </tr>

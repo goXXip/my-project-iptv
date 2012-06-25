@@ -71,6 +71,7 @@ a:VISITED {text-decoration:none;}
 						   		 <img src="images/yyzj-gq-13.jpg" width="209" height="58" border="0" id="order_img"/>
 						    </a>
 					    </td>
+					    <td>&nbsp;</td>
 					  </tr>
 				</table>
 		   </div>
