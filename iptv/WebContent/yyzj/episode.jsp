@@ -83,7 +83,6 @@ function keyEvent() {
 	case 8:
 	case 109:
 	case 283:
-		//window.history.back();
 		location.href =  "${ctx}/yyzj/filmAction!detail.do?filmId=${requestScope.filmID }&from=${requestScope.from}";
 		return 0;
 		break;
@@ -116,13 +115,7 @@ document.onkeypress = keyEvent;
 		var pay_confirm_url = "${ctx}/yyzj/filmAction!orderConfirm.do?filmId="+filmId;
 		var backUrl = "${ctx}/yyzj/filmAction!listAssetByFilmId.do?filmId="+filmId+"&curPage=${pageBean.curPage}";
 		backUrl = escape(backUrl);
-		var vodName =  escape("太空娃娃1");
-		if(epg_server.indexOf("defaultwghd")>0){
-			//location.href = epg_server + "HD_Authorization.jsp?CONTENTTYPE=0&BUSINESSTYPE=1&PROGID="+fileID+"&TYPE_ID=-1&PLAYTYPE=1&vodName="+vodName;
-		}
-		else{
-			location.href = epg_server + "au_PlayFilm.jsp?PROGID="+fileID+"&PLAYTYPE=1&CONTENTTYPE=0&BUSINESSTYPE=1&ONECEPRICE=0&ISTVSERIESFLAG=1&FATHERSERIESID="+ztID+"&TYPEID=-1"+ "&backurl=" + backUrl;;
-		}
+		location.href = epg_server + "au_PlayFilm.jsp?PROGID="+fileID+"&PLAYTYPE=1&CONTENTTYPE=0&BUSINESSTYPE=1&ONECEPRICE=0&ISTVSERIESFLAG=1&FATHERSERIESID="+ztID+"&TYPEID=-1"+ "&backurl=" + backUrl;
 	}
 
 	function focusStyle_episode(target, className) {
