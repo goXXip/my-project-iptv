@@ -22,7 +22,7 @@ a:hover{text-decoration:none;}
 a:VISITED {text-decoration:none;}
 .STYLE25 {font-size: 36px; color: #FFFFFF; font-family: "黑体"; }
 .STYLE26 {color: #FF9900;font-size: 24px;font-family: "黑体";}
-.msgDiv{margin: 0 auto;margin-top: 200px;width: 800px;color: #ffffff;font-size: 24px; }
+.msgDiv{margin: 0 auto;margin-top: 100px;width: 1000px;color: #ffffff;font-size: 24px; }
 </style>
 <script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript" src="js/global.js"></script>
@@ -46,8 +46,8 @@ a:VISITED {text-decoration:none;}
 	      	 <div class="msgDiv">
 		      	 <table border="0" cellpadding="0" cellspacing="0">
 		      	      <tr>
-				          <td width="252" rowspan="4" valign="top"><img src="images/fkyy-gq-9.jpg" width="200" height="275" /></td>
-				          <td height="70" colspan="2"><span class="STYLE25">《${film.name }》</span></td>
+				          <td width="252" rowspan="4" valign="top"><img src="${ctx }/uploadImages/${film.bigImage_HD.id}.${film.bigImage_HD.suffix}" width="200" height="275" /></td>
+				          <td height="70" colspan="3"><span class="STYLE25">《${film.name }》</span></td>
 				      </tr>
 				      <tr>
 				          <td height="70" valign="top" class="STYLE26">集数：${film.serialCount }集 <br />
