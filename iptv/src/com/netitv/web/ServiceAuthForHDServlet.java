@@ -21,7 +21,7 @@ import com.netitv.ws.VASServiceServiceClient;
  * @author: zhuqh
  * @CreateTime:2011-11-7 下午03:46:36
  */
-public class ServiceAuthForHDServlet   extends HttpServlet{
+public class ServiceAuthForHDServlet extends HttpServlet{
 
 	private static final long serialVersionUID = -3862614147091335527L;
 

@@ -49,7 +49,8 @@ public class InitServlet  extends HttpServlet {
      * @param channelNumber 频道编号
      * @param context 上下文
      */
-    private void generatePicture(String channelNumber,ServletContext context){
+    @SuppressWarnings("unchecked")
+	private void generatePicture(String channelNumber,ServletContext context){
     	
     	FilmService filmService = (FilmService) BeanFactory.getBeanByName("filmService");
 		FilmDao filmDao = (FilmDao) BeanFactory.getBeanByName("filmDao");
@@ -95,8 +96,24 @@ public class InitServlet  extends HttpServlet {
     		String smallImagePath = context.getRealPath("/uploadImages")+ CommonsUtil.getPathSymbol()+ image_id +"."+ suffix ;
     		CommonsUtil.writeImageInfo(smallImageInfo,smallImagePath);
     	}
+    	
+    	ImageInfo bigImage_HD  = film.getBigImage_HD();
+    	if( bigImage_HD != null ){
+    		int image_id = bigImage_HD.getId();
+    		String suffix = bigImage_HD.getSuffix();
+    		
+    		String bigImagePath = context.getRealPath("/uploadImages")+ CommonsUtil.getPathSymbol()+ image_id +"."+ suffix ;
+    		CommonsUtil.writeImageInfo(bigImage_HD,bigImagePath);
+    	}
+    	
+    	ImageInfo smallImage_HD  = film.getSmallImage_HD();
+    	if( smallImage_HD != null ){
+    		int image_id = smallImage_HD.getId();
+    		String suffix = smallImage_HD.getSuffix();
+    		
+    		String smallImagePath = context.getRealPath("/uploadImages")+ CommonsUtil.getPathSymbol()+ image_id +"."+ suffix ;
+    		CommonsUtil.writeImageInfo(smallImage_HD,smallImagePath);
+    	}
     }
-	
-	
 
 }

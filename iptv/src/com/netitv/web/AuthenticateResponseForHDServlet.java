@@ -18,7 +18,7 @@ import com.netitv.util.Constants;
  * @author: zhuqh
  * @CreateTime:2011-11-7 下午03:50:58
  */
-public class AuthenticateResponseForHDServlet {
+public class AuthenticateResponseForHDServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -4470253339674915859L;
 	

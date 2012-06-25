@@ -71,7 +71,11 @@ public class FilmAction extends BaseAction<Film>{
 		List<Object> relativeList = pageBean.getItems();
 		request.setAttribute("relativeList", relativeList);
 		
-		return "eduIndex";
+		if(localIp!=null && (localIp.indexOf("defaultwghd")>0 || localIp.indexOf("wghd")>0)){
+			return "eduIndex_hd";
+		}else{
+			return "eduIndex";
+		}
 	}
 	
 	/**
@@ -116,7 +120,12 @@ public class FilmAction extends BaseAction<Film>{
 		List<Object> relativeList = pageBean.getItems();
 		request.setAttribute("relativeList", relativeList);
 		
-		return "engIndex";
+		if(localIp!=null && (localIp.indexOf("defaultwghd")>0 || localIp.indexOf("wghd")>0)){
+			return "engIndex_hd";
+		}else{
+			return "engIndex";
+		}
+		
 	}
 	
 	/**
@@ -304,7 +313,7 @@ public class FilmAction extends BaseAction<Film>{
 		String localIp = HttpUtil.getCookieValue(request, "localIp");
 		
 		String play_url = "";
-		if( localIp != null &&  localIp.indexOf("defaultwghd") > 0 ){
+		if(localIp!=null && (localIp.indexOf("defaultwghd") > 0 || localIp.indexOf("wghd")>0)){
 			 AssetService assetService = (AssetService) BeanFactory.getBeanByName("assetService");
 			 Asset asset = assetService.findById(Integer.valueOf(id));
 			 if( asset != null ){

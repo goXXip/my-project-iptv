@@ -143,7 +143,7 @@ public class FilmHDAction extends BaseAction<Film>{
 		}
 		/***** 检查是否已登录(通过认证) end ****/
 		
-		int pageSize = 12;
+		int pageSize = 10;
 		String pageSizeStr = request.getParameter("pageSize");
 		if(pageSizeStr != null){
 			pageSize = Integer.parseInt(pageSizeStr);
@@ -184,7 +184,7 @@ public class FilmHDAction extends BaseAction<Film>{
 		}
 		
 		/**************** 查询相关影片   *********************/
-		List<Film>  relativeList = filmService.listFilmByRand(4,columnID,filmID);
+		List<Film>  relativeList = filmService.listFilmByRand(5,columnID,filmID);
 		request.setAttribute("relativeList", relativeList);
 		
 		request.setAttribute("columnID", columnID);
