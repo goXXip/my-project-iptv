@@ -107,6 +107,7 @@
     	<action name="filmAction" class="com.netitv.web.front.FilmAction">
     		<result name="toAuthentication" type="redirect">${toAuthenticationUrl}</result>
         	<result name="eduIndex">/yyzj/index.jsp</result>
+        	<result name="eduIndex_hd">/yyzj_hd/index.jsp</result>
         	<result name="listByColumn">/yyzj/list.jsp</result>
         	<result name="detail">/yyzj/detail.jsp</result>
         	<result name="listAsset">/yyzj/episode.jsp</result>
@@ -122,6 +123,7 @@
     	<action name="filmAction" class="com.netitv.web.front.FilmAction">
     		<result name="toAuthentication" type="redirect">${toAuthenticationUrl}</result>
     		<result name="engIndex">/crazyenglish/index.jsp</result>
+    		<result name="engIndex_hd">/crazyenglish_hd/index.jsp</result>
     		<result name="listByColumn">/crazyenglish/list.jsp</result>
         	<result name="detail">/crazyenglish/detail.jsp</result>
         	<result name="listAsset">/crazyenglish/episode.jsp</result>
@@ -133,7 +135,7 @@
      <!-- 疯狂英语   end  -->
      
     <!-- 孕育早教 高清   begin  -->
-    <package name="yyzj" namespace="/yyzj_hd" extends="mydefault">
+    <package name="yyzj_hd" namespace="/yyzj_hd" extends="mydefault">
     	<action name="filmAction" class="com.netitv.web.front.FilmHDAction">
     		<result name="toAuthentication" type="redirect">${toAuthenticationUrl}</result>
         	<result name="eduIndex">/yyzj_hd/index.jsp</result>
@@ -148,7 +150,7 @@
     <!-- 孕育早教  高清    end  -->
     
      <!-- 疯狂英语  高清    begin  -->
-    <package name="crazyenglish" namespace="/crazyenglish_hd" extends="mydefault">
+    <package name="crazyenglish_hd" namespace="/crazyenglish_hd" extends="mydefault">
     	<action name="filmAction" class="com.netitv.web.front.FilmHDAction">
     		<result name="toAuthentication" type="redirect">${toAuthenticationUrl}</result>
     		<result name="engIndex">/crazyenglish_hd/index.jsp</result>
