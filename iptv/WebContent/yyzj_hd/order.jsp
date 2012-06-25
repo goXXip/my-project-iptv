@@ -34,7 +34,7 @@ a:hover{text-decoration:none;}
 a:VISITED {text-decoration:none;}
 .STYLE9 {color: #FFFFFF; font-size: 36px; font-family: "黑体";}
 .STYLE18 {color: #f7d400; font-size: 24px; font-family: "黑体"; }
-.msgDiv{margin: 0 auto;margin-top: 200px;width: 800px;color: #ffffff;font-size: 24px; }
+.msgDiv{margin: 0 auto;margin-top: 100px;width: 1000px;color: #ffffff;font-size: 24px; }
 </style>
 
 <script type="text/javascript" src="js/common.js"></script>
@@ -59,7 +59,8 @@ a:VISITED {text-decoration:none;}
            <div class="msgDiv">	   		
 	   			<table border="0" cellpadding="0" cellspacing="0">
 					  <tr>
-					    <td height="50" colspan="2"><span class="STYLE9">《${film.name }》</span></td>
+					    <td width="450" rowspan="4" valign="top"><img src="${ctx }/uploadImages/${film.bigImage_HD.id}.${film.bigImage_HD.suffix}" width="385" height="263" /></td>
+					    <td height="70" colspan="2"><span class="STYLE9">《${film.name }》</span></td>
 					  </tr>
 					  <tr>
 					    <td height="40" valign="top" class="STYLE18">价格：${film.price }</td>
