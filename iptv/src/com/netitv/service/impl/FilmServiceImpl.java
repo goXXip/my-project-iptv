@@ -74,16 +74,16 @@ public class FilmServiceImpl extends AbstractCacheProxy implements FilmService{
 
 	public PageBean findByPage(int pageSize, int curPage, String channelSelect) {
 		// TODO Auto-generated method stub
-		List items =  (List) this.cache.get(FILM_CACHE_KEY+"_page_"+channelSelect+"_"+curPage+"_"+pageSize);
+		List items =  (List) this.cache.get(FILM_CACHE_KEY+"_channel_"+channelSelect+"_"+curPage+"_"+pageSize);
 		if( items == null){
 			items = filmDao.getRows(pageSize, curPage,channelSelect);
-			this.cache.put(FILM_CACHE_KEY+"_page_"+channelSelect+"_"+curPage+"_"+pageSize, items);
+			this.cache.put(FILM_CACHE_KEY+"_channel_"+channelSelect+"_"+curPage+"_"+pageSize, items);
 		}
 		
-		Integer rowsCount =  (Integer) this.cache.get(FILM_CACHE_KEY+"_page_"+channelSelect+"_count"+"_"+pageSize);
+		Integer rowsCount =  (Integer) this.cache.get(FILM_CACHE_KEY+"_channel_"+channelSelect+"_count"+"_"+pageSize);
 		if( rowsCount == null){
 			rowsCount = filmDao.getTotalRowsCount(channelSelect);
-			this.cache.put(FILM_CACHE_KEY+"_page_"+channelSelect+"_count"+"_"+pageSize, rowsCount);
+			this.cache.put(FILM_CACHE_KEY+"_channel_"+channelSelect+"_count"+"_"+pageSize, rowsCount);
 		}
 		
 		PageBean pb = new PageBean(items, rowsCount, pageSize, curPage);
@@ -102,16 +102,16 @@ public class FilmServiceImpl extends AbstractCacheProxy implements FilmService{
 
 	public PageBean findByPage(int pageSize, int curPage, int columnid) {
 		// TODO Auto-generated method stub
-		List items =  (List) this.cache.get(FILM_CACHE_KEY+"_page_"+columnid+"_"+curPage+"_"+pageSize);
+		List items =  (List) this.cache.get(FILM_CACHE_KEY+"_column_"+columnid+"_"+curPage+"_"+pageSize);
 		if( items == null){
 			items = filmDao.getRows(pageSize, curPage,columnid);
-			this.cache.put(FILM_CACHE_KEY+"_page_"+columnid+"_"+curPage+"_"+pageSize,items);
+			this.cache.put(FILM_CACHE_KEY+"_column_"+columnid+"_"+curPage+"_"+pageSize,items);
 		}
 		
-		Integer rowsCount = (Integer) this.cache.get(FILM_CACHE_KEY+"_page_"+columnid+"_count"+"_"+pageSize);
+		Integer rowsCount = (Integer) this.cache.get(FILM_CACHE_KEY+"_column_"+columnid+"_count"+"_"+pageSize);
 		if( rowsCount == null){
 			rowsCount = filmDao.getTotalRowsCount(columnid);
-			this.cache.put(FILM_CACHE_KEY+"_page_"+columnid+"_count"+"_"+pageSize,rowsCount);
+			this.cache.put(FILM_CACHE_KEY+"_column_"+columnid+"_count"+"_"+pageSize,rowsCount);
 		}
 		
 		PageBean pb = new PageBean(items, rowsCount, pageSize, curPage);
@@ -126,10 +126,10 @@ public class FilmServiceImpl extends AbstractCacheProxy implements FilmService{
 	 */
 	public List<Film> listFilmByRand(int size,int columnID,int filmId) {
 		// TODO Auto-generated method stub
-		Element obj = defaultCache.get(Relative_CACHE_KEY+"_"+columnID+"_"+filmId);
+		String key = Relative_CACHE_KEY+"_"+columnID+"_"+filmId+"_"+size;
+		Element obj = defaultCache.get(key);
 		if(obj == null){
 			List list = filmDao.listFilmByRand(size,columnID);
-			String key = Relative_CACHE_KEY+"_"+columnID+"_"+filmId;
 			 Element element = new Element((Serializable) key, (Serializable) list);            
 			defaultCache.put(element);
 			return list;

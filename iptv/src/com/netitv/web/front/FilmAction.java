@@ -149,7 +149,10 @@ public class FilmAction extends BaseAction<Film>{
 		}
 		/***** 检查是否已登录(通过认证) end ****/
 		
-		int pageSize = 12;
+		int pageSize = 9;
+		if("1".equals(channelId)){
+			pageSize = 12;
+		}
 		String pageSizeStr = request.getParameter("pageSize");
 		if(pageSizeStr != null){
 			pageSize = Integer.parseInt(pageSizeStr);
