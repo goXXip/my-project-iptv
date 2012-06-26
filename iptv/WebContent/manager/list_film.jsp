@@ -76,7 +76,7 @@
 		</tr>
 		<c:forEach items="${pageBean.items}" var="film" varStatus="status">
 			<tr>
-				<td align="center" height="25">${status.count }</td>
+				<td align="center" height="25">${(pageBean.curPage-1)*pageBean.pageSize+status.count }</td>
 				<td align="center">${film.name }</td>
 				<td align="center">${film.serialCount }</td>
 				<td align="center">${film.period }</td>
