@@ -96,7 +96,6 @@ function getCookie(key) {
 	   return "";
 }
 function keyEvent() {
-	var keyCode;
 	var keyCode = event.keyCode;
 	if(!keyCode||keyCode=="undefined"){
 		keyCode = event.which;
@@ -156,7 +155,7 @@ function focusStyle(target, className) {
         	<c:if test="${fn:length(requestScope.filmList) > 0 }">
 			      <c:forEach items="${requestScope.filmList}" begin="0" end="0" var="result" varStatus="status">			        	
 			      		<td width="485"  height="72">
-				        	<div id="t_0_0" class="titleoff" ><a href="${ctx }/crazyenglish_hd/filmAction!detail.do?filmId=${result.id}&from=index" id="defaultFocus" onfocus="focusStyle('t_0_0','titleon');" onblur="focusStyle('t_0_0','titleoff');">${result.name }</a></div>
+				        	<div id="t_1_0" class="titleoff" ><a href="${ctx }/crazyenglish_hd/filmAction!detail.do?filmId=${result.id}&from=index" id="defaultFocus" onfocus="focusStyle('t_1_0','titleon');" onblur="focusStyle('t_1_0','titleoff');">${result.name }</a></div>
 			        	</td>
         		  </c:forEach>
 		    </c:if>
