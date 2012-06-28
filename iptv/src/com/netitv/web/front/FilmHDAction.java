@@ -60,20 +60,50 @@ public class FilmHDAction extends BaseAction<Film>{
 		List<Object> filmList = pageBean.getItems();
 		request.setAttribute("filmList", filmList);
 		
+		String filmArray = "[";
 		if( filmList != null && filmList.size()> 0 ){
+			int len = filmList.size();
+			for (int i = 0; i < len; i++) {
+				Film film  = (Film) filmList.get(i);
+				Integer id = film.getId();
+				if(i < len -1){
+					filmArray += id +",";
+				}else{
+					filmArray += id;	
+				}
+			}
+			
 			Film fi = (Film) filmList.get(0);
 			List<Asset> assetList = fi.getAssetList();
-			if(assetList != null && assetList.size()>0){
+			if(assetList != null && len >0){
 				Asset asset = assetList.get(0);
 				Integer fileId  = asset.getFileId();
 				request.setAttribute("defaultPlayID", fileId);//默认播放视频ID
 			}
 		}
+		filmArray +="]";
+		request.setAttribute("filmArray", filmArray);
 		
 		pageBean = filmService.findByPage(5, 2,"1");
 		List<Object> relativeList = pageBean.getItems();
 		request.setAttribute("relativeList", relativeList);
 		
+		String relativeArray = "[";
+		if( relativeList != null && relativeList.size()> 0 ){
+			int len  = relativeList.size();
+			for (int i = 0; i < len; i++) {
+				Film film  = (Film) relativeList.get(i);
+				Integer id = film.getId();
+				if(i < len -1){
+					relativeArray += id +",";
+				}else{
+					relativeArray += id;	
+				}
+			}
+		}
+		relativeArray += "]";
+		request.setAttribute("relativeArray", relativeArray);
+	
 		return "eduIndex";
 	}
 	
@@ -105,19 +135,49 @@ public class FilmHDAction extends BaseAction<Film>{
 		List<Object> filmList = pageBean.getItems();
 		request.setAttribute("filmList", filmList);
 		
+		String filmArray = "[";
 		if( filmList != null && filmList.size()> 0 ){
+			int len = filmList.size();
+			for (int i = 0; i < len; i++) {
+				Film film  = (Film) filmList.get(i);
+				Integer id = film.getId();
+				if(i < len -1){
+					filmArray += id +",";
+				}else{
+					filmArray += id;	
+				}
+			}
+			
 			Film fi = (Film) filmList.get(0);
 			List<Asset> assetList = fi.getAssetList();
-			if(assetList != null && assetList.size()>0){
+			if(assetList != null && len >0){
 				Asset asset = assetList.get(0);
 				Integer fileId  = asset.getFileId();
 				request.setAttribute("defaultPlayID", fileId);//默认播放视频ID
 			}
 		}
+		filmArray +="]";
+		request.setAttribute("filmArray", filmArray);
 		
 		pageBean = filmService.findByPage(5, 2,"2");
 		List<Object> relativeList = pageBean.getItems();
 		request.setAttribute("relativeList", relativeList);
+		
+		String relativeArray = "[";
+		if( relativeList != null && relativeList.size()> 0 ){
+			int len  = relativeList.size();
+			for (int i = 0; i < len; i++) {
+				Film film  = (Film) relativeList.get(i);
+				Integer id = film.getId();
+				if(i < len -1){
+					relativeArray += id +",";
+				}else{
+					relativeArray += id;	
+				}
+			}
+		}
+		relativeArray += "]";
+		request.setAttribute("relativeArray", relativeArray);
 		
 		return "engIndex";
 	}

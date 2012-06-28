@@ -71,7 +71,7 @@ public class FilmAction extends BaseAction<Film>{
 		List<Object> relativeList = pageBean.getItems();
 		request.setAttribute("relativeList", relativeList);
 		
-		if(localIp!=null && (localIp.indexOf("defaultwghd")>0 || localIp.indexOf("wghd")>0)){
+		if(checkHD(localIp)){
 			return "eduIndex_hd";
 		}else{
 			return "eduIndex";
@@ -120,7 +120,7 @@ public class FilmAction extends BaseAction<Film>{
 		List<Object> relativeList = pageBean.getItems();
 		request.setAttribute("relativeList", relativeList);
 		
-		if(localIp!=null && (localIp.indexOf("defaultwghd")>0 || localIp.indexOf("wghd")>0)){
+		if(checkHD(localIp)){
 			return "engIndex_hd";
 		}else{
 			return "engIndex";
@@ -316,7 +316,7 @@ public class FilmAction extends BaseAction<Film>{
 		String localIp = HttpUtil.getCookieValue(request, "localIp");
 		
 		String play_url = "";
-		if(localIp!=null && (localIp.indexOf("defaultwghd") > 0 || localIp.indexOf("wghd")>0)){
+		if(checkHD(localIp)){
 			 AssetService assetService = (AssetService) BeanFactory.getBeanByName("assetService");
 			 Asset asset = assetService.findById(Integer.valueOf(id));
 			 if( asset != null ){
@@ -336,6 +336,17 @@ public class FilmAction extends BaseAction<Film>{
 		log("play_url====="+play_url);
 		
 		return "toPlay";
+	}
+	
+	/**
+	 * 检查是否为高清
+	 */
+	public boolean checkHD( String localIp){
+		
+		if(localIp!=null && (localIp.indexOf("defaultwghd")>0 || localIp.indexOf("defaultwebkit")>0)){
+			return true;
+		}
+		return false;
 	}
 	
 	/**

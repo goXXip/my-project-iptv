@@ -154,6 +154,7 @@ public class FilmDaoImpl extends JdbcDaoSupport implements FilmDao {
 	}
 	
 	public static String dateToString(Date date) {
+		if(date == null) return "";
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		return simpleDateFormat.format(date);
 	}
