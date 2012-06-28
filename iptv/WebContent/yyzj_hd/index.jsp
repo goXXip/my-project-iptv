@@ -34,7 +34,6 @@ body {
 	line-height: 70px;
 	background: url("images/bg-02.jpg");
 }
-.titleon a{color: #FFFFFF;}
 .titleoff {
 	float: left;
 	width: 445px;
@@ -49,7 +48,7 @@ body {
 	line-height: 70px;
 	background: url("images/bg-01.jpg");
 }
-.titleoff a{color: #edff6f;}
+.img{border-color:yellow;border-width:2px;}
 a:link{text-decoration:none;}
 a:hover{text-decoration:none;}
 a:VISITED {text-decoration:none;}
@@ -82,7 +81,6 @@ function getCookie(key) {
 	   return "";
 }
 function keyEvent() {
-	var keyCode;
 	var keyCode = event.keyCode;
 	if(!keyCode||keyCode=="undefined"){
 		keyCode = event.which;
@@ -141,35 +139,94 @@ var btn_pos = 0 ;
 var filmArray = ${requestScope.filmArray};//
 var relativeArray = ${requestScope.relativeArray};
 var menuArray = ["${ctx }/yyzj_hd/filmAction!eduIndex.do","${ctx }/yyzj_hd/filmAction!listFilmByColumnId.do?columnId=1&channelId=1","${ctx }/yyzj_hd/filmAction!listFilmByColumnId.do?columnId=2&channelId=1","${ctx }/yyzj_hd/filmAction!listFilmByColumnId.do?columnId=3&channelId=1"];
+
 function init(){
 	if(filmArray.length >0){
 		area = 1;
+		$("t_1_"+btn_pos).className = "titleon";
 	}else{
 		area = 0;
+		focusMenu();
 	}
 }
 
-function verticalChan(__num){
-	if( area == 0 ){
-
-	}
-	else if( area == 1){
-
-	}
-	else if(area == 2){
-
-	}
-}
-
+//横向移动
 function horizonChan(_num){
-	if( area == 0){
-
+	if( area == 0 ){
+		if(_num<0){
+			if(btn_pos <= 0 ){
+				btn_pos = 0;
+				return ;
+			}
+		}
+		else{
+			if(btn_pos >= menuArray.length -1  ){
+				btn_pos = menuArray.length -1;
+				return;
+			}
+		}
+		var index = btn_pos + 1;
+		var imagename = "yyzj-gq-"+index+".jpg";
+		$("menu"+btn_pos).src = "images/"+imagename;
+		btn_pos += _num;
+		focusMenu();
 	}
 	else if( area == 1){
-
+	
 	}
 	else if(area == 2){
+		if(_num<0){
+			if(btn_pos <= 0 ){
+				btn_pos = 0;
+				return ;
+			}
+		}
+		else{
+			if(btn_pos >= relativeArray.length -1  ){
+				btn_pos = relativeArray.length -1 ;
+				return;
+			}
+		}
+		$("t_2_"+btn_pos).className = "";
+		btn_pos += _num;
+		$("t_2_"+btn_pos).className = "img";
+	}
+}
+function focusMenu(){
 
+	var index = btn_pos + 1;
+	var imagename = "yyzj-gq-"+index+"-2.jpg";
+	$("menu"+btn_pos).src = "images/"+imagename;
+	$("menu"+btn_pos).className = "img";
+}
+//纵向移动
+function verticalChan(_num){
+	if( area == 0){
+		if(_num > 0){
+			area = 1;
+			btn_pos  = 0;
+		}
+	}
+	else if( area == 1){
+		$("t_1_"+btn_pos).className = "titleoff";
+		btn_pos += _num;
+		if(btn_pos < 0 ){
+			area = 0 ;
+			btn_pos = 0;
+			return;
+		}
+		if(btn_pos > filmArray.length -1  ){
+			area = 2 ;
+			btn_pos = 0;
+			return ;
+		}
+		$("t_1_"+btn_pos).className = "titleon";
+	}
+	else if(area == 2){
+		if(_num < 0){
+			area = 1;
+			btn_pos  = 0;
+		}
 	}
 }
 
@@ -210,10 +267,10 @@ function doSelect(){
   <tr>
     <td width="65">&nbsp;</td>
     <td><img src="images/yyzj-gq-1.jpg" name="Image9" width="240" height="101" border="0" id="menu0" /></td>
-    <td><img src="images/yyzj-gq-15.jpg" width="282" height="101" /></td>
-    <td><img src="images/yyzj-gq-2-2.jpg" name="Image11" width="196" height="101" border="0" id="menu1" /></td>
-    <td><img src="images/yyzj-gq-3-2.jpg" name="Image12" width="213" height="101" border="0" id="menu2" /></td>
-    <td><img src="images/yyzj-gq-4-2.jpg" name="Image13" width="213" height="101" border="0" id="menu3" /></td>
+    <td width="282" height="101" ></td>
+    <td><img src="images/yyzj-gq-2.jpg" name="Image11" width="196" height="101" border="0" id="menu1" /></td>
+    <td><img src="images/yyzj-gq-3.jpg" name="Image12" width="213" height="101" border="0" id="menu2" /></td>
+    <td><img src="images/yyzj-gq-4.jpg" name="Image13" width="213" height="101" border="0" id="menu3" /></td>
     <td width="71">&nbsp;</td>
   </tr>
 </table>
@@ -235,7 +292,7 @@ function doSelect(){
 		       <c:if test="${fn:length(requestScope.filmList) > 0 }">
 			      <c:forEach items="${requestScope.filmList}" begin="0" end="0" var="result" varStatus="status">
 			        	<td width="485"  height="72">
-				        	<div id="t_0_0" class="titleoff" >${result.name }</div>
+				        	<div id="t_1_0" class="titleoff" >${result.name }</div>
 			        	</td>
 			      </c:forEach>
 		      </c:if>
