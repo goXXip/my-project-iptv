@@ -21,9 +21,7 @@ body {
 .STYLE14 {font-family: "黑体";color:#ffffff;font-size: 24px;}/*color:#edff6f;*/
 .STYLE17 {color: #FBB90B; font-size: 18px; font-family: "黑体"; }
 .STYLE18 {font-size: 24px;color: #FFFFFF;}
-.STYLE19 {color: #FFFFFF;font-size: 18px;}
-.STYLE15 {color: #ffffff;font-size: 18px;font-family: "黑体";}
-.STYLE25 {color: #FFFFFF;font-size: 18px;font-family: "黑体";}
+.STYLE25 {color: #ffffff;font-size: 24px;font-family: "黑体";}
 a:link {text-decoration: none;}
 a:hover {text-decoration: none;}
 a:VISITED {text-decoration: none;}
@@ -79,29 +77,6 @@ function keyEvent() {
 }
 document.onirkeypress = keyEvent;
 document.onkeypress = keyEvent;
-
-/**
- * 焦点时的样式
- */
-function focusStyle(target, className) {
-	if($(target) != "undefined") {
-		$(target).className = className;
-	}
-};
-function focusImg(target, className) {
-	if($(target) != "undefined") {
-		$(target).className = className;
-	}
-	var titleObj = target+"_title";
-	if($(titleObj) != "undefined") {
-		if(className == "liston"){
-			$(titleObj).className = "STYLE25";
-		}
-		else if(className == "listoff"){
-			$(titleObj).className = "STYLE15";
-		}
-	}
-}
 </script>
 
 </head>
@@ -123,8 +98,8 @@ function focusImg(target, className) {
 	          <td width="224" height="177" align="center">			    			 
 		           <c:if test="${fn:length(pageBean.items) > 0 }">
 					    <c:forEach items="${pageBean.items}" begin="0" end="0" var="result" varStatus="status">
-						   <a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=column" onfocus="focusImg('t_2_0','liston');" onblur="focusImg('t_2_0','listoff');">
-							    <img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" border="0" width="220" height="150"  id="t_2_0" class="listoff"/>
+						   <a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=column"  id="defaultFocus">
+							    <img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" border="0" width="220" height="150"  id="t_2_0"/>
 						    </a>
 						 </c:forEach>
 				  </c:if>
@@ -132,8 +107,8 @@ function focusImg(target, className) {
 	          <td width="224" align="center">
 	             <c:if test="${fn:length(pageBean.items) > 1 }">
 				   <c:forEach items="${pageBean.items}" begin="1" end="1" var="result" varStatus="status">
-						   <a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=column" onfocus="focusImg('t_2_1','liston');" onblur="focusImg('t_2_1','listoff');">
-							    <img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" border="0" width="220" height="150"  id="t_2_1" class="listoff"/>
+						   <a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=column">
+							    <img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" border="0" width="220" height="150"  id="t_2_1"/>
 						    </a>
 					</c:forEach>
 				 </c:if>
@@ -141,8 +116,8 @@ function focusImg(target, className) {
 	          <td width="224" align="center">
 	             <c:if test="${fn:length(pageBean.items) > 2 }">
 				   <c:forEach items="${pageBean.items}" begin="2" end="2" var="result" varStatus="status">
-						   <a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=column" onfocus="focusImg('t_2_2','liston');" onblur="focusImg('t_2_2','listoff');">
-							    <img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" border="0" width="220" height="150"  id="t_2_2" class="listoff"/>
+						   <a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=column">
+							    <img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" border="0" width="220" height="150"  id="t_2_2"/>
 						    </a>
 					</c:forEach>
 				 </c:if>
@@ -150,8 +125,8 @@ function focusImg(target, className) {
 	          <td width="224" align="center">
 	             <c:if test="${fn:length(pageBean.items) > 3 }">
 				   <c:forEach items="${pageBean.items}" begin="3" end="3" var="result" varStatus="status">
-						   <a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=column" onfocus="focusImg('t_2_3','liston');" onblur="focusImg('t_2_3','listoff');">
-							    <img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" border="0" width="220" height="150"  id="t_2_3" class="listoff"/>
+						   <a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=column">
+							    <img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" border="0" width="220" height="150"  id="t_2_3"/>
 						    </a>
 					</c:forEach>
 				 </c:if>
@@ -159,8 +134,8 @@ function focusImg(target, className) {
 	         <td width="224" align="center">
 	             <c:if test="${fn:length(pageBean.items) > 4 }">
 				   <c:forEach items="${pageBean.items}" begin="4" end="4" var="result" varStatus="status">
-						   <a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=column" onfocus="focusImg('t_2_4','liston');" onblur="focusImg('t_2_4','listoff');">
-							    <img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" border="0" width="220" height="150"  id="t_2_4" class="listoff"/>
+						   <a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=column">
+							    <img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" border="0" width="220" height="150"  id="t_2_4"/>
 						    </a>
 					</c:forEach>
 				 </c:if>
@@ -209,8 +184,8 @@ function focusImg(target, className) {
 	          <td width="224" height="177" align="center">			    			 
 		           <c:if test="${fn:length(pageBean.items) > 5 }">
 					    <c:forEach items="${pageBean.items}" begin="5" end="5" var="result" varStatus="status">
-						   <a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=column" onfocus="focusImg('t_2_5','liston');" onblur="focusImg('t_2_5','listoff');">
-							    <img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" border="0" width="220" height="150"  id="t_2_5" class="listoff"/>
+						   <a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=column">
+							    <img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" border="0" width="220" height="150"  id="t_2_5"/>
 						    </a>
 						 </c:forEach>
 				  </c:if>
@@ -218,8 +193,8 @@ function focusImg(target, className) {
 	          <td width="224" align="center">
 	             <c:if test="${fn:length(pageBean.items) > 6 }">
 				   <c:forEach items="${pageBean.items}" begin="6" end="6" var="result" varStatus="status">
-						   <a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=column" onfocus="focusImg('t_2_6','liston');" onblur="focusImg('t_2_6','listoff');">
-							    <img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" border="0" width="220" height="150"  id="t_2_6" class="listoff"/>
+						   <a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=column">
+							    <img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" border="0" width="220" height="150"  id="t_2_6"/>
 						    </a>
 					</c:forEach>
 				 </c:if>
@@ -227,8 +202,8 @@ function focusImg(target, className) {
 	          <td width="224" align="center">
 	             <c:if test="${fn:length(pageBean.items) > 7 }">
 				   <c:forEach items="${pageBean.items}" begin="7" end="7" var="result" varStatus="status">
-						   <a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=column" onfocus="focusImg('t_2_7','liston');" onblur="focusImg('t_2_7','listoff');">
-							    <img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" border="0" width="220" height="150"  id="t_2_7" class="listoff"/>
+						   <a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=column">
+							    <img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" border="0" width="220" height="150"  id="t_2_7"/>
 						    </a>
 					</c:forEach>
 				 </c:if>
@@ -236,8 +211,8 @@ function focusImg(target, className) {
 	          <td width="224" align="center">
 	             <c:if test="${fn:length(pageBean.items) > 8 }">
 				   <c:forEach items="${pageBean.items}" begin="8" end="8" var="result" varStatus="status">
-						   <a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=column" onfocus="focusImg('t_2_8','liston');" onblur="focusImg('t_2_8','listoff');">
-							    <img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" border="0" width="220" height="150"  id="t_2_8" class="listoff"/>
+						   <a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=column">
+							    <img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" border="0" width="220" height="150"  id="t_2_8"/>
 						    </a>
 					</c:forEach>
 				 </c:if>
@@ -245,8 +220,8 @@ function focusImg(target, className) {
 	         <td width="224" align="center">
 	             <c:if test="${fn:length(pageBean.items) > 9 }">
 				   <c:forEach items="${pageBean.items}" begin="9" end="9" var="result" varStatus="status">
-						   <a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=column" onfocus="focusImg('t_2_9','liston');" onblur="focusImg('t_2_9','listoff');">
-							    <img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" border="0" width="220" height="150"  id="t_2_9" class="listoff"/>
+						   <a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=column">
+							    <img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" border="0" width="220" height="150"  id="t_2_9"/>
 						    </a>
 					</c:forEach>
 				 </c:if>
@@ -298,7 +273,7 @@ function focusImg(target, className) {
 		           		<a href="${ctx }/yyzj_hd/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage-1}&pageSize=10" class="STYLE12">上一页</a>
 		           </c:when>
 		           <c:otherwise>
-		           		<a href="#" class="STYLE14">上一页</a>
+		           		上一页
 		           </c:otherwise>
 		      </c:choose>
 		           　<c:choose>
@@ -306,7 +281,7 @@ function focusImg(target, className) {
 		           		<a href="${ctx }/yyzj_hd/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage+1}&pageSize=10" class="STYLE12">下一页</a>
 		           </c:when>
 		           <c:otherwise>
-		           		<a href="#" class="STYLE14">下一页</a>
+		           		下一页
 		           </c:otherwise>
 		      </c:choose>
 		  </td>

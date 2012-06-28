@@ -20,8 +20,7 @@ body {
 a:link{text-decoration:none;}
 a:hover{text-decoration:none;}
 a:VISITED {text-decoration:none;}
-.STYLE15 {color: #ffffff;font-size: 18px;font-family: "黑体";}
-.STYLE25 {color: #edff6f;font-size: 18px;font-family: "黑体";}
+.STYLE25 {color: #ffffff;font-size: 24px;font-family: "黑体";}
 .style151 {font-size: 22px;color: #FFFFFF;font-family: "黑体";}
 .STYLE27 {font-size: 28px;color: #FFFFFF;}
 .STYLE28 {font-size: 18px;color: #edff6f;}
@@ -67,30 +66,6 @@ function keyEvent() {
 }
 document.onirkeypress = keyEvent;
 document.onkeypress = keyEvent;
-
-/**
- * 焦点时的样式
- */
-function focusStyle(target, className) {
-	if($(target) != "undefined") {
-		$(target).className = className;
-	}
-}
-function focusImg(target, className) {
-	if($(target) != "undefined") {
-		$(target).className = className;
-	}
-	var titleObj = target+"_title";
-	if($(titleObj) != "undefined") {
-		if(className == "liston"){
-			$(titleObj).className = "STYLE25";
-		}
-		else if(className == "listoff"){
-			$(titleObj).className = "STYLE15";
-		}
-	}
-}
-
 </script>
 
 </head>

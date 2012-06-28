@@ -82,6 +82,14 @@ function keyEvent() {
 document.onirkeypress = keyEvent;
 document.onkeypress = keyEvent;
 
+/**
+ * 焦点时的样式
+ */
+function focusStyle(target, className) {
+	if($(target) != "undefined") {
+		$(target).className = className;
+	}
+};
 </script>
 </head>
 

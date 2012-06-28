@@ -191,7 +191,7 @@ document.onkeypress = keyEvent;
 		           		<a href="${ctx }/yyzj/filmAction!listAssetByFilmId.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage-1}" class="STYLE12">上一页</a>
 		           </c:when>
 		           <c:otherwise>
-		           		<a href="#" class="STYLE14">上一页</a>
+		           		上一页
 		           </c:otherwise>
 		      </c:choose>
 		           　<c:choose>
@@ -199,7 +199,7 @@ document.onkeypress = keyEvent;
 		           		<a href="${ctx }/yyzj/filmAction!listAssetByFilmId.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage+1}" class="STYLE12">下一页</a>
 		           </c:when>
 		           <c:otherwise>
-		           		<a href="#" class="STYLE14">下一页</a>
+		           		下一页
 		           </c:otherwise>
 		      </c:choose>
            </td>

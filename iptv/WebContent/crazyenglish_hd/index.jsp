@@ -17,6 +17,7 @@ body {
 	width: 1280px;
 	height:720px;
 	background: transparent;
+	background-image: url("images/fkyy_bg.png");
 }
 .titleon {
 	float: left;
@@ -133,12 +134,18 @@ function focusStyle(target, className) {
 
 <body>
 
-<%@ include file="/crazyenglish_hd/head.jsp" %>
+<table width="1280" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><a href="${ctx }/crazyenglish_hd/filmAction!engIndex.do" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image8','','images/fkyy-gq-1-2.jpg',1)"><img src="images/fkyy-gq-1.jpg" name="Image8" width="302" height="101" border="0" id="Image8" /></a></td>
+    <td width="652" align="right"><c:choose><c:when test="${requestScope.columnID == 5}"><a href="${ctx }/crazyenglish_hd/filmAction!listFilmByColumnId.do?columnId=5&channelId=2"><img src="images/fkyy-gq-14-2.jpg" name="Image9" width="227" height="101" border="0" id="Image9" /></a></c:when><c:otherwise><a href="${ctx }/crazyenglish_hd/filmAction!listFilmByColumnId.do?columnId=5&channelId=2" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image9','','images/fkyy-gq-14-2.jpg',1)"><img src="images/fkyy-gq-14.jpg" name="Image9" width="227" height="101" border="0" id="Image9"/></a></c:otherwise></c:choose></td>
+    <td><c:choose><c:when test="${requestScope.columnID == 4}"><a href="${ctx }/crazyenglish_hd/filmAction!listFilmByColumnId.do?columnId=4&channelId=2"><img src="images/fkyy-gq-3-2.jpg" name="Image10" width="326" height="101" border="0" id="Image10" /></a></c:when><c:otherwise><a href="${ctx }/crazyenglish_hd/filmAction!listFilmByColumnId.do?columnId=4&channelId=2" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image10','','images/fkyy-gq-3-2.jpg',1)"><img src="images/fkyy-gq-3.jpg" name="Image10" width="326" height="101" border="0" id="Image10" /></a></c:otherwise></c:choose></td>
+  </tr>
+</table>
 
 <table width="1280" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td width="69"><img src="images/fkyy-gq-4.jpg" width="69" height="590"/></td>
-    <td width="1142" valign="top" bgcolor="#602121">
+    <td width="1142" valign="top">
     <table width="1142" border="0" cellspacing="0" cellpadding="0">
       <tr>
         <td height="15"></td>
@@ -148,62 +155,54 @@ function focusStyle(target, className) {
       <tr>
         	<c:if test="${fn:length(requestScope.filmList) > 0 }">
 			      <c:forEach items="${requestScope.filmList}" begin="0" end="0" var="result" varStatus="status">			        	
-			      		<td width="485"  height="72" bgcolor="#602121">
-				        	<a href="${ctx }/crazyenglish_hd/filmAction!detail.do?filmId=${result.id}&from=index" id="defaultFocus" onfocus="focusStyle('t_0_0','titleon');" onblur="focusStyle('t_0_0','titleoff');">
-				        		<div id="t_0_0" class="titleoff" >${result.name }</div>
-				        	</a>
+			      		<td width="485"  height="72">
+				        	<div id="t_0_0" class="titleoff" ><a href="${ctx }/crazyenglish_hd/filmAction!detail.do?filmId=${result.id}&from=index" id="defaultFocus" onfocus="focusStyle('t_0_0','titleon');" onblur="focusStyle('t_0_0','titleoff');">${result.name }</a></div>
 			        	</td>
         		  </c:forEach>
 		    </c:if>
-        <td rowspan="5"><table border="1" cellpadding="0" cellspacing="2" bordercolor="#facb50">
-	          <tr>
-	            <td width="621" height="350" align="center" bordercolor="#000000" bgcolor="#000000">
-	             	<iframe id="freeVideo" frameborder="0" scrolling="no" style="background-color: transparent;" width="621" height="350"></iframe>
-	            </td>
-	          </tr>
-	        </table>
+        <td rowspan="5">
+        	<table border="0" cellpadding="0" cellspacing="0" width="622">
+		          <tr>
+		            <td width="622" height="352" align="center">
+		             	<iframe id="freeVideo" frameborder="0" scrolling="no" style="background-color: transparent;" width="622" height="352"></iframe>
+		            </td>
+		          </tr>
+		    </table>
        </td>
       </tr>
-	  <tr bgcolor="#602121">
+	  <tr>
 	  	<td height="72">
        	  <c:if test="${fn:length(requestScope.filmList) > 1 }">
       			<c:forEach items="${requestScope.filmList}" begin="1" end="1" var="result" varStatus="status">
-		        	<a href="${ctx }/crazyenglish_hd/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_1_1','titleon');" onblur="focusStyle('t_1_1','titleoff');">
-		        		<div id="t_1_1" class="titleoff" >${result.name }</div>
-		        	</a>
+		        		<div id="t_1_1" class="titleoff" ><a href="${ctx }/crazyenglish_hd/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_1_1','titleon');" onblur="focusStyle('t_1_1','titleoff');">${result.name }</a></div>
 	        	 </c:forEach>
-    				</c:if>
+    	   </c:if>
        	</td>
       </tr>
-    <tr bgcolor="#602121">
+    <tr>
        	<td height="72">
        	  <c:if test="${fn:length(requestScope.filmList) > 2 }">
       			<c:forEach items="${requestScope.filmList}" begin="2" end="2" var="result" varStatus="status">
-		        	<a href="${ctx }/crazyenglish_hd/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_1_2','titleon');" onblur="focusStyle('t_1_2','titleoff');">
-		        		<div id="t_1_2" class="titleoff" >${result.name }</div>
-		        	</a>
+		        		<div id="t_1_2" class="titleoff" ><a href="${ctx }/crazyenglish_hd/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_1_2','titleon');" onblur="focusStyle('t_1_2','titleoff');">${result.name }</a></div>
 	        	 </c:forEach>
-    				</c:if>
+    	   </c:if>
        	</td>
 	  </tr>
-	  <tr bgcolor="#602121">
+	  <tr>
        	<td height="72">
        	  <c:if test="${fn:length(requestScope.filmList) > 3 }">
       			<c:forEach items="${requestScope.filmList}" begin="3" end="3" var="result" varStatus="status">
-		        	<a href="${ctx }/crazyenglish_hd/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_1_3','titleon');" onblur="focusStyle('t_1_3','titleoff');">
-		        		<div id="t_1_3" class="titleoff" >${result.name }</div>
-		        	</a>
+		        	
+		        		<div id="t_1_3" class="titleoff" ><a href="${ctx }/crazyenglish_hd/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_1_3','titleon');" onblur="focusStyle('t_1_3','titleoff');">${result.name }</a></div>
 	        	 </c:forEach>
-    				</c:if>
+    	  </c:if>
        	</td>
 	  </tr>
-	  <tr bgcolor="#602121">
+	  <tr>
        	<td height="72">
        	  <c:if test="${fn:length(requestScope.filmList) > 4 }">
       			<c:forEach items="${requestScope.filmList}" begin="4" end="4" var="result" varStatus="status">
-		        	<a href="${ctx }/crazyenglish_hd/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_1_4','titleon');" onblur="focusStyle('t_1_4','titleoff');">
-		        		<div id="t_1_4" class="titleoff" >${result.name }</div>
-		        	</a>
+		        		<div id="t_1_4" class="titleoff" ><a href="${ctx }/crazyenglish_hd/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_1_4','titleon');" onblur="focusStyle('t_1_4','titleoff');">${result.name }</a></div>
 	        	 </c:forEach>
     	  </c:if>
        	</td>
@@ -224,8 +223,8 @@ var firstFileID = "${requestScope.defaultPlayID}";//默认播放第一个影片�
 var prefix = "${requestScope.prefix}";
 
 function init(){
-	$("freeVideo").src = prefix + "HD_PlayTrailerInVas.jsp?left=569&top=122&width=621&height=350&type=VOD&value=" + firstFileID+"contenttype=10";
-
+	//$("freeVideo").src = prefix + "HD_PlayTrailerInVas.jsp?left=569&top=122&width=621&height=350&type=VOD&value=" + firstFileID;
+	$("freeVideo").src = prefix + "PlayTrailerInVas.jsp?left=572&top=122&width=622&height=352&type=VOD&value=" + firstFileID;
 }
 init();
 </script>

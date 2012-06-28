@@ -72,6 +72,7 @@
 			<td align="center">集数</td>
 			<td align="center">有效期</td>
 			<td align="center">内容ID</td>
+			<td align="center">录入时间</td>
 			<td align="center">操作</td>
 		</tr>
 		<c:forEach items="${pageBean.items}" var="film" varStatus="status">
@@ -81,6 +82,7 @@
 				<td align="center">${film.serialCount }</td>
 				<td align="center">${film.period }</td>
 				<td align="center">${film.contentId }</td>
+				<td align="center"><fmt:formatDate value="${film.uploadDate }" pattern="yyyy-MM-dd HH:mm"/></td>
 				<td align="center"><a href="javascript:deleteFilm(${film.id })">删除</a>
 					&nbsp;&nbsp;<a href="javascript:modifyFilm(${film.id })">修改</a>
 					&nbsp;&nbsp;<a href="javascript:assetList(${film.id })">影片内容</a>
@@ -92,7 +94,7 @@
 			</tr>
 		</c:forEach>
 		<tr align="center">
-			<td colspan="6"><jsp:include page="/manager/common/paging_footer.jsp"></jsp:include></td>
+			<td colspan="7"><jsp:include page="/manager/common/paging_footer.jsp"></jsp:include></td>
 		</tr>
 	</table>
 </div>

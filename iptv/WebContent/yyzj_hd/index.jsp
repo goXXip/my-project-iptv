@@ -18,6 +18,7 @@ body {
 	width: 1280px;
 	height:720px;
 	background: transparent;
+	background-image: url("images/yyzj-bg.png");
 }
 .titleon {
 	float: left;
@@ -33,7 +34,7 @@ body {
 	line-height: 70px;
 	background: url("images/bg-02.jpg");
 }
-
+.titleon a{color: #FFFFFF;}
 .titleoff {
 	float: left;
 	width: 445px;
@@ -48,19 +49,11 @@ body {
 	line-height: 70px;
 	background: url("images/bg-01.jpg");
 }
-.liston{
-	border-style: solid;
-	border-width: 2px;
-	border-color: #C0F8F2;
-}
-.listoff {
-	border-width: 0px;
-}
+.titleoff a{color: #edff6f;}
 a:link{text-decoration:none;}
 a:hover{text-decoration:none;}
 a:VISITED {text-decoration:none;}
-.STYLE15 {color: #ffffff;font-size: 18px;font-family: "黑体";}
-.STYLE25 {color: #edff6f;font-size: 18px;font-family: "黑体";}
+.STYLE25 {color: #ffffff;font-size: 24px;font-family: "黑体";}
 </style>
 
 <script type="text/javascript">
@@ -95,6 +88,30 @@ function keyEvent() {
 		keyCode = event.which;
 	}
 	switch(keyCode) {
+		case 1://up
+		case 269:
+			verticalChan(-1);
+			return 0;
+			break;
+		case 2://down
+		case 270:
+			verticalChan(+1);
+			return 0;
+			break;
+		case 3://left
+		case 271:
+			horizonChan(-1);
+			return 0;
+			break;
+		case 4://right
+		case 272:
+			horizonChan(1);
+			return 0;
+			break;
+		case 13:
+			doSelect();
+			return 0;
+			break;
 	case 8:
 	case 109:
 	case 283:
@@ -113,41 +130,98 @@ function keyEvent() {
 document.onirkeypress = keyEvent;
 document.onkeypress = keyEvent;
 
-/**
- * 焦点时的样式
- */
 function focusStyle(target, className) {
 	if($(target) != "undefined") {
 		$(target).className = className;
 	}
 }
 
-function focusImg(target, className) {
-	if($(target) != "undefined") {
-		$(target).className = className;
-	}
-	var titleObj = target+"_title";
-	if($(titleObj) != "undefined") {
-		if(className == "liston"){
-			$(titleObj).className = "STYLE25";
-		}
-		else if(className == "listoff"){
-			$(titleObj).className = "STYLE15";
-		}
+var area = 0; //0 导航  1置顶节目  2相关推荐节目
+var btn_pos = 0 ;
+var filmArray = ${requestScope.filmArray};//
+var relativeArray = ${requestScope.relativeArray};
+var menuArray = ["${ctx }/yyzj_hd/filmAction!eduIndex.do","${ctx }/yyzj_hd/filmAction!listFilmByColumnId.do?columnId=1&channelId=1","${ctx }/yyzj_hd/filmAction!listFilmByColumnId.do?columnId=2&channelId=1","${ctx }/yyzj_hd/filmAction!listFilmByColumnId.do?columnId=3&channelId=1"];
+function init(){
+	if(filmArray.length >0){
+		area = 1;
+	}else{
+		area = 0;
 	}
 }
+
+function verticalChan(__num){
+	if( area == 0 ){
+
+	}
+	else if( area == 1){
+
+	}
+	else if(area == 2){
+
+	}
+}
+
+function horizonChan(_num){
+	if( area == 0){
+
+	}
+	else if( area == 1){
+
+	}
+	else if(area == 2){
+
+	}
+}
+
+function doSelect(){
+	if(area==0){
+		if( btn_pos < menuArray.length){
+			var url = menuArray[btn_pos];
+			location.href = url;
+		}
+	}
+	else if(area ==1){
+		if(filmArray.length >0){
+			if( btn_pos < filmArray.length){
+				var id = filmArray[btn_pos];
+				var url = "${ctx }/yyzj_hd/filmAction!detail.do?filmId="+id+"&from=index";
+				location.href = url;
+			}
+		}	
+	}
+	else if(area == 2 ){
+		if(relativeArray.length >0){
+			if( btn_pos < relativeArray.length){
+				var id = relativeArray[btn_pos];
+				var url = "${ctx }/yyzj_hd/filmAction!detail.do?filmId="+id+"&from=index";
+				location.href = url;
+			}
+		}
+	}	
+}
+
 </script>
 
 </head>
 
-<body>
+<body bgcolor="transparent">
 
-<%@ include file="/yyzj_hd/head.jsp" %>
+<table width="1280" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="65">&nbsp;</td>
+    <td><img src="images/yyzj-gq-1.jpg" name="Image9" width="240" height="101" border="0" id="menu0" /></td>
+    <td><img src="images/yyzj-gq-15.jpg" width="282" height="101" /></td>
+    <td><img src="images/yyzj-gq-2-2.jpg" name="Image11" width="196" height="101" border="0" id="menu1" /></td>
+    <td><img src="images/yyzj-gq-3-2.jpg" name="Image12" width="213" height="101" border="0" id="menu2" /></td>
+    <td><img src="images/yyzj-gq-4-2.jpg" name="Image13" width="213" height="101" border="0" id="menu3" /></td>
+    <td width="71">&nbsp;</td>
+  </tr>
+</table>
 
 <table width="1280" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td width="65"><img src="images/yyzj-gq-5.jpg" width="65" height="591" /></td>
-    <td width="1142" valign="top" bgcolor="#214c47">
+    <td width="1142" valign="top">
     <table width="1142" border="0" cellspacing="0" cellpadding="0">
       <tr>
         <td height="15"></td>
@@ -160,61 +234,53 @@ function focusImg(target, className) {
 	      <tr>
 		       <c:if test="${fn:length(requestScope.filmList) > 0 }">
 			      <c:forEach items="${requestScope.filmList}" begin="0" end="0" var="result" varStatus="status">
-			        	<td width="485"  height="72" bgcolor="#214c47">
-				        	<a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=index" id="defaultFocus" onfocus="focusStyle('t_0_0','titleon');" onblur="focusStyle('t_0_0','titleoff');">
-				        		<div id="t_0_0" class="titleoff" >${result.name }</div>
-				        	</a>
+			        	<td width="485"  height="72">
+				        	<div id="t_0_0" class="titleoff" >${result.name }</div>
 			        	</td>
 			      </c:forEach>
 		      </c:if>
-	        <td rowspan="5"><table border="1" cellpadding="0" cellspacing="2" bordercolor="#A0F3EB">
-	          <tr>
-	            <td width="621" height="350" align="center" bordercolor="#000000" bgcolor="#000000">
-	             	<iframe id="freeVideo" frameborder="0" scrolling="no" style="background-color: transparent;" width="621" height="350"></iframe>
-	            </td>
-	          </tr>
-	        </table></td>
+	        <td rowspan="5">
+		        <table border="0" cellpadding="0" cellspacing="0" width="624">
+		          <tr>
+		            <td width="624" height="354" align="center">
+		             	<iframe id="freeVideo" frameborder="0" scrolling="no" style="background-color: transparent;" width="624" height="354"></iframe>
+		            </td>
+		          </tr>
+		        </table>
+	        </td>
 	      </tr>
-			<tr bgcolor="#214c47">
+			<tr>
 			  	<td height="72">
 	        	  <c:if test="${fn:length(requestScope.filmList) > 1 }">
 		      			<c:forEach items="${requestScope.filmList}" begin="1" end="1" var="result" varStatus="status">
-				        	<a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_1_1','titleon');" onblur="focusStyle('t_1_1','titleoff');">
-				        		<div id="t_1_1" class="titleoff" >${result.name }</div>
-				        	</a>
+				        		<div id="t_1_1" class="titleoff" >${result.name }</a></div>
 			        	 </c:forEach>
 	     				</c:if>
 	        	</td>
 	       </tr>
-			 <tr bgcolor="#214c47">
+			 <tr>
 	        	<td height="72">
 	        	  <c:if test="${fn:length(requestScope.filmList) > 2 }">
 		      			<c:forEach items="${requestScope.filmList}" begin="2" end="2" var="result" varStatus="status">
-				        	<a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_1_2','titleon');" onblur="focusStyle('t_1_2','titleoff');">
 				        		<div id="t_1_2" class="titleoff" >${result.name }</div>
-				        	</a>
 			        	 </c:forEach>
 	     				</c:if>
 	        	</td>
 			  </tr>
-			  <tr bgcolor="#214c47">
+			  <tr>
 	        	<td height="72">
 	        	  <c:if test="${fn:length(requestScope.filmList) > 3 }">
 		      			<c:forEach items="${requestScope.filmList}" begin="3" end="3" var="result" varStatus="status">
-				        	<a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_1_3','titleon');" onblur="focusStyle('t_1_3','titleoff');">
-				        		<div id="t_1_3" class="titleoff" >${result.name }</div>
-				        	</a>
+				        	<div id="t_1_3" class="titleoff" >${result.name }</div>
 			        	 </c:forEach>
 	     				</c:if>
 	        	</td>
 			  </tr>
-			  <tr bgcolor="#214c47">
+			  <tr>
 	        	<td height="72">
 	        	  <c:if test="${fn:length(requestScope.filmList) > 4 }">
 		      			<c:forEach items="${requestScope.filmList}" begin="4" end="4" var="result" varStatus="status">
-				        	<a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_1_4','titleon');" onblur="focusStyle('t_1_4','titleoff');">
 				        		<div id="t_1_4" class="titleoff" >${result.name }</div>
-				        	</a>
 			        	 </c:forEach>
 	     				</c:if>
 	        	</td>
@@ -237,7 +303,11 @@ var firstFileID = "${requestScope.defaultPlayID}";//默认播放第一个影片�
 var prefix = "${requestScope.prefix}";
 
 	function init(){
-		$("freeVideo").src = prefix + "HD_PlayTrailerInVas.jsp?left=569&top=122&width=621&height=350&type=VOD&value=" + firstFileID+"contenttype=10";
+		if(firstFileID != ""){
+			//$("freeVideo").src = prefix + "HD_PlayTrailerInVas.jsp?left=569&top=122&width=621&height=350&type=VOD&value=" + firstFileID;
+			$("freeVideo").src = prefix + "PlayTrailerInVas.jsp?left=568&top=122&width=624&height=354&type=VOD&value=" + firstFileID;
+			//$("freeVideo").src = prefix + "PlayTrailerInVas.jsp?left=275&top=90&width=325&height=244&type=VOD&value=" + firstFileID;
+		}
 	}
 
 init();

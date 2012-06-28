@@ -37,6 +37,7 @@ a:VISITED {text-decoration:none;}
 	line-height: 70px;
 	background: url("images/bg-02.jpg");
 }
+.titleon a{ color: #FFFFFF; }
 .titleoff {
 	float: left;
 	width: 975px; 
@@ -50,6 +51,7 @@ a:VISITED {text-decoration:none;}
 	line-height: 70px;
 	background: url("images/bg-01.jpg");
 }
+.titleoff a{color: #FBB90B; }
 </style>
 
 <script type="text/javascript" src="js/common.js"></script>
@@ -138,30 +140,14 @@ function goto_play(id,fileID,ztID,filmId){
 	      	<c:if test="${status.count == 1}">
 		      	<tr>
 		          <td width="1017" height="75" valign="top">
-			           <a href="javascript:goto_play(${result.id },'${result.fileId }','${requestScope.contentID }','${result.filmid }');" id="defaultFocus" onfocus="focusStyle_episode('t${status.count }','titleon');" onblur="focusStyle_episode('t${status.count }','titleoff');">
-				          <div id="t${status.count }" class="titleoff">
-				              <table border="0" cellpadding="0" cellspacing="0" width="100%">
-				                  <tr>
-				                    <td>第${(pageBean.curPage-1)*7+status.count }集   ${result.name }</td>
-				                  </tr>
-				              </table>
-				          </div>
-			          </a>
+				       <div id="t${status.count }" class="titleoff"><a href="javascript:goto_play(${result.id },'${result.fileId }','${requestScope.contentID }','${result.filmid }');" id="defaultFocus" onfocus="focusStyle_episode('t${status.count }','titleon');" onblur="focusStyle_episode('t${status.count }','titleoff');">第${(pageBean.curPage-1)*7+status.count }集   ${result.name }</a></div>
 		          </td>
 		        </tr>
 	      	</c:if>
 	       <c:if test="${status.count != 1}">
 		      	<tr>
 		          <td width="1017" height="75" valign="top">
-			           <a href="javascript:goto_play(${result.id },'${result.fileId }','${requestScope.contentID }','${result.filmid }');" onfocus="focusStyle_episode('t${status.count }','titleon');" onblur="focusStyle_episode('t${status.count }','titleoff');">
-				          <div id="t${status.count }" class="titleoff">
-				              <table border="0" cellpadding="0" cellspacing="0" width="100%">
-				                  <tr>
-				                    <td>第${(pageBean.curPage-1)*7+status.count }集   ${result.name }</td>
-				                  </tr>
-				              </table>
-				          </div>
-			          </a>
+				      <div id="t${status.count }" class="titleoff"><a href="javascript:goto_play(${result.id },'${result.fileId }','${requestScope.contentID }','${result.filmid }');" onfocus="focusStyle_episode('t${status.count }','titleon');" onblur="focusStyle_episode('t${status.count }','titleoff');">第${(pageBean.curPage-1)*7+status.count }集   ${result.name }</a></div>
 		          </td>
 		        </tr>
 	      	</c:if>
@@ -173,7 +159,7 @@ function goto_play(id,fileID,ztID,filmId){
 			           		<a href="${ctx }/crazyenglish_hd/filmAction!listAssetByFilmId.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage-1}" class="STYLE12">上一页</a>
 			           </c:when>
 			           <c:otherwise>
-			           		<a href="#" class="STYLE14">上一页</a>
+			           		上一页
 			           </c:otherwise>
 			      </c:choose>
 			           　<c:choose>
@@ -181,7 +167,7 @@ function goto_play(id,fileID,ztID,filmId){
 			           		<a href="${ctx }/crazyenglish_hd/filmAction!listAssetByFilmId.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage+1}" class="STYLE12">下一页</a>
 			           </c:when>
 			           <c:otherwise>
-			           		<a href="#" class="STYLE14">下一页</a>
+			           		下一页
 			           </c:otherwise>
 			      </c:choose>
 		</td>
