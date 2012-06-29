@@ -38,7 +38,7 @@ a:hover{text-decoration:none;}
 a:VISITED {text-decoration:none;}
 .style15 {	font-size: 22px;color: #FFFFFF;font-family: "黑体";}
 .STYLE25 {font-size: 28px; color: #FFFFFF; font-family: "黑体"; }
-.STYLE26 {color: #FF9900;font-size: 18px;font-family: "黑体";}
+.STYLE26 {color: #FF9900;font-size: 22px;font-family: "黑体";}
 </style>
 
 <script type="text/javascript" src="js/common.js"></script>

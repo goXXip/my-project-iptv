@@ -129,8 +129,8 @@ function focusStyle(target, className) {
 					              		<img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" width="120" height="165" />
 					              	</a>
 					              </td>
-					              <td width="116" valign="top"><span style="font-size: 20px">${result.name }</span><br />
-					                 <span style="font-size: 18px">适用：${result.audient }<br />主讲：${result.actor }</span>
+					              <td width="116" valign="top"><span style="font-size: 24px">${result.name }</span><br />
+					                 <span style="font-size: 20px">适用：${result.audient }<br />主讲：${result.actor }</span>
 					              </td>
 					             </tr>
 					          </table>
@@ -149,8 +149,8 @@ function focusStyle(target, className) {
 					              		<img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" width="120" height="165" />
 					              	</a>
 					              </td>
-					              <td width="116" valign="top"><span style="font-size: 20px">${result.name }</span><br />
-					                 <span style="font-size: 18px">适用：${result.audient }<br />主讲：${result.actor }</span>
+					              <td width="116" valign="top"><span style="font-size: 24px">${result.name }</span><br />
+					                 <span style="font-size: 20px">适用：${result.audient }<br />主讲：${result.actor }</span>
 					              </td>
 					             </tr>
 					          </table>
@@ -169,8 +169,8 @@ function focusStyle(target, className) {
 						              		<img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" width="120" height="165" />
 						              	</a>
 						              </td>
-						              <td width="116" valign="top"><span style="font-size: 20px">${result.name }</span><br />
-						                <span style="font-size: 18px">适用：${result.audient }<br />主讲：${result.actor }</span>
+						              <td width="116" valign="top"><span style="font-size: 24px">${result.name }</span><br />
+						                <span style="font-size: 20px">适用：${result.audient }<br />主讲：${result.actor }</span>
 						              </td>
 						             </tr>
 						          </table>
@@ -189,8 +189,8 @@ function focusStyle(target, className) {
 						              		<img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" width="120" height="165" />
 						              	</a>
 						              </td>
-						              <td width="116" valign="top"><span style="font-size: 20px">${result.name }</span><br />
-						                 <span style="font-size: 18px">适用：${result.audient }<br />主讲：${result.actor }</span>
+						              <td width="116" valign="top"><span style="font-size: 24px">${result.name }</span><br />
+						                 <span style="font-size: 20px">适用：${result.audient }<br />主讲：${result.actor }</span>
 						              </td>
 						             </tr>
 						          </table>
@@ -213,8 +213,8 @@ function focusStyle(target, className) {
 					              		<img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" width="120" height="165" />
 					              	</a>
 					              </td>
-					              <td width="116" valign="top"><span style="font-size: 20px">${result.name }</span><br />
-					                 <span style="font-size: 18px">适用：${result.audient }<br />主讲：${result.actor }</span>
+					              <td width="116" valign="top"><span style="font-size: 24px">${result.name }</span><br />
+					                 <span style="font-size: 20px">适用：${result.audient }<br />主讲：${result.actor }</span>
 					              </td>
 					             </tr>
 					          </table>
@@ -233,9 +233,9 @@ function focusStyle(target, className) {
 					              		<img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" width="120" height="165" />
 					              	</a>
 					              </td>
-					              <td width="116" valign="top"><span style="font-size: 20px">${result.name }</span><br />
-					                <span style="font-size: 18px">适用：${result.audient }<br />主讲：${result.actor }</span>
-					              </td>
+						              <td width="116" valign="top"><span style="font-size: 24px">${result.name }</span><br />
+						                 <span style="font-size: 20px">适用：${result.audient }<br />主讲：${result.actor }</span>
+						              </td>
 					             </tr>
 					          </table>
 		          		</div>
@@ -253,8 +253,8 @@ function focusStyle(target, className) {
 						              		<img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" width="120" height="165" />
 						              	</a>
 						              </td>
-						              <td width="116" valign="top"><span style="font-size: 20px">${result.name }</span><br />
-						                 <span style="font-size: 18px">适用：${result.audient }<br />主讲：${result.actor }</span>
+						              <td width="116" valign="top"><span style="font-size: 24px">${result.name }</span><br />
+						                 <span style="font-size: 20px">适用：${result.audient }<br />主讲：${result.actor }</span>
 						              </td>
 						             </tr>
 						          </table>
@@ -273,8 +273,8 @@ function focusStyle(target, className) {
 						              		<img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" width="120" height="165" />
 						              	</a>
 						              </td>
-						              <td width="116" valign="top"><span style="font-size: 20px">${result.name }</span><br />
-						                <span style="font-size: 18px">适用：${result.audient }<br />主讲：${result.actor }</span>
+						              <td width="116" valign="top"><span style="font-size: 24px">${result.name }</span><br />
+						                 <span style="font-size: 20px">适用：${result.audient }<br />主讲：${result.actor }</span>
 						              </td>
 						             </tr>
 						          </table>
