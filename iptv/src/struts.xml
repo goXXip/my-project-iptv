@@ -10,16 +10,16 @@
 	<constant name="struts.multipart.maxSize" value="10000000"/>
 	<constant name="struts.multipart.saveDir" value="/tmp" />
 	<constant name="struts.i18n.encoding" value="UTF-8" />
-	<constant name="struts.devMode" value="true" />
+	<constant name="struts.devMode" value="false" />
 	
 	<package name="mydefault" namespace="/" extends="struts-default">
-		<!--<global-results>
+		<global-results>
 			<result name="error">/common/error.jsp</result>
 		</global-results>
 	
 		<global-exception-mappings>
 			<exception-mapping exception="java.lang.Exception" result="error" />
-		</global-exception-mappings>-->
+		</global-exception-mappings>
 	</package>
 
    <package name="manager" namespace="/manager" extends="struts-default">
@@ -107,7 +107,7 @@
     	<action name="filmAction" class="com.netitv.web.front.FilmAction">
     		<result name="toAuthentication" type="redirect">${toAuthenticationUrl}</result>
         	<result name="eduIndex">/yyzj/index.jsp</result>
-        	<result name="eduIndex_hd">/yyzj_hd/index.jsp</result>
+        	<result name="eduIndex_hd" type="redirect">${hdIndexUrl}</result>
         	<result name="listByColumn">/yyzj/list.jsp</result>
         	<result name="detail">/yyzj/detail.jsp</result>
         	<result name="listAsset">/yyzj/episode.jsp</result>
@@ -123,7 +123,7 @@
     	<action name="filmAction" class="com.netitv.web.front.FilmAction">
     		<result name="toAuthentication" type="redirect">${toAuthenticationUrl}</result>
     		<result name="engIndex">/crazyenglish/index.jsp</result>
-    		<result name="engIndex_hd">/crazyenglish_hd/index.jsp</result>
+    		<result name="engIndex_hd" type="redirect">${hdIndexUrl}</result>
     		<result name="listByColumn">/crazyenglish/list.jsp</result>
         	<result name="detail">/crazyenglish/detail.jsp</result>
         	<result name="listAsset">/crazyenglish/episode.jsp</result>
