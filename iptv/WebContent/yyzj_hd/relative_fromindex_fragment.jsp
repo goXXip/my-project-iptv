@@ -33,9 +33,7 @@
          <td width="224" align="center">
              <c:if test="${fn:length(requestScope.relativeList) > 4 }">
 			   <c:forEach items="${requestScope.relativeList}" begin="4" end="4" var="result" varStatus="status">
-					   <a href="${ctx }/yyzj_hd/filmAction!detail.do?filmId=${result.id}&from=index">
-						    <img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" border="0" width="220" height="150"  id="t_2_4"/>
-					    </a>
+				 <img src="${ctx }/uploadImages/${result.smallImage_HD.id}.${result.smallImage_HD.suffix}" border="0" width="220" height="150"  id="t_2_4"/>
 				</c:forEach>
 			 </c:if>
           </td>

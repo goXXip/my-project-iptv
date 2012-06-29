@@ -86,23 +86,19 @@ function keyEvent() {
 		keyCode = event.which;
 	}
 	switch(keyCode) {
-		case 1://up
-		case 269:
+		case 38://up
 			verticalChan(-1);
 			return 0;
 			break;
-		case 2://down
-		case 270:
+		case 40://down
 			verticalChan(+1);
 			return 0;
 			break;
-		case 3://left
-		case 271:
+		case 37://left
 			horizonChan(-1);
 			return 0;
 			break;
-		case 4://right
-		case 272:
+		case 39://right
 			horizonChan(1);
 			return 0;
 			break;
@@ -136,11 +132,11 @@ function focusStyle(target, className) {
 
 var area = 0; //0 导航  1置顶节目  2相关推荐节目
 var btn_pos = 0 ;
-var filmArray = ${requestScope.filmArray};//
-var relativeArray = ${requestScope.relativeArray};
+var filmArray = ${requestScope.filmArray};//置顶节目
+var relativeArray = ${requestScope.relativeArray};//相关推荐节目
 var menuArray = ["${ctx }/yyzj_hd/filmAction!eduIndex.do","${ctx }/yyzj_hd/filmAction!listFilmByColumnId.do?columnId=1&channelId=1","${ctx }/yyzj_hd/filmAction!listFilmByColumnId.do?columnId=2&channelId=1","${ctx }/yyzj_hd/filmAction!listFilmByColumnId.do?columnId=3&channelId=1"];
 
-function init(){
+function initFocus(){
 	if(filmArray.length >0){
 		area = 1;
 		$("t_1_"+btn_pos).className = "titleon";
@@ -165,9 +161,7 @@ function horizonChan(_num){
 				return;
 			}
 		}
-		var index = btn_pos + 1;
-		var imagename = "yyzj-gq-"+index+".jpg";
-		$("menu"+btn_pos).src = "images/"+imagename;
+		$("menu"+btn_pos).className = "";
 		btn_pos += _num;
 		focusMenu();
 	}
@@ -194,17 +188,16 @@ function horizonChan(_num){
 }
 function focusMenu(){
 
-	var index = btn_pos + 1;
-	var imagename = "yyzj-gq-"+index+"-2.jpg";
-	$("menu"+btn_pos).src = "images/"+imagename;
 	$("menu"+btn_pos).className = "img";
 }
 //纵向移动
 function verticalChan(_num){
 	if( area == 0){
-		if(_num > 0){
+		if(_num > 0 && filmArray.length >0){
+			$("menu"+btn_pos).className = "";
 			area = 1;
 			btn_pos  = 0;
+			$("t_1_"+btn_pos).className = "titleon";
 		}
 	}
 	else if( area == 1){
@@ -213,19 +206,23 @@ function verticalChan(_num){
 		if(btn_pos < 0 ){
 			area = 0 ;
 			btn_pos = 0;
+			focusMenu();
 			return;
 		}
-		if(btn_pos > filmArray.length -1  ){
+		if(btn_pos > filmArray.length -1 && relativeArray.length >0 ){
 			area = 2 ;
 			btn_pos = 0;
+			$("t_2_"+btn_pos).className = "img";
 			return ;
 		}
 		$("t_1_"+btn_pos).className = "titleon";
 	}
 	else if(area == 2){
 		if(_num < 0){
+			$("t_2_"+btn_pos).className = "";
 			area = 1;
-			btn_pos  = 0;
+			btn_pos = filmArray.length -1;
+			$("t_1_"+btn_pos).className = "titleon";
 		}
 	}
 }
@@ -265,12 +262,12 @@ function doSelect(){
 
 <table width="1280" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td width="65">&nbsp;</td>
-    <td><img src="images/yyzj-gq-1.jpg" name="Image9" width="240" height="101" border="0" id="menu0" /></td>
-    <td width="282" height="101" ></td>
-    <td><img src="images/yyzj-gq-2.jpg" name="Image11" width="196" height="101" border="0" id="menu1" /></td>
-    <td><img src="images/yyzj-gq-3.jpg" name="Image12" width="213" height="101" border="0" id="menu2" /></td>
-    <td><img src="images/yyzj-gq-4.jpg" name="Image13" width="213" height="101" border="0" id="menu3" /></td>
+    <td width="65" height="101">&nbsp;</td>
+    <td width="240"><img src="images/menu-1-2.jpg" name="Image9" width="228" height="89" border="0" id="menu0" /></td>
+    <td width="282"><img src="images/yyzj-gq-15.jpg" width="282" height="101" /></td>
+    <td width="196"><img src="images/menu-2.jpg" name="Image11" width="190" height="89" border="0" id="menu1" /></td>
+    <td width="213"><img src="images/menu-3.jpg" name="Image12" width="201" height="89" border="0" id="menu2" /></td>
+    <td width="213"><img src="images/menu-4.jpg" name="Image13" width="201" height="89" border="0" id="menu3" /></td>
     <td width="71">&nbsp;</td>
   </tr>
 </table>
@@ -360,10 +357,9 @@ var firstFileID = "${requestScope.defaultPlayID}";//默认播放第一个影片�
 var prefix = "${requestScope.prefix}";
 
 	function init(){
+		initFocus();
 		if(firstFileID != ""){
-			//$("freeVideo").src = prefix + "HD_PlayTrailerInVas.jsp?left=569&top=122&width=621&height=350&type=VOD&value=" + firstFileID;
 			$("freeVideo").src = prefix + "PlayTrailerInVas.jsp?left=568&top=122&width=624&height=354&type=VOD&value=" + firstFileID;
-			//$("freeVideo").src = prefix + "PlayTrailerInVas.jsp?left=275&top=90&width=325&height=244&type=VOD&value=" + firstFileID;
 		}
 	}
 

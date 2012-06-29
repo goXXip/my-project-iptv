@@ -40,7 +40,7 @@ a:VISITED {text-decoration:none;}
 	line-height: 70px;
 	background: url("images/bg-02.jpg");
 }
-.titleon table{margin-top:10px;color: #FFFFFF; font-size: 24px;}
+.titleon a{ color: #FFFFFF; }
 .titleoff {
 	float: left;
 	width: 975px; 
@@ -55,7 +55,7 @@ a:VISITED {text-decoration:none;}
 	line-height: 70px;
 	background: url("images/bg-01.jpg");
 }
-.titleoff table{margin-top:10px;color: #edff6f;font-size: 24px; }
+.titleoff a{color: #edff6f; }
 </style>
 
 <script type="text/javascript" src="js/common.js"></script>
@@ -114,7 +114,9 @@ document.onkeypress = keyEvent;
 		var pay_confirm_url = "${ctx}/yyzj_hd/filmAction!orderConfirm.do?filmId="+filmId;
 		var backUrl = "${ctx}/yyzj_hd/filmAction!listAssetByFilmId.do?filmId="+filmId+"&curPage=${pageBean.curPage}";
 		backUrl = escape(backUrl);
-		location.href = epg_server + "play.jsp?PROGID="+fileID+"&FATHERID="+ztID+"&TYPE_ID=-1&CONTENTTYPE=0&BUSINESSTYPE=1&TYPE_ID=-1&PLAYTYPE=1&ISTVSERIESFLAG=1&PROGNUM=&CHILDID="+fileID+"&backurl=" + backUrl;;
+		var gotoUrl = epg_server + "play.jsp?PROGID="+fileID+"&FATHERID="+ztID+"&TYPE_ID=-1&CONTENTTYPE=0&BUSINESSTYPE=1&TYPE_ID=-1&PLAYTYPE=1&ISTVSERIESFLAG=1&PROGNUM=&CHILDID="+fileID;
+		gotoUrl = escape(gotoUrl);
+		location.href = epg_server + "epg_pageAction.jsp?action=addUrl&goUrl="+gotoUrl+"&backUrl="+backUrl;
 	}
 
 	function focusStyle_episode(target, className) {
@@ -144,36 +146,14 @@ document.onkeypress = keyEvent;
 		      	<c:if test="${status.count == 1}">
 			      	<tr>
 			          <td width="1017" height="75" valign="top">
-					      <div id="t${status.count }" class="titleoff">
-						       <table width="100%" cellpadding="0" cellspacing="0" border="0">
-							       	<tr>
-							       		<td>第${(pageBean.curPage-1)*7+status.count }集   ${result.name }</td>
-							       			<td width="75">
-								       		<a href="javascript:goto_play(${result.id },'${result.fileId }','${requestScope.contentID }','${result.filmid }');" id="defaultFocus" onfocus="focusStyle_episode('t${status.count }','titleon');" onblur="focusStyle_episode('t${status.count }','titleoff');">
-								       			<img src="./images/sanjiao-1.png"/>
-								       		</a>
-							       		</td>
-							       	</tr>
-						       </table>
-					      </div>
+					     <div id="t${status.count }" class="titleoff"><a href="javascript:goto_play(${result.id },'${result.fileId }','${requestScope.contentID }','${result.filmid }');" id="defaultFocus" onfocus="focusStyle_episode('t${status.count }','titleon');" onblur="focusStyle_episode('t${status.count }','titleoff');">第${(pageBean.curPage-1)*7+status.count }集   ${result.name }</a></div>
 			          </td>
 			        </tr>
 		      	</c:if>
 		       <c:if test="${status.count != 1}">
 			      	<tr>
 			          <td width="1017" height="75" valign="top">
-					      <div id="t${status.count }" class="titleoff">
-						      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-						      	<tr>
-						      	<td> 第${(pageBean.curPage-1)*7+status.count }集   ${result.name }</td>
-						      	<td width="75">
-							      	<a href="javascript:goto_play(${result.id },'${result.fileId }','${requestScope.contentID }','${result.filmid }');" onfocus="focusStyle_episode('t${status.count }','titleon');" onblur="focusStyle_episode('t${status.count }','titleoff');">
-							      		<img src="./images/sanjiao-1.png" />
-							      	</a>
-						      	</td>
-						      	</tr>
-						      </table>
-					      </div>
+					       <div id="t${status.count }" class="titleoff"><a href="javascript:goto_play(${result.id },'${result.fileId }','${requestScope.contentID }','${result.filmid }');" onfocus="focusStyle_episode('t${status.count }','titleon');" onblur="focusStyle_episode('t${status.count }','titleoff');">第${(pageBean.curPage-1)*7+status.count }集   ${result.name }</a></div>
 			          </td>
 			        </tr>
 		      	</c:if>
