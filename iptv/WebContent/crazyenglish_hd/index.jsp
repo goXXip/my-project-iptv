@@ -18,6 +18,7 @@ body {
 	height:720px;
 	background: transparent;
 	background-image: url("images/fkyy_bg.png");
+	background-repeat:repeat;
 }
 .titleon {
 	float: left;
@@ -33,7 +34,7 @@ body {
 	line-height: 70px;
 	background: url("images/bg-02.jpg");
 }
-
+.titleon a {color: #FFFFFF;}
 .titleoff {
 	float: left;
 	width: 445px;
@@ -48,6 +49,7 @@ body {
 	line-height: 70px;
 	background: url("images/bg-01.jpg");
 }
+.titleoff a{color: #edff6f;}
 .liston {
 	float: left;
 	width: 268px;
@@ -222,7 +224,6 @@ var firstFileID = "${requestScope.defaultPlayID}";//默认播放第一个影片�
 var prefix = "${requestScope.prefix}";
 
 function init(){
-	//$("freeVideo").src = prefix + "HD_PlayTrailerInVas.jsp?left=569&top=122&width=621&height=350&type=VOD&value=" + firstFileID;
 	$("freeVideo").src = prefix + "PlayTrailerInVas.jsp?left=572&top=122&width=622&height=352&type=VOD&value=" + firstFileID;
 }
 init();
