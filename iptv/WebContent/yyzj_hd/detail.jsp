@@ -23,7 +23,7 @@ a:VISITED {text-decoration:none;}
 .STYLE25 {color: #ffffff;font-size: 24px;font-family: "黑体";}
 .style151 {font-size: 22px;color: #FFFFFF;font-family: "黑体";}
 .STYLE27 {font-size: 28px;color: #FFFFFF;}
-.STYLE28 {font-size: 18px;color: #edff6f;}
+.STYLE28 {font-size: 22px;color: #edff6f;}
 </style>
 
 <script type="text/javascript" src="js/common.js"></script>
