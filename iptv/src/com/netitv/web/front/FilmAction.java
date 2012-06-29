@@ -29,6 +29,7 @@ public class FilmAction extends BaseAction<Film>{
 	private String toAuthenticationUrl;//身份认证url
 	private String toAuthUrl;//鉴权url
 	private String playUrl;//视频播放url
+	private String hdIndexUrl;//高清首页
 	
 	/**
 	 *@Todo:孕育早教首页
@@ -47,6 +48,8 @@ public class FilmAction extends BaseAction<Film>{
 		}
 		
 		String localIp = request.getParameter("localIp");
+		String userID = request.getParameter("userId");
+		String backUrl = request.getParameter("backUrl");
 		if(localIp == null){
 			localIp = HttpUtil.getCookieValue(request, "localIp");;
 		}
@@ -72,6 +75,8 @@ public class FilmAction extends BaseAction<Film>{
 		request.setAttribute("relativeList", relativeList);
 		
 		if(checkHD(localIp)){
+			String hdIndexUrl_yyzj = getRequestPrefix()+"/yyzj_hd/filmAction!eduIndex.do?userId="+userID+"&backUrl="+backUrl+"&localIp="+localIp;
+			this.setHdIndexUrl(hdIndexUrl_yyzj);
 			return "eduIndex_hd";
 		}else{
 			return "eduIndex";
@@ -96,6 +101,8 @@ public class FilmAction extends BaseAction<Film>{
 		}
 		
 		String localIp = request.getParameter("localIp");
+		String userID = request.getParameter("userId");
+		String backUrl = request.getParameter("backUrl");
 		if(localIp == null){
 			localIp = HttpUtil.getCookieValue(request, "localIp");;
 		}
@@ -121,6 +128,8 @@ public class FilmAction extends BaseAction<Film>{
 		request.setAttribute("relativeList", relativeList);
 		
 		if(checkHD(localIp)){
+			String hdIndexUrl_yyzj = getRequestPrefix()+"/crazyenglish_hd/filmAction!engIndex.do?userId="+userID+"&backUrl="+backUrl+"&localIp="+localIp;
+			this.setHdIndexUrl(hdIndexUrl_yyzj);
 			return "engIndex_hd";
 		}else{
 			return "engIndex";
@@ -461,6 +470,14 @@ public class FilmAction extends BaseAction<Film>{
 
 	public void setPlayUrl(String playUrl) {
 		this.playUrl = playUrl;
+	}
+
+	public String getHdIndexUrl() {
+		return hdIndexUrl;
+	}
+
+	public void setHdIndexUrl(String hdIndexUrl) {
+		this.hdIndexUrl = hdIndexUrl;
 	}
 
 }
