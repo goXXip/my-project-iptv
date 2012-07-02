@@ -55,6 +55,12 @@ public class FilmAction extends BaseAction<Film>{
 		}
 		request.setAttribute("prefix", localIp);
 		
+		if(checkHD(localIp)){//是否为高清
+			String hdIndexUrl_yyzj = getRequestPrefix()+"/yyzj_hd/filmAction!eduIndex.do?userId="+userID+"&backUrl="+backUrl+"&localIp="+localIp;
+			this.setHdIndexUrl(hdIndexUrl_yyzj);
+			return "eduIndex_hd";
+		}
+		
 		FilmService filmService = (FilmService) BeanFactory.getBeanByName("filmService");
 		PageBean pageBean = filmService.findByPage(5, 1,"1");
 		List<Object> filmList = pageBean.getItems();
@@ -74,13 +80,7 @@ public class FilmAction extends BaseAction<Film>{
 		List<Object> relativeList = pageBean.getItems();
 		request.setAttribute("relativeList", relativeList);
 		
-		if(checkHD(localIp)){
-			String hdIndexUrl_yyzj = getRequestPrefix()+"/yyzj_hd/filmAction!eduIndex.do?userId="+userID+"&backUrl="+backUrl+"&localIp="+localIp;
-			this.setHdIndexUrl(hdIndexUrl_yyzj);
-			return "eduIndex_hd";
-		}else{
-			return "eduIndex";
-		}
+		return "eduIndex";
 	}
 	
 	/**
@@ -108,6 +108,12 @@ public class FilmAction extends BaseAction<Film>{
 		}
 		request.setAttribute("prefix", localIp);
 		
+		if(checkHD(localIp)){//是否为高清
+			String hdIndexUrl_yyzj = getRequestPrefix()+"/crazyenglish_hd/filmAction!engIndex.do?userId="+userID+"&backUrl="+backUrl+"&localIp="+localIp;
+			this.setHdIndexUrl(hdIndexUrl_yyzj);
+			return "engIndex_hd";
+		}
+		
 		FilmService filmService = (FilmService) BeanFactory.getBeanByName("filmService");
 		PageBean pageBean = filmService.findByPage(5, 1,"2");
 		List<Object> filmList = pageBean.getItems();
@@ -127,13 +133,7 @@ public class FilmAction extends BaseAction<Film>{
 		List<Object> relativeList = pageBean.getItems();
 		request.setAttribute("relativeList", relativeList);
 		
-		if(checkHD(localIp)){
-			String hdIndexUrl_yyzj = getRequestPrefix()+"/crazyenglish_hd/filmAction!engIndex.do?userId="+userID+"&backUrl="+backUrl+"&localIp="+localIp;
-			this.setHdIndexUrl(hdIndexUrl_yyzj);
-			return "engIndex_hd";
-		}else{
-			return "engIndex";
-		}
+		return "engIndex";
 		
 	}
 	
