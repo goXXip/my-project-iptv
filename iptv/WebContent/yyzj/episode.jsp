@@ -143,41 +143,16 @@ document.onkeypress = keyEvent;
       <c:forEach items="${pageBean.items}" var="result" varStatus="status">
     			<c:if test="${status.count == 1}">
     				<tr>
-    					 <td width="291" height="55">
-	    					 <a href="javascript:goto_play(${result.id },'${result.fileId }','${requestScope.contentID }','${result.filmid }');" id="defaultFocus" onfocus="focusStyle_episode('t${status.count }','titleon');" onblur="focusStyle_episode('t${status.count }','titleoff');">
-		    					 <div id="t${status.count }" class="titleoff">
-		    					 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
-		    					 		<tr>
-			    					 		<td>第${(pageBean.curPage-1)*7+status.count }集   ${result.name }</td>
-			    					 		<!--<td width="30">
-				    					 		<div id="t${status.count }_play" style="display: none">
-				    					 			<img src="images/sanjiao-1.gif" alt=""/>
-				    					 		</div>
-			    					 		</td>-->
-		    					 		</tr>
-		    					 	</table>
-		    					 </div>
-	    					 </a>
+    					 <td width="291" height="55"><a href="javascript:goto_play(${result.id},'${result.fileId }','${requestScope.contentID }','${result.filmid }');" id="defaultFocus" onfocus="focusStyle('t_0_${status.count }','titleon');" onblur="focusStyle('t_0_${status.count }','titleoff');">
+					        	<div id="t_0_${status.count }" class="titleon">第${(pageBean.curPage-1)*7+status.count }集  ${result.name }</div></a>
     					 </td>
     				</tr>
     			</c:if>
     			<c:if test="${status.count != 1}">
     				<tr>
     					 <td height="55">
-    					 	<a href="javascript:goto_play(${result.id }, '${result.fileId }','${requestScope.contentID }','${result.filmid }');" onfocus="focusStyle_episode('t${status.count }','titleon');" onblur="focusStyle_episode('t${status.count }','titleoff');">
-	    					 	<div id="t${status.count }" class="titleoff">
-	    					 		<table border="0" cellpadding="0" cellspacing="0" width="100%">
-		    					 		<tr>
-			    					 		<td>第${(pageBean.curPage-1)*7+status.count }集   ${result.name }</td>
-			    					 		<!--<td width="30">
-				    					 		<div id="t${status.count }_play" style="display: none">
-				    					 			<img src="images/sanjiao-1.gif" alt=""/>
-				    					 		</div>
-			    					 		</td>-->
-		    					 		</tr>
-		    					 	</table>
-	    					 	</div>
-    					 	</a>
+    					 	<a href="javascript:goto_play(${result.id },'${result.fileId }','${requestScope.contentID }','${result.filmid }');" onfocus="focusStyle('t_1_${status.count }','titleon');" onblur="focusStyle('t_1_${status.count }','titleoff');">
+					        <div id="t_1_${status.count }" class="titleoff">第${(pageBean.curPage-1)*7+status.count }集  ${result.name }</div></a>
     					 </td>
     				</tr>
     			</c:if>
