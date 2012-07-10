@@ -31,7 +31,7 @@ a:VISITED {text-decoration:none;}
 	color: #FF9900;
 	font-size: 16px;
 }
-.STYLE13 {font-family: "黑体"; font-size: 16px; color: #FFFFFF;  height: 36px; overflow: hidden; margin-top:10px;}
+.STYLE13 {font-family: "黑体"; font-size: 16px; color: #FFFFFF; margin-top:10px;}
 .style15 {
 	font-size: 24px;
 	color: #FFFFFF;
