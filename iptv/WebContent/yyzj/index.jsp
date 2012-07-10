@@ -346,7 +346,7 @@ function focusStyle(target, className) {
 			    		<td width="141" align="left">
 			    			 <c:if test="${fn:length(requestScope.relativeList) > 1 }">
 			    			 	<c:forEach items="${requestScope.relativeList}" begin="1" end="1" var="result" varStatus="status">
-				    				<a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_2_1','liston');" onblur="focusStyle('t_2_1}','listoff');">
+				    				<a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_2_1','liston');" onblur="focusStyle('t_2_1','listoff');">
 					    				<div id="t_2_1" class="listoff">
 					    						<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" />
 					    						<div class="listtitle">${result.name }</div>
