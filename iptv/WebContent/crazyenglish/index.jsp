@@ -254,7 +254,7 @@ function focusStyle(target, className) {
 													<td width="75" height="124"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" />
 													</td>
 													<td width="90" valign="top"><p class="STYLE13">${result.name }</p>
-														<p class="STYLE13">主讲：${film.actor }</p>
+														<p class="STYLE13">主讲：${result.actor }</p>
 													</td>
 												</tr>
 										</table>
@@ -273,7 +273,7 @@ function focusStyle(target, className) {
 													<td width="75" height="124"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" />
 													</td>
 													<td width="90" valign="top"><p class="STYLE13">${result.name }</p>
-														<p class="STYLE13">主讲：${film.actor }</p>
+														<p class="STYLE13">主讲：${result.actor }</p>
 													</td>
 												</tr>
 										</table>
@@ -292,7 +292,7 @@ function focusStyle(target, className) {
 													<td width="75" height="124"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" />
 													</td>
 													<td width="90" valign="top"><p class="STYLE13">${result.name }</p>
-														<p class="STYLE13">主讲：${film.actor }</p>
+														<p class="STYLE13">主讲：${result.actor }</p>
 													</td>
 												</tr>
 										</table>
