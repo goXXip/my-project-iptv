@@ -118,9 +118,9 @@ document.onkeypress = keyEvent;
 		location.href = epg_server + "au_PlayFilm.jsp?PROGID="+fileID+"&PLAYTYPE=1&CONTENTTYPE=0&BUSINESSTYPE=1&ONECEPRICE=0&ISTVSERIESFLAG=1&FATHERSERIESID="+ztID+"&TYPEID=-1"+ "&backurl=" + backUrl;
 	}
 
-	function focusStyle_episode(target, className) {
-		if(document.getElementById(target) != "undefined") {
-			document.getElementById(target).className = className;
+	function focusStyle(target, className) {
+		if($(target) != "undefined") {
+			$(target).className = className;
 		}
 	}
 	
