@@ -263,11 +263,11 @@ function doSelect(){
 <table width="1280" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td width="65" height="101">&nbsp;</td>
-    <td width="240"><img src="images/menu-1-2.jpg" name="Image9" width="228" height="89" border="0" id="menu0" /></td>
-    <td width="282"><img src="images/yyzj-gq-15.jpg" width="282" height="101" /></td>
-    <td width="196"><img src="images/menu-2.jpg" name="Image11" width="190" height="89" border="0" id="menu1" /></td>
-    <td width="213"><img src="images/menu-3.jpg" name="Image12" width="201" height="89" border="0" id="menu2" /></td>
-    <td width="213"><img src="images/menu-4.jpg" name="Image13" width="201" height="89" border="0" id="menu3" /></td>
+    <td width="240" align="center"><img src="images/menu-1-2.jpg" name="Image9" width="228" height="89" border="0" id="menu0" /></td>
+    <td width="282"></td>
+    <td width="196" align="center"><img src="images/menu-2.jpg" name="Image11" width="190" height="89" border="0" id="menu1" /></td>
+    <td width="213" align="center"><img src="images/menu-3.jpg" name="Image12" width="201" height="89" border="0" id="menu2" /></td>
+    <td width="213" align="center"><img src="images/menu-4.jpg" name="Image13" width="201" height="89" border="0" id="menu3" /></td>
     <td width="71">&nbsp;</td>
   </tr>
 </table>
