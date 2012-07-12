@@ -295,18 +295,18 @@ function focusStyle(target, className) {
           <td align="center" height="27" valign="bottom" class="STYLE14">${pageBean.curPage}/${pageBean.totalPages} 
 		           　<c:choose>
 		           <c:when test="${pageBean.curPage > 1}">
-		           		<a href="${ctx }/yyzj/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage-1}&pageSize=12" class="STYLE12">上一页</a>
+		           		<a href="${ctx }/yyzj/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage-1}&pageSize=12" class="STYLE14">上一页</a>
 		           </c:when>
 		           <c:otherwise>
-		           		<a href="#" class="STYLE14">上一页</a>
+		           		上一页
 		           </c:otherwise>
 		      </c:choose>
 		           　<c:choose>
 		           <c:when test="${pageBean.curPage < pageBean.totalPages}">
-		           		<a href="${ctx }/yyzj/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage+1}&pageSize=12" class="STYLE12">下一页</a>
+		           		<a href="${ctx }/yyzj/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage+1}&pageSize=12" class="STYLE14">下一页</a>
 		           </c:when>
 		           <c:otherwise>
-		           		<a href="#" class="STYLE14">下一页</a>
+		           		下一页
 		           </c:otherwise>
 		      </c:choose>
            </td>

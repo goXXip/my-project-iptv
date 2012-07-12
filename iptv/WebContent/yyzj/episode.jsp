@@ -139,47 +139,52 @@ document.onkeypress = keyEvent;
         <td height="10"></td>
       </tr>
     </table>
-      <table width="550" border="0" align="center" cellpadding="0" cellspacing="0">
-      <c:forEach items="${pageBean.items}" var="result" varStatus="status">
-    			<c:if test="${status.count == 1}">
-    				<tr>
-    					 <td width="291" height="55"><a href="javascript:goto_play(${result.id},'${result.fileId }','${requestScope.contentID }','${result.filmid }');" id="defaultFocus" onfocus="focusStyle('t_0_${status.count }','titleon');" onblur="focusStyle('t_0_${status.count }','titleoff');">
-					        	<div id="t_0_${status.count }" class="titleon">第${(pageBean.curPage-1)*7+status.count }集  ${result.name }</div></a>
-    					 </td>
-    				</tr>
-    			</c:if>
-    			<c:if test="${status.count != 1}">
-    				<tr>
-    					 <td height="55">
-    					 	<a href="javascript:goto_play(${result.id },'${result.fileId }','${requestScope.contentID }','${result.filmid }');" onfocus="focusStyle('t_1_${status.count }','titleon');" onblur="focusStyle('t_1_${status.count }','titleoff');">
-					        <div id="t_1_${status.count }" class="titleoff">第${(pageBean.curPage-1)*7+status.count }集  ${result.name }</div></a>
-    					 </td>
-    				</tr>
-    			</c:if>
-      </c:forEach>
-    </table>
-        <table width="500"  border="0" align="center" cellpadding="0" cellspacing="0">
-        <tr>
-          <td align="center" height="27" valign="bottom" class="STYLE14">${pageBean.curPage}/${pageBean.totalPages} 
-		           　<c:choose>
-		           <c:when test="${pageBean.curPage > 1}">
-		           		<a href="${ctx }/yyzj/filmAction!listAssetByFilmId.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage-1}" class="STYLE12">上一页</a>
-		           </c:when>
-		           <c:otherwise>
-		           		上一页
-		           </c:otherwise>
-		      </c:choose>
-		           　<c:choose>
-		           <c:when test="${pageBean.curPage < pageBean.totalPages}">
-		           		<a href="${ctx }/yyzj/filmAction!listAssetByFilmId.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage+1}" class="STYLE12">下一页</a>
-		           </c:when>
-		           <c:otherwise>
-		           		下一页
-		           </c:otherwise>
-		      </c:choose>
-           </td>
-        </tr>
-      </table></td>
+    <div style="height: 385px;">
+	     <table width="550" border="0" align="center" cellpadding="0" cellspacing="0">
+	      <c:forEach items="${pageBean.items}" var="result" varStatus="status">
+	    			<c:if test="${status.count == 1}">
+	    				<tr>
+	    					 <td width="291" height="55"><a href="javascript:goto_play(${result.id},'${result.fileId }','${requestScope.contentID }','${result.filmid }');" id="defaultFocus" onfocus="focusStyle('t_0_${status.count }','titleon');" onblur="focusStyle('t_0_${status.count }','titleoff');">
+						        	<div id="t_0_${status.count }" class="titleon">第${(pageBean.curPage-1)*7+status.count }集  ${result.name }</div></a>
+	    					 </td>
+	    				</tr>
+	    			</c:if>
+	    			<c:if test="${status.count != 1}">
+	    				<tr>
+	    					 <td height="55">
+	    					 	<a href="javascript:goto_play(${result.id },'${result.fileId }','${requestScope.contentID }','${result.filmid }');" onfocus="focusStyle('t_1_${status.count }','titleon');" onblur="focusStyle('t_1_${status.count }','titleoff');">
+						        <div id="t_1_${status.count }" class="titleoff">第${(pageBean.curPage-1)*7+status.count }集  ${result.name }</div></a>
+	    					 </td>
+	    				</tr>
+	    			</c:if>
+	      </c:forEach>
+	    </table>
+    </div>
+     <div id="page_navigator" style="text-align: center;">
+         <table width="500"  border="0" align="center" cellpadding="0" cellspacing="0">
+	        <tr>
+	          <td align="center" height="27" valign="bottom" class="STYLE14">${pageBean.curPage}/${pageBean.totalPages} 
+			           　<c:choose>
+			           <c:when test="${pageBean.curPage > 1}">
+			           		<a href="${ctx }/yyzj/filmAction!listAssetByFilmId.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage-1}" class="STYLE14">上一页</a>
+			           </c:when>
+			           <c:otherwise>
+			           		上一页
+			           </c:otherwise>
+			      </c:choose>
+			           　<c:choose>
+			           <c:when test="${pageBean.curPage < pageBean.totalPages}">
+			           		<a href="${ctx }/yyzj/filmAction!listAssetByFilmId.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage+1}" class="STYLE14">下一页</a>
+			           </c:when>
+			           <c:otherwise>
+			           		下一页
+			           </c:otherwise>
+			      </c:choose>
+	           </td>
+	        </tr>
+     	 </table>
+      </div>
+      </td>
     <td width="32"><img src="images/zyzj-3.jpg" width="32" height="434" /></td>
   </tr>
   <tr>
