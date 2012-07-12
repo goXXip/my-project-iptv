@@ -137,6 +137,7 @@ function goto_play(id,fileID,ztID,filmId){
         <td height="15"></td>
       </tr>
     </table>
+    <div style="height: 525px;">
       <table border="0" align="center" cellpadding="0" cellspacing="0">
       	<c:forEach items="${pageBean.items}" var="result" varStatus="status">
 	      	<c:if test="${status.count == 1}">
@@ -154,8 +155,10 @@ function goto_play(id,fileID,ztID,filmId){
 		        </tr>
 	      	</c:if>
 	     </c:forEach>
-      <tr>
-        <td height="40" align="center" class="STYLE14">${pageBean.curPage}/${pageBean.totalPages} 
+    </table>
+    </div>
+     <div id="page_navigator" class="STYLE14" style="width: 1142px;text-align: center;">
+     	${pageBean.curPage}/${pageBean.totalPages} 
 			           　<c:choose>
 			           <c:when test="${pageBean.curPage > 1}">
 			           		<a href="${ctx }/crazyenglish_hd/filmAction!listAssetByFilmId.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage-1}" class="STYLE12">上一页</a>
@@ -172,9 +175,7 @@ function goto_play(id,fileID,ztID,filmId){
 			           		下一页
 			           </c:otherwise>
 			      </c:choose>
-		</td>
-      </tr>
-    </table>
+     </div>
     </td>
     <td><img src="images/fkyy-gq-5.jpg" width="69" height="590" /></td>
   </tr>
