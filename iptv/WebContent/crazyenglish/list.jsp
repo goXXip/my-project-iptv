@@ -137,8 +137,8 @@ function focusStyle(target, className) {
 						            <tr>
 						              <td width="75" height="122"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" /></td>
 						              <td width="90" valign="top"><p class="STYLE13">${result.name }</p>
-						                <span class="STYLE16">适用：${result.audient }<br />
-						                	主讲：${result.actor }</span></td>
+						               <p class="STYLE13">适用：${result.audient }<br />
+						                	主讲：${result.actor }</p></td>
 						            </tr>
 					          	</table>
 				          	</div>
@@ -153,8 +153,8 @@ function focusStyle(target, className) {
 				            <tr>
 				              <td width="75" height="122"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" /></td>
 				              <td width="90" valign="top"><p class="STYLE13">${result.name }</p>
-				                <span class="STYLE16">适用：${result.audient }<br />
-				                	主讲：${result.actor }</span></td>
+				              <p class="STYLE13">适用：${result.audient }<br />
+						                	主讲：${result.actor }</p></td>
 				            </tr>
 			          	</table></div></a>
 				  </c:forEach>
@@ -167,8 +167,8 @@ function focusStyle(target, className) {
 				            <tr>
 				              <td width="75" height="122"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" /></td>
 				              <td width="90" valign="top"><p class="STYLE13">${result.name }</p>
-				                <span class="STYLE16">适用：${result.audient }<br />
-				                	主讲：${result.actor }</span></td>
+				              <p class="STYLE13">适用：${result.audient }<br />
+						                	主讲：${result.actor }</p></td>
 				            </tr>
 			          	</table></div></a>
 				  </c:forEach>
@@ -183,8 +183,8 @@ function focusStyle(target, className) {
 				            <tr>
 				              <td width="75" height="122"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" /></td>
 				              <td width="90" valign="top"><p class="STYLE13">${result.name }</p>
-				                <span class="STYLE16">适用：${result.audient }<br />
-				                	主讲：${result.actor }</span></td>
+				                <p class="STYLE13">适用：${result.audient }<br />
+						                	主讲：${result.actor }</p></td>
 				            </tr>
 			          	</table></div></a>
 				  </c:forEach>
@@ -197,8 +197,8 @@ function focusStyle(target, className) {
 				            <tr>
 				              <td width="75" height="122"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" /></td>
 				              <td width="90" valign="top"><p class="STYLE13">${result.name }</p>
-				                <span class="STYLE16">适用：${result.audient }<br />
-				                	主讲：${result.actor }</span></td>
+				               <p class="STYLE13">适用：${result.audient }<br />
+						                	主讲：${result.actor }</p></td>
 				            </tr>
 			          	</table></div></a>
 				  </c:forEach>
@@ -211,8 +211,8 @@ function focusStyle(target, className) {
 				            <tr>
 				              <td width="75" height="122"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" /></td>
 				              <td width="90" valign="top"><p class="STYLE13">${result.name }</p>
-				                <span class="STYLE16">适用：${result.audient }<br />
-				                	主讲：${result.actor }</span></td>
+				               <p class="STYLE13">适用：${result.audient }<br />
+						                	主讲：${result.actor }</p></td>
 				            </tr>
 			          	</table></div></a>
 				  </c:forEach>
@@ -227,8 +227,8 @@ function focusStyle(target, className) {
 				            <tr>
 				              <td width="75" height="122"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" /></td>
 				              <td width="90" valign="top"><p class="STYLE13">${result.name }</p>
-				                <span class="STYLE16">适用：${result.audient }<br />
-				                	主讲：${result.actor }</span></td>
+				               <p class="STYLE13">适用：${result.audient }<br />
+						                	主讲：${result.actor }</p></td>
 				            </tr>
 			          	</table></div></a>
 				  </c:forEach>
@@ -241,8 +241,8 @@ function focusStyle(target, className) {
 				            <tr>
 				              <td width="75" height="122"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" /></td>
 				              <td width="90" valign="top"><p class="STYLE13">${result.name }</p>
-				                <span class="STYLE16">适用：${result.audient }<br />
-				                	主讲：${result.actor }</span></td>
+				              <p class="STYLE13">适用：${result.audient }<br />
+						                	主讲：${result.actor }</p></td>
 				            </tr>
 			          	</table></div></a>
 				  </c:forEach>
@@ -255,8 +255,8 @@ function focusStyle(target, className) {
 				            <tr>
 				              <td width="75" height="122"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" /></td>
 				              <td width="90" valign="top"><p class="STYLE13">${result.name }</p>
-				                <span class="STYLE16">适用：${result.audient }<br />
-				                	主讲：${result.actor }</span></td>
+				               	<p class="STYLE13">适用：${result.audient }<br />
+						                	主讲：${result.actor }</p></td>
 				            </tr>
 			          	</table></div></a>
 				  </c:forEach>
@@ -269,18 +269,18 @@ function focusStyle(target, className) {
             <td align="center" height="27" valign="bottom" class="STYLE14">${pageBean.curPage}/${pageBean.totalPages} 
 			           　<c:choose>
 			           <c:when test="${pageBean.curPage > 1}">
-			           		<a href="${ctx }/crazyenglish/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage-1}&pageSize=9" class="STYLE12">上一页</a>
+			           		<a href="${ctx }/crazyenglish/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage-1}&pageSize=9" class="STYLE14">上一页</a>
 			           </c:when>
 			           <c:otherwise>
-			           		<a href="#" class="STYLE14">上一页</a>
+			           		上一页
 			           </c:otherwise>
 			      </c:choose>
 			           　<c:choose>
 			           <c:when test="${pageBean.curPage < pageBean.totalPages}">
-			           		<a href="${ctx }/crazyenglish/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage+1}&pageSize=9" class="STYLE12">下一页</a>
+			           		<a href="${ctx }/crazyenglish/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage+1}&pageSize=9" class="STYLE14">下一页</a>
 			           </c:when>
 			           <c:otherwise>
-			           		<a href="#" class="STYLE14">下一页</a>
+			           		下一页
 			           </c:otherwise>
 			      </c:choose>
            </td>
