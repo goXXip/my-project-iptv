@@ -118,6 +118,22 @@
     </package>
     <!-- 孕育早教   end  -->
     
+     <!-- 成人教育   begin  -->
+    <package name="crjy" namespace="/crjy" extends="mydefault">
+    	<action name="filmAction" class="com.netitv.web.front.FilmAction">
+    		<result name="toAuthentication" type="redirect">${toAuthenticationUrl}</result>
+        	<result name="eduIndex">/crjy/index.jsp</result>
+        	<result name="eduIndex_hd" type="redirect">${hdIndexUrl}</result>
+        	<result name="listByColumn">/crjy/list.jsp</result>
+        	<result name="detail">/crjy/detail.jsp</result>
+        	<result name="listAsset">/crjy/episode.jsp</result>
+        	<result name="toAuth" type="redirect">${toAuthUrl}</result>
+        	<result name="orderConfirm">/crjy/order.jsp</result>
+        	<result name="error">/crjy/error.jsp</result>
+        </action>
+    </package>
+    <!-- 成人教育   end  -->
+    
      <!-- 疯狂英语   begin  -->
     <package name="crazyenglish" namespace="/crazyenglish" extends="mydefault">
     	<action name="filmAction" class="com.netitv.web.front.FilmAction">
@@ -148,6 +164,21 @@
         </action>
     </package>
     <!-- 孕育早教  高清    end  -->
+    
+    <!-- 成人教育 高清   begin  -->
+    <package name="crjy_hd" namespace="/crjy_hd" extends="mydefault">
+    	<action name="filmAction" class="com.netitv.web.front.FilmHDAction">
+    		<result name="toAuthentication" type="redirect">${toAuthenticationUrl}</result>
+        	<result name="eduIndex">/crjy_hd/index.jsp</result>
+        	<result name="listByColumn">/crjy_hd/list.jsp</result>
+        	<result name="detail">/crjy_hd/detail.jsp</result>
+        	<result name="listAsset">/crjy_hd/episode.jsp</result>
+        	<result name="toAuth" type="redirect">${toAuthUrl}</result>
+        	<result name="orderConfirm">/crjy_hd/order.jsp</result>
+        	<result name="error">/crjy_hd/error.jsp</result>
+        </action>
+    </package>
+    <!-- 成人教育 高清    end  -->
     
      <!-- 疯狂英语  高清    begin  -->
     <package name="crazyenglish_hd" namespace="/crazyenglish_hd" extends="mydefault">
