@@ -138,6 +138,58 @@ public class FilmAction extends BaseAction<Film>{
 	}
 	
 	/**
+	 *@Todo:成人教育首页
+	 *@author:zhuqh
+	 *@CreateTime:2012-7-24 上午10:05:02
+	 */
+	@SuppressWarnings("unchecked")
+	public String crjyIndex(){
+		
+		/*********记录访问参数信息********************/
+		logAccessInformation("成人教育");
+		
+		String returnUrl = checkLogin("3");//检查是否已登录(通过认证)
+		if(returnUrl != null){
+			return returnUrl;
+		}
+		
+		String localIp = request.getParameter("localIp");
+		String userID = request.getParameter("userId");
+		String backUrl = request.getParameter("backUrl");
+		if(localIp == null){
+			localIp = HttpUtil.getCookieValue(request, "localIp");;
+		}
+		request.setAttribute("prefix", localIp);
+		
+		if(checkHD(localIp)){//是否为高清
+			String hdIndexUrl_yyzj = getRequestPrefix()+"/crjy_hd/filmAction!crjyIndex.do?userId="+userID+"&backUrl="+backUrl+"&localIp="+localIp;
+			this.setHdIndexUrl(hdIndexUrl_yyzj);
+			return "crjyIndex_hd";
+		}
+		
+		FilmService filmService = (FilmService) BeanFactory.getBeanByName("filmService");
+		PageBean pageBean = filmService.findByPage(5, 1,"1");
+		List<Object> filmList = pageBean.getItems();
+		request.setAttribute("filmList", filmList);
+		
+		if( filmList != null && filmList.size()> 0 ){
+			Film fi = (Film) filmList.get(0);
+			List<Asset> assetList = fi.getAssetList();
+			if(assetList != null && assetList.size()>0){
+				Asset asset = assetList.get(0);
+				Integer fileId  = asset.getFileId();
+				request.setAttribute("defaultPlayID", fileId);//默认播放视频ID
+			}
+		}
+		
+		pageBean = filmService.findByPage(5, 2,"1");
+		List<Object> relativeList = pageBean.getItems();
+		request.setAttribute("relativeList", relativeList);
+		
+		return "crjyIndex";
+	}
+	
+	/**
 	 *@Todo:按栏目列出影片
 	 *@author:zhuqh
 	 *@CreateTime:2011-12-12 上午10:05:13
@@ -150,8 +202,11 @@ public class FilmAction extends BaseAction<Film>{
 		String returnUrl = null;
 		if("1".equals(channelId)){
 			returnUrl = checkLogin("1");
-		}else{
+		}
+		else if("2".equals(channelId)){
 			returnUrl = checkLogin("2");
+		}else{
+			returnUrl = checkLogin("3");
 		}
 		if(returnUrl != null){
 			return returnUrl;
@@ -360,7 +415,7 @@ public class FilmAction extends BaseAction<Film>{
 	
 	/**
 	 * 检查是否已登录 
-	 * @param channelId 频道标识  1:孕育早教 2:疯狂英语 
+	 * @param channelId 频道标识  1:孕育早教 2:疯狂英语 3:成人教育
 	 */
 	private String checkLogin(String channelId){
 		
