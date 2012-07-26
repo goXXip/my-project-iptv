@@ -122,7 +122,7 @@
     <package name="crjy" namespace="/crjy" extends="mydefault">
     	<action name="filmAction" class="com.netitv.web.front.FilmAction">
     		<result name="toAuthentication" type="redirect">${toAuthenticationUrl}</result>
-        	<result name="eduIndex">/crjy/index.jsp</result>
+        	<result name="crjyIndex">/crjy/index.jsp</result>
         	<result name="eduIndex_hd" type="redirect">${hdIndexUrl}</result>
         	<result name="listByColumn">/crjy/list.jsp</result>
         	<result name="detail">/crjy/detail.jsp</result>
@@ -139,7 +139,7 @@
     	<action name="filmAction" class="com.netitv.web.front.FilmAction">
     		<result name="toAuthentication" type="redirect">${toAuthenticationUrl}</result>
     		<result name="engIndex">/crazyenglish/index.jsp</result>
-    		<result name="engIndex_hd" type="redirect">${hdIndexUrl}</result>
+    		<result name="crjyIndex_hd" type="redirect">${hdIndexUrl}</result>
     		<result name="listByColumn">/crazyenglish/list.jsp</result>
         	<result name="detail">/crazyenglish/detail.jsp</result>
         	<result name="listAsset">/crazyenglish/episode.jsp</result>
@@ -169,7 +169,7 @@
     <package name="crjy_hd" namespace="/crjy_hd" extends="mydefault">
     	<action name="filmAction" class="com.netitv.web.front.FilmHDAction">
     		<result name="toAuthentication" type="redirect">${toAuthenticationUrl}</result>
-        	<result name="eduIndex">/crjy_hd/index.jsp</result>
+        	<result name="crjyIndex">/crjy_hd/index.jsp</result>
         	<result name="listByColumn">/crjy_hd/list.jsp</result>
         	<result name="detail">/crjy_hd/detail.jsp</result>
         	<result name="listAsset">/crjy_hd/episode.jsp</result>
