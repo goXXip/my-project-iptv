@@ -118,7 +118,37 @@ function focusStyle(target, className) {
 
 <body bgcolor="transparent">
 
-<%@ include file="/crjy_hd/head.jsp" %>
+<table width="1280" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="64"><img src="images/crjy-gq-01.jpg" width="64" height="101" border="0"/></td>
+		<td>
+			<a href="${ctx }/crjy_hd/filmAction!crjyIndex.do" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image9','','images/crjy-gq-02.jpg',1)">
+			<img src="images/crjy-gq-02.jpg" name="Image9" width="225" height="101" border="0" id="Image9" /></a>
+		</td>
+		<td><img src="images/crjy-gq-03.jpg" width="124" height="101" /></td>
+		<td>
+			<a href="${ctx }/crjy_hd/filmAction!listFilmByColumnId.do?columnId=6&channelId=3" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image11','','images/crjy-gq-04-2.jpg',1)">
+				<img src="images/crjy-gq-04.jpg" name="Image11" width="194" height="101" border="0" id="Image11" />
+			</a>
+		</td>
+		<td>
+			<a href="${ctx }/crjy_hd/filmAction!listFilmByColumnId.do?columnId=7&channelId=3" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image12','','images/crjy-gq-05-2.jpg',1)">
+				<img src="images/crjy-gq-05.jpg" name="Image12" width="199" height="101" border="0" id="Image12" />
+			</a>
+		</td>
+		<td>
+			<a href="${ctx }/crjy_hd/filmAction!listFilmByColumnId.do?columnId=8&channelId=3" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image13','','images/crjy-gq-06-2.jpg',1)">
+				<img src="images/crjy-gq-06.jpg" name="Image13" width="195" height="101" border="0" id="Image13" />
+			</a>
+		</td>
+		<td>
+			<a href="${ctx }/crjy_hd/filmAction!listFilmByColumnId.do?columnId=9&channelId=3" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image14','','images/crjy-gq-07-2.jpg',1)">
+				<img src="images/crjy-gq-07.jpg" name="Image14" width="196" height="101" border="0" id="Image14" />
+			</a>
+		</td>
+		<td width="83"><img src="images/crjy-gq-08.jpg" width="83" height="101" border="0"/></td>
+	</tr>
+</table>
 
 <table width="1280" border="0" cellspacing="0" cellpadding="0">
   <tr>
