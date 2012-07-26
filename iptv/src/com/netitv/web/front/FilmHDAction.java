@@ -175,7 +175,7 @@ public class FilmHDAction extends BaseAction<Film>{
 		request.setAttribute("prefix", localIp);
 		
 		FilmService filmService = (FilmService) BeanFactory.getBeanByName("filmService");
-		PageBean pageBean = filmService.findByPage(5, 1,"1");
+		PageBean pageBean = filmService.findByPage(5, 1,"3");
 		List<Object> filmList = pageBean.getItems();
 		request.setAttribute("filmList", filmList);
 		
@@ -189,7 +189,7 @@ public class FilmHDAction extends BaseAction<Film>{
 			}
 		}
 		
-		pageBean = filmService.findByPage(5, 2,"1");
+		pageBean = filmService.findByPage(5, 2,"3");
 		List<Object> relativeList = pageBean.getItems();
 		request.setAttribute("relativeList", relativeList);
 	
