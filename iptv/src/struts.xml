@@ -123,7 +123,7 @@
     	<action name="filmAction" class="com.netitv.web.front.FilmAction">
     		<result name="toAuthentication" type="redirect">${toAuthenticationUrl}</result>
         	<result name="crjyIndex">/crjy/index.jsp</result>
-        	<result name="eduIndex_hd" type="redirect">${hdIndexUrl}</result>
+        	<result name="crjyIndex_hd" type="redirect">${hdIndexUrl}</result>
         	<result name="listByColumn">/crjy/list.jsp</result>
         	<result name="detail">/crjy/detail.jsp</result>
         	<result name="listAsset">/crjy/episode.jsp</result>
@@ -139,7 +139,7 @@
     	<action name="filmAction" class="com.netitv.web.front.FilmAction">
     		<result name="toAuthentication" type="redirect">${toAuthenticationUrl}</result>
     		<result name="engIndex">/crazyenglish/index.jsp</result>
-    		<result name="crjyIndex_hd" type="redirect">${hdIndexUrl}</result>
+    		<result name="engIndex_hd" type="redirect">${hdIndexUrl}</result>
     		<result name="listByColumn">/crazyenglish/list.jsp</result>
         	<result name="detail">/crazyenglish/detail.jsp</result>
         	<result name="listAsset">/crazyenglish/episode.jsp</result>
