@@ -348,11 +348,21 @@ public class FilmDaoImpl extends JdbcDaoSupport implements FilmDao {
 	
     /**
      * 置顶状态更新
+     * @param filmId 影片ID
+     * @param flag 1：置顶  0:取消置顶
      */
-	public int updateTopStatus(int filmId, String flag) {
+	public int updateTopStatus(int filmId, String flag ) {
 		// TODO Auto-generated method stub
 		String sql = "update film set istop = ?,modify_date=? where id = ?";
-		this.getJdbcTemplate().update(sql, new Object[] { flag ,Calendar.getInstance().getTime(),filmId });
+		
+		Date modifyTime  = null;
+		if("1".equals(flag)){
+			modifyTime = Calendar.getInstance().getTime();
+		}else{
+			Film film = findById(filmId);
+			modifyTime = film.getUploadDate();
+		}
+		this.getJdbcTemplate().update(sql, new Object[] { flag ,modifyTime,filmId });
 		
 		return 1;
 	}
