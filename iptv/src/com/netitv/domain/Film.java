@@ -45,7 +45,7 @@ public class Film implements Serializable{
 	
 	private Date uploadDate;
 	
-	private String istop  ;//是否置顶
+	private String istop = "0" ;//是否置顶
 	
 	private Date modifyDate;//修改时间
 
