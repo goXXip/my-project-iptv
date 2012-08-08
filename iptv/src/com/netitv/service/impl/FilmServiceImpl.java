@@ -148,6 +148,11 @@ public class FilmServiceImpl extends AbstractCacheProxy implements FilmService{
 		return filmDao.findColumnByColumnid(columnid);
 	}
 
+	/**
+	 * 更新置顶状态
+	 * @param filmId 影片ID
+	 * * @param flag 1：置顶  0:取消置顶
+	 */
 	public int updateTopStatus(int filmId, String flag) {
 		// TODO Auto-generated method stub
 		int r =  filmDao.updateTopStatus(filmId,flag);

@@ -47,8 +47,8 @@ public interface FilmService {
 	 *@Todo:更新置顶状态
 	 *@author:朱庆辉
 	 *@CreateTime:2012-4-5 下午04:40:56
-	 * @param filmId
-	 * @param flag
+	 * @param filmId 影片ID
+	 * @param flag 1：置顶  0:取消置顶
 	 */
 	public int updateTopStatus(int filmId, String flag);
 
