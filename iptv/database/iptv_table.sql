@@ -23,6 +23,7 @@ CREATE TABLE channel (
 
 insert into channel(id,name) values(1,'孕育早教');
 insert into channel(id,name) values(2,'疯狂英语');
+insert into channel(id,name) values(3,'成人教育');
 
 DROP TABLE IF EXISTS columninfo;
 CREATE TABLE columninfo (
@@ -38,6 +39,11 @@ insert into columninfo(id,name,channelid) values(3,'少儿成长',1);
 
 insert into columninfo(id,name,channelid) values(4,'李阳疯狂英语',2);
 insert into columninfo(id,name,channelid) values(5,'英语辅导',2);
+
+insert into columninfo(id,name,channelid) values(6,'减肥健身',3);
+insert into columninfo(id,name,channelid) values(7,'靓妆美食',3);
+insert into columninfo(id,name,channelid) values(8,'乒羽棋牌',3);
+insert into columninfo(id,name,channelid) values(9,'职场培训',3);
 
 DROP TABLE IF EXISTS image_info;
 CREATE TABLE image_info (
