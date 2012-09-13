@@ -492,7 +492,9 @@ public class FilmAction extends BaseAction<Film>{
 	}
 	
 	private void log(String message){
-		logger.debug(message);
+		if(logger.isDebugEnabled()){
+			logger.debug(message);
+		}
 	}
 	
 	public Film getFilm() {

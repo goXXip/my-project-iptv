@@ -34,8 +34,9 @@ public class OrderServlet  extends HttpServlet{
 //		String ServiceID = Constants.ServiceID;
 		String filmId = request.getParameter("filmId");//影片ID
 		String channelId = request.getParameter("channelId");//频道ID
+		String hd_flag = request.getParameter("hd_flag");
 		
-		String Order_ReturnURL =getRequestPrefix(request)+"/servlet/orderResponse?channelId="+channelId+"&filmId="+filmId;
+		String Order_ReturnURL =getRequestPrefix(request)+"/servlet/orderResponse?channelId="+channelId+"&filmId="+filmId+"&hd_flag="+hd_flag;
 		Order_ReturnURL = URLEncoder.encode(Order_ReturnURL, "utf-8");
 		
 		String OrderMode = "1";

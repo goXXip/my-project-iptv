@@ -42,18 +42,39 @@ public class OrderResponseServlet  extends HttpServlet {
 		
 		String channelId = request.getParameter("channelId");//频道ID
 		String filmId = request.getParameter("filmId");//影片ID
+		String hd_flag = request.getParameter("hd_flag");//高清(hd)、标清标识
 		
 		String SuccessUrl = "";//订购成功跳转URL
 		String FailureUrl = "";//订购失败跳转URL
 		String index_url = "";//应用首页地址
-		if("1".equals(channelId)){
-			SuccessUrl = getRequestPrefix(request)+"/yyzj/filmAction!listAssetByFilmId.do?filmId="+filmId+"&channelId="+channelId;
-			FailureUrl = "/yyzj/error.jsp";
-			index_url = getRequestPrefix(request)+"/yyzj/filmAction!eduIndex.do";
+		if(hd_flag!=null && "hd".equals(hd_flag)){
+			if("1".equals(channelId)){
+				SuccessUrl = getRequestPrefix(request)+"/yyzj_hd/filmAction!listAssetByFilmId.do?filmId="+filmId+"&channelId="+channelId;
+				FailureUrl = "/yyzj_hd/error.jsp";
+				index_url = getRequestPrefix(request)+"/yyzj_hd/filmAction!eduIndex.do";
+			}else if("2".equals(channelId)){
+				SuccessUrl = getRequestPrefix(request)+"/crazyenglish_hd/filmAction!listAssetByFilmId.do?filmId="+filmId+"&channelId="+channelId;
+				FailureUrl = "/crazyenglish_hd/error.jsp";
+				index_url = getRequestPrefix(request)+"/crazyenglish_hd/filmAction!engIndex.do";
+			}else{
+				SuccessUrl = getRequestPrefix(request)+"/crjy_hd/filmAction!listAssetByFilmId.do?filmId="+filmId+"&channelId="+channelId;
+				FailureUrl = "/crjy_hd/error.jsp";
+				index_url = getRequestPrefix(request)+"/crjy_hd/filmAction!crjyIndex.do";
+			}
 		}else{
-			SuccessUrl = getRequestPrefix(request)+"/crazyenglish/filmAction!listAssetByFilmId.do?filmId="+filmId+"&channelId="+channelId;
-			FailureUrl = "/crazyenglish/error.jsp";
-			index_url = getRequestPrefix(request)+"/crazyenglish/filmAction!engIndex.do";
+			if("1".equals(channelId)){
+				SuccessUrl = getRequestPrefix(request)+"/yyzj/filmAction!listAssetByFilmId.do?filmId="+filmId+"&channelId="+channelId;
+				FailureUrl = "/yyzj/error.jsp";
+				index_url = getRequestPrefix(request)+"/yyzj/filmAction!eduIndex.do";
+			}else if("2".equals(channelId)){
+				SuccessUrl = getRequestPrefix(request)+"/crazyenglish/filmAction!listAssetByFilmId.do?filmId="+filmId+"&channelId="+channelId;
+				FailureUrl = "/crazyenglish/error.jsp";
+				index_url = getRequestPrefix(request)+"/crazyenglish/filmAction!engIndex.do";
+			}else{
+				SuccessUrl = getRequestPrefix(request)+"/crjy/filmAction!listAssetByFilmId.do?filmId="+filmId+"&channelId="+channelId;
+				FailureUrl = "/crjy/error.jsp";
+				index_url = getRequestPrefix(request)+"/crjy/filmAction!crjyIndex.do";
+			}
 		}
 		
 		String Result = request.getParameter("Result");

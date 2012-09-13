@@ -58,9 +58,12 @@ public class ServiceAuthServlet   extends HttpServlet{
 		if("1".equals(channelId)){
 			 SuccessUrl = getRequestPrefix(request)+"/yyzj/filmAction!listAssetByFilmId.do?filmId="+filmId+"&channelId="+channelId;
 			 FailureUrl = getRequestPrefix(request)+"/yyzj/filmAction!orderConfirm.do?filmId="+filmId;
-		}else{
+		}else if("2".equals(channelId)){
 			 SuccessUrl = getRequestPrefix(request)+"/crazyenglish/filmAction!listAssetByFilmId.do?filmId="+filmId+"&channelId="+channelId;
 			 FailureUrl = getRequestPrefix(request)+"/crazyenglish/filmAction!orderConfirm.do?filmId="+filmId;
+		}else{
+			 SuccessUrl = getRequestPrefix(request)+"/crjy/filmAction!listAssetByFilmId.do?filmId="+filmId+"&channelId="+channelId;
+			 FailureUrl = getRequestPrefix(request)+"/crjy/filmAction!orderConfirm.do?filmId="+filmId;
 		}
 		
 		ServiceAuthReq serviceAuthReq = new ServiceAuthReq();

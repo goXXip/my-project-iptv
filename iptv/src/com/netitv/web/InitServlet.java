@@ -37,6 +37,10 @@ public class InitServlet  extends HttpServlet {
 			generatePicture("2",context);
 		System.out.println("--------生成疯狂英语频道图片   end--------");
 		
+		System.out.println("--------生成成人教育频道图片   begin--------");
+			generatePicture("3",context);
+		System.out.println("--------生成成人教育频道图片   end--------");
+		
 		super.init(config);
 		
 	}

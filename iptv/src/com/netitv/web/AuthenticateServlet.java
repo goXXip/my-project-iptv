@@ -37,7 +37,7 @@ public class AuthenticateServlet  extends HttpServlet{
 		response.setCharacterEncoding("UTF-8");
 		
 		String UserID = request.getParameter("userId");
-		String flag = request.getParameter("flag");//频道标识:(1:孕育早教  2:疯狂英语)
+		String flag = request.getParameter("flag");//频道标识:(1:孕育早教  2:疯狂英语 3：成人教育)
 		String ReturnURL = getRequestPrefix(request)+"/servlet/authenticateResponse";
 		String action_url = getRequestPrefix(request);
 		if("1".equals(flag)){
@@ -45,6 +45,9 @@ public class AuthenticateServlet  extends HttpServlet{
 		}
 		else if("2".equals(flag)){
 			action_url += "/crazyenglish/filmAction!engIndex.do";
+		}
+		else if("3".equals(flag)){
+			action_url += "/crjy/filmAction!crjyIndex.do";
 		}
 		
 		action_url = URLEncoder.encode(action_url, "utf-8");//应用首页地址(跳转到action地址)

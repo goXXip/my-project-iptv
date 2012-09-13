@@ -60,8 +60,11 @@ public class AuthenticateResponseForHDServlet extends HttpServlet {
 			if(action_url.indexOf("/yyzj_hd/filmAction!eduIndex.do")>0){
 				RequestDispatcher rd = request.getRequestDispatcher("/yyzj_hd/error.jsp");
 				rd.forward(request, response);
-			}else{
+			}else if(action_url.indexOf("/crazyenglish_hd/filmAction!engIndex.do")>0){
 				RequestDispatcher rd = request.getRequestDispatcher("/crazyenglish_hd/error.jsp");
+				rd.forward(request, response);
+			}else{
+				RequestDispatcher rd = request.getRequestDispatcher("/crjy_hd/error.jsp");
 				rd.forward(request, response);
 			}
 			/***** 认证失败跳转到 错误提示页面 end ***/
