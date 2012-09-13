@@ -68,7 +68,7 @@ a:VISITED {text-decoration:none;}
 					  </tr>
 					  <tr>
 					    <td height="44" valign="top">
-						    <a href="${ctx }/servlet/order?ContentID=${film.contentId}&filmId=${film.id}&channelId=1" id="defaultFocus" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('order_img','','images/yyzj-gq-13-2.jpg',1)">
+						    <a href="${ctx }/servlet/order?ContentID=${film.contentId}&filmId=${film.id}&channelId=1&hd_flag=hd" id="defaultFocus" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('order_img','','images/yyzj-gq-13-2.jpg',1)">
 						   		 <img src="images/yyzj-gq-13.jpg" width="209" height="58" border="0" id="order_img"/>
 						    </a>
 					    </td>
