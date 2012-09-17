@@ -8,14 +8,11 @@ import org.apache.log4j.Logger;
 
 import com.netitv.domain.Asset;
 import com.netitv.domain.Film;
-import com.netitv.domain.OrderDetail;
 import com.netitv.service.AssetService;
 import com.netitv.service.FilmService;
-import com.netitv.service.OrderDetailService;
 import com.netitv.util.BaseAction;
 import com.netitv.util.BeanFactory;
 import com.netitv.util.CommonsUtil;
-import com.netitv.util.Constants;
 import com.netitv.util.HttpUtil;
 import com.netitv.util.PageBean;
 
@@ -270,50 +267,6 @@ public class FilmHDAction extends BaseAction<Film>{
 		request.setAttribute("columnID", columnID);
 	
 		return "detail";
-	}
-	
-	/**
-	 *@Todo:
-	 *列出影片下所有资产(即将所有视频文件列出,连续剧列表,如：第一集、第二集、第三集......点击"观看"按钮触发)
-	 *@author:zhuqh
-	 *@param filmId 影片ID ,channelId:频道ID
-	 *@CreateTime:2011-12-12 上午10:05:37
-	 * @return
-	 */
-	public String listAssetByFilmId_back(){
-		
-		String filmId = request.getParameter("filmId");//影片ID
-		Integer filmID = Integer.parseInt(filmId);
-		String channelId = request.getParameter("channelId");//频道ID
-		
-		FilmService filmService = (FilmService) BeanFactory.getBeanByName("filmService");
-		this.film = filmService.findById(filmID);
-		Integer columnID = film.getColumnId();
-		String contentID = film.getContentId();
-		
-		AssetService assetService = (AssetService) BeanFactory.getBeanByName("assetService");
-		this.pageBean = assetService.findAssetListByFilmId(7,curPage,filmID);
-		
-		String userID = (String) request.getSession().getAttribute(Constants.UserID);
-		OrderDetailService orderDetailService = (OrderDetailService) BeanFactory.getBeanByName("orderDetailService");
-		OrderDetail  orderDetail = orderDetailService.findByContentIdAndUserId(userID, contentID);
-		if( orderDetail == null){//未订购
-			this.setToAuthUrl(getRequestPrefix()+"/servlet/serviceAuth_hd?ContentID="+contentID+"&filmId="+filmID+"&channelId="+channelId);
-			return "toAuth";
-		}else{
-			
-			String serendtime = orderDetail.getSerendtime();
-			boolean expiredFlag = checkExpired(serendtime,"yyyyMMddHHmmss");//检查产品服务是否过期
-			if(expiredFlag){
-				request.setAttribute("msg", "您订购的产品已过期,请重新订购");
-				return "error";
-			}
-			request.setAttribute("filmID", filmID);
-			request.setAttribute("contentID", contentID);
-			request.setAttribute("columnID", columnID);
-			
-			return "listAsset";
-		}
 	}
 	
 	public String listAssetByFilmId(){

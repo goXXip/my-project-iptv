@@ -108,7 +108,7 @@ public class OrderResponseServlet  extends HttpServlet {
 				request.getSession().setAttribute("UserToken", UserToken);
 			}
 			
-			OrderDetail orderDetail = buildOrderDetail(Description,UserID,ContentID,ServiceID,ProductID,ProductName,PurchaseType,Fee,SPID,TransactionID,ExpiredTime,OrderMode,AvailableIPTVRewardPoints,AvailableTeleRewardPoints,SerStartTime,SerEndTime);
+			OrderDetail orderDetail = buildOrderDetail(Description,UserID,ContentID,ServiceID,ProductID,ProductName,PurchaseType,Fee,SPID,TransactionID,ExpiredTime,OrderMode,AvailableIPTVRewardPoints,AvailableTeleRewardPoints,SerStartTime,SerEndTime,channelId);
 			OrderDetailService orderDetailService = (OrderDetailService) BeanFactory.getBeanByName("orderDetailService");
 			orderDetailService.saveOrderDetail(orderDetail);
 			
@@ -131,7 +131,7 @@ public class OrderResponseServlet  extends HttpServlet {
 			String productName, String purchaseType, String fee, String sPID,
 			String transactionID, String expiredTime, String orderMode,
 			String availableIPTVRewardPoints, String availableTeleRewardPoints,
-			String serStartTime, String serEndTime) {
+			String serStartTime, String serEndTime,String channelId) {
 		// TODO Auto-generated method stub
 		OrderDetail orderDetail = new OrderDetail();
 		
@@ -153,6 +153,7 @@ public class OrderResponseServlet  extends HttpServlet {
 		orderDetail.setStatus("1");
 		orderDetail.setTransaction_id(transactionID);
 		orderDetail.setUserid(userID);
+		orderDetail.setChannelid(channelId);
 	
 		return orderDetail;
 		

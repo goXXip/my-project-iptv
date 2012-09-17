@@ -289,7 +289,7 @@ public class FilmAction extends BaseAction<Film>{
 		
 		String userID = (String) request.getSession().getAttribute(Constants.UserID);
 		OrderDetailService orderDetailService = (OrderDetailService) BeanFactory.getBeanByName("orderDetailService");
-		OrderDetail  orderDetail = orderDetailService.findByContentIdAndUserId(userID, contentID);
+		OrderDetail  orderDetail = orderDetailService.findByContentIdAndUserId(userID, channelId);
 		if( orderDetail == null){//未订购
 			this.setToAuthUrl(getRequestPrefix()+"/servlet/serviceAuth?ContentID="+contentID+"&filmId="+filmID+"&channelId="+channelId);
 			return "toAuth";
