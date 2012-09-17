@@ -18,6 +18,7 @@ public class OrderDetail implements Serializable{
 	private String contentid;
 	private String serviceid;
 	private String productid;
+	private String channelid;
 	private String productname;
 	private String purchasetype;//0：包月支付 1：按次支付 2：按次或包月 3：ppv
 	private String fee;
@@ -88,6 +89,14 @@ public class OrderDetail implements Serializable{
 
 	public void setProductname(String productname) {
 		this.productname = productname;
+	}
+
+	public String getChannelid() {
+		return channelid;
+	}
+
+	public void setChannelid(String channelid) {
+		this.channelid = channelid;
 	}
 
 	public String getPurchasetype() {
