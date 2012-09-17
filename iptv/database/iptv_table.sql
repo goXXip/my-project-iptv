@@ -97,6 +97,7 @@ create table orderdetail(
 	ordermode varchar(50),
 	productid varchar(50),
 	productname varchar(100),
+	channelid varchar(50),
 	purchasetype varchar(50),
 	serendtime varchar(50),
 	serstarttime varchar(50),
