@@ -34,13 +34,13 @@ public class OrderDetailDaoImpl  extends JdbcDaoSupport implements OrderDetailDa
 	public int save(OrderDetail orderDetail) {
 		// TODO Auto-generated method stub
 		String sql = "insert into orderdetail(available_iptvrewardpoints,available_teleRewardpoints,contentid,description,expired_time,fee,ordermode," +
-				" productid,productname,purchasetype,serendtime,serstarttime,serviceid,spid,transaction_id,userid,status,createtime) " +
-				"values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				" productid,productname,purchasetype,serendtime,serstarttime,serviceid,spid,transaction_id,userid,status,createtime,channelid) " +
+				"values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		
 		this.getJdbcTemplate().update(sql, new Object[]{orderDetail.getAvailable_iptvrewardpoints(),orderDetail.getAvailable_teleRewardpoints(),orderDetail.getContentid(),orderDetail.getDescription()
 				,orderDetail.getExpired_time(),orderDetail.getFee(),orderDetail.getOrdermode(),orderDetail.getProductid(),orderDetail.getProductname(),orderDetail.getPurchasetype(),
 				orderDetail.getSerendtime(),orderDetail.getSerstarttime(),orderDetail.getServiceid(),
-				orderDetail.getSpid(),orderDetail.getTransaction_id(),orderDetail.getUserid(),orderDetail.getStatus(),orderDetail.getCreatetime()});
+				orderDetail.getSpid(),orderDetail.getTransaction_id(),orderDetail.getUserid(),orderDetail.getStatus(),orderDetail.getCreatetime(),orderDetail.getChannelid()});
 
 		return 1;
 	}
@@ -60,6 +60,7 @@ public class OrderDetailDaoImpl  extends JdbcDaoSupport implements OrderDetailDa
 			orderDetail.setOrdermode(rs.getString("ordermode"));
 			orderDetail.setProductid(rs.getString("productid"));
 			orderDetail.setProductname(rs.getString("productname"));
+			orderDetail.setChannelid(rs.getString("channelid"));
 			orderDetail.setPurchasetype(rs.getString("purchasetype"));
 			orderDetail.setSerstarttime(rs.getString("serstarttime"));
 			orderDetail.setSerendtime(rs.getString("serendtime"));
@@ -162,14 +163,14 @@ public class OrderDetailDaoImpl  extends JdbcDaoSupport implements OrderDetailDa
 	/**
 	 * 由用户ID及产品ID查找订单详情
 	 * @param userID 用户ID
-	 * @param contentID 内容ID
+	 * @param channelID 频道ID
 	 * @return null：表示未订购，反之返回订单详情
 	 */
-	public OrderDetail findByContentIdAndUserId(String userID, String contentID) {
+	public OrderDetail findByContentIdAndUserId(String userID, String channelID) {
 		// TODO Auto-generated method stub
-		String  sql =  " select * from orderdetail where userid = ? and contentid = ?  order by id desc ";
+		String  sql =  " select * from orderdetail where userid = ? and channelid = ?  order by id desc ";
 
-		List list = this.getJdbcTemplate().query(sql, new Object[]{userID,contentID}, new OrderDetailMapper());
+		List list = this.getJdbcTemplate().query(sql, new Object[]{userID,channelID}, new OrderDetailMapper());
 
 		if(list != null && list.size()>0){
 			OrderDetail orderDetail = (OrderDetail) list.get(0);
