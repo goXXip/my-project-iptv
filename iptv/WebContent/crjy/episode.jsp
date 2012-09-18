@@ -115,7 +115,9 @@ document.onkeypress = keyEvent;
 		var pay_confirm_url = "${ctx}/crjy/filmAction!orderConfirm.do?filmId="+filmId;
 		var backUrl = "${ctx}/crjy/filmAction!listAssetByFilmId.do?filmId="+filmId+"&curPage=${pageBean.curPage}";
 		backUrl = escape(backUrl);
-		location.href = epg_server + "au_PlayFilm.jsp?PROGID="+fileID+"&PLAYTYPE=1&CONTENTTYPE=0&BUSINESSTYPE=1&ONECEPRICE=0&ISTVSERIESFLAG=1&FATHERSERIESID="+ztID+"&TYPEID=-1"+ "&backurl=" + backUrl;
+		var gotoUrl = epg_server + "play_pageControl.jsp?PROGID="+fileID;
+		gotoUrl = escape(gotoUrl);
+		location.href = epg_server + "epg_pageAction.jsp?action=addUrl&goUrl="+gotoUrl+"&backUrl="+backUrl;
 	}
 
 	function focusStyle(target, className) {
