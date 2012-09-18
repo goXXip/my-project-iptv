@@ -117,7 +117,9 @@ function goto_play(id,fileID,ztID,filmId){
 	var currentPage = "${pageBean.curPage}";
 	var backUrl = "${ctx}/crazyenglish/filmAction!listAssetByFilmId.do?filmId="+filmId+"&curPage="+currentPage;
 	backUrl = escape(backUrl);
-	location.href = epg_server + "au_PlayFilm.jsp?PROGID="+fileID+"&PLAYTYPE=1&CONTENTTYPE=0&BUSINESSTYPE=1&ONECEPRICE=0&ISTVSERIESFLAG=1&FATHERSERIESID="+ztID+"&TYPEID=-1"+ "&backurl=" + backUrl;
+	var gotoUrl = epg_server + "play_pageControl.jsp?PROGID="+fileID;
+	gotoUrl = escape(gotoUrl);
+	location.href = epg_server + "epg_pageAction.jsp?action=addUrl&goUrl="+gotoUrl+"&backUrl="+backUrl;
 }
 </script>
 </head>
