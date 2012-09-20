@@ -91,12 +91,7 @@ function keyEvent() {
 	case 8:
 	case 109:
 	case 283:
-		if(backUrl != ""){
 			location.href = "${ctx}/default_gq.jsp" ;
-		}
-		else{
-			window.history.back();
-		}
 		return 0;
 		break;
 	default:
