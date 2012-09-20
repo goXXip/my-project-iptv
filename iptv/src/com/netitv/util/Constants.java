@@ -38,4 +38,10 @@ public class Constants {
 
 	public static final String AdministratorInfo = "AdministratorInfo";
 	
+	public static final  String IPTV_USERID = "iptv_userId";
+	
+	public static final  String IPTV_BACKURL = "iptv_backUrl";
+	
+	public static final  String IPTV_LOCALIP = "iptv_localIp";
+	
 }
