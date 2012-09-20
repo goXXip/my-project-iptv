@@ -48,7 +48,7 @@ public class FilmHDAction extends BaseAction<Film>{
 		
 		String localIp = request.getParameter("localIp");
 		if(localIp == null){
-			localIp = HttpUtil.getCookieValue(request, "localIp");;
+			localIp = getLocalIp();
 		}
 		request.setAttribute("prefix", localIp);
 		
@@ -123,7 +123,7 @@ public class FilmHDAction extends BaseAction<Film>{
 		
 		String localIp = request.getParameter("localIp");
 		if(localIp == null){
-			localIp = HttpUtil.getCookieValue(request, "localIp");;
+			localIp = getLocalIp();
 		}
 		request.setAttribute("prefix", localIp);
 		
@@ -167,7 +167,7 @@ public class FilmHDAction extends BaseAction<Film>{
 		
 		String localIp = request.getParameter("localIp");
 		if(localIp == null){
-			localIp = HttpUtil.getCookieValue(request, "localIp");;
+			localIp = getLocalIp();
 		}
 		request.setAttribute("prefix", localIp);
 		
@@ -283,7 +283,7 @@ public class FilmHDAction extends BaseAction<Film>{
 			AssetService assetService = (AssetService) BeanFactory.getBeanByName("assetService");
 			this.pageBean = assetService.findAssetListByFilmId(7,curPage,filmID);
 			
-			String localIp = HttpUtil.getCookieValue(request, "localIp");
+			String localIp = getLocalIp();
 			
 			String from = request.getParameter("from");
 			if("index".equals(from)){
@@ -339,7 +339,7 @@ public class FilmHDAction extends BaseAction<Film>{
 		if( UserToken == null){
 			String userId = request.getParameter("userId");
 			if( userId== null){
-				userId = HttpUtil.getCookieValue(request,"userID");
+				userId = getUserId();
 			}
 			setToAuthenticationUrl(getRequestPrefix()+"/servlet/authenticate_hd?flag="+channelId+"&userId="+userId);
 			return "toAuthentication";
@@ -375,15 +375,12 @@ public class FilmHDAction extends BaseAction<Film>{
 		String localIp = request.getParameter("localIp");
 		log("localIp======"+localIp);
 		request.setAttribute("prefix", localIp);
-		HttpUtil.addCookie(response,"localIp",localIp,null);
 		
 		String userID = request.getParameter("userId");
 		log("userID======"+userID);
-		HttpUtil.addCookie(response,"userID",userID,null);
 		
 		String backUrl = request.getParameter("backUrl");
 		log("backUrl======"+backUrl);
-		HttpUtil.addCookie(response,"backUrl",backUrl,null);
 		
 		log("======"+channelName+"==========end=================");
 	}
@@ -404,6 +401,24 @@ public class FilmHDAction extends BaseAction<Film>{
 			}
 		}
 		return returnFlag;
+	}
+	
+	private String getLocalIp(){
+		if(session.getAttribute("iptv_localIp")!=null){
+			String  iptv_localIp = (String)session.getAttribute("iptv_localIp");
+			return iptv_localIp;
+		}else{
+			return HttpUtil.getCookieValue(request, "localIp");
+		}
+	}
+	
+	private String getUserId(){
+		if(session.getAttribute("iptv_userId")!=null){
+			String  iptv_userId = (String)session.getAttribute("iptv_userId");
+			return iptv_userId;
+		}else{
+			return HttpUtil.getCookieValue(request,"userID");
+		}
 	}
 	
 	private void log(String message){

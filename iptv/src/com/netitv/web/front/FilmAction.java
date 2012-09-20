@@ -51,7 +51,7 @@ public class FilmAction extends BaseAction<Film>{
 		String userID = request.getParameter("userId");
 		String backUrl = request.getParameter("backUrl");
 		if(localIp == null){
-			localIp = HttpUtil.getCookieValue(request, "localIp");;
+			localIp = getLocalIp();
 		}
 		request.setAttribute("prefix", localIp);
 		
@@ -104,7 +104,7 @@ public class FilmAction extends BaseAction<Film>{
 		String userID = request.getParameter("userId");
 		String backUrl = request.getParameter("backUrl");
 		if(localIp == null){
-			localIp = HttpUtil.getCookieValue(request, "localIp");;
+			localIp =  getLocalIp();
 		}
 		request.setAttribute("prefix", localIp);
 		
@@ -157,7 +157,7 @@ public class FilmAction extends BaseAction<Film>{
 		String userID = request.getParameter("userId");
 		String backUrl = request.getParameter("backUrl");
 		if(localIp == null){
-			localIp = HttpUtil.getCookieValue(request, "localIp");;
+			localIp =  getLocalIp();
 		}
 		request.setAttribute("prefix", localIp);
 		
@@ -323,7 +323,7 @@ public class FilmAction extends BaseAction<Film>{
 			AssetService assetService = (AssetService) BeanFactory.getBeanByName("assetService");
 			this.pageBean = assetService.findAssetListByFilmId(7,curPage,filmID);
 			
-			String localIp = HttpUtil.getCookieValue(request, "localIp");
+			String localIp = getLocalIp();
 			
 			String from = request.getParameter("from");
 			if("index".equals(from)){
@@ -369,40 +369,6 @@ public class FilmAction extends BaseAction<Film>{
 	}
 	
 	/**
-	 * 视频播放
-	 */
-	protected String toPlay(){
-		
-		String fileID = request.getParameter("fileID");//视频ID
-		String id  = request.getParameter("id");//视频ID
-		String ztID  = request.getParameter("ztID");//父集ID
-		
-		String localIp = HttpUtil.getCookieValue(request, "localIp");
-		
-		String play_url = "";
-		if(checkHD(localIp)){
-			 AssetService assetService = (AssetService) BeanFactory.getBeanByName("assetService");
-			 Asset asset = assetService.findById(Integer.valueOf(id));
-			 if( asset != null ){
-				 String vodName = asset.getName();
-				 play_url = localIp + "HD_Authorization.jsp?CONTENTTYPE=0&BUSINESSTYPE=1&PROGID="+fileID+"&TYPE_ID=-1&PLAYTYPE=1&vodName="+vodName;
-			 }
-			 else{
-				 play_url = localIp + "HD_Authorization.jsp?CONTENTTYPE=0&BUSINESSTYPE=1&PROGID="+fileID+"&TYPE_ID=-1&PLAYTYPE=1"; 
-			 }
-		}
-		else{
-			 play_url = localIp+ "au_PlayFilm.jsp?PROGID="+fileID+"&PLAYTYPE=1&CONTENTTYPE=0&BUSINESSTYPE=1&ONECEPRICE=0&ISTVSERIESFLAG=1&FATHERSERIESID="+ztID+"&TYPEID=-1";
-		}
-		
-		this.setPlayUrl( play_url );
-		
-		log("play_url====="+play_url);
-		
-		return "toPlay";
-	}
-	
-	/**
 	 * 检查是否为高清
 	 */
 	public boolean checkHD( String localIp){
@@ -424,7 +390,7 @@ public class FilmAction extends BaseAction<Film>{
 		if( UserToken == null){
 			String userId = request.getParameter("userId");
 			if( userId== null){
-				userId = HttpUtil.getCookieValue(request,"userID");
+				userId = getUserId();
 			}
 			this.setToAuthenticationUrl(getRequestPrefix()+"/servlet/authenticate?flag="+channelId+"&userId="+userId);
 			return "toAuthentication";
@@ -460,15 +426,12 @@ public class FilmAction extends BaseAction<Film>{
 		String localIp = request.getParameter("localIp");
 		log("localIp======"+localIp);
 		request.setAttribute("prefix", localIp);
-		HttpUtil.addCookie(response,"localIp",localIp,null);
 		
 		String userID = request.getParameter("userId");
 		log("userID======"+userID);
-		HttpUtil.addCookie(response,"userID",userID,null);
 		
 		String backUrl = request.getParameter("backUrl");
 		log("backUrl======"+backUrl);
-		HttpUtil.addCookie(response,"backUrl",backUrl,null);
 		
 		log("======"+channelName+"==========end=================");
 	}
@@ -489,6 +452,24 @@ public class FilmAction extends BaseAction<Film>{
 			}
 		}
 		return returnFlag;
+	}
+	
+	private String getLocalIp(){
+		if(session.getAttribute("iptv_localIp")!=null){
+			String  iptv_localIp = (String)session.getAttribute("iptv_localIp");
+			return iptv_localIp;
+		}else{
+			return HttpUtil.getCookieValue(request, "localIp");
+		}
+	}
+	
+	private String getUserId(){
+		if(session.getAttribute("iptv_userId")!=null){
+			String  iptv_userId = (String)session.getAttribute("iptv_userId");
+			return iptv_userId;
+		}else{
+			return HttpUtil.getCookieValue(request,"userID");
+		}
 	}
 	
 	private void log(String message){
