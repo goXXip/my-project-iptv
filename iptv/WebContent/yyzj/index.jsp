@@ -172,7 +172,6 @@ ul li {
 
 
 <script type="text/javascript">
-var backUrl = "";
 var $ = function(id){
 	var o = document.getElementById(id);
 	return o;
@@ -181,21 +180,7 @@ window.onload = function() {
 	if($("defaultFocus") != "undefined" && $("defaultFocus") != null) {
 		$("defaultFocus").focus();
 	}
-	backUrl = getCookie("backUrl_netitv");
 };
-function getCookie(key) {
-	   var search = key + "=";
-	   if(document.cookie.length > 0) {
-	      offset = document.cookie.indexOf(search);
-	      if(offset != -1) {
-	         offset += search.length;
-	         end = document.cookie.indexOf(";", offset);
-	         if(end == -1) end = document.cookie.length;
-	         return unescape(document.cookie.substring(offset, end));
-	      }
-	   }
-	   return "";
-}
 function keyEvent() {
 	var keyCode;
 	var keyCode = event.keyCode;
@@ -207,7 +192,7 @@ function keyEvent() {
 	case 109:
 	case 283:
 		if(backUrl != ""){
-			location.href = backUrl ;
+			location.href = "${ctx}/default_bq.jsp" ;
 		}
 		else{
 			window.history.back();
