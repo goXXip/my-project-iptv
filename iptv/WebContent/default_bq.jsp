@@ -64,6 +64,40 @@ function MM_swapImage() { //v3.0
 }
 </script>
 <script type="text/javascript">
+function getCookie(key) {
+	   var search = key + "=";
+	   if(document.cookie.length > 0) {
+	      offset = document.cookie.indexOf(search);
+	      if(offset != -1) {
+	         offset += search.length;
+	         end = document.cookie.indexOf(";", offset);
+	         if(end == -1) end = document.cookie.length;
+	         return unescape(document.cookie.substring(offset, end));
+	      }
+	   }
+	   return "";
+}
+
+function keyEvent() {
+	var keyCode;
+	var keyCode = event.keyCode;
+	if(!keyCode||keyCode=="undefined"){
+		keyCode = event.which;
+	}
+	switch(keyCode) {
+	case 8:
+	case 109:
+	case 283:
+			var backUrl = getCookie("backUrl_netitv");
+			location.href = backUrl ;
+		return 0;
+		break;
+	default:
+		return 1;
+	}
+}
+document.onirkeypress = keyEvent;
+document.onkeypress = keyEvent;
 </script>
 </head>
 
