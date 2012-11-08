@@ -29,7 +29,6 @@ public class FilmAction extends BaseAction<Film>{
 	private String toAuthenticationUrl;//身份认证url
 	private String toAuthUrl;//鉴权url
 	private String playUrl;//视频播放url
-	private String hdIndexUrl;//高清首页
 	
 	/**
 	 *@Todo:孕育早教首页
@@ -48,18 +47,10 @@ public class FilmAction extends BaseAction<Film>{
 		}
 		
 		String localIp = request.getParameter("localIp");
-		String userID = request.getParameter("userId");
-		String backUrl = request.getParameter("backUrl");
-		if(localIp == null){
+		if(localIp == null || "".equals(localIp)){
 			localIp = getLocalIp();
 		}
 		request.setAttribute("prefix", localIp);
-		
-		if(checkHD(localIp)){//是否为高清
-			String hdIndexUrl_yyzj = getRequestPrefix()+"/yyzj_hd/filmAction!eduIndex.do?userId="+userID+"&backUrl="+backUrl+"&localIp="+localIp;
-			this.setHdIndexUrl(hdIndexUrl_yyzj);
-			return "eduIndex_hd";
-		}
 		
 		FilmService filmService = (FilmService) BeanFactory.getBeanByName("filmService");
 		PageBean pageBean = filmService.findByPage(5, 1,"1");
@@ -101,18 +92,10 @@ public class FilmAction extends BaseAction<Film>{
 		}
 		
 		String localIp = request.getParameter("localIp");
-		String userID = request.getParameter("userId");
-		String backUrl = request.getParameter("backUrl");
-		if(localIp == null){
+		if(localIp == null || "".equals(localIp)){
 			localIp =  getLocalIp();
 		}
 		request.setAttribute("prefix", localIp);
-		
-		if(checkHD(localIp)){//是否为高清
-			String hdIndexUrl_yyzj = getRequestPrefix()+"/crazyenglish_hd/filmAction!engIndex.do?userId="+userID+"&backUrl="+backUrl+"&localIp="+localIp;
-			this.setHdIndexUrl(hdIndexUrl_yyzj);
-			return "engIndex_hd";
-		}
 		
 		FilmService filmService = (FilmService) BeanFactory.getBeanByName("filmService");
 		PageBean pageBean = filmService.findByPage(5, 1,"2");
@@ -154,18 +137,10 @@ public class FilmAction extends BaseAction<Film>{
 		}
 		
 		String localIp = request.getParameter("localIp");
-		String userID = request.getParameter("userId");
-		String backUrl = request.getParameter("backUrl");
-		if(localIp == null){
+		if(localIp == null || "".equals(localIp)){
 			localIp =  getLocalIp();
 		}
 		request.setAttribute("prefix", localIp);
-		
-		if(checkHD(localIp)){//是否为高清
-			String hdIndexUrl_yyzj = getRequestPrefix()+"/crjy_hd/filmAction!crjyIndex.do?userId="+userID+"&backUrl="+backUrl+"&localIp="+localIp;
-			this.setHdIndexUrl(hdIndexUrl_yyzj);
-			return "crjyIndex_hd";
-		}
 		
 		FilmService filmService = (FilmService) BeanFactory.getBeanByName("filmService");
 		PageBean pageBean = filmService.findByPage(5, 1,"3");
@@ -509,13 +484,4 @@ public class FilmAction extends BaseAction<Film>{
 	public void setPlayUrl(String playUrl) {
 		this.playUrl = playUrl;
 	}
-
-	public String getHdIndexUrl() {
-		return hdIndexUrl;
-	}
-
-	public void setHdIndexUrl(String hdIndexUrl) {
-		this.hdIndexUrl = hdIndexUrl;
-	}
-
 }

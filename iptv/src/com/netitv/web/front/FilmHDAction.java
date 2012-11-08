@@ -47,7 +47,7 @@ public class FilmHDAction extends BaseAction<Film>{
 		}
 		
 		String localIp = request.getParameter("localIp");
-		if(localIp == null){
+		if(localIp == null || "".equals(localIp)){
 			localIp = getLocalIp();
 		}
 		request.setAttribute("prefix", localIp);
@@ -122,7 +122,7 @@ public class FilmHDAction extends BaseAction<Film>{
 		}
 		
 		String localIp = request.getParameter("localIp");
-		if(localIp == null){
+		if(localIp == null || "".equals(localIp)){
 			localIp = getLocalIp();
 		}
 		request.setAttribute("prefix", localIp);
@@ -166,7 +166,7 @@ public class FilmHDAction extends BaseAction<Film>{
 		}
 		
 		String localIp = request.getParameter("localIp");
-		if(localIp == null){
+		if(localIp == null || "".equals(localIp)){
 			localIp = getLocalIp();
 		}
 		request.setAttribute("prefix", localIp);
