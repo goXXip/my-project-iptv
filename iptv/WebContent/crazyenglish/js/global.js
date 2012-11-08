@@ -4,7 +4,6 @@
 
 var PLAY_WINDOW = "win";//窗口播放
 var PLAY_FULLSCREEN = "full";//全屏播放，需要进行权限验证
-var EPG_SERVER_DEFAULT = "125.88.102.150";
 
 
 var userID;
@@ -19,15 +18,6 @@ window.onload = function() {
 	if($("defaultFocus") != "undefined" && $("defaultFocus") != null) {
 		$("defaultFocus").focus();
 	}
-	/*try {
-		localIP = getCookie("localIP");
-		userID = getCookie("userID");
-		backUrl = getCookie("backUrl");
-	} catch(e) {}
-	if(localIP == null || localIP == "undefined" || localIP == "") {
-		localIP = EPG_SERVER_DEFAULT;
-	}
-	*/
 };
 function keyEvent() {
 	var keyCode;
