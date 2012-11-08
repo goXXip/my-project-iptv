@@ -25,9 +25,7 @@ a:VISITED {text-decoration:none;color: #FF9900;}
 .msgDiv{margin: 0 auto;margin-top: 100px;width: 400px;color: #ffffff;font-size: 20px; }
 -->
 </style>
-<script type="text/javascript">
-
-</script>
+<script type="text/javascript" src="js/global.js"></script>
 
 </head>
 
