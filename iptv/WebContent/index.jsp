@@ -7,12 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<a href="servlet/authenticate">authenticate</a><br/>
-<a href="servlet/authenticateResponse">authenticateResponse</a><br/>
-<a href="servlet/order">order</a><br/>
-<a href="servlet/orderResponse">orderResponse</a><br/>
-<a href="servlet/serviceAuth">serviceAuth</a><br/>
 <a href="${ctx }/yyzj/filmAction!eduIndex.do?userId=20091065&backUrl=http://125.88.107.82:8014/school/test2.jsp&localIp=http://125.88.104.14:8082/EPG/jsp/defaultwghd/en/">孕育早教</a><br/>
 <a href="${ctx }/crazyenglish/filmAction!engIndex.do?userId=20091065&backUrl=http://125.88.107.82:8014/school/test2.jsp&localIp=http://125.88.104.14:8082/EPG/jsp/defaultwghd/en/">疯狂英语</a><br/>
 <a href="${ctx }/crjy/filmAction!crjyIndex.do?userId=20091065&backUrl=http://125.88.107.82:8014/school/test2.jsp&localIp=http://125.88.104.14:8082/EPG/jsp/defaultwghd/en/">成人教育</a><br/>

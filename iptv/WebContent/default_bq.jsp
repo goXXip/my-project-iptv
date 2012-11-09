@@ -1,22 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/manager/common/taglibs.jsp"%>
 <%@page import="com.netitv.util.HttpUtil"%>
+<%@page import="com.netitv.util.CommonsUtil"%>
 <%
 /***写cookie信息 ***/
 		String userID = request.getParameter("userId");
 		if( userID != null && !"".equals(userID)){
+			userID = CommonsUtil.htmlEncoder(userID);
 			session.setAttribute("iptv_userId",userID);
 			HttpUtil.addCookie(response,"userID",userID,null);
 		}
 		
 		String backUrl = request.getParameter("backUrl");
 		if( backUrl != null && !"".equals(backUrl)){
+			backUrl = CommonsUtil.htmlEncoder(backUrl);
 			session.setAttribute("iptv_backUrl",backUrl);
 			HttpUtil.addCookie(response,"backUrl",backUrl,null);
 		}
 		
 		String localIp = request.getParameter("localIp");
 		if( localIp != null && !"".equals(localIp)){
+			localIp = CommonsUtil.htmlEncoder(localIp);
 			session.setAttribute("iptv_localIp",localIp);
 			HttpUtil.addCookie(response,"localIp",localIp,null);
 		}
@@ -127,7 +131,7 @@ document.onkeypress = keyEvent;
 </table>
 <table width="640" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><img src="images/hbyp-06.jpg" width="640" height="80" /></td>
+    <td width="640" height="80" style="background: url('images/hbyp-06.jpg') no-repeat;" align="center"><span style="font-size: 24px;color: #ffffff;">试运营期间，欢迎免费体验</span></td>
   </tr>
 </table>
 </body>
