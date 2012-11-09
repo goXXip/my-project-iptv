@@ -111,7 +111,7 @@ public class BaseAction<T> extends ActionSupport
 		
 		String localIp = request.getParameter("localIp");
 		log("localIp======"+localIp);
-		request.setAttribute("prefix", localIp);
+//		request.setAttribute("prefix", localIp);
 		
 		String userID = request.getParameter("userId");
 		log("userID======"+userID);

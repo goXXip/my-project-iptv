@@ -386,7 +386,7 @@ public class CommonsUtil {
 	/**
 	 * 转换为HTML编码.<br>
 	 */
-	public static String htmlEncoder(String src) throws Exception {
+	public static String htmlEncoder(String src){
 		if (src == null || src.equals("")) {
 			return "";
 		}
