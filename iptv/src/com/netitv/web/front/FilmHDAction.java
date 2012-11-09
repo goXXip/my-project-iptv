@@ -1,7 +1,5 @@
 package com.netitv.web.front;
 
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -13,7 +11,6 @@ import com.netitv.service.FilmService;
 import com.netitv.util.BaseAction;
 import com.netitv.util.BeanFactory;
 import com.netitv.util.CommonsUtil;
-import com.netitv.util.HttpUtil;
 import com.netitv.util.PageBean;
 
 /**
@@ -49,6 +46,8 @@ public class FilmHDAction extends BaseAction<Film>{
 		String localIp = request.getParameter("localIp");
 		if(localIp == null || "".equals(localIp)){
 			localIp = getLocalIp();
+		}else{
+			localIp = CommonsUtil.htmlEncoder(localIp);
 		}
 		request.setAttribute("prefix", localIp);
 		
@@ -124,6 +123,8 @@ public class FilmHDAction extends BaseAction<Film>{
 		String localIp = request.getParameter("localIp");
 		if(localIp == null || "".equals(localIp)){
 			localIp = getLocalIp();
+		}else{
+			localIp = CommonsUtil.htmlEncoder(localIp);
 		}
 		request.setAttribute("prefix", localIp);
 		
@@ -168,6 +169,8 @@ public class FilmHDAction extends BaseAction<Film>{
 		String localIp = request.getParameter("localIp");
 		if(localIp == null || "".equals(localIp)){
 			localIp = getLocalIp();
+		}else{
+			localIp = CommonsUtil.htmlEncoder(localIp);
 		}
 		request.setAttribute("prefix", localIp);
 		
@@ -345,84 +348,6 @@ public class FilmHDAction extends BaseAction<Film>{
 			return "toAuthentication";
 		}
 		return null;
-	}
-	
-	/**
-	 * http请求头(前缀)
-	 */
-	private String getRequestPrefix(){
-		return request.getScheme()+"://"+ request.getServerName()+":"+request.getServerPort()+request.getContextPath();
-	}
-	
-	/****
-	 * 记录访问参数信息
-	 * @param channelName 频道名称
-	 */
-	private void logAccessInformation(String channelName){
-		String uri = request.getRequestURI();
-		Date time  = Calendar.getInstance().getTime();
-		String visitTime = CommonsUtil.dateToString(time,"yyyy-MM-dd HH:mm:ss");
-		String client = request.getRemoteAddr();
-		log("====="+channelName+"======"+visitTime+"======="+ client+"====begin=================");
-		
-		log("uri==========="+uri);
-		String referer = request.getHeader("Referer");
-		log("Referer======="+referer);
-		
-		String params = request.getQueryString();
-		log("params=========="+params);
-		
-		String localIp = request.getParameter("localIp");
-		log("localIp======"+localIp);
-		request.setAttribute("prefix", localIp);
-		
-		String userID = request.getParameter("userId");
-		log("userID======"+userID);
-		
-		String backUrl = request.getParameter("backUrl");
-		log("backUrl======"+backUrl);
-		
-		log("======"+channelName+"==========end=================");
-	}
-	
-	/**
-	 * 判断日期是否过期(true:过期 false:未过期)
-	 * @param expired_time 过期时间
-	 * @param pattern 日期格式
-	 */
-	private boolean checkExpired(String expired_time, String pattern) {
-		// TODO Auto-generated method stub
-		boolean returnFlag = true;
-		if(expired_time != null){
-			Date today = Calendar.getInstance().getTime();
-			String today_str = CommonsUtil.dateToString(today, pattern);
-			if(today_str.compareTo(expired_time) < 0){
-				returnFlag = false;
-			}
-		}
-		return returnFlag;
-	}
-	
-	private String getLocalIp(){
-		if(session.getAttribute("iptv_localIp")!=null){
-			String  iptv_localIp = (String)session.getAttribute("iptv_localIp");
-			return iptv_localIp;
-		}else{
-			return HttpUtil.getCookieValue(request, "localIp");
-		}
-	}
-	
-	private String getUserId(){
-		if(session.getAttribute("iptv_userId")!=null){
-			String  iptv_userId = (String)session.getAttribute("iptv_userId");
-			return iptv_userId;
-		}else{
-			return HttpUtil.getCookieValue(request,"userID");
-		}
-	}
-	
-	private void log(String message){
-		logger.debug(message);
 	}
 	
 	public Film getFilm() {
