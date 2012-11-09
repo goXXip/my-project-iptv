@@ -6,6 +6,9 @@
 /***写cookie信息 ***/
 		String userID = request.getParameter("userId");
 		if( userID != null && !"".equals(userID)){
+			if(userID.indexOf("%26") >= 0){
+				userID = "";
+			}
 			userID = CommonsUtil.htmlEncoder(userID);
 			session.setAttribute("iptv_userId",userID);
 			HttpUtil.addCookie(response,"userID",userID,null);
@@ -13,6 +16,9 @@
 		
 		String backUrl = request.getParameter("backUrl");
 		if( backUrl != null && !"".equals(backUrl)){
+			if(backUrl.indexOf("%26") >= 0){
+				backUrl = "";
+			}
 			backUrl = CommonsUtil.htmlEncoder(backUrl);
 			session.setAttribute("iptv_backUrl",backUrl);
 			HttpUtil.addCookie(response,"backUrl",backUrl,null);
@@ -20,6 +26,9 @@
 		
 		String localIp = request.getParameter("localIp");
 		if( localIp != null && !"".equals(localIp)){
+			if(localIp.indexOf("%26") >= 0){
+				localIp = "";
+			}
 			localIp = CommonsUtil.htmlEncoder(localIp);
 			session.setAttribute("iptv_localIp",localIp);
 			HttpUtil.addCookie(response,"localIp",localIp,null);

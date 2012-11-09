@@ -18,6 +18,5 @@
 <a href="${ctx }/crazyenglish_hd/filmAction!engIndex.do?userId=20091065&backUrl=http://125.88.107.82:8014/school/test2.jsp&localIp=http://125.88.104.14:8082/EPG/jsp/defaultwghd/en/">疯狂英语_高清</a><br/>
 <a href="default_bq.jsp?userId=20091065&backUrl=http://125.88.107.82:8014/school/test2.jsp&localIp=http://125.88.104.14:8082/EPG/jsp/defaultwg/en/">鸿波优培_标清</a><br/>
 <a href="default_gq.jsp?userId=20091065&backUrl=http://125.88.107.82:8014/school/test2.jsp&localIp=http://125.88.104.14:8082/EPG/jsp/defaultwghd/en/">鸿波优培_高清</a><br/>
-<a href="${ctx }/manager/filmAction!list.do">资料录入</a><br/>
 </body>
 </html>
