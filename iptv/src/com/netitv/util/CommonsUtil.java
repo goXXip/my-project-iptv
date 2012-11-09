@@ -375,12 +375,33 @@ public class CommonsUtil {
 	 * @param srcpath 文件路径 
 	 */
 	public static String getExt(String srcpath) {
-		// TODO Auto-generated method stub
 		if(srcpath != null && srcpath.length()>2){
 			String suffix =  srcpath.lastIndexOf(".") > 0 ? srcpath.substring(srcpath.lastIndexOf(".")+1) : null;
 			return suffix;
 		}
 		return null;
+	}
+	
+	
+	/**
+	 * 转换为HTML编码.<br>
+	 */
+	public static String htmlEncoder(String src) throws Exception {
+		if (src == null || src.equals("")) {
+			return "";
+		}
+
+		String dst = src;
+		dst = dst.replaceAll("<", "&lt;");
+		dst = dst.replaceAll(">", "&rt;");
+		dst = dst.replaceAll("\"", "&quot;");
+		dst = dst.replaceAll("'", "&#039;");
+		dst = dst.replaceAll("&", "&amp;");
+		dst = dst.replaceAll("\\?","&#63;");
+		dst = dst.replaceAll("=", "&#61;");
+		dst = dst.replaceAll("%", "&#37;");
+
+		return dst;
 	}
 	
 }
