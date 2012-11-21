@@ -111,6 +111,14 @@ function keyEvent() {
 }
 document.onirkeypress = keyEvent;
 document.onkeypress = keyEvent;
+
+function goToEng(userId,backUrl,localIp){
+	location.href = "${ctx }/crazyenglish/filmAction!engIndex.do?userId="+userId+"&backUrl="+backUrl+"&localIp="+localIp;
+}
+
+function goToYyzj(userId,backUrl,localIp){
+	location.href = "${ctx }/yyzj/filmAction!eduIndex.do?userId="+userId+"&backUrl="+backUrl+"&localIp="+localIp;
+}
 </script>
 </head>
 
@@ -130,9 +138,9 @@ document.onkeypress = keyEvent;
     <td width="40"><img src="images/hbyp-03.jpg" width="40" height="300" /></td>
     <td width="560" height="300" background="images/hbyp-04.jpg"><table width="560" border="0" align="right" cellpadding="0" cellspacing="0">
       <tr>
-        <td width="271"><a href="${ctx }/crazyenglish/filmAction!engIndex.do?userId=${sessionScope.iptv_userId }&backUrl=${sessionScope.iptv_backUrl }&localIp=${sessionScope.iptv_localIp}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image6','','images/fkyy-logo-2.png',1)"><img src="images/fkyy-logo-1.png" name="Image6" width="271" height="249" border="0" id="Image6" /></a></td>
+        <td width="271"><a onclick="goToEng('${sessionScope.iptv_userId }','${sessionScope.iptv_backUrl }','${sessionScope.iptv_localIp}')" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image6','','images/fkyy-logo-2.png',1)"><img src="images/fkyy-logo-1.png" name="Image6" width="271" height="249" border="0" id="Image6" /></a></td>
         <td width="18">&nbsp;</td>
-        <td width="271"><a href="${ctx }/yyzj/filmAction!eduIndex.do?userId=${sessionScope.iptv_userId }&backUrl=${sessionScope.iptv_backUrl }&localIp=${sessionScope.iptv_localIp}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image7','','images/yyzj-logo-2.png',1)"><img src="images/yyzj-logo-1.png" name="Image7" width="271" height="249" border="0" id="Image7" /></a></td>
+        <td width="271"><a onclick="goToYyzj('${sessionScope.iptv_userId }','${sessionScope.iptv_backUrl }','${sessionScope.iptv_localIp}')" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image7','','images/yyzj-logo-2.png',1)"><img src="images/yyzj-logo-1.png" name="Image7" width="271" height="249" border="0" id="Image7" /></a></td>
       </tr>
     </table></td>
     <td width="40"><img src="images/hbyp-05.jpg" width="40" height="300" /></td>
