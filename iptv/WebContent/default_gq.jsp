@@ -101,7 +101,7 @@ function keyEvent() {
 	case 8:
 	case 109:
 	case 283:
-			var backUrl = getCookie("backUrl_hd_netitv");
+			var backUrl = getCookie("backUrl_netitv");
 			location.href = backUrl ;
 		return 0;
 		break;
