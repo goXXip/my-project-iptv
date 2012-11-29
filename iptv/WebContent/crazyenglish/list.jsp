@@ -17,9 +17,7 @@ body {
     width: 640px;
 	height: 530px;
 }
-a:link{text-decoration:none;}
-a:hover{text-decoration:none; }
-a:VISITED {text-decoration:none;}
+a{text-decoration:none;}
 .STYLE9 {color: #FFFFFF; font-size: 20px; font-family: "黑体";}
 .STYLE12 {font-family: "黑体";color: #FF9900;font-size: 16px;}
 .STYLE14 {font-family: "黑体";color: #FFFFFF;font-size: 16px;}
@@ -131,46 +129,60 @@ function focusStyle(target, className) {
 			 <td width="188" height="130">
 			 	<c:if test="${fn:length(pageBean.items) > 0 }">
 	        	  <c:forEach items="${pageBean.items}" var="result" varStatus="status"  begin="0" end="0">
-	        	  		<a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}" onfocus="focusStyle('t_0','liston');" onblur="focusStyle('t_0','listoff');">
 							<div id="t_0" class="listoff">
 								<table width="165" border="0" align="center" cellpadding="0" cellspacing="0">
 						            <tr>
-						              <td width="75" height="122"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" /></td>
+						              <td width="75" height="122">
+							              	<a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}" onfocus="focusStyle('t_0','liston');" onblur="focusStyle('t_0','listoff');">
+							              		<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" />
+							             	</a>
+						              </td>
 						              <td width="90" valign="top"><p class="STYLE13">${result.name }</p>
 						               <p class="STYLE13">适用：${result.audient }<br />
 						                	主讲：${result.actor }</p></td>
 						            </tr>
 					          	</table>
 				          	</div>
-			         	</a>
 				  </c:forEach>
 				</c:if>
 			</td>
 			<td width="188" height="130">
 			 	<c:if test="${fn:length(pageBean.items) > 1 }">
 	        	  <c:forEach items="${pageBean.items}" var="result" varStatus="status"  begin="1" end="1">
-			 		 <a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}" onfocus="focusStyle('t_1','liston');" onblur="focusStyle('t_1','listoff');"><div id="t_1" class="listoff"><table width="165" border="0" align="center" cellpadding="0" cellspacing="0">
-				            <tr>
-				              <td width="75" height="122"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" /></td>
-				              <td width="90" valign="top"><p class="STYLE13">${result.name }</p>
-				              <p class="STYLE13">适用：${result.audient }<br />
-						                	主讲：${result.actor }</p></td>
-				            </tr>
-			          	</table></div></a>
+			 			<div id="t_1" class="listoff">
+			 				<table width="165" border="0" align="center" cellpadding="0" cellspacing="0">
+					            <tr>
+					              <td width="75" height="122">
+						               <a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}" onfocus="focusStyle('t_1','liston');" onblur="focusStyle('t_1','listoff');">
+						              		<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" />
+						              	</a>
+					              </td>
+					              <td width="90" valign="top"><p class="STYLE13">${result.name }</p>
+					              <p class="STYLE13">适用：${result.audient }<br />
+							                	主讲：${result.actor }</p></td>
+					            </tr>
+			          		</table>
+			          	</div>
 				  </c:forEach>
 				</c:if>
 			</td>
 			<td width="188" height="130">
 			 	<c:if test="${fn:length(pageBean.items) > 2 }">
 	        	  <c:forEach items="${pageBean.items}" var="result" varStatus="status"  begin="2" end="2">
-			 		 <a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}" onfocus="focusStyle('t_2','liston');" onblur="focusStyle('t_2','listoff');"><div id="t_2" class="listoff"><table width="165" border="0" align="center" cellpadding="0" cellspacing="0">
-				            <tr>
-				              <td width="75" height="122"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" /></td>
-				              <td width="90" valign="top"><p class="STYLE13">${result.name }</p>
-				              <p class="STYLE13">适用：${result.audient }<br />
-						                	主讲：${result.actor }</p></td>
-				            </tr>
-			          	</table></div></a>
+			 			<div id="t_2" class="listoff">
+				 			<table width="165" border="0" align="center" cellpadding="0" cellspacing="0">
+					            <tr>
+					              <td width="75" height="122">
+					               	<a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}" onfocus="focusStyle('t_2','liston');" onblur="focusStyle('t_2','listoff');">
+					              		<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" />
+					              	</a>
+					              </td>
+					              <td width="90" valign="top"><p class="STYLE13">${result.name }</p>
+					              <p class="STYLE13">适用：${result.audient }<br />
+							                	主讲：${result.actor }</p></td>
+					            </tr>
+				          	</table>
+				        </div>
 				  </c:forEach>
 				</c:if>
 			</td>
@@ -179,42 +191,56 @@ function focusStyle(target, className) {
 			 <td width="188" height="130">
 			 	<c:if test="${fn:length(pageBean.items) > 3 }">
 	        	  <c:forEach items="${pageBean.items}" var="result" varStatus="status"  begin="3" end="3">
-			 		 <a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}" onfocus="focusStyle('t_3','liston');" onblur="focusStyle('t_3','listoff');"><div id="t_3" class="listoff"><table width="165" border="0" align="center" cellpadding="0" cellspacing="0">
+			 		<div id="t_3" class="listoff">
+			 			<table width="165" border="0" align="center" cellpadding="0" cellspacing="0">
 				            <tr>
-				              <td width="75" height="122"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" /></td>
+				              <td width="75" height="122">
+					              <a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}" onfocus="focusStyle('t_3','liston');" onblur="focusStyle('t_3','listoff');">
+					              	<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" />
+					              </a>
+				              </td>
 				              <td width="90" valign="top"><p class="STYLE13">${result.name }</p>
 				                <p class="STYLE13">适用：${result.audient }<br />
 						                	主讲：${result.actor }</p></td>
 				            </tr>
-			          	</table></div></a>
+			          	</table>
+			         </div>
 				  </c:forEach>
 				</c:if>
 			</td>
 			<td width="188" height="130">
 			 	<c:if test="${fn:length(pageBean.items) > 4 }">
 	        	  <c:forEach items="${pageBean.items}" var="result" varStatus="status"  begin="4" end="4">
-			 			<a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}" onfocus="focusStyle('t_4','liston');" onblur="focusStyle('t_4','listoff');"><div id="t_4" class="listoff"><table width="165" border="0" align="center" cellpadding="0" cellspacing="0">
+			 			<div id="t_4" class="listoff"><table width="165" border="0" align="center" cellpadding="0" cellspacing="0">
 				            <tr>
-				              <td width="75" height="122"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" /></td>
+				              <td width="75" height="122">
+					              <a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}" onfocus="focusStyle('t_4','liston');" onblur="focusStyle('t_4','listoff');">
+					              	<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" />
+					              </a>
+				              </td>
 				              <td width="90" valign="top"><p class="STYLE13">${result.name }</p>
 				               <p class="STYLE13">适用：${result.audient }<br />
 						                	主讲：${result.actor }</p></td>
 				            </tr>
-			          	</table></div></a>
+			          	</table></div>
 				  </c:forEach>
 				</c:if>
 			</td>
 			<td width="188" height="130">
 			 	<c:if test="${fn:length(pageBean.items) > 5 }">
 	        	  <c:forEach items="${pageBean.items}" var="result" varStatus="status"  begin="5" end="5">
-			 		 <a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}" onfocus="focusStyle('t_5','liston');" onblur="focusStyle('t_5','listoff');"><div id="t_5" class="listoff"><table width="165" border="0" align="center" cellpadding="0" cellspacing="0">
+			 		 	<div id="t_5" class="listoff"><table width="165" border="0" align="center" cellpadding="0" cellspacing="0">
 				            <tr>
-				              <td width="75" height="122"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" /></td>
+				              <td width="75" height="122">
+					              <a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}" onfocus="focusStyle('t_5','liston');" onblur="focusStyle('t_5','listoff');">
+					              	<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" />
+					              </a>
+				              </td>
 				              <td width="90" valign="top"><p class="STYLE13">${result.name }</p>
 				               <p class="STYLE13">适用：${result.audient }<br />
 						                	主讲：${result.actor }</p></td>
 				            </tr>
-			          	</table></div></a>
+			          	</table></div>
 				  </c:forEach>
 				</c:if>
 			</td>
@@ -223,42 +249,54 @@ function focusStyle(target, className) {
 			 <td width="188" height="130">
 			 	<c:if test="${fn:length(pageBean.items) > 6 }">
 	        	  <c:forEach items="${pageBean.items}" var="result" varStatus="status"  begin="6" end="6">
-			 		<a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}" onfocus="focusStyle('t_6','liston');" onblur="focusStyle('t_6','listoff');"><div id="t_6" class="listoff"><table width="165" border="0" align="center" cellpadding="0" cellspacing="0">
+			 		<div id="t_6" class="listoff"><table width="165" border="0" align="center" cellpadding="0" cellspacing="0">
 				            <tr>
-				              <td width="75" height="122"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" /></td>
+				              <td width="75" height="122">
+					              <a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}" onfocus="focusStyle('t_6','liston');" onblur="focusStyle('t_6','listoff');">
+					              	<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" />
+					              </a>
+				              </td>
 				              <td width="90" valign="top"><p class="STYLE13">${result.name }</p>
 				               <p class="STYLE13">适用：${result.audient }<br />
 						                	主讲：${result.actor }</p></td>
 				            </tr>
-			          	</table></div></a>
+			          	</table></div>
 				  </c:forEach>
 				</c:if>
 			</td>
 			<td width="188" height="130">
 			 	<c:if test="${fn:length(pageBean.items) > 7 }">
 	        	  <c:forEach items="${pageBean.items}" var="result" varStatus="status"  begin="7" end="7">
-			 		 <a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}" onfocus="focusStyle('t_7','liston');" onblur="focusStyle('t_7','listoff');"><div id="t_7" class="listoff"><table width="165" border="0" align="center" cellpadding="0" cellspacing="0">
+			 		<div id="t_7" class="listoff"><table width="165" border="0" align="center" cellpadding="0" cellspacing="0">
 				            <tr>
-				              <td width="75" height="122"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" /></td>
+				              <td width="75" height="122">
+					              <a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}" onfocus="focusStyle('t_7','liston');" onblur="focusStyle('t_7','listoff');">
+					              	<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" />
+					              </a>
+				              </td>
 				              <td width="90" valign="top"><p class="STYLE13">${result.name }</p>
 				              <p class="STYLE13">适用：${result.audient }<br />
 						                	主讲：${result.actor }</p></td>
 				            </tr>
-			          	</table></div></a>
+			          	</table></div>
 				  </c:forEach>
 				</c:if>
 			</td>
 			<td width="188" height="130">
 			 	<c:if test="${fn:length(pageBean.items) > 8 }">
 	        	  <c:forEach items="${pageBean.items}" var="result" varStatus="status"  begin="8" end="8">
-			 		<a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}" onfocus="focusStyle('t_8','liston');" onblur="focusStyle('t_8','listoff');"><div id="t_8" class="listoff"><table width="165" border="0" align="center" cellpadding="0" cellspacing="0">
+			 		<div id="t_8" class="listoff"><table width="165" border="0" align="center" cellpadding="0" cellspacing="0">
 				            <tr>
-				              <td width="75" height="122"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" /></td>
+				              <td width="75" height="122">
+					              <a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}" onfocus="focusStyle('t_8','liston');" onblur="focusStyle('t_8','listoff');">
+					            	 <img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" />
+					              </a>
+				              </td>
 				              <td width="90" valign="top"><p class="STYLE13">${result.name }</p>
 				               	<p class="STYLE13">适用：${result.audient }<br />
 						                	主讲：${result.actor }</p></td>
 				            </tr>
-			          	</table></div></a>
+			          	</table></div>
 				  </c:forEach>
 				</c:if>
 			</td>

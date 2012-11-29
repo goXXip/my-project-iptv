@@ -19,9 +19,7 @@ body {
 	height: 530px;
 	background: transparent;
 }
-a:link{text-decoration:none;color: #FF9900;}
-a:hover{text-decoration:none;color: #FF9900;}
-a:VISITED {text-decoration:none;color: #FF9900;}
+a{display: inline-block;text-decoration:none;}
 .msgDiv{margin: 0 auto;margin-top: 100px;width: 400px;color: #ffffff;font-size: 20px; }
 -->
 </style>

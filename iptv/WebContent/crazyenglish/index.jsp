@@ -18,21 +18,11 @@ body {
 	height: 530px;
 	background: transparent;
 }
-a:link{text-decoration:none;}
-a:hover{text-decoration:none;}
-a:VISITED {text-decoration:none;}
-
+a{display: inline-block;text-decoration:none;}
 .STYLE9 {color: #FFFFFF; font-size: 20px; font-family: "黑体";}
 .STYLE10 {color: #FBB90B; font-size: 18px; font-family: "黑体"; }
-.STYLE11 {
-	font-family: "黑体";
-	font-size: 16px;
-	color: #FFFFFF;
-}
-.STYLE12 {
-	color: #FF9900;
-	font-size: 16px;
-}
+.STYLE11 {font-family: "黑体";font-size: 16px;color: #FFFFFF;}
+.STYLE12 {color: #FF9900;font-size: 16px;}
 .STYLE13 {font-family: "黑体"; font-size: 16px; color: #FFFFFF;margin-top:10px;}
 .STYLE17 {color: #FFFFFF; font-size: 18px; font-family: "黑体"; }
 .titleon {
@@ -227,11 +217,13 @@ function focusStyle(target, className) {
 						 <td width="188" height="122">
 						 	<c:if test="${fn:length(requestScope.relativeList) > 0 }">
 				        	  <c:forEach items="${requestScope.relativeList}" var="result" varStatus="status"  begin="0" end="0">
-						 		<a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_2_0','liston');" onblur="focusStyle('t_2_0','listoff');">
 							 		<div id="t_2_0" class="listoff">
 								 		<table width="165" border="0" align="center" cellpadding="0" cellspacing="0">
 												<tr>
-													<td width="75" height="124"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" />
+													<td width="75" height="124">
+														<a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_2_0','liston');" onblur="focusStyle('t_2_0','listoff');">
+															<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" />
+														</a>
 													</td>
 													<td width="90" valign="top"><p class="STYLE13">${result.name }</p>
 														<p class="STYLE13">主讲：${result.actor }</p>
@@ -239,18 +231,19 @@ function focusStyle(target, className) {
 												</tr>
 										</table>
 									</div>
-							    </a>
 							  </c:forEach>
 							</c:if>
 						</td>
 						<td width="188" height="122">
 						 	<c:if test="${fn:length(requestScope.relativeList) > 1 }">
 				        	  <c:forEach items="${requestScope.relativeList}" var="result" varStatus="status"  begin="1" end="1">
-						 		<a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_2_1','liston');" onblur="focusStyle('t_2_1','listoff');">
 							 		<div id="t_2_1" class="listoff">
 								 		<table width="165" border="0" align="center" cellpadding="0" cellspacing="0">
 												<tr>
-													<td width="75" height="124"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" />
+													<td width="75" height="124">
+														<a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_2_1','liston');" onblur="focusStyle('t_2_1','listoff');">
+															<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" />
+														</a>
 													</td>
 													<td width="90" valign="top"><p class="STYLE13">${result.name }</p>
 														<p class="STYLE13">主讲：${result.actor }</p>
@@ -258,18 +251,19 @@ function focusStyle(target, className) {
 												</tr>
 										</table>
 									</div>
-							    </a>
 							  </c:forEach>
 							</c:if>
 						</td>
 						<td width="188" height="122">
 						 	<c:if test="${fn:length(requestScope.relativeList) > 2 }">
 				        	  <c:forEach items="${requestScope.relativeList}" var="result" varStatus="status"  begin="2" end="2">
-						 		<a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_2_2','liston');" onblur="focusStyle('t_2_2','listoff');">
 							 		<div id="t_2_2" class="listoff">
 								 		<table width="165" border="0" align="center" cellpadding="0" cellspacing="0">
 												<tr>
-													<td width="75" height="124"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" />
+													<td width="75" height="124">
+														<a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_2_2','liston');" onblur="focusStyle('t_2_2','listoff');">
+															<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" />
+														</a>
 													</td>
 													<td width="90" valign="top"><p class="STYLE13">${result.name }</p>
 														<p class="STYLE13">主讲：${result.actor }</p>
@@ -277,7 +271,6 @@ function focusStyle(target, className) {
 												</tr>
 										</table>
 									</div>
-							    </a>
 							  </c:forEach>
 							</c:if>
 						</td>
