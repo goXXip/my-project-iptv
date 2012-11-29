@@ -18,9 +18,7 @@ body {
 	font-family: "黑体";
 	background-color: #214c47;
 }
-a:link{text-decoration:none;}
-a:hover{text-decoration:none;}
-a:VISITED {text-decoration:none;}
+a{display: inline-block;text-decoration:none;}
 .STYLE9 {color: #FFFFFF; font-size: 20px; font-family: "黑体";}
 .STYLE18 {color: #f7d400; font-size: 16px; font-family: "黑体"; }
 .msgDiv{margin: 0 auto;margin-top: 100px;width: 400px;color: #ffffff;font-size: 20px; }
