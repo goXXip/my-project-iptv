@@ -17,9 +17,7 @@ body {
 	height: 530px;
 	font-family: "黑体";
 }
-a:link{text-decoration:none;color: #f7d400;}
-a:hover{text-decoration:none;color: #f7d400;}
-a:VISITED {text-decoration:none;color: #f7d400;}
+a{display: inline-block;text-decoration:none;}
 .msgDiv{margin: 0 auto;margin-top: 100px;width: 400px;color: #ffffff;font-size: 20px; }
 </style>
 <script type="text/javascript" src="js/global.js"></script>

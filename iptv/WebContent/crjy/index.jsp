@@ -18,19 +18,7 @@ body {
 	height: 530px;
 	background: transparent;
 }
-
-a:link {
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: none;
-}
-
-a:VISITED {
-	text-decoration: none;
-}
-
+a{display: inline-block;text-decoration:none;}
 .STYLE9 {
 	color: #FFFFFF;
 	font-size: 20px;
@@ -314,48 +302,48 @@ function focusStyle(target, className) {
 			    		<td width="141" align="left">
 			    			 <c:if test="${fn:length(requestScope.relativeList) > 0 }">
 			    			 	<c:forEach items="${requestScope.relativeList}" begin="0" end="0" var="result" varStatus="status">
-				    				<a href="${ctx }/crjy/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_2_0','liston');" onblur="focusStyle('t_2_0','listoff');">
 					    				<div id="t_2_0" class="listoff">
-					    						<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" />
+							    				<a href="${ctx }/crjy/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_2_0','liston');" onblur="focusStyle('t_2_0','listoff');">
+							    						<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" />
+							    				</a>
 					    						<div class="listtitle">${result.name }</div>
 					    				</div>
-				    				</a>
 				    			</c:forEach>
 				    		 </c:if>
 				    	</td>
 			    		<td width="141" align="left">
 			    			 <c:if test="${fn:length(requestScope.relativeList) > 1 }">
 			    			 	<c:forEach items="${requestScope.relativeList}" begin="1" end="1" var="result" varStatus="status">
-				    				<a href="${ctx }/crjy/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_2_1','liston');" onblur="focusStyle('t_2_1','listoff');">
 					    				<div id="t_2_1" class="listoff">
-					    						<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" />
-					    						<div class="listtitle">${result.name }</div>
+				    						<a href="${ctx }/crjy/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_2_1','liston');" onblur="focusStyle('t_2_1','listoff');">
+				    							<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" />
+				    						</a>
+				    						<div class="listtitle">${result.name }</div>
 					    				</div>
-				    				</a>
 				    			</c:forEach>
 				    		 </c:if>
 				    	</td>
 			    		<td width="141" align="left">
 			    			 <c:if test="${fn:length(requestScope.relativeList) > 2 }">
 			    			 	<c:forEach items="${requestScope.relativeList}" begin="2" end="2" var="result" varStatus="status">
-				    				<a href="${ctx }/crjy/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_2_2','liston');" onblur="focusStyle('t_2_2','listoff');">
 					    				<div id="t_2_2" class="listoff">
-					    						<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" />
+					    						<a href="${ctx }/crjy/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_2_2','liston');" onblur="focusStyle('t_2_2','listoff');">
+					    							<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" />
+					    						</a>
 					    						<div class="listtitle">${result.name }</div>
 					    				</div>
-				    				</a>
 				    			</c:forEach>
 				    		 </c:if>
 				    	</td>
 			    		<td width="141" align="left">
 			    			 <c:if test="${fn:length(requestScope.relativeList) > 3 }">
 			    			 	<c:forEach items="${requestScope.relativeList}" begin="3" end="3" var="result" varStatus="status">
-				    				<a href="${ctx }/crjy/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_2_3','liston');" onblur="focusStyle('t_2_3','listoff');">
 					    				<div id="t_2_3" class="listoff">
-					    						<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" />
+					    						<a href="${ctx }/crjy/filmAction!detail.do?filmId=${result.id}&from=index" onfocus="focusStyle('t_2_3','liston');" onblur="focusStyle('t_2_3','listoff');">
+					    							<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" />
+					    						</a>
 					    						<div class="listtitle">${result.name }</div>
 					    				</div>
-				    				</a>
 				    			</c:forEach>
 				    		 </c:if>
 				    	</td>

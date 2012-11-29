@@ -17,18 +17,7 @@ body {
 	height: 530px;
 	font-family: "黑体";
 }
-
-a:link {
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: none;
-}
-
-a:VISITED {
-	text-decoration: none;
-}
+a{display: inline-block;text-decoration:none;}
 .STYLE9 {color: #FFFFFF; font-size: 20px; font-family: "黑体";}
 .STYLE12 {font-family: "黑体";color: #FF9900;font-size: 16px;}
 .STYLE13 {font-family: "黑体"; font-size: 16px; color: #FFFFFF; }

@@ -17,9 +17,7 @@ body {
 	height: 530px;
 	font-family: "黑体";
 }
-a:link{text-decoration:none;}
-a:hover{text-decoration:none;}
-a:VISITED {text-decoration:none;}
+a{display: inline-block;text-decoration:none;}
 .STYLE9 {color: #FFFFFF; font-size: 20px; font-family: "黑体";}
 .STYLE13 {font-family: "黑体"; font-size: 16px; color: #FFFFFF; }
 .style15 {	font-size: 24px;
@@ -177,7 +175,7 @@ function focusStyle(target, className) {
         <td height="10"></td>
       </tr>
     </table>
-      <table width="555" height="263" border="0" align="center" cellpadding="0" cellspacing="0">
+      <table width="555" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
           <td width="144" rowspan="3" valign="top"><img src="${ctx }/uploadImages/${film.bigImage.id}.${film.bigImage.suffix}" width="128" height="170" /></td>
           <td height="34" colspan="3"><span class="style15">《${film.name }》</span></td>
@@ -215,9 +213,9 @@ function focusStyle(target, className) {
     			 	<c:forEach items="${requestScope.relativeList}" begin="0" end="0" var="result" varStatus="status">
     			 	<div id="t_2_0" class="listoff">
 		    				<a href="${ctx }/crjy/filmAction!detail.do?filmId=${result.id}" onfocus="focusStyle('t_2_0','liston');" onblur="focusStyle('t_2_0','listoff');">
-			    						<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" />
-			    						<div class="listtitle">${result.name }</div>
-		    				</a>
+			    				<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" />
+			    			</a>
+			    			<div class="listtitle">${result.name }</div>
 	    			</div>
 	    			</c:forEach>
 	    		 </c:if>
@@ -227,9 +225,9 @@ function focusStyle(target, className) {
     			 	<c:forEach items="${requestScope.relativeList}" begin="1" end="1" var="result" varStatus="status">
     			 		<div id="t_2_1" class="listoff">
 		    				<a href="${ctx }/crjy/filmAction!detail.do?filmId=${result.id}" onfocus="focusStyle('t_2_1','liston');" onblur="focusStyle('t_2_1','listoff');">
-		    						<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" />
-		    						<div class="listtitle">${result.name }</div>
+		    					<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" />
 		    				</a>
+		    				<div class="listtitle">${result.name }</div>
 	    				</div>
 	    			</c:forEach>
 	    		 </c:if>
@@ -239,9 +237,9 @@ function focusStyle(target, className) {
     			 	<c:forEach items="${requestScope.relativeList}" begin="2" end="2" var="result" varStatus="status">
     			 		<div id="t_2_2" class="listoff">
 		    				<a href="${ctx }/crjy/filmAction!detail.do?filmId=${result.id}" onfocus="focusStyle('t_2_2','liston');" onblur="focusStyle('t_2_2','listoff');">
-		    						<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" />
-		    						<div class="listtitle">${result.name }</div>
+		    					<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" />
 		    				</a>
+		    				<div class="listtitle">${result.name }</div>
 	    				</div>
 	    			</c:forEach>
 	    		 </c:if>
@@ -251,9 +249,9 @@ function focusStyle(target, className) {
     			 	<c:forEach items="${requestScope.relativeList}" begin="3" end="3" var="result" varStatus="status">
     			 		<div id="t_2_3" class="listoff">
 		    				<a href="${ctx }/crjy/filmAction!detail.do?filmId=${result.id}" onfocus="focusStyle('t_2_3','liston');" onblur="focusStyle('t_2_3','listoff');">
-			    						<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" />
-			    						<div class="listtitle">${result.name }</div>
-		    				</a>
+			    				<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" />
+			    			</a>
+			    			<div class="listtitle">${result.name }</div>
 	    				</div>
 	    			</c:forEach>
 	    		 </c:if>
