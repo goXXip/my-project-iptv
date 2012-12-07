@@ -35,7 +35,7 @@ a:VISITED {text-decoration:none;}
 .STYLE9 {color: #FFFFFF; font-size: 36px; font-family: "黑体";}
 .STYLE18 {color: #f7d400; font-size: 24px; font-family: "黑体"; }
 .msgDiv{margin: 0 auto;margin-top: 50px;width: 1000px;color: #ffffff;font-size: 24px; }
-.messageinfo{margin: 0 auto;margin-top: 10px;width: 1000px;color: #ffffff;font-size: 22px;line-height: 34px;text-align: left;}
+.messageinfo{margin: 0 auto;margin-top: 50px;width: 1000px;color: #ffffff;font-size: 22px;line-height: 34px;text-align: left;}
 </style>
 
 <script type="text/javascript" src="js/common.js"></script>
@@ -57,9 +57,6 @@ a:VISITED {text-decoration:none;}
     </table>
       <table width="1112" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr><td>
-            <div class="messageinfo">
-    			温馨提示：您即将订购的是孕育早教产品包（含孕育保健、婴幼早教、少儿成长），成功订购后您可在30天内随意观看孕育早教产品包内的所有节目。
-    		</div>
            <div class="msgDiv">	   		
 	   			<table border="0" cellpadding="0" cellspacing="0">
 					  <tr>
@@ -80,6 +77,9 @@ a:VISITED {text-decoration:none;}
 					  </tr>
 				</table>
 		   </div>
+		   <div class="messageinfo">
+    			温馨提示：您即将订购的是孕育早教产品包（含孕育保健、婴幼早教、少儿成长），成功订购后您可在30天内不限次数观看孕育早教产品包内的所有节目。
+    		</div>
          </td></tr>
       </table>
       </td>
