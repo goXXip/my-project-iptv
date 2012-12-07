@@ -25,7 +25,6 @@ public class FilmAction extends BaseAction<Film>{
 	private Film film ;
 	private String toAuthenticationUrl;//身份认证url
 	private String toAuthUrl;//鉴权url
-	private String playUrl;//视频播放url
 	
 	/**
 	 *@Todo:孕育早教首页
@@ -34,9 +33,6 @@ public class FilmAction extends BaseAction<Film>{
 	 */
 	@SuppressWarnings("unchecked")
 	public String eduIndex(){
-		
-		/*********记录访问参数信息********************/
-		logAccessInformation("孕育早教");
 		
 		String returnUrl = checkLogin("1");//检查是否已登录(通过认证)
 		if(returnUrl != null){
@@ -75,15 +71,11 @@ public class FilmAction extends BaseAction<Film>{
 	
 	/**
 	 *@Todo:疯狂英语首页
-	 *@author:zhuqh
 	 *@CreateTime:2011-12-12 上午10:05:02
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
 	public String engIndex(){
-		
-		/*********记录访问参数信息********************/
-		logAccessInformation("疯狂英语");
 		
 		String returnUrl = checkLogin("2");//检查是否已登录(通过认证)
 		if(returnUrl != null){
@@ -123,14 +115,10 @@ public class FilmAction extends BaseAction<Film>{
 	
 	/**
 	 *@Todo:成人教育首页
-	 *@author:zhuqh
 	 *@CreateTime:2012-7-24 上午10:05:02
 	 */
 	@SuppressWarnings("unchecked")
 	public String crjyIndex(){
-		
-		/*********记录访问参数信息********************/
-		logAccessInformation("成人教育");
 		
 		String returnUrl = checkLogin("3");//检查是否已登录(通过认证)
 		if(returnUrl != null){
@@ -169,7 +157,6 @@ public class FilmAction extends BaseAction<Film>{
 	
 	/**
 	 *@Todo:按栏目列出影片
-	 *@author:zhuqh
 	 *@CreateTime:2011-12-12 上午10:05:13
 	 * @return
 	 */
@@ -213,7 +200,6 @@ public class FilmAction extends BaseAction<Film>{
 	
 	/**
 	 *@Todo:影片详情
-	 *@author:zhuqh
 	 *@param filmId 影片ID
 	 *@CreateTime:2011-12-12 上午10:05:28
 	 * @return
@@ -244,34 +230,31 @@ public class FilmAction extends BaseAction<Film>{
 	}
 	
 	/**
-	 *@Todo:
 	 *列出影片下所有资产(即将所有视频文件列出,连续剧列表,如：第一集、第二集、第三集......点击"观看"按钮触发)
-	 *@author:zhuqh
 	 *@param filmId 影片ID ,channelId:频道ID
 	 *@CreateTime:2011-12-12 上午10:05:37
 	 * @return
 	 */
-	public String listAssetByFilmId_back(){
+	public String listAssetByFilmId(){
 		
-		String filmId = request.getParameter("filmId");//影片ID
-		Integer filmID = Integer.parseInt(filmId);
-		String channelId = request.getParameter("channelId");//频道ID
-		
-		FilmService filmService = (FilmService) BeanFactory.getBeanByName("filmService");
-		this.film = filmService.findById(filmID);
-		Integer columnID = film.getColumnId();
-		String contentID = film.getContentId();
-		
-		AssetService assetService = (AssetService) BeanFactory.getBeanByName("assetService");
-		this.pageBean = assetService.findAssetListByFilmId(7,curPage,filmID);
-		
-		String userID = (String) request.getSession().getAttribute(Constants.UserID);
-		OrderDetailService orderDetailService = (OrderDetailService) BeanFactory.getBeanByName("orderDetailService");
-		OrderDetail  orderDetail = orderDetailService.findByContentIdAndUserId(userID, channelId);
-		if( orderDetail == null){//未订购
-			this.setToAuthUrl(getRequestPrefix()+"/servlet/serviceAuth?ContentID="+contentID+"&filmId="+filmID+"&channelId="+channelId);
-			return "toAuth";
-		}else{
+		try {
+			String filmId = request.getParameter("filmId");//影片ID
+			String channelId = request.getParameter("channelId");//频道ID
+			
+			Integer filmID = Integer.parseInt(filmId);
+			FilmService filmService = (FilmService) BeanFactory.getBeanByName("filmService");
+			this.film = filmService.findById(filmID);
+			String contentID = film.getContentId();
+			Integer columnID = film.getColumnId();
+			
+			/************************检查是否已订购产品 及订购的产品是否过期  begin *****************************/
+			String userID = (String) request.getSession().getAttribute(Constants.UserID);
+			OrderDetailService orderDetailService = (OrderDetailService) BeanFactory.getBeanByName("orderDetailService");
+			OrderDetail  orderDetail = orderDetailService.findByContentIdAndUserId(userID, channelId);
+			if( orderDetail == null){//未订购
+				this.setToAuthUrl(getRequestPrefix()+"/servlet/serviceAuth?ContentID="+contentID+"&filmId="+filmID+"&channelId="+channelId);
+				return "toAuth";
+			}
 			
 			String serendtime = orderDetail.getSerendtime();
 			boolean expiredFlag = checkExpired(serendtime,"yyyyMMddHHmmss");//检查产品服务是否过期
@@ -279,15 +262,34 @@ public class FilmAction extends BaseAction<Film>{
 				request.setAttribute("msg", "您订购的产品已过期,请重新订购");
 				return "error";
 			}
+			/************************检查是否已订购产品 及订购的产品是否过期 end *****************************/
+			
+			AssetService assetService = (AssetService) BeanFactory.getBeanByName("assetService");
+			this.pageBean = assetService.findAssetListByFilmId(7,curPage,filmID);
+			
+			String localIp = getLocalIp();
+			
+			String from = request.getParameter("from");
+			if("index".equals(from)){
+				request.setAttribute("from", "index");
+			}else{
+				request.setAttribute("from", "column");
+			}
+				
 			request.setAttribute("filmID", filmID);
 			request.setAttribute("contentID", contentID);
+			request.setAttribute("localIp", localIp);
 			request.setAttribute("columnID", columnID);
-			
-			return "listAsset";
+		} catch (NumberFormatException e) {
+			logger.error(e.getMessage());
+		}catch (Exception e) {
+			logger.error(e.getMessage());
 		}
+		
+		return "listAsset";
 	}
 	
-	public String listAssetByFilmId(){
+	public String listAsset(){
 		
 		try {
 			String filmId = request.getParameter("filmId");//影片ID
@@ -314,12 +316,11 @@ public class FilmAction extends BaseAction<Film>{
 			request.setAttribute("contentID", contentID);
 			request.setAttribute("localIp", localIp);
 			request.setAttribute("columnID", columnID);
+			
 		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		}catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 		
 		return "listAsset";
@@ -352,7 +353,6 @@ public class FilmAction extends BaseAction<Film>{
 	 */
 	private String checkLogin(String channelId){
 		
-		request.getSession().setAttribute("UserToken","UserToken");
 		Object  UserToken = request.getSession().getAttribute("UserToken");
 		if( UserToken == null){
 			String userId = request.getParameter("userId");
@@ -388,13 +388,5 @@ public class FilmAction extends BaseAction<Film>{
 
 	public void setToAuthUrl(String toAuthUrl) {
 		this.toAuthUrl = toAuthUrl;
-	}
-
-	public String getPlayUrl() {
-		return playUrl;
-	}
-
-	public void setPlayUrl(String playUrl) {
-		this.playUrl = playUrl;
 	}
 }

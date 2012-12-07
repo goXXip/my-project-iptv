@@ -12,6 +12,9 @@ import org.apache.log4j.Logger;
 
 import com.huawei.vas.bean.ServiceAuthReq;
 import com.huawei.vas.bean.ServiceAuthResp;
+import com.netitv.domain.Channel;
+import com.netitv.service.ChannelService;
+import com.netitv.util.BeanFactory;
 import com.netitv.util.Constants;
 import com.netitv.util.HttpUtil;
 import com.netitv.ws.VASServiceServiceClient;
@@ -26,7 +29,7 @@ public class ServiceAuthServlet   extends HttpServlet{
 	private static final long serialVersionUID = -3862614147091335527L;
 
 	private static Logger logger = Logger.getLogger(ServiceAuthServlet.class);
-	
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		logger.debug(" ServiceAuth begin ");
@@ -36,10 +39,18 @@ public class ServiceAuthServlet   extends HttpServlet{
 		
 		String userId = (String) request.getSession().getAttribute(Constants.UserID);
 		String ProductID = "";
-		String ServiceID = request.getParameter("ServiceID");
+		String ServiceID = "";
 		String ContentID = request.getParameter("ContentID");
 		String filmId = request.getParameter("filmId");
 		String channelId = request.getParameter("channelId");//频道标识
+		if( channelId != null && !"".equals(channelId)){
+			ChannelService channelService = (ChannelService) BeanFactory.getBeanByName("channelService");
+			Channel channel = channelService.findById(Integer.valueOf(channelId));
+			if( channel != null ){
+				ProductID = channel.getProductId();
+				ServiceID = channel.getServiceId();
+			}
+		}
 		
 		String UserToken = null;
 		if(request.getSession().getAttribute(Constants.UserToken) == null){//重定向到身份认证页面
@@ -56,13 +67,13 @@ public class ServiceAuthServlet   extends HttpServlet{
 		String SuccessUrl = "";//鉴权成功URL,跳转到影片资产列表(剧集列表)
 		String FailureUrl = "";//鉴权失败URL,跳转到订购页
 		if("1".equals(channelId)){
-			 SuccessUrl = getRequestPrefix(request)+"/yyzj/filmAction!listAssetByFilmId.do?filmId="+filmId+"&channelId="+channelId;
+			 SuccessUrl = getRequestPrefix(request)+"/yyzj/filmAction!listAsset.do?filmId="+filmId+"&channelId="+channelId;
 			 FailureUrl = getRequestPrefix(request)+"/yyzj/filmAction!orderConfirm.do?filmId="+filmId;
 		}else if("2".equals(channelId)){
-			 SuccessUrl = getRequestPrefix(request)+"/crazyenglish/filmAction!listAssetByFilmId.do?filmId="+filmId+"&channelId="+channelId;
+			 SuccessUrl = getRequestPrefix(request)+"/crazyenglish/filmAction!listAsset.do?filmId="+filmId+"&channelId="+channelId;
 			 FailureUrl = getRequestPrefix(request)+"/crazyenglish/filmAction!orderConfirm.do?filmId="+filmId;
 		}else{
-			 SuccessUrl = getRequestPrefix(request)+"/crjy/filmAction!listAssetByFilmId.do?filmId="+filmId+"&channelId="+channelId;
+			 SuccessUrl = getRequestPrefix(request)+"/crjy/filmAction!listAsset.do?filmId="+filmId+"&channelId="+channelId;
 			 FailureUrl = getRequestPrefix(request)+"/crjy/filmAction!orderConfirm.do?filmId="+filmId;
 		}
 		
@@ -82,12 +93,12 @@ public class ServiceAuthServlet   extends HttpServlet{
 		
 		ServiceAuthResp  serviceAuthResp = VASServiceServiceClient.serviceAuth(serviceAuthReq);
 		if( serviceAuthResp != null){
-			logger.debug(" ServiceAuth begin ");
+			logger.info(" ServiceAuth begin ");
 			
-			logger.debug("ProductID==="+ProductID);
-			logger.debug("ContentID==="+ContentID);
-			logger.debug("filmId==="+filmId);
-			logger.debug("channelId==="+channelId);
+			logger.info("ProductID==="+ProductID);
+			logger.info("ContentID==="+ContentID);
+			logger.info("filmId==="+filmId);
+			logger.info("channelId==="+channelId);
 			
 			String Result = serviceAuthResp.getResult();
 			if("0".equals(Result)){
@@ -97,9 +108,10 @@ public class ServiceAuthServlet   extends HttpServlet{
 				logger.error("userId="+userId+",ProductID="+ProductID+",ServiceID="+ServiceID+"鉴权失败。");
 				response.sendRedirect(FailureUrl);//跳转到鉴权失败页面
 			}
+			
+			logger.info(" ServiceAuth end ");
 		}
 		
-		logger.debug(" ServiceAuth end ");
 	}
 
 	/**

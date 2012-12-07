@@ -56,12 +56,7 @@ public class AuthenticateForHDServlet  extends HttpServlet {
 		String requestUrl = Constants.Authenticate_Url+"SPID="+Constants.SPID+"&UserID="+ UserID +"&ReturnURL="+ReturnURL
 		+"&Action="+Constants.Authenticate_Action;
 		
-		logger.debug("user_id==="+UserID);
-		logger.debug("channel flag==="+flag);
-		logger.debug("ReturnURL==="+ReturnURL);
-		logger.debug("requestUrl==="+requestUrl);
-		
-		request.getSession().setAttribute(Constants.UserID, UserID);
+		logger.info("user_id==="+UserID+",channel flag==="+flag+",ReturnURL==="+ReturnURL+",requestUrl==="+requestUrl);
 		
 		response.sendRedirect(requestUrl);
 	}

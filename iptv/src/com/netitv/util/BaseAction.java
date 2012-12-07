@@ -91,36 +91,7 @@ public class BaseAction<T> extends ActionSupport
         return entity;
     }
     
-	/****
-	 * 记录访问参数信息
-	 * @param channelName 频道名称
-	 */
-	protected void logAccessInformation(String channelName){
-		String uri = request.getRequestURI();
-		Date time  = Calendar.getInstance().getTime();
-		String visitTime = CommonsUtil.dateToString(time,"yyyy-MM-dd HH:mm:ss");
-		String client = request.getRemoteAddr();
-		log("====="+channelName+"======"+visitTime+"======="+ client+"====begin=================");
-		
-		log("uri==========="+uri);
-		String referer = request.getHeader("Referer");
-		log("Referer======="+referer);
-		
-		String params = request.getQueryString();
-		log("params=========="+params);
-		
-		String localIp = request.getParameter("localIp");
-		log("localIp======"+localIp);
-//		request.setAttribute("prefix", localIp);
-		
-		String userID = request.getParameter("userId");
-		log("userID======"+userID);
-		
-		String backUrl = request.getParameter("backUrl");
-		log("backUrl======"+backUrl);
-		
-		log("======"+channelName+"==========end=================");
-	}
+
 
 	/**
 	 * http请求头(前缀)
@@ -164,10 +135,6 @@ public class BaseAction<T> extends ActionSupport
 		}
 	}
 	
-	protected void log(String message){
-		logger.debug(message);
-	}
-
 	public Integer getCurPage() {
 		return curPage;
 	}

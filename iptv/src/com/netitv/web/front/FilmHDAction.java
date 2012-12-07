@@ -6,11 +6,14 @@ import org.apache.log4j.Logger;
 
 import com.netitv.domain.Asset;
 import com.netitv.domain.Film;
+import com.netitv.domain.OrderDetail;
 import com.netitv.service.AssetService;
 import com.netitv.service.FilmService;
+import com.netitv.service.OrderDetailService;
 import com.netitv.util.BaseAction;
 import com.netitv.util.BeanFactory;
 import com.netitv.util.CommonsUtil;
+import com.netitv.util.Constants;
 import com.netitv.util.PageBean;
 
 /**
@@ -34,9 +37,6 @@ public class FilmHDAction extends BaseAction<Film>{
 	 */
 	@SuppressWarnings("unchecked")
 	public String eduIndex(){
-		
-		/*********记录访问参数信息********************/
-		logAccessInformation("孕育早教");
 		
 		String returnUrl = checkLogin("1");//检查是否已登录(通过认证)
 		if(returnUrl != null){
@@ -105,15 +105,10 @@ public class FilmHDAction extends BaseAction<Film>{
 	
 	/**
 	 *@Todo:疯狂英语首页
-	 *@author:zhuqh
 	 *@CreateTime:2011-12-12 上午10:05:02
-	 * @return
 	 */
 	@SuppressWarnings("unchecked")
 	public String engIndex(){
-		
-		/*********记录访问参数信息********************/
-		logAccessInformation("疯狂英语");
 		
 		String returnUrl = checkLogin("2");//检查是否已登录(通过认证)
 		if(returnUrl != null){
@@ -152,14 +147,10 @@ public class FilmHDAction extends BaseAction<Film>{
 	
 	/**
 	 *@Todo:成人教育首页
-	 *@author:zhuqh
 	 *@CreateTime:2012-7-24 上午10:05:02
 	 */
 	@SuppressWarnings("unchecked")
 	public String crjyIndex(){
-		
-		/*********记录访问参数信息********************/
-		logAccessInformation("成人教育");
 		
 		String returnUrl = checkLogin("3");//检查是否已登录(通过认证)
 		if(returnUrl != null){
@@ -198,7 +189,6 @@ public class FilmHDAction extends BaseAction<Film>{
 	
 	/**
 	 *@Todo:按栏目列出影片
-	 *@author:zhuqh
 	 *@CreateTime:2011-12-12 上午10:05:13
 	 * @return
 	 */
@@ -242,10 +232,8 @@ public class FilmHDAction extends BaseAction<Film>{
 	
 	/**
 	 *@Todo:影片详情
-	 *@author:zhuqh
 	 *@param filmId 影片ID
 	 *@CreateTime:2011-12-12 上午10:05:28
-	 * @return
 	 */
 	public String detail(){
 		
@@ -276,8 +264,62 @@ public class FilmHDAction extends BaseAction<Film>{
 		
 		try {
 			String filmId = request.getParameter("filmId");//影片ID
-			Integer filmID = Integer.parseInt(filmId);
+			String channelId = request.getParameter("channelId");//频道ID
 			
+			Integer filmID = Integer.parseInt(filmId);
+			FilmService filmService = (FilmService) BeanFactory.getBeanByName("filmService");
+			this.film = filmService.findById(filmID);
+			String contentID = film.getContentId();
+			Integer columnID = film.getColumnId();
+			
+			/************************检查是否已订购产品 及订购的产品是否过期  begin *****************************/
+			String userID = (String) request.getSession().getAttribute(Constants.UserID);
+			OrderDetailService orderDetailService = (OrderDetailService) BeanFactory.getBeanByName("orderDetailService");
+			OrderDetail  orderDetail = orderDetailService.findByContentIdAndUserId(userID, channelId);
+			if( orderDetail == null){//未订购
+				this.setToAuthUrl(getRequestPrefix()+"/servlet/serviceAuth_hd?ContentID="+contentID+"&filmId="+filmID+"&channelId="+channelId);
+				return "toAuth";
+			}
+			
+			String serendtime = orderDetail.getSerendtime();
+			boolean expiredFlag = checkExpired(serendtime,"yyyyMMddHHmmss");//检查产品服务是否过期
+			if(expiredFlag){
+				request.setAttribute("msg", "您订购的产品已过期,请重新订购");
+				return "error";
+			}
+			/************************检查是否已订购产品 及订购的产品是否过期 end *****************************/
+			
+			AssetService assetService = (AssetService) BeanFactory.getBeanByName("assetService");
+			this.pageBean = assetService.findAssetListByFilmId(7,curPage,filmID);
+			
+			String localIp = getLocalIp();
+			
+			String from = request.getParameter("from");
+			if("index".equals(from)){
+				request.setAttribute("from", "index");
+			}else{
+				request.setAttribute("from", "column");
+			}
+				
+			request.setAttribute("filmID", filmID);
+			request.setAttribute("contentID", contentID);
+			request.setAttribute("localIp", localIp);
+			request.setAttribute("columnID", columnID);
+		} catch (NumberFormatException e) {
+			logger.error(e.getMessage());
+		}catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		
+		return "listAsset";
+	}
+	
+	public String listAsset(){
+		
+		try {
+			String filmId = request.getParameter("filmId");//影片ID
+			
+			Integer filmID = Integer.parseInt(filmId);
 			FilmService filmService = (FilmService) BeanFactory.getBeanByName("filmService");
 			this.film = filmService.findById(filmID);
 			String contentID = film.getContentId();
@@ -300,11 +342,9 @@ public class FilmHDAction extends BaseAction<Film>{
 			request.setAttribute("localIp", localIp);
 			request.setAttribute("columnID", columnID);
 		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		}catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 		
 		return "listAsset";
@@ -337,7 +377,6 @@ public class FilmHDAction extends BaseAction<Film>{
 	 */
 	private String checkLogin(String channelId){
 		
-		request.getSession().setAttribute("UserToken","UserToken");
 		Object  UserToken = request.getSession().getAttribute("UserToken");
 		if( UserToken == null){
 			String userId = request.getParameter("userId");

@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
+import com.netitv.domain.Channel;
+import com.netitv.service.ChannelService;
+import com.netitv.util.BeanFactory;
 import com.netitv.util.Constants;
 import com.netitv.util.HttpUtil;
 
@@ -29,11 +32,25 @@ public class OrderServlet  extends HttpServlet{
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		
+		logger.debug("=====OrderServlet begin ========");
+		
 		String ContentID = request.getParameter("ContentID");
 		String ProductID = "";//产品ID
-//		String ServiceID = Constants.ServiceID;
+		String ServiceID = "";
 		String filmId = request.getParameter("filmId");//影片ID
 		String channelId = request.getParameter("channelId");//频道ID
+		logger.debug("request parameter filmId========"+filmId);
+		logger.debug("request parameter channelId========"+channelId);
+		if( channelId != null && !channelId.equals("")){
+			ChannelService channelService = (ChannelService) BeanFactory.getBeanByName("channelService");
+			Channel channel = channelService.findById(Integer.valueOf(channelId));
+			if( channel != null ){
+				ProductID = channel.getProductId();
+				ServiceID = channel.getServiceId();
+			}else{
+				logger.debug("not found Channel: channelId"+channelId);
+			}
+		}
 		String hd_flag = request.getParameter("hd_flag");
 		
 		String Order_ReturnURL =getRequestPrefix(request)+"/servlet/orderResponse?channelId="+channelId+"&filmId="+filmId+"&hd_flag="+hd_flag;
@@ -62,13 +79,11 @@ public class OrderServlet  extends HttpServlet{
 		String requestUrl = Constants.Order_Url+"SPID="+Constants.SPID+"&UserID="+ user_id +"&ProductID="
 							+ProductID+"&ContentID="+ContentID+"&UserToken="+UserToken+"&Action="+Action+"&OrderMode="+OrderMode+"&ReturnURL="+Order_ReturnURL+"&ContinueType="+ContinueType;
 		
-		logger.debug("user_id==="+user_id);
-		logger.debug("ContentID==="+ContentID);
-		logger.debug("ProductID==="+ProductID);
-		logger.debug("Order_ReturnURL==="+Order_ReturnURL);
-		logger.debug("requestUrl==="+requestUrl);
+		logger.debug("user_id==="+user_id+",ContentID==="+ContentID+",ProductID==="+ProductID+",Order_ReturnURL==="+Order_ReturnURL+",requestUrl==="+requestUrl);
 		
 		response.sendRedirect(requestUrl);
+		
+		logger.debug("=====OrderServlet end ========");
 	}
 
 	/**

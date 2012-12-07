@@ -49,29 +49,29 @@ public class OrderResponseServlet  extends HttpServlet {
 		String index_url = "";//应用首页地址
 		if(hd_flag!=null && "hd".equals(hd_flag)){
 			if("1".equals(channelId)){
-				SuccessUrl = getRequestPrefix(request)+"/yyzj_hd/filmAction!listAssetByFilmId.do?filmId="+filmId+"&channelId="+channelId;
+				SuccessUrl = getRequestPrefix(request)+"/yyzj_hd/filmAction!listAsset.do?filmId="+filmId+"&channelId="+channelId;
 				FailureUrl = "/yyzj_hd/error.jsp";
 				index_url = getRequestPrefix(request)+"/yyzj_hd/filmAction!eduIndex.do";
 			}else if("2".equals(channelId)){
-				SuccessUrl = getRequestPrefix(request)+"/crazyenglish_hd/filmAction!listAssetByFilmId.do?filmId="+filmId+"&channelId="+channelId;
+				SuccessUrl = getRequestPrefix(request)+"/crazyenglish_hd/filmAction!listAsset.do?filmId="+filmId+"&channelId="+channelId;
 				FailureUrl = "/crazyenglish_hd/error.jsp";
 				index_url = getRequestPrefix(request)+"/crazyenglish_hd/filmAction!engIndex.do";
 			}else{
-				SuccessUrl = getRequestPrefix(request)+"/crjy_hd/filmAction!listAssetByFilmId.do?filmId="+filmId+"&channelId="+channelId;
+				SuccessUrl = getRequestPrefix(request)+"/crjy_hd/filmAction!listAsset.do?filmId="+filmId+"&channelId="+channelId;
 				FailureUrl = "/crjy_hd/error.jsp";
 				index_url = getRequestPrefix(request)+"/crjy_hd/filmAction!crjyIndex.do";
 			}
 		}else{
 			if("1".equals(channelId)){
-				SuccessUrl = getRequestPrefix(request)+"/yyzj/filmAction!listAssetByFilmId.do?filmId="+filmId+"&channelId="+channelId;
+				SuccessUrl = getRequestPrefix(request)+"/yyzj/filmAction!listAsset.do?filmId="+filmId+"&channelId="+channelId;
 				FailureUrl = "/yyzj/error.jsp";
 				index_url = getRequestPrefix(request)+"/yyzj/filmAction!eduIndex.do";
 			}else if("2".equals(channelId)){
-				SuccessUrl = getRequestPrefix(request)+"/crazyenglish/filmAction!listAssetByFilmId.do?filmId="+filmId+"&channelId="+channelId;
+				SuccessUrl = getRequestPrefix(request)+"/crazyenglish/filmAction!listAsset.do?filmId="+filmId+"&channelId="+channelId;
 				FailureUrl = "/crazyenglish/error.jsp";
 				index_url = getRequestPrefix(request)+"/crazyenglish/filmAction!engIndex.do";
 			}else{
-				SuccessUrl = getRequestPrefix(request)+"/crjy/filmAction!listAssetByFilmId.do?filmId="+filmId+"&channelId="+channelId;
+				SuccessUrl = getRequestPrefix(request)+"/crjy/filmAction!listAsset.do?filmId="+filmId+"&channelId="+channelId;
 				FailureUrl = "/crjy/error.jsp";
 				index_url = getRequestPrefix(request)+"/crjy/filmAction!crjyIndex.do";
 			}
@@ -97,11 +97,7 @@ public class OrderResponseServlet  extends HttpServlet {
 		String SerEndTime = request.getParameter("SerEndTime");
 		String Code = request.getParameter("Code");
 		
-		logger.debug("Code====="+Code);
-		logger.debug("UserID====="+UserID);
-		logger.debug("ProductID====="+ProductID);
-		logger.debug("ProductName====="+ProductName);
-		logger.debug("Fee====="+Fee);
+		logger.debug("Code====="+Code+",UserID====="+UserID+",ProductID====="+ProductID+",ProductName====="+ProductName+",Fee====="+Fee);
 		
 		if("0".equals(Result)){
 			if(UserToken != null && !"".equals(UserToken)){
@@ -132,7 +128,6 @@ public class OrderResponseServlet  extends HttpServlet {
 			String transactionID, String expiredTime, String orderMode,
 			String availableIPTVRewardPoints, String availableTeleRewardPoints,
 			String serStartTime, String serEndTime,String channelId) {
-		// TODO Auto-generated method stub
 		OrderDetail orderDetail = new OrderDetail();
 		
 		orderDetail.setAvailable_iptvrewardpoints(availableIPTVRewardPoints);
