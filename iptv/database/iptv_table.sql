@@ -18,6 +18,8 @@ DROP TABLE IF EXISTS channel;
 CREATE TABLE channel (
   id int(11) NOT NULL auto_increment,
   name varchar(100) default NULL,
+  serviceid varchar(30) default NULL,
+  productid varchar(30) default NULL,
   PRIMARY KEY  (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
