@@ -165,7 +165,7 @@ document.onkeypress = keyEvent;
      	 ${pageBean.curPage}/${pageBean.totalPages} 
 		           　<c:choose>
 		           <c:when test="${pageBean.curPage > 1}">
-		           		<a href="${ctx }/crjy_hd/filmAction!listAssetByFilmId.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage-1}" class="STYLE12">上一页</a>
+		           		<a href="${ctx }/crjy_hd/filmAction!listAssetByFilmId.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage-1}&channelId=3" class="STYLE12">上一页</a>
 		           </c:when>
 		           <c:otherwise>
 		           		上一页
@@ -173,7 +173,7 @@ document.onkeypress = keyEvent;
 		      </c:choose>
 		           　<c:choose>
 		           <c:when test="${pageBean.curPage < pageBean.totalPages}">
-		           		<a href="${ctx }/crjy_hd/filmAction!listAssetByFilmId.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage+1}" class="STYLE12">下一页</a>
+		           		<a href="${ctx }/crjy_hd/filmAction!listAssetByFilmId.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage+1}&channelId=3" class="STYLE12">下一页</a>
 		           </c:when>
 		           <c:otherwise>
 		           		下一页

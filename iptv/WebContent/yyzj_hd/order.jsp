@@ -34,7 +34,8 @@ a:hover{text-decoration:none;}
 a:VISITED {text-decoration:none;}
 .STYLE9 {color: #FFFFFF; font-size: 36px; font-family: "黑体";}
 .STYLE18 {color: #f7d400; font-size: 24px; font-family: "黑体"; }
-.msgDiv{margin: 0 auto;margin-top: 100px;width: 1000px;color: #ffffff;font-size: 24px; }
+.msgDiv{margin: 0 auto;margin-top: 50px;width: 1000px;color: #ffffff;font-size: 24px; }
+.messageinfo{margin: 0 auto;margin-top: 10px;width: 1000px;color: #ffffff;font-size: 22px;line-height: 34px;text-align: left;}
 </style>
 
 <script type="text/javascript" src="js/common.js"></script>
@@ -56,6 +57,9 @@ a:VISITED {text-decoration:none;}
     </table>
       <table width="1112" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr><td>
+            <div class="messageinfo">
+    			温馨提示：您即将订购的是孕育早教产品包（含孕育保健、婴幼早教、少儿成长），成功订购后您可在30天内随意观看孕育早教产品包内的所有节目。
+    		</div>
            <div class="msgDiv">	   		
 	   			<table border="0" cellpadding="0" cellspacing="0">
 					  <tr>
@@ -63,8 +67,8 @@ a:VISITED {text-decoration:none;}
 					    <td height="70" colspan="2"><span class="STYLE9">《${film.name }》</span></td>
 					  </tr>
 					  <tr>
-					    <td height="40" valign="top" class="STYLE18">价格：${film.price }</td>
-					    <td height="40" valign="top" class="STYLE18">有效期：${film.period }</td>
+					    <td height="40" valign="top" class="STYLE18">价格：20元/月</td>
+					    <td height="40" valign="top" class="STYLE18">有效期：一个月</td>
 					  </tr>
 					  <tr>
 					    <td height="44" valign="top">

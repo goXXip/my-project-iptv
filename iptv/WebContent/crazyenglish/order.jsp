@@ -21,7 +21,8 @@ body {
 a{display: inline-block;text-decoration:none;}
 .STYLE9 {color: #FFFFFF; font-size: 20px; font-family: "黑体";}
 .STYLE18 {color: #f7d400; font-size: 16px; font-family: "黑体"; }
-.msgDiv{margin: 0 auto;margin-top: 100px;width: 400px;color: #ffffff;font-size: 20px; }
+.msgDiv{margin: 0 auto;margin-top: 30px;width: 520px;color: #ffffff;font-size: 20px; }
+.messageinfo{margin: 0 auto;margin-top: 10px;width: 520px;color: #ffffff;font-size: 18px;line-height: 30px;text-align: left;}
 </style>
 <script type="text/javascript" src="js/global.js"></script>
 </head>
@@ -33,14 +34,22 @@ a{display: inline-block;text-decoration:none;}
   <tr>
     <td width="33"><img src="${ctx }/crazyenglish/images/lyfkyy-2.jpg" width="33" height="434" /></td>
     <td width="575" valign="top" bgcolor="#602121">
+    	<div class="messageinfo">
+    		温馨提示：您即将订购的是疯狂英语产品包（含李阳疯狂英语及英语辅导），成功订购后您可在30天内随意观看疯狂英语产品包内的所有节目。
+    	</div>
    		<div class="msgDiv">
 	   		<table border="0" cellpadding="0" cellspacing="0">
 				  <tr>
-				    <td height="50" colspan="2"><span class="STYLE9">《${film.name }》</span></td>
+					 <td width="144" rowspan="3" valign="top">
+					  	<img src="${ctx }/uploadImages/${film.bigImage.id}.${film.bigImage.suffix}" width="128" height="170" />
+					 </td>
+				     <td height="50"><span class="STYLE9">《${film.name }》</span></td>
 				  </tr>
 				  <tr>
-				    <td height="40" valign="top" class="STYLE18">价格：${film.price }</td>
-				    <td height="40" valign="top" class="STYLE18">有效期：${film.period }</td>
+				    <td height="40" valign="top">
+				    	<span class="STYLE18">价格：20元/月</span>
+				    	<span class="STYLE18" style="padding-left: 30px;">有效期：一个月</span>
+				    </td>
 				  </tr>
 				  <tr>
 				    <td height="44" valign="top">

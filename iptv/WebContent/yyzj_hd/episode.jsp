@@ -88,7 +88,7 @@ function keyEvent() {
 	case 33://上一页
 		if(curPage > 1){
 			var pageNo = curPage-1 ;
-			var url = "${ctx }/yyzj_hd/filmAction!listAssetByFilmId.do?filmId=${requestScope.filmID }&curPage="+pageNo;
+			var url = "${ctx }/yyzj_hd/filmAction!listAsset.do?filmId=${requestScope.filmID }&curPage="+pageNo;
 			location.href = url;
 		}
 		return 0;
@@ -96,7 +96,7 @@ function keyEvent() {
 	case 34://下一页
 		if( curPage < totalPages){
 			var pageNo = curPage+1 ;
-			var url = "${ctx }/yyzj_hd/filmAction!listAssetByFilmId.do?filmId=${requestScope.filmID }&curPage="+pageNo;
+			var url = "${ctx }/yyzj_hd/filmAction!listAsset.do?filmId=${requestScope.filmID }&curPage="+pageNo;
 			location.href = url;
 		}
 		return 0;
@@ -112,7 +112,7 @@ document.onkeypress = keyEvent;
 	var epg_server = '${requestScope.localIp}';
 	function goto_play(id,fileID,ztID,filmId){
 		var pay_confirm_url = "${ctx}/yyzj_hd/filmAction!orderConfirm.do?filmId="+filmId;
-		var backUrl = "${ctx}/yyzj_hd/filmAction!listAssetByFilmId.do?filmId="+filmId+"&curPage=${pageBean.curPage}";
+		var backUrl = "${ctx}/yyzj_hd/filmAction!listAsset.do?filmId="+filmId+"&curPage=${pageBean.curPage}";
 		backUrl = escape(backUrl);
 		var gotoUrl = epg_server + "play.jsp?PROGID="+fileID+"&FATHERID="+ztID+"&TYPE_ID=-1&CONTENTTYPE=0&BUSINESSTYPE=1&TYPE_ID=-1&PLAYTYPE=1&ISTVSERIESFLAG=1&PROGNUM=&CHILDID="+fileID;
 		gotoUrl = escape(gotoUrl);
@@ -165,7 +165,7 @@ document.onkeypress = keyEvent;
      	 ${pageBean.curPage}/${pageBean.totalPages} 
 		           　<c:choose>
 		           <c:when test="${pageBean.curPage > 1}">
-		           		<a href="${ctx }/yyzj_hd/filmAction!listAssetByFilmId.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage-1}" class="STYLE12">上一页</a>
+		           		<a href="${ctx }/yyzj_hd/filmAction!listAsset.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage-1}&channelId=1" class="STYLE12">上一页</a>
 		           </c:when>
 		           <c:otherwise>
 		           		上一页
@@ -173,7 +173,7 @@ document.onkeypress = keyEvent;
 		      </c:choose>
 		           　<c:choose>
 		           <c:when test="${pageBean.curPage < pageBean.totalPages}">
-		           		<a href="${ctx }/yyzj_hd/filmAction!listAssetByFilmId.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage+1}" class="STYLE12">下一页</a>
+		           		<a href="${ctx }/yyzj_hd/filmAction!listAsset.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage+1}&channelId=1" class="STYLE12">下一页</a>
 		           </c:when>
 		           <c:otherwise>
 		           		下一页

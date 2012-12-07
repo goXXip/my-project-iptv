@@ -91,8 +91,8 @@ document.onkeypress = keyEvent;
           <td height="138" colspan="3" valign="top" class="style151">${film.description }</td>
         </tr>
         <tr>
-          <td valign="top" class="STYLE28">集数：${film.serialCount }集 <br />价格：免费</td>
-          <td valign="top" class="STYLE28">适用：${film.audient }<br />期限：${film.period }</td>
+          <td valign="top" class="STYLE28">集数：${film.serialCount }集 <br/>价格：产品包订购</td>
+          <td valign="top" class="STYLE28">适用：${film.audient }<br/>期限：一个月</td>
           <td valign="top">&nbsp;</td>
         </tr>
         <tr>
