@@ -14,8 +14,20 @@
 		var formObj = document.getElementById("channelForm");
 		
 		var channel_name = document.getElementById("channel_name").value;
-		if(channel_name == ""){
+		if( channel_name == ""){
 			alert("频道名称不能为空");
+			return false;
+		}
+
+		var serviceId = document.getElementById("serviceId").value;
+		if( serviceId == "" ){
+			alert("serviceId不能为空");
+			return false;
+		}
+
+		var productId = document.getElementById("productId").value;
+		if( productId == ""){
+			alert("productId不能为空");
 			return false;
 		}
 
@@ -39,6 +51,14 @@
 			<tr>
 				<td align="right">频道名称：</td>
 				<td><input type="text" name="channel.name" size="20" value="${channel.name }" id="channel_name" /></td>
+			</tr>
+			<tr>
+				<td align="right">ServiceID：</td>
+				<td><input type="text" name="channel.serviceId" size="20" value="${channel.serviceId }" id="serviceId" /></td>
+			</tr>
+			<tr>
+				<td align="right">ProductID：</td>
+				<td><input type="text" name="channel.productId" size="20" value="${channel.productId }" id="productId" /></td>
 			</tr>
 			<tr>
 				<td>
