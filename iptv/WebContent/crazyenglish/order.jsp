@@ -22,7 +22,7 @@ a{display: inline-block;text-decoration:none;}
 .STYLE9 {color: #FFFFFF; font-size: 20px; font-family: "黑体";}
 .STYLE18 {color: #f7d400; font-size: 16px; font-family: "黑体"; }
 .msgDiv{margin: 0 auto;margin-top: 30px;width: 520px;color: #ffffff;font-size: 20px; }
-.messageinfo{margin: 0 auto;margin-top: 10px;width: 520px;color: #ffffff;font-size: 18px;line-height: 30px;text-align: left;}
+.messageinfo{margin: 0 auto;margin-top: 30px;width: 520px;color: #ffffff;font-size: 18px;line-height: 30px;text-align: left;}
 </style>
 <script type="text/javascript" src="js/global.js"></script>
 </head>
@@ -34,9 +34,6 @@ a{display: inline-block;text-decoration:none;}
   <tr>
     <td width="33"><img src="${ctx }/crazyenglish/images/lyfkyy-2.jpg" width="33" height="434" /></td>
     <td width="575" valign="top" bgcolor="#602121">
-    	<div class="messageinfo">
-    		温馨提示：您即将订购的是疯狂英语产品包（含李阳疯狂英语及英语辅导），成功订购后您可在30天内随意观看疯狂英语产品包内的所有节目。
-    	</div>
    		<div class="msgDiv">
 	   		<table border="0" cellpadding="0" cellspacing="0">
 				  <tr>
@@ -60,6 +57,9 @@ a{display: inline-block;text-decoration:none;}
 				  </tr>
 			</table>
    		</div>
+   		<div class="messageinfo">
+    		温馨提示：您即将订购的是疯狂英语产品包（含李阳疯狂英语及英语辅导），成功订购后您可在30天内不限次数观看疯狂英语产品包内的所有节目。
+    	</div>
     </td>
     <td width="32"><img src="${ctx }/crazyenglish/images/lyfkyy-3.jpg" border="0" width="32" height="434" /></td>
   </tr>
