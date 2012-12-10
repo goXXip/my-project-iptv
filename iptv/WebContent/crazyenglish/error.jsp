@@ -44,7 +44,7 @@ a{display: inline-block;text-decoration:none;}
     <td width="32"><img src="${ctx }/crazyenglish/images/lyfkyy-3.jpg" border="0" width="32" height="434" /></td>
   </tr>
   <tr>
-      <td colspan="3"><img src="images/lyfkyy-4.jpg" width="640" height="26" border="0"/></td>
+      <td colspan="3"><img src="${ctx }/crazyenglish/images/lyfkyy-4.jpg" width="640" height="26" border="0"/></td>
   </tr>
 </table>
 
