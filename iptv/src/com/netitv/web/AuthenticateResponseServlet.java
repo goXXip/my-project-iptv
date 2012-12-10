@@ -15,7 +15,6 @@ import com.netitv.util.Constants;
 
 /**
  * @Todo:对身份认证结果(成功/失败)处理
- * @author: zhuqh
  * @CreateTime:2011-11-7 下午03:50:58
  */
 public class AuthenticateResponseServlet  extends HttpServlet {
@@ -47,6 +46,8 @@ public class AuthenticateResponseServlet  extends HttpServlet {
 		String ReturnInfo = request.getParameter("ReturnInfo");
 		String Code = request.getParameter("Code");
 		
+		logger.debug("Result==="+Result);
+		
 		if("0".equals(Result) && action_url != null ){
 			request.getSession().setAttribute(Constants.UserToken, UserToken);
 			request.getSession().setAttribute(Constants.UserID, UserID);
@@ -55,7 +56,7 @@ public class AuthenticateResponseServlet  extends HttpServlet {
 			
 			response.sendRedirect(action_url);//跳转
 		}else{
-			logger.error(UserID+",认证失败");
+			logger.error(request.getSession().getAttribute(Constants.UserID)+",认证失败");
 			request.setAttribute("msg", "认证失败,不能访问本应用,请按首页键返回");
 			
 			/***** 认证失败跳转到 错误提示页面 begin ***/

@@ -14,8 +14,6 @@ import com.netitv.util.Constants;
 
 /**
  *身份认证请求(向VAS平台请求),需传入以下参数：UserID,ReturnURL(认证成功后跳转地址)
- * @Todo:TODO
- * @author: zhuqh
  * @CreateTime:2012-6-24 05:30:41
  */
 public class AuthenticateForHDServlet  extends HttpServlet {
@@ -57,6 +55,7 @@ public class AuthenticateForHDServlet  extends HttpServlet {
 		+"&Action="+Constants.Authenticate_Action;
 		
 		logger.info("user_id==="+UserID+",channel flag==="+flag+",ReturnURL==="+ReturnURL+",requestUrl==="+requestUrl);
+		request.getSession().setAttribute(Constants.UserID, UserID);
 		
 		response.sendRedirect(requestUrl);
 	}
