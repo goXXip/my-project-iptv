@@ -37,7 +37,7 @@ public class ServiceAuthServlet   extends HttpServlet{
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		
-		String userId = (String) request.getSession().getAttribute(Constants.UserID);
+		String userId = HttpUtil.getUserId(request);
 		String ProductID = "";
 		String ServiceID = "";
 		String ContentID = request.getParameter("ContentID");
@@ -55,10 +55,7 @@ public class ServiceAuthServlet   extends HttpServlet{
 		
 		String UserToken = null;
 		if(request.getSession().getAttribute(Constants.UserToken) == null){//重定向到身份认证页面
-			if(userId == null){
-				userId = HttpUtil.getCookieValue(request,"userID");
-			}
-			String toAuthenticationUrl = getRequestPrefix(request)+"/servlet/authenticate?flag="+channelId+"&userId="+userId;
+			String toAuthenticationUrl = getRequestPrefix(request)+"/servlet/authenticate?flag="+channelId;
 			response.sendRedirect(toAuthenticationUrl); 
 			return;
 		}else{
