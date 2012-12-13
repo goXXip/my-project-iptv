@@ -62,7 +62,6 @@ public class OrderServlet  extends HttpServlet{
 		
 		String user_id = "";
 		if(request.getSession().getAttribute(Constants.UserID) != null){
-			
 			user_id = (String) request.getSession().getAttribute(Constants.UserID);
 		}
 		
@@ -76,10 +75,10 @@ public class OrderServlet  extends HttpServlet{
 			UserToken = (String) request.getSession().getAttribute(Constants.UserToken);
 		}
 		
-		String requestUrl = Constants.Order_Url+"SPID="+Constants.SPID+"&UserID="+ user_id +"&ProductID="
+		String requestUrl = Constants.Order_Url+"SPID="+Constants.SPID+"&ServiceID="+ServiceID+"&UserID="+ user_id +"&ProductID="
 							+ProductID+"&ContentID="+ContentID+"&UserToken="+UserToken+"&Action="+Action+"&OrderMode="+OrderMode+"&ReturnURL="+Order_ReturnURL+"&ContinueType="+ContinueType;
 		
-		logger.debug("user_id==="+user_id+",ContentID==="+ContentID+",ProductID==="+ProductID+",Order_ReturnURL==="+Order_ReturnURL+",requestUrl==="+requestUrl);
+		logger.debug("requestUrl==="+requestUrl);
 		
 		response.sendRedirect(requestUrl);
 		

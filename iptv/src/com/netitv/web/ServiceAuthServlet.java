@@ -43,6 +43,7 @@ public class ServiceAuthServlet   extends HttpServlet{
 		String ContentID = request.getParameter("ContentID");
 		String filmId = request.getParameter("filmId");
 		String channelId = request.getParameter("channelId");//频道标识
+		String from = request.getParameter("from");//来源于哪个页面
 		if( channelId != null && !"".equals(channelId)){
 			ChannelService channelService = (ChannelService) BeanFactory.getBeanByName("channelService");
 			Channel channel = channelService.findById(Integer.valueOf(channelId));
@@ -67,13 +68,13 @@ public class ServiceAuthServlet   extends HttpServlet{
 		String SuccessUrl = "";//鉴权成功URL,跳转到影片资产列表(剧集列表)
 		String FailureUrl = "";//鉴权失败URL,跳转到订购页
 		if("1".equals(channelId)){
-			 SuccessUrl = getRequestPrefix(request)+"/yyzj/filmAction!listAsset.do?filmId="+filmId+"&channelId="+channelId;
+			 SuccessUrl = getRequestPrefix(request)+"/yyzj/filmAction!listAsset.do?filmId="+filmId+"&channelId="+channelId+"&from="+from;
 			 FailureUrl = getRequestPrefix(request)+"/yyzj/filmAction!orderConfirm.do?filmId="+filmId;
 		}else if("2".equals(channelId)){
-			 SuccessUrl = getRequestPrefix(request)+"/crazyenglish/filmAction!listAsset.do?filmId="+filmId+"&channelId="+channelId;
+			 SuccessUrl = getRequestPrefix(request)+"/crazyenglish/filmAction!listAsset.do?filmId="+filmId+"&channelId="+channelId+"&from="+from;
 			 FailureUrl = getRequestPrefix(request)+"/crazyenglish/filmAction!orderConfirm.do?filmId="+filmId;
 		}else{
-			 SuccessUrl = getRequestPrefix(request)+"/crjy/filmAction!listAsset.do?filmId="+filmId+"&channelId="+channelId;
+			 SuccessUrl = getRequestPrefix(request)+"/crjy/filmAction!listAsset.do?filmId="+filmId+"&channelId="+channelId+"&from="+from;
 			 FailureUrl = getRequestPrefix(request)+"/crjy/filmAction!orderConfirm.do?filmId="+filmId;
 		}
 		
@@ -95,12 +96,9 @@ public class ServiceAuthServlet   extends HttpServlet{
 		if( serviceAuthResp != null){
 			logger.info(" ServiceAuth begin ");
 			
-			logger.info("ProductID==="+ProductID);
-			logger.info("ContentID==="+ContentID);
-			logger.info("filmId==="+filmId);
-			logger.info("channelId==="+channelId);
-			
 			String Result = serviceAuthResp.getResult();
+			logger.info("Result==="+Result+",ProductID==="+ProductID+",filmId==="+filmId+",channelId==="+channelId);
+			
 			if("0".equals(Result)){
 				logger.info("userId="+userId+",ProductID="+ProductID+",ServiceID="+ServiceID+"鉴权成功。");
 				response.sendRedirect(SuccessUrl); //跳转到鉴权成功页面

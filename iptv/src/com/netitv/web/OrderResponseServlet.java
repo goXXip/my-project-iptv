@@ -17,7 +17,6 @@ import com.netitv.util.BeanFactory;
 
 /**
  * @Todo:处理订购返回结果
- * @author: zhuqh
  * @CreateTime:2011-11-7 下午04:16:12
  */
 public class OrderResponseServlet  extends HttpServlet {
@@ -97,7 +96,7 @@ public class OrderResponseServlet  extends HttpServlet {
 		String SerEndTime = request.getParameter("SerEndTime");
 		String Code = request.getParameter("Code");
 		
-		logger.debug("Code====="+Code+",UserID====="+UserID+",ProductID====="+ProductID+",ProductName====="+ProductName+",Fee====="+Fee);
+		logger.debug("Result====="+Result+",UserID====="+UserID+",ProductID====="+ProductID+",ProductName====="+ProductName+",Fee====="+Fee+",Code====="+Code);
 		
 		if("0".equals(Result)){
 			if(UserToken != null && !"".equals(UserToken)){
@@ -114,7 +113,8 @@ public class OrderResponseServlet  extends HttpServlet {
 			
 		}else{
 			logger.error("user_id==="+UserID+",订购产品ProductID:"+ProductID+"失败");
-			request.setAttribute("msg", "订购产品失败,<a href='"+index_url+"'>返回首页</a>");
+			String returnMsg = buildReturnMsg(Result,index_url);
+			request.setAttribute("msg", returnMsg);
 			RequestDispatcher rd = request.getRequestDispatcher(FailureUrl); //订购失败跳转页
 			rd.forward(request, response);
 		}
@@ -152,6 +152,119 @@ public class OrderResponseServlet  extends HttpServlet {
 	
 		return orderDetail;
 		
+	}
+	
+	private String buildReturnMsg(String result,String index_url) {
+		String returnMsg = "";
+		if("33751041".equals(result)){
+//			returnMsg= "订购失败，";
+		}
+		else if("33816579".equals(result)){
+			returnMsg= "只支持取消自动续订，";
+		}
+		else if("33816580".equals(result)){
+			returnMsg= "无订购记录，";
+		}
+		else if("67242120".equals(result)){
+			returnMsg= "内容不存在，";
+		}
+		else if("67242121".equals(result)){
+			returnMsg= "验证码为空或输入错误，";
+		}
+		else if("100".equals(result)){
+			returnMsg= "缺省错误码，";
+		}
+		else if("101".equals(result)){
+			returnMsg="扩展信息解析错误，";
+		}
+		else if("102".equals(result)){
+			returnMsg= "自动续订标志错误，";
+		}
+		else if("103".equals(result)){
+			returnMsg= "产品不存在或产品未激活，";
+		}
+		else if("104".equals(result)){
+			returnMsg= "产品已订购，";
+		}
+		else if("105".equals(result)){
+			returnMsg= "影片价格未定义，";
+		}
+		else if("106".equals(result)){
+			returnMsg= "余额已不足,请及时充值，";
+		}
+		else if("107".equals(result)){
+			returnMsg= "扣费处理失败,请稍候再试，";
+		}
+		else if("108".equals(result)){
+			returnMsg= "订购级别不够，";
+		}
+		else if("109".equals(result)){
+			returnMsg= "内容不存在，";
+		}
+		else if("201".equals(result)){
+			returnMsg= "用户未订购此产品或该产品已被取消订购，";
+		}
+		else if("202".equals(result)){
+			returnMsg= "该用户不支持在线订购，";
+		}
+		else if("203".equals(result)){
+			returnMsg= "产品将下线，不支持订购，";
+		}
+		else if("204".equals(result)){
+			returnMsg= "包月产品不允许订购/退订基本包产品，";
+		}
+		else if("205".equals(result)){
+			returnMsg= "订购结束时间不能小于系统当前时间，";
+		}
+		else if("206".equals(result)){
+			returnMsg= "业务类型不存在，";
+		}
+		else if("207".equals(result)){
+			returnMsg= "内容类型不存在，";
+		}
+		else if("208".equals(result)){
+			returnMsg= "订购/退订处理失败（数据库异常），";
+		}
+		else if("209".equals(result)){
+			returnMsg= "政企用户不允许订购按次产品，";
+		}
+		else if("210".equals(result)){
+			returnMsg= "用户IPTV积分点数不够，";
+		}
+		else if("211".equals(result)){
+			returnMsg= "产品不支持IPTV积分订购，";
+		}
+		else if("212".equals(result)){
+			returnMsg= "IPTV积分订购处理失败，";
+		}
+		else if("213".equals(result)){
+			returnMsg= "不允许退订IPTV积分订购的产品，";
+		}
+		else if("215".equals(result)){
+			returnMsg= "不允许用IPTV积分续订产品，";
+		}
+		else if("220".equals(result)){
+			returnMsg= "用户电信积分点数不够，";
+		}
+		else if("221".equals(result)){
+			returnMsg= "产品不支持电信积分订购，";
+		}
+		else if("222".equals(result)){
+			returnMsg= "电信积分订购处理失败，";
+		}
+		else if("223".equals(result)){
+			returnMsg= "不允许退订电信积分订购的产品，";
+		}
+		else if("225".equals(result)){
+			returnMsg= "不允许用电信积分续订产品，";
+		}
+		else if("400".equals(result)){
+			returnMsg= "BSS并发数超出访问限制，";
+		}
+		
+		returnMsg = "订购失败，"+returnMsg+"<a href='"+index_url+"' style='color:#ffffff;'>返回首页</a>";
+		
+		return returnMsg;
 	}
 
 	/**
