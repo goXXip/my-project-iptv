@@ -91,12 +91,12 @@ function keyEvent() {
 document.onirkeypress = keyEvent;
 document.onkeypress = keyEvent;
 
-function goToEng(userId,backUrl,localIp){
-	location.href = "${ctx }/servlet/authenticate?userId="+userId+"&flag=2";
+function goToEng(){
+	location.href = "${ctx }/servlet/authenticate?flag=2";
 }
 
-function goToYyzj(userId,backUrl,localIp){
-	location.href = "${ctx }/servlet/authenticate?userId="+userId+"&flag=1";
+function goToYyzj(){
+	location.href = "${ctx }/servlet/authenticate?flag=1";
 }
 </script>
 </head>
@@ -117,9 +117,9 @@ function goToYyzj(userId,backUrl,localIp){
     <td width="40"><img src="images/hbyp-03.jpg" width="40" height="300" /></td>
     <td width="560" height="300" background="images/hbyp-04.jpg"><table width="560" border="0" align="right" cellpadding="0" cellspacing="0">
       <tr>
-        <td width="271"><a href="#" onclick="goToEng('${sessionScope.iptv_userId }','${sessionScope.iptv_backUrl }','${sessionScope.iptv_localIp}')"><img src="images/fkyy-logo-1.png" name="Image6" width="271" height="249" border="0" id="Image6" /></a></td>
+        <td width="271"><a href="#" onclick="goToEng()"><img src="images/fkyy-logo-1.png" name="Image6" width="271" height="249" border="0" id="Image6" /></a></td>
         <td width="18">&nbsp;</td>
-        <td width="271"><a href="#" onclick="goToYyzj('${sessionScope.iptv_userId }','${sessionScope.iptv_backUrl }','${sessionScope.iptv_localIp}')"><img src="images/yyzj-logo-1.png" name="Image7" width="271" height="249" border="0" id="Image7" /></a></td>
+        <td width="271"><a href="#" onclick="goToYyzj()"><img src="images/yyzj-logo-1.png" name="Image7" width="271" height="249" border="0" id="Image7" /></a></td>
       </tr>
     </table></td>
     <td width="40"><img src="images/hbyp-05.jpg" width="40" height="300" /></td>
