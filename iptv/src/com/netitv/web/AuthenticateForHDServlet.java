@@ -11,9 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 import com.netitv.util.Constants;
+import com.netitv.util.HttpUtil;
 
 /**
- *身份认证请求(向VAS平台请求),需传入以下参数：UserID,ReturnURL(认证成功后跳转地址)
+ *身份认证请求(向VAS平台请求),ReturnURL(认证成功后跳转地址)
  * @CreateTime:2012-6-24 05:30:41
  */
 public class AuthenticateForHDServlet  extends HttpServlet {
@@ -34,7 +35,7 @@ public class AuthenticateForHDServlet  extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		
-		String UserID = request.getParameter("userId");
+		String UserID = HttpUtil.getUserId(request);
 		String flag = request.getParameter("flag");//频道标识:(1:孕育早教  2:疯狂英语 3:成人教育 )
 		String ReturnURL = getRequestPrefix(request)+"/servlet/authenticateResponse_hd";
 		String action_url = getRequestPrefix(request);
@@ -55,7 +56,6 @@ public class AuthenticateForHDServlet  extends HttpServlet {
 		+"&Action="+Constants.Authenticate_Action;
 		
 		logger.info("user_id==="+UserID+",channel flag==="+flag+",ReturnURL==="+ReturnURL+",requestUrl==="+requestUrl);
-		request.getSession().setAttribute(Constants.UserID, UserID);
 		
 		response.sendRedirect(requestUrl);
 	}
