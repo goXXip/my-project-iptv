@@ -60,15 +60,10 @@ public class OrderServlet  extends HttpServlet{
 		String Action = "1";
 		String ContinueType = "0";
 		
-		String user_id = "";
-		if(request.getSession().getAttribute(Constants.UserID) != null){
-			user_id = (String) request.getSession().getAttribute(Constants.UserID);
-		}
-		
+		String user_id = HttpUtil.getUserId(request);
 		String UserToken = null;
 		if(request.getSession().getAttribute(Constants.UserToken) == null){//重定向到身份认证页面
-			String userId = HttpUtil.getCookieValue(request,"userID");
-			String toAuthenticationUrl = getRequestPrefix(request)+"/servlet/authenticate?flag="+channelId+"&userId="+userId;
+			String toAuthenticationUrl = getRequestPrefix(request)+"/servlet/authenticate?flag="+channelId;
 			response.sendRedirect(toAuthenticationUrl); 
 			return;
 		}else{
