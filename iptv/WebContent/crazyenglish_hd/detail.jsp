@@ -120,7 +120,7 @@ function focusStyle(target, className) {
         </tr>
         <tr>
           <td width="286" height="70">
-	         <a href="${ctx }/crazyenglish_hd/filmAction!listAssetByFilmId.do?filmId=${film.id}&channelId=2&from=${requestScope.from}" id="defaultFocus"  onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('play_img','','images/fkyy-gq-13-2.jpg',1)">
+	         <a href="${ctx }/servlet/serviceAuth_hd?filmId=${film.id }&channelId=2&from=${requestScope.from}&ContentID=${film.contentId }" id="defaultFocus"  onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('play_img','','images/fkyy-gq-13-2.jpg',1)">
 	          	<img src="images/fkyy-gq-13.jpg" width="209" height="58" border="0"  id="play_img"/>
 	        </a>
           </td>

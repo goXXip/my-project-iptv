@@ -145,7 +145,7 @@ function focusStyle(target, className) {
 			<tr>
 				<td height="44" valign="top">&nbsp;</td>
 				<td valign="top">
-					<a href="${ctx }/crazyenglish/filmAction!listAssetByFilmId.do?filmId=${film.id}&channelId=2&from=${requestScope.from}" id="defaultFocus">
+					<a href="${ctx }/servlet/serviceAuth?filmId=${film.id }&channelId=2&from=${requestScope.from}&ContentID=${film.contentId }" id="defaultFocus">
 						<img src="images/anniu-02.jpg" name="Image12" width="90" height="38" border="0" id="Image12" />
 					</a>
 				</td>

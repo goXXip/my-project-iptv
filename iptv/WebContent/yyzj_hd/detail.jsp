@@ -97,7 +97,7 @@ document.onkeypress = keyEvent;
         </tr>
         <tr>
           <td width="256" height="70">
-          	<a href="${ctx }/yyzj_hd/filmAction!listAssetByFilmId.do?filmId=${film.id}&channelId=1&from=${requestScope.from}" id="defaultFocus"  onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('play_img','','images/yyzj-gq-11-2.jpg',1)">
+          	<a href="${ctx }/servlet/serviceAuth_hd?filmId=${film.id }&channelId=1&from=${requestScope.from}&ContentID=${film.contentId }" id="defaultFocus"  onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('play_img','','images/yyzj-gq-11-2.jpg',1)">
           		<img src="images/yyzj-gq-11.jpg" width="209" height="58" border="0" id="play_img"/>
           	</a>
           </td>

@@ -191,7 +191,7 @@ function focusStyle(target, className) {
         <tr>
           <td height="44" valign="top">&nbsp;</td>
           <td width="142" height="44" valign="top">
-	          <a href="${ctx }/yyzj/filmAction!listAssetByFilmId.do?filmId=${film.id}&channelId=1&from=${requestScope.from}" id="defaultFocus">
+	         <a href="${ctx }/servlet/serviceAuth?filmId=${film.id }&channelId=1&from=${requestScope.from}&ContentID=${film.contentId }&ContentID=${film.contentId }" id="defaultFocus">
 	          		<img src="images/anniu-02.jpg" name="Image13" width="90" height="38" border="0" id="Image13" />
 	          </a>
           </td>
