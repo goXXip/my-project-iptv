@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 import com.netitv.util.Constants;
+import com.netitv.util.HttpUtil;
 
 /**
  * @Todo:对身份认证结果(成功/失败)处理
@@ -50,13 +51,15 @@ public class AuthenticateResponseForHDServlet extends HttpServlet {
 		
 		if("0".equals(Result) &&  action_url != null){
 			request.getSession().setAttribute(Constants.UserToken, UserToken);
-			request.getSession().setAttribute(Constants.UserID, UserID);
 			logger.debug("UserToken==="+UserToken);
 			logger.info(UserID+",认证成功");
 			
 			response.sendRedirect(action_url);//跳转
 		}else{
-			logger.error(request.getSession().getAttribute(Constants.UserID)+",认证失败");
+			if( UserID == null){
+				UserID = HttpUtil.getUserId(request);
+			}
+			logger.error(UserID+",认证失败");
 			request.setAttribute("msg", "认证失败,不能访问本应用,请按首页键返回");
 			
 			/***** 认证失败跳转到 错误提示页面 begin ***/
