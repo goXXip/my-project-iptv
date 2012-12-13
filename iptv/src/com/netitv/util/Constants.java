@@ -31,9 +31,6 @@ public class Constants {
 	/*************************** 鉴权 end  *******************************/
 	
 	
-	
-	public static final  String UserID = "UserID";
-	
 	public static final  String UserToken = "UserToken";
 
 	public static final String AdministratorInfo = "AdministratorInfo";

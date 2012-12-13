@@ -3,6 +3,7 @@ package com.netitv.util;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class HttpUtil {
 	
@@ -31,6 +32,39 @@ public class HttpUtil {
 			}
 		}
 		return null;
+	}
+	
+	/**得到epgServer ip ***/
+	public static String getLocalIp(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		if(session.getAttribute("iptv_localIp")!=null){
+			String  iptv_localIp = (String)session.getAttribute("iptv_localIp");
+			return iptv_localIp;
+		}else{
+			return getCookieValue(request, "localIp");
+		}
+	}
+	
+	/**** 得到 userId********/
+	public static String getUserId(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		if(session.getAttribute("iptv_userId")!=null){
+			String  iptv_userId = (String)session.getAttribute("iptv_userId");
+			return iptv_userId;
+		}else{
+			return getCookieValue(request,"userID");
+		}
+	}
+	
+	/******得到backUrl参数*********/
+	public static String getBackUrl(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		if(session.getAttribute("iptv_backUrl")!=null){
+			String  iptv_localIp = (String)session.getAttribute("iptv_backUrl");
+			return iptv_localIp;
+		}else{
+			return getCookieValue(request, "backUrl");
+		}
 	}
 
 }
