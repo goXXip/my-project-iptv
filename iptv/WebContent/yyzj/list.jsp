@@ -140,7 +140,7 @@ function keyEvent() {
 	case 33://上一页
 		if( curPage > 1){
 			var pageNo = curPage-1 ;
-			var url = "${ctx }/yyzj/filmAction!listFilmByColumnId.do?columnId="+columnID+"&curPage="+pageNo+"&pageSize=12";
+			var url = "${ctx }/yyzj/filmAction!listFilmByColumnId.do?columnId="+columnID+"&curPage="+pageNo+"&pageSize=12&channelId=1";
 			location.href = url;
 		}
 		return 0;
@@ -148,7 +148,7 @@ function keyEvent() {
 	case 34://下一页
 		if( curPage < totalPages){
 			var pageNo = curPage+1 ;
-			var url = "${ctx }/yyzj/filmAction!listFilmByColumnId.do?columnId="+columnID+"&curPage="+pageNo+"&pageSize=12";
+			var url = "${ctx }/yyzj/filmAction!listFilmByColumnId.do?columnId="+columnID+"&curPage="+pageNo+"&pageSize=12&channelId=1";
 			location.href = url;
 		}
 		return 0;
@@ -284,7 +284,7 @@ function focusStyle(target, className) {
           <td align="center" height="27" valign="bottom" class="STYLE14">${pageBean.curPage}/${pageBean.totalPages} 
 		           　<c:choose>
 		           <c:when test="${pageBean.curPage > 1}">
-		           		<a href="${ctx }/yyzj/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage-1}&pageSize=12" class="STYLE14">上一页</a>
+		           		<a href="${ctx }/yyzj/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage-1}&pageSize=12&channelId=1" class="STYLE14">上一页</a>
 		           </c:when>
 		           <c:otherwise>
 		           		上一页
@@ -292,7 +292,7 @@ function focusStyle(target, className) {
 		      </c:choose>
 		           　<c:choose>
 		           <c:when test="${pageBean.curPage < pageBean.totalPages}">
-		           		<a href="${ctx }/yyzj/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage+1}&pageSize=12" class="STYLE14">下一页</a>
+		           		<a href="${ctx }/yyzj/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage+1}&pageSize=12&channelId=1" class="STYLE14">下一页</a>
 		           </c:when>
 		           <c:otherwise>
 		           		下一页
