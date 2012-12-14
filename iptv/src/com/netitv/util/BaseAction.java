@@ -118,21 +118,11 @@ public class BaseAction<T> extends ActionSupport
 	}
 	
 	protected String getLocalIp(){
-		if(session.getAttribute("iptv_localIp")!=null){
-			String  iptv_localIp = (String)session.getAttribute("iptv_localIp");
-			return iptv_localIp;
-		}else{
-			return HttpUtil.getCookieValue(request, "localIp");
-		}
+		return HttpUtil.getLocalIp(request);
 	}
 	
 	protected String getUserId(){
-		if(session.getAttribute("iptv_userId")!=null){
-			String  iptv_userId = (String)session.getAttribute("iptv_userId");
-			return iptv_userId;
-		}else{
-			return HttpUtil.getCookieValue(request,"userID");
-		}
+		return HttpUtil.getUserId(request);
 	}
 	
 	public Integer getCurPage() {
