@@ -21,8 +21,8 @@ body {
 a{display: inline-block;text-decoration:none;}
 .STYLE9 {color: #FFFFFF; font-size: 20px; font-family: "黑体";}
 .STYLE18 {color: #f7d400; font-size: 16px; font-family: "黑体"; }
-.msgDiv{margin: 0 auto;margin-top: 30px;width: 520px;color: #ffffff;font-size: 20px; }
-.messageinfo{margin: 0 auto;margin-top: 30px;width: 520px;color: #ffffff;font-size: 18px;line-height: 30px;text-align: left;}
+.msgDiv{margin: 0 auto;margin-top: 50px;width: 525px;color: #ffffff;font-size: 20px; }
+.messageinfo{margin: 0 auto;margin-top: 30px;width: 525px;color: #ffffff;font-size: 18px;line-height: 30px;text-align: left;}
 </style>
 <script type="text/javascript" src="js/global.js"></script>
 </head>
@@ -37,28 +37,31 @@ a{display: inline-block;text-decoration:none;}
    		<div class="msgDiv">
 	   		<table border="0" cellpadding="0" cellspacing="0">
 				  <tr>
-					 <td width="144" rowspan="3" valign="top">
+					 <td width="144" rowspan="4" valign="top">
 					  	<img src="${ctx }/uploadImages/${film.bigImage.id}.${film.bigImage.suffix}" width="128" height="170" />
 					 </td>
-				     <td height="50"><span class="STYLE9">《${film.name }》</span></td>
+				     <td height="50" class="STYLE9" colspan="2">《${film.name }》</td>
 				  </tr>
 				  <tr>
-				    <td height="40" valign="top">
-				    	<span class="STYLE18">价格：20元/月</span>
-				    	<span class="STYLE18" style="padding-left: 30px;">有效期：一个月</span>
-				    </td>
+				    <td height="40" valign="top"  class="STYLE18">集数：${film.serialCount }集</td>
+				    <td valign="top"  class="STYLE18">所属产品包：疯狂英语</td>
 				  </tr>
 				  <tr>
-				    <td height="44" valign="top">
+				    <td height="40" valign="top" class="STYLE18">价格：20元包月</td>
+				     <td valign="top"  class="STYLE18">有效期：一个月</td>
+				  </tr>
+				  <tr>
+				    <td height="44" valign="top" width="190">
 					    <a href="${ctx }/servlet/order?ContentID=${film.contentId}&filmId=${film.id}&channelId=2" id="defaultFocus">
 					   		 <img src="images/anniu-01.jpg" name="Image13" width="90" height="38" border="0" id="Image13"/>
 					    </a>
 				    </td>
+				    <td width="190">&nbsp;</td>
 				  </tr>
 			</table>
    		</div>
    		<div class="messageinfo">
-    		温馨提示：您即将订购的是疯狂英语产品包（含李阳疯狂英语及英语辅导），成功订购后您可在30天内不限次数观看疯狂英语产品包内的所有节目。
+    		温馨提示：您即将订购的是疯狂英语产品包（含李阳疯狂英语及英语辅导），成功订购后您可在一个月内不限次数观看疯狂英语产品包内的所有节目。
     	</div>
     </td>
     <td width="32"><img src="${ctx }/crazyenglish/images/lyfkyy-3.jpg" border="0" width="32" height="434" /></td>
