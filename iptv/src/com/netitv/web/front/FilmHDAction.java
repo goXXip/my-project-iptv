@@ -10,7 +10,6 @@ import com.netitv.service.AssetService;
 import com.netitv.service.FilmService;
 import com.netitv.util.BaseAction;
 import com.netitv.util.BeanFactory;
-import com.netitv.util.CommonsUtil;
 import com.netitv.util.PageBean;
 
 /**
@@ -39,12 +38,7 @@ public class FilmHDAction extends BaseAction<Film>{
 			return returnUrl;
 		}
 		
-		String localIp = request.getParameter("localIp");
-		if(localIp == null || "".equals(localIp)){
-			localIp = getLocalIp();
-		}else{
-			localIp = CommonsUtil.htmlEncoder(localIp);
-		}
+		String localIp = getLocalIp();
 		request.setAttribute("prefix", localIp);
 		
 		FilmService filmService = (FilmService) BeanFactory.getBeanByName("filmService");
@@ -111,12 +105,7 @@ public class FilmHDAction extends BaseAction<Film>{
 			return returnUrl;
 		}
 		
-		String localIp = request.getParameter("localIp");
-		if(localIp == null || "".equals(localIp)){
-			localIp = getLocalIp();
-		}else{
-			localIp = CommonsUtil.htmlEncoder(localIp);
-		}
+		String localIp = getLocalIp();
 		request.setAttribute("prefix", localIp);
 		
 		FilmService filmService = (FilmService) BeanFactory.getBeanByName("filmService");
@@ -153,12 +142,7 @@ public class FilmHDAction extends BaseAction<Film>{
 			return returnUrl;
 		}
 		
-		String localIp = request.getParameter("localIp");
-		if(localIp == null || "".equals(localIp)){
-			localIp = getLocalIp();
-		}else{
-			localIp = CommonsUtil.htmlEncoder(localIp);
-		}
+		String localIp = getLocalIp();
 		request.setAttribute("prefix", localIp);
 		
 		FilmService filmService = (FilmService) BeanFactory.getBeanByName("filmService");
@@ -321,11 +305,7 @@ public class FilmHDAction extends BaseAction<Film>{
 		
 		Object  UserToken = request.getSession().getAttribute("UserToken");
 		if( UserToken == null){
-			String userId = request.getParameter("userId");
-			if( userId== null){
-				userId = getUserId();
-			}
-			setToAuthenticationUrl(getRequestPrefix()+"/servlet/authenticate_hd?flag="+channelId+"&userId="+userId);
+			setToAuthenticationUrl(getRequestPrefix()+"/servlet/authenticate_hd?flag="+channelId);
 			return "toAuthentication";
 		}
 		return null;
