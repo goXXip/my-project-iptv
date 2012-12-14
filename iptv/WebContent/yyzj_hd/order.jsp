@@ -34,8 +34,8 @@ a:hover{text-decoration:none;}
 a:VISITED {text-decoration:none;}
 .STYLE9 {color: #FFFFFF; font-size: 36px; font-family: "黑体";}
 .STYLE18 {color: #f7d400; font-size: 24px; font-family: "黑体"; }
-.msgDiv{margin: 0 auto;margin-top: 50px;width: 1000px;color: #ffffff;font-size: 24px; }
-.messageinfo{margin: 0 auto;margin-top: 50px;width: 1000px;color: #ffffff;font-size: 22px;line-height: 34px;text-align: left;}
+.msgDiv{margin: 0 auto;margin-top: 100px;width: 1050px;color: #ffffff;font-size: 24px; }
+.messageinfo{margin: 0 auto;margin-top: 50px;width: 1050px;color: #ffffff;font-size: 22px;line-height: 34px;text-align: left;}
 </style>
 
 <script type="text/javascript" src="js/common.js"></script>
@@ -58,27 +58,31 @@ a:VISITED {text-decoration:none;}
       <table width="1112" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr><td>
            <div class="msgDiv">	   		
-	   			<table border="0" cellpadding="0" cellspacing="0">
+	   			<table border="0" cellpadding="0" cellspacing="0" align="center">
 					  <tr>
 					    <td width="450" rowspan="4" valign="top"><img src="${ctx }/uploadImages/${film.bigImage_HD.id}.${film.bigImage_HD.suffix}" width="385" height="263" /></td>
 					    <td height="70" colspan="2"><span class="STYLE9">《${film.name }》</span></td>
 					  </tr>
 					  <tr>
-					    <td height="40" valign="top" class="STYLE18">价格：20元/月</td>
-					    <td height="40" valign="top" class="STYLE18">有效期：一个月</td>
+					    <td height="60" valign="top" class="STYLE18">集数：${film.serialCount }集</td>
+					    <td valign="top" class="STYLE18">所属产品包：孕育早教</td>
 					  </tr>
 					  <tr>
-					    <td height="44" valign="top">
+					    <td height="60" valign="top" class="STYLE18">价格：20元包月</td>
+					    <td valign="top" class="STYLE18">有效期：一个月</td>
+					  </tr>
+					  <tr>
+					    <td height="44" valign="top" width="300">
 						    <a href="${ctx }/servlet/order?ContentID=${film.contentId}&filmId=${film.id}&channelId=1&hd_flag=hd" id="defaultFocus" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('order_img','','images/yyzj-gq-13-2.jpg',1)">
 						   		 <img src="images/yyzj-gq-13.jpg" width="209" height="58" border="0" id="order_img"/>
 						    </a>
 					    </td>
-					    <td>&nbsp;</td>
+					    <td width="300">&nbsp;</td>
 					  </tr>
 				</table>
 		   </div>
 		   <div class="messageinfo">
-    			温馨提示：您即将订购的是孕育早教产品包（含孕育保健、婴幼早教、少儿成长），成功订购后您可在30天内不限次数观看孕育早教产品包内的所有节目。
+    			温馨提示：您即将订购的是孕育早教产品包（含孕育保健、婴幼早教、少儿成长），成功订购后您可在一个月内不限次数观看孕育早教产品包内的所有节目。
     		</div>
          </td></tr>
       </table>
