@@ -262,7 +262,7 @@ public class OrderResponseServlet  extends HttpServlet {
 			returnMsg= "BSS并发数超出访问限制，";
 		}
 		
-		returnMsg = "订购失败，"+returnMsg+"<a href='"+index_url+"' style='color:#ffffff;'>返回首页</a>";
+		returnMsg = "订购失败，"+returnMsg+"<a href='"+index_url+"'>返回首页</a>";
 		
 		return returnMsg;
 	}
