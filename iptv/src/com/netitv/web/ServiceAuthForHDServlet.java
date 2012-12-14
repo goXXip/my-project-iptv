@@ -75,36 +75,42 @@ public class ServiceAuthForHDServlet extends HttpServlet{
 			 FailureUrl = getRequestPrefix(request)+"/crjy_hd/filmAction!orderConfirm.do?filmId="+filmId;
 		}
 		
-		ServiceAuthReq serviceAuthReq = new ServiceAuthReq();
-		serviceAuthReq.setSPID(Constants.SPID);
-		serviceAuthReq.setUserID(userId);
-		serviceAuthReq.setUserToken(UserToken);
-		serviceAuthReq.setProductID(ProductID);
-		if( ServiceID != null){
-			serviceAuthReq.setServiceID(ServiceID);
+		if( request.getSession().getAttribute(userId+","+ProductID) != null){
+			response.sendRedirect(SuccessUrl); //跳转到鉴权成功页面
 		}
-		if( ContentID != null){
-			serviceAuthReq.setContentID(ContentID);
-		}
-		long TimeStamp = Calendar.getInstance().getTimeInMillis();
-		serviceAuthReq.setTimeStamp(String.valueOf(TimeStamp));
-		
-		ServiceAuthResp  serviceAuthResp = VASServiceServiceClient.serviceAuth(serviceAuthReq);
-		if( serviceAuthResp != null){
-			logger.info(" ServiceAuth begin ");
-			
-			String Result = serviceAuthResp.getResult();
-			logger.info("Result==="+Result+",ProductID==="+ProductID+",filmId==="+filmId+",channelId==="+channelId);
-			
-			if("0".equals(Result)){
-				logger.info("userId="+userId+",ProductID="+ProductID+",ServiceID="+ServiceID+"鉴权成功。");
-				response.sendRedirect(SuccessUrl); //跳转到鉴权成功页面
-			}else{
-				logger.error("userId="+userId+",ProductID="+ProductID+",ServiceID="+ServiceID+"鉴权失败。");
-				response.sendRedirect(FailureUrl);//跳转到鉴权失败页面
+		else{
+			ServiceAuthReq serviceAuthReq = new ServiceAuthReq();
+			serviceAuthReq.setSPID(Constants.SPID);
+			serviceAuthReq.setUserID(userId);
+			serviceAuthReq.setUserToken(UserToken);
+			serviceAuthReq.setProductID(ProductID);
+			if( ServiceID != null){
+				serviceAuthReq.setServiceID(ServiceID);
 			}
+			if( ContentID != null){
+				serviceAuthReq.setContentID(ContentID);
+			}
+			long TimeStamp = Calendar.getInstance().getTimeInMillis();
+			serviceAuthReq.setTimeStamp(String.valueOf(TimeStamp));
 			
-			logger.info(" ServiceAuthForHD end ");
+			ServiceAuthResp  serviceAuthResp = VASServiceServiceClient.serviceAuth(serviceAuthReq);
+			if( serviceAuthResp != null){
+				logger.info(" ServiceAuth begin ");
+				
+				String Result = serviceAuthResp.getResult();
+				logger.info("Result==="+Result+",ProductID==="+ProductID+",filmId==="+filmId+",channelId==="+channelId);
+				
+				if("0".equals(Result)){
+					logger.info("userId="+userId+",ProductID="+ProductID+",ServiceID="+ServiceID+"鉴权成功。");
+					request.getSession().setAttribute(userId+","+ProductID, userId+","+ProductID);
+					response.sendRedirect(SuccessUrl); //跳转到鉴权成功页面
+				}else{
+					logger.error("userId="+userId+",ProductID="+ProductID+",ServiceID="+ServiceID+"鉴权失败。");
+					response.sendRedirect(FailureUrl);//跳转到鉴权失败页面
+				}
+				
+				logger.info(" ServiceAuthForHD end ");
+			}
 		}
 		
 	}
