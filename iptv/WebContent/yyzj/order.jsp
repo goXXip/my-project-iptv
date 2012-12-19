@@ -23,8 +23,20 @@ a{display: inline-block;text-decoration:none;}
 .STYLE18 {color: #f7d400; font-size: 16px; font-family: "黑体"; }
 .msgDiv{margin: 0 auto;margin-top: 50px;width: 525px;color: #ffffff;font-size: 20px;}
 .messageinfo{margin: 0 auto;margin-top: 30px;width: 525px;color: #ffffff;font-size: 18px;line-height: 30px;text-align: left;}
+.tips{display:none;width:402px;height:200px;z-index:100;position:absolute;left: 119px;top:165px;background: url("${ctx}/images/yyzj_buy_tips_bq.png") no-repeat;}
 </style>
 <script type="text/javascript" src="js/global.js"></script>
+<script type="text/javascript">
+
+	function second_confirm(){
+		document.getElementById("second_confirm_div").style.display = "block";
+		$("btn_second_orderconfirm").focus();
+    }
+
+    function close_confirm(){
+		document.getElementById("second_confirm_div").style.display = "none";
+    }
+</script>
 </head>
 
 <body>
@@ -51,7 +63,7 @@ a{display: inline-block;text-decoration:none;}
 				  </tr>
 				  <tr>
 				    <td height="44" valign="top" width="190">
-					     <a href="${ctx }/servlet/order?ContentID=${film.contentId}&filmId=${film.id}&channelId=1" id="defaultFocus">
+					     <a href="#" id="defaultFocus" onclick="second_confirm()">
 					   		 <img src="images/anniu-01.jpg" name="Image13" width="90" height="38" border="0" id="Image13"/>
 					    </a>
 				    </td>
@@ -71,6 +83,21 @@ a{display: inline-block;text-decoration:none;}
 </table>
 
 <jsp:include page="/yyzj/footer.jsp"></jsp:include>
+
+<div class="tips" id="second_confirm_div">
+	<div style="margin-top: 140px;padding-left: 125px;">
+		<span>
+			<a href="${ctx }/servlet/order?ContentID=${film.contentId}&filmId=${film.id}&channelId=1" id="btn_second_orderconfirm">
+				<img src="${ctx }/images/buy_bq.png"/>
+			</a>
+		</span>
+		<span style="padding-left: 20px;">
+			<a href="#" onclick="close_confirm()">
+				<img src="${ctx }/images/nobuy_bq.png"/>
+		   </a>
+		</span>
+	</div>
+</div>
 
 </body>
 </html>
