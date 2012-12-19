@@ -24,10 +24,21 @@ a:VISITED {text-decoration:none;}
 .STYLE26 {color: #FF9900;font-size: 24px;font-family: "黑体";}
 .msgDiv{margin: 0 auto;margin-top: 100px;width: 1050px;color: #ffffff;font-size: 24px; }
 .messageinfo{margin: 0 auto;margin-top: 50px;width: 1050px;color: #ffffff;font-size: 22px;line-height: 34px;text-align: left;}
+.tips{display:none;width:772px;height:384px;z-index:100;position:absolute;left: 254px;top:168px;background: url("${ctx}/images/fkyy_buy_tips_gq.png") no-repeat;}
 </style>
 <script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript" src="js/global.js"></script>
+<script type="text/javascript">
 
+	function second_confirm(){
+		document.getElementById("second_confirm_div").style.display = "block";
+		$("btn_second_orderconfirm").focus();
+    }
+
+    function close_confirm(){
+		document.getElementById("second_confirm_div").style.display = "none";
+    }
+</script>
 </head>
 
 <body>
@@ -62,7 +73,7 @@ a:VISITED {text-decoration:none;}
 				        </tr>
 				        <tr>
 				          <td width="300" height="76" valign="top">
-					          <a href="${ctx }/servlet/order?ContentID=${film.contentId}&filmId=${film.id}&channelId=2&hd_flag=hd" id="defaultFocus" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('order_img','','images/fkyy-gq-11-2.jpg',1)">
+					          <a href="#" onclick="second_confirm()" id="defaultFocus" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('order_img','','images/fkyy-gq-11-2.jpg',1)">
 					          	<img src="images/fkyy-gq-11.jpg" width="209" height="58" border="0" id="order_img"/>
 					          </a>
 				          </td>
@@ -83,6 +94,21 @@ a:VISITED {text-decoration:none;}
     <td colspan="3"><img src="images/fkyy-gq-6.jpg" width="1280" height="29" /></td>
   </tr>
 </table>
+
+<div class="tips" id="second_confirm_div">
+	<div style="margin-top: 270px;padding-left: 255px;">
+		<span>
+			<a href="${ctx }/servlet/order?ContentID=${film.contentId}&filmId=${film.id}&channelId=2&hd_flag=hd"  id="btn_second_orderconfirm">
+				<img src="${ctx }/images/buy_gq.png"/>
+			</a>
+		</span>
+		<span style="padding-left: 35px;">
+			<a href="#" onclick="close_confirm()">
+				<img src="${ctx }/images/nobuy_gq.png"/>
+		   </a>
+		</span>
+	</div>
+</div>
 
 </body>
 </html>
