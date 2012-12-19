@@ -14,6 +14,7 @@ import org.apache.log4j.Logger;
 import com.netitv.domain.OrderDetail;
 import com.netitv.service.OrderDetailService;
 import com.netitv.util.BeanFactory;
+import com.netitv.util.HttpUtil;
 
 /**
  * @Todo:处理订购返回结果
@@ -96,7 +97,7 @@ public class OrderResponseServlet  extends HttpServlet {
 		String SerEndTime = request.getParameter("SerEndTime");
 		String Code = request.getParameter("Code");
 		
-		logger.debug("Result====="+Result+",UserID====="+UserID+",ProductID====="+ProductID+",ProductName====="+ProductName+",Fee====="+Fee+",Code====="+Code);
+		logger.debug("Result====="+Result+",channelId====="+channelId+",UserID====="+UserID+",ProductID====="+ProductID+",ProductName====="+ProductName+",Fee====="+Fee+",Code====="+Code);
 		
 		if("0".equals(Result)){
 			if(UserToken != null && !"".equals(UserToken)){
@@ -112,7 +113,10 @@ public class OrderResponseServlet  extends HttpServlet {
 			response.sendRedirect(SuccessUrl); //订购成功跳转页
 			
 		}else{
-			logger.error("user_id==="+UserID+",订购产品ProductID:"+ProductID+"失败");
+			if( UserID == null ){
+				UserID = HttpUtil.getUserId(request);
+			}
+			logger.error("user_id==="+UserID+",订购产品ProductID:"+ProductID+",channelId====="+channelId+",失败");
 			String returnMsg = buildReturnMsg(Result,index_url);
 			request.setAttribute("msg", returnMsg);
 			RequestDispatcher rd = request.getRequestDispatcher(FailureUrl); //订购失败跳转页

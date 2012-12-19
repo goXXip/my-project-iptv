@@ -39,8 +39,7 @@ public class OrderServlet  extends HttpServlet{
 		String ServiceID = "";
 		String filmId = request.getParameter("filmId");//影片ID
 		String channelId = request.getParameter("channelId");//频道ID
-		logger.debug("request parameter filmId========"+filmId);
-		logger.debug("request parameter channelId========"+channelId);
+		logger.debug("request parameter filmId========"+filmId+",channelId========"+channelId);
 		if( channelId != null && !channelId.equals("")){
 			ChannelService channelService = (ChannelService) BeanFactory.getBeanByName("channelService");
 			Channel channel = channelService.findById(Integer.valueOf(channelId));
@@ -48,11 +47,11 @@ public class OrderServlet  extends HttpServlet{
 				ProductID = channel.getProductId();
 				ServiceID = channel.getServiceId();
 			}else{
-				logger.debug("not found Channel: channelId"+channelId);
+				logger.debug("not found Channel: channelId===="+channelId);
 			}
 		}
-		String hd_flag = request.getParameter("hd_flag");
 		
+		String hd_flag = request.getParameter("hd_flag");
 		String Order_ReturnURL =getRequestPrefix(request)+"/servlet/orderResponse?channelId="+channelId+"&filmId="+filmId+"&hd_flag="+hd_flag;
 		Order_ReturnURL = URLEncoder.encode(Order_ReturnURL, "utf-8");
 		
