@@ -86,17 +86,24 @@ a{display: inline-block;text-decoration:none;}
 <jsp:include page="/crazyenglish/footer.jsp"></jsp:include>
 
 <div class="tips" id="second_confirm_div">
-	<div style="margin-top: 140px;padding-left: 125px;">
-		<span>
-			<a href="${ctx }/servlet/order?ContentID=${film.contentId}&filmId=${film.id}&channelId=2"  id="btn_second_orderconfirm">
-				<img src="${ctx }/images/buy_bq.png"/>
-			</a>
-		</span>
-		<span style="padding-left: 20px;">
-			<a href="#" onclick="close_confirm()">
-				<img src="${ctx }/images/nobuy_bq.png"/>
-		   </a>
-		</span>
+	<div style="margin-top: 140px;">
+		<table border="0" cellpadding="0" cellspacing="0" width="400px;">
+			<tr>
+				<td width="125">&nbsp;</td>
+				<td width="120">
+					<a href="${ctx }/servlet/order?ContentID=${film.contentId}&filmId=${film.id}&channelId=2"  id="btn_second_orderconfirm">
+						<img src="${ctx }/images/buy_bq.png"/>
+					</a>
+				</td>
+				<td width="20">&nbsp;</td>
+				<td width="120">
+					<a href="#" onclick="close_confirm()">
+						<img src="${ctx }/images/nobuy_bq.png"/>
+				   </a>
+				</td>
+				<td width="15">&nbsp;</td>
+			</tr>
+		</table>
 	</div>
 </div>
 
