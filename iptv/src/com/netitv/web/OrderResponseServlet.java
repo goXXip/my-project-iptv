@@ -97,7 +97,7 @@ public class OrderResponseServlet  extends HttpServlet {
 		String SerEndTime = request.getParameter("SerEndTime");
 		String Code = request.getParameter("Code");
 		
-		logger.debug("Result====="+Result+",channelId====="+channelId+",UserID====="+UserID+",ProductID====="+ProductID+",ProductName====="+ProductName+",Fee====="+Fee+",Code====="+Code);
+		logger.info("Result====="+Result+",channelId====="+channelId+",UserID====="+UserID+",ProductID====="+ProductID+",ProductName====="+ProductName+",Fee====="+Fee+",Code====="+Code);
 		
 		if("0".equals(Result)){
 			if(UserToken != null && !"".equals(UserToken)){
@@ -113,7 +113,7 @@ public class OrderResponseServlet  extends HttpServlet {
 			response.sendRedirect(SuccessUrl); //订购成功跳转页
 			
 		}else{
-			if( UserID == null ){
+			if( UserID == null || "".equals(UserID)){
 				UserID = HttpUtil.getUserId(request);
 			}
 			logger.error("user_id==="+UserID+",订购产品ProductID:"+ProductID+",channelId====="+channelId+",失败");
@@ -160,6 +160,9 @@ public class OrderResponseServlet  extends HttpServlet {
 	
 	private String buildReturnMsg(String result,String index_url) {
 		String returnMsg = "";
+		if( result != null){
+			result = result.trim();
+		}
 		if("33751041".equals(result)){
 //			returnMsg= "订购失败，";
 		}
@@ -266,7 +269,7 @@ public class OrderResponseServlet  extends HttpServlet {
 			returnMsg= "BSS并发数超出访问限制，";
 		}
 		
-		returnMsg = "订购失败，"+returnMsg+"<a href='"+index_url+"'>返回首页</a>";
+		returnMsg = "订购失败，"+returnMsg+"<a href='"+index_url+"' style='color:#FF9900'>返回首页</a>";
 		
 		return returnMsg;
 	}

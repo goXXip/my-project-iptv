@@ -56,11 +56,11 @@ public class AuthenticateResponseForHDServlet extends HttpServlet {
 			
 			response.sendRedirect(action_url);//跳转
 		}else{
-			if( UserID == null){
+			if( UserID == null || "".equals(UserID)){
 				UserID = HttpUtil.getUserId(request);
 			}
 			logger.error(UserID+",认证失败");
-			request.setAttribute("msg", "认证失败,不能访问本应用,请按首页键返回");
+			request.setAttribute("msg", "认证失败,不能访问本应用,请按首页/菜单键回首页");
 			
 			/***** 认证失败跳转到 错误提示页面 begin ***/
 			if( action_url != null && action_url.indexOf("/yyzj_hd/filmAction!eduIndex.do")>0){
