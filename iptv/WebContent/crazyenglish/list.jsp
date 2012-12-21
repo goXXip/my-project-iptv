@@ -18,20 +18,8 @@ body {
 	height: 530px;
 }
 a{text-decoration:none;}
-.STYLE9 {color: #FFFFFF; font-size: 20px; font-family: "黑体";}
-.STYLE12 {font-family: "黑体";color: #FF9900;font-size: 16px;}
 .STYLE14 {font-family: "黑体";color: #FFFFFF;font-size: 16px;}
 .STYLE13 {font-family: "黑体"; font-size: 16px; color: #FFFFFF; margin-top:10px;}
-.style15 {color: #FF9900}
-.STYLE16 {color: #FBB90B}
-.STYLE17 {	font-family: "黑体";color: #FFFFFF;}
-
-.listtr {
-	float: left;
-	margin-left: 10px;
-	width: 565px; 
-	height: 130px;
-}
 .liston {
 	float: left;
 	margin-right: 5px;
