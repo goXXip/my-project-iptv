@@ -164,24 +164,13 @@ document.onkeypress = keyEvent;
 	       </c:forEach>
       </table>
       </div>
-      <div id="page_navigator" class="STYLE14" style="width: 1142px;text-align: center;">
-     	 ${pageBean.curPage}/${pageBean.totalPages} 
-		           　<c:choose>
-		           <c:when test="${pageBean.curPage > 1}">
+      <div id="page_navigator" class="STYLE14" style="width: 1142px;text-align: center;">${pageBean.curPage}/${pageBean.totalPages} 
+		           <c:if test="${pageBean.curPage > 1}">
 		           		<a href="${ctx }/yyzj_hd/filmAction!listAsset.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage-1}&channelId=1" class="STYLE12">上一页</a>
-		           </c:when>
-		           <c:otherwise>
-		           		上一页
-		           </c:otherwise>
-		      </c:choose>
-		           　<c:choose>
-		           <c:when test="${pageBean.curPage < pageBean.totalPages}">
+		           </c:if>
+		           <c:if test="${pageBean.curPage < pageBean.totalPages}">
 		           		<a href="${ctx }/yyzj_hd/filmAction!listAsset.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage+1}&channelId=1" class="STYLE12">下一页</a>
-		           </c:when>
-		           <c:otherwise>
-		           		下一页
-		           </c:otherwise>
-		      </c:choose>
+		           </c:if>
       </div>
       </td>
     <td width="73"><img src="images/yyzj-gq-6.jpg" width="73" height="591" /></td>
