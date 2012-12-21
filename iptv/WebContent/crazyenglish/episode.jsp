@@ -127,12 +127,13 @@ function goto_play(id,fileID,ztID,filmId){
 <table width="640" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td width="33"><img src="images/lyfkyy-2.jpg" width="33" height="434" /></td>
-    <td width="575" valign="top" bgcolor="602121"><table width="100" border="0" cellspacing="0" cellpadding="0">
+    <td width="575" valign="top" bgcolor="#602121">
+    <table width="575" border="0" cellspacing="0" cellpadding="0" bgcolor="#602121">
       <tr>
         <td height="10"></td>
       </tr>
     </table>
-    <div style="height: 385px;">
+    <div style="height: 385px;width:575px;background-color:#602121;">
       <table width="555" border="0" align="center" cellpadding="0" cellspacing="0">
 	      <c:forEach items="${pageBean.items}" var="result" varStatus="status">
 		      	<c:if test="${status.count == 1}">
@@ -149,29 +150,24 @@ function goto_play(id,fileID,ztID,filmId){
        					</tr>
 			     </c:if>
 	       </c:forEach>
-    </table>
+      </table>
     </div>
-     <div id="page_navigator" style="text-align: center;">
-	      <table width="500" border="0" align="center" cellpadding="0" cellspacing="0">
+     <div id="page_navigator" style="width: 575px;">
+	      <table width="575" border="0" align="center" cellpadding="0" cellspacing="0">
 	        <tr>
-	            <td align="center" height="27" valign="bottom" class="STYLE14">${pageBean.curPage}/${pageBean.totalPages} 
-				           　<c:choose>
-				           <c:when test="${pageBean.curPage > 1}">
-				           		<a href="${ctx }/crazyenglish/filmAction!listAsset.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage-1}&channelId=2" class="STYLE14">上一页</a>
-				           </c:when>
-				           <c:otherwise>
-				           		上一页
-				           </c:otherwise>
-				      </c:choose>
-				           　<c:choose>
-				           <c:when test="${pageBean.curPage < pageBean.totalPages}">
-				           		<a href="${ctx }/crazyenglish/filmAction!listAsset.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage+1}&channelId=2" class="STYLE14">下一页</a>
-				           </c:when>
-				           <c:otherwise>
-				           		下一页
-				           </c:otherwise>
-				      </c:choose>
+	        	<td width="170"></td>
+	        	<td align="center" height="27" valign="bottom" class="STYLE14" width="50">${pageBean.curPage}/${pageBean.totalPages}</td>
+	            <td align="center" height="27" valign="bottom" class="STYLE14" width="90">
+			           <c:if test="${pageBean.curPage > 1}">
+			           		<a href="${ctx }/crazyenglish/filmAction!listAsset.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage-1}&channelId=2" class="STYLE14">上一页</a>
+			           </c:if>
+				 </td>
+				  <td align="center" height="27" valign="bottom" class="STYLE14" width="90">
+			           <c:if test="${pageBean.curPage < pageBean.totalPages}">
+			           		<a href="${ctx }/crazyenglish/filmAction!listAsset.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage+1}&channelId=2" class="STYLE14">下一页</a>
+			           </c:if>
 	           	</td>
+	           	<td width="175"></td>
 	        </tr>
 	      </table>
     </div>      

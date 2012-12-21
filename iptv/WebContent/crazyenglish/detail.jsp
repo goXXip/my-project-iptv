@@ -17,7 +17,7 @@ body {
 	height: 530px;
 	font-family: "黑体";
 }
-a{display: inline-block;text-decoration:none;}
+a{text-decoration:none;}
 .STYLE9 {color: #FFFFFF; font-size: 20px; font-family: "黑体";}
 .STYLE10 {color: #FFFFFF; font-size: 18px; font-family: "黑体"; }
 .STYLE11 {
@@ -120,106 +120,113 @@ function focusStyle(target, className) {
   <tr>
     <td width="33"><img src="images/lyfkyy-2.jpg" width="33" height="434" /></td>
 	<td width="575" valign="top" bgcolor="#602121">
-		<table width="100" border="0" cellspacing="0" cellpadding="0">
-			<tr>
-				<td height="10"></td>
+		<table width="575" border="0" cellspacing="0" cellpadding="0" bgcolor="#602121">
+			<tr><td height="10" width="575"></td></tr>
+			<tr><td width="575">
+					<table width="555" border="0" align="center" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="144" rowspan="3" valign="top"><img
+								src="${ctx }/uploadImages/${film.bigImage.id}.${film.bigImage.suffix}" width="128" height="170" />
+							</td>
+							<td height="34" colspan="3"><span class="style15">《${film.name }》</span>
+							</td>
+						</tr>
+						<tr>
+							<td height="134" colspan="3" valign="top" class="STYLE9">${film.description }</td>
+						</tr>
+						<tr>
+							<td height="44" valign="top" class="style17">集数：${film.serialCount }集<br/>订购方式：包月 </td>
+							<td valign="top" class="style17">主讲：${film.actor }</td>
+							<td valign="top" class="style17">适用：${film.audient }</td>
+						</tr>
+						<tr>
+							<td height="44" valign="top">&nbsp;</td>
+							<td valign="top">
+								<a href="${ctx }/servlet/serviceAuth?filmId=${film.id }&channelId=2&from=${requestScope.from}&ContentID=${film.contentId }" id="defaultFocus">
+									<img src="images/anniu-02.jpg" name="Image12" width="90" height="38" border="0" id="Image12" />
+								</a>
+							</td>
+							<td valign="top">&nbsp;</td>
+							<td valign="top">&nbsp;</td>
+						</tr>
+					</table>
+				</td>
 			</tr>
 		</table>
-		<table width="555" border="0" align="center" cellpadding="0" cellspacing="0">
-			<tr>
-				<td width="144" rowspan="3" valign="top"><img
-					src="${ctx }/uploadImages/${film.bigImage.id}.${film.bigImage.suffix}" width="128" height="170" />
-				</td>
-				<td height="34" colspan="3"><span class="style15">《${film.name }》</span>
-				</td>
-			</tr>
-			<tr>
-				<td height="134" colspan="3" valign="top" class="STYLE9">${film.description }</td>
-			</tr>
-			<tr>
-				<td height="44" valign="top" class="style17">集数：${film.serialCount }集<br/>订购方式：包月 </td>
-				<td valign="top" class="style17">主讲：${film.actor }</td>
-				<td valign="top" class="style17">适用：${film.audient }</td>
-			</tr>
-			<tr>
-				<td height="44" valign="top">&nbsp;</td>
-				<td valign="top">
-					<a href="${ctx }/servlet/serviceAuth?filmId=${film.id }&channelId=2&from=${requestScope.from}&ContentID=${film.contentId }" id="defaultFocus">
-						<img src="images/anniu-02.jpg" name="Image12" width="90" height="38" border="0" id="Image12" />
-					</a>
-				</td>
-				<td valign="top">&nbsp;</td>
-				<td valign="top">&nbsp;</td>
-			</tr>
-		</table>
-		<table width="100" border="0" cellspacing="0" cellpadding="0">
+		<table width="575" border="0" cellspacing="0" cellpadding="0" bgcolor="#602121">
 			<tr>
 				<td height="5"></td>
 			</tr>
 		</table>
-		<table width="564" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px;">
-        <tr>
-			 <td width="188" height="122">
-			 	<c:if test="${fn:length(requestScope.relativeList) > 0 }">
-	        	  <c:forEach items="${requestScope.relativeList}" var="result" varStatus="status"  begin="0" end="0">
-				 		<div id="t_2_0" class="listoff">
-					 		<table width="165" border="0" align="center" cellpadding="0" cellspacing="0">
-									<tr>
-										<td width="75" height="124">
-											<a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}" onfocus="focusStyle('t_2_0','liston');" onblur="focusStyle('t_2_0','listoff');">
-												<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" />
-											</a>
-										</td>
-										<td width="90" valign="top"><p class="STYLE13">${result.name }</p>
-											<p class="STYLE13">主讲：${result.actor }</p>
-										</td>
-									</tr>
-							</table>
-						</div>
-				  </c:forEach>
-				</c:if>
-			</td>
-			<td width="188" height="122">
-			 	<c:if test="${fn:length(requestScope.relativeList) > 1 }">
-	        	  <c:forEach items="${requestScope.relativeList}" var="result" varStatus="status"  begin="1" end="1">
-				 		<div id="t_2_1" class="listoff">
-					 		<table width="165" border="0" align="center" cellpadding="0" cellspacing="0">
-									<tr>
-										<td width="75" height="124">
-											<a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}" onfocus="focusStyle('t_2_1','liston');" onblur="focusStyle('t_2_1','listoff');">
-												<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" />
-											</a>
-										</td>
-										<td width="90" valign="top"><p class="STYLE13">${result.name }</p>
-											<p class="STYLE13">主讲：${result.actor }</p>
-										</td>
-									</tr>
-							</table>
-						</div>
-				  </c:forEach>
-				</c:if>
-			</td>
-			<td width="188" height="122">
-			 	<c:if test="${fn:length(requestScope.relativeList) > 2 }">
-	        	  <c:forEach items="${requestScope.relativeList}" var="result" varStatus="status"  begin="2" end="2">
-				 		<div id="t_2_2" class="listoff">
-					 		<table width="165" border="0" align="center" cellpadding="0" cellspacing="0">
-									<tr>
-										<td width="75" height="124">
-											<a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}" onfocus="focusStyle('t_2_2','liston');" onblur="focusStyle('t_2_2','listoff');">
-												<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" />
-											</a>
-										</td>
-										<td width="90" valign="top"><p class="STYLE13">${result.name }</p>
-											<p class="STYLE13">主讲：${result.actor }</p>
-										</td>
-									</tr>
-							</table>
-						</div>
-				  </c:forEach>
-				</c:if>
-			</td>
-      	</tr>
+		<table width="575" border="0" cellspacing="0" cellpadding="0" bgcolor="#602121">
+			<tr><td width="10"></td>
+			<td width="564">
+				<table width="564" border="0" cellspacing="0" cellpadding="0">
+		        <tr>
+					 <td width="188" height="122">
+					 	<c:if test="${fn:length(requestScope.relativeList) > 0 }">
+			        	  <c:forEach items="${requestScope.relativeList}" var="result" varStatus="status"  begin="0" end="0">
+						 		<div id="t_2_0" class="listoff">
+							 		<table width="165" border="0" align="center" cellpadding="0" cellspacing="0">
+											<tr>
+												<td width="75" height="124">
+													<a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}" onfocus="focusStyle('t_2_0','liston');" onblur="focusStyle('t_2_0','listoff');">
+														<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" />
+													</a>
+												</td>
+												<td width="90" valign="top"><p class="STYLE13">${result.name }</p>
+													<p class="STYLE13">主讲：${result.actor }</p>
+												</td>
+											</tr>
+									</table>
+								</div>
+						  </c:forEach>
+						</c:if>
+					</td>
+					<td width="188" height="122">
+					 	<c:if test="${fn:length(requestScope.relativeList) > 1 }">
+			        	  <c:forEach items="${requestScope.relativeList}" var="result" varStatus="status"  begin="1" end="1">
+						 		<div id="t_2_1" class="listoff">
+							 		<table width="165" border="0" align="center" cellpadding="0" cellspacing="0">
+											<tr>
+												<td width="75" height="124">
+													<a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}" onfocus="focusStyle('t_2_1','liston');" onblur="focusStyle('t_2_1','listoff');">
+														<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" />
+													</a>
+												</td>
+												<td width="90" valign="top"><p class="STYLE13">${result.name }</p>
+													<p class="STYLE13">主讲：${result.actor }</p>
+												</td>
+											</tr>
+									</table>
+								</div>
+						  </c:forEach>
+						</c:if>
+					</td>
+					<td width="188" height="122">
+					 	<c:if test="${fn:length(requestScope.relativeList) > 2 }">
+			        	  <c:forEach items="${requestScope.relativeList}" var="result" varStatus="status"  begin="2" end="2">
+						 		<div id="t_2_2" class="listoff">
+							 		<table width="165" border="0" align="center" cellpadding="0" cellspacing="0">
+											<tr>
+												<td width="75" height="124">
+													<a href="${ctx }/crazyenglish/filmAction!detail.do?filmId=${result.id}" onfocus="focusStyle('t_2_2','liston');" onblur="focusStyle('t_2_2','listoff');">
+														<img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" width="68" height="100" border="0" />
+													</a>
+												</td>
+												<td width="90" valign="top"><p class="STYLE13">${result.name }</p>
+													<p class="STYLE13">主讲：${result.actor }</p>
+												</td>
+											</tr>
+									</table>
+								</div>
+						  </c:forEach>
+						</c:if>
+					</td>
+		      	</tr>
+		      </table>
+	      </td>
+	      </tr>
       </table>
 	</td>
 	<td width="32"><img src="images/lyfkyy-3.jpg" width="32" height="434" /></td>

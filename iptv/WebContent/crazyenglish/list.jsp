@@ -118,13 +118,14 @@ function focusStyle(target, className) {
 <table width="640" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td width="33"><img src="images/lyfkyy-2.jpg" width="33" height="434" /></td>
-    <td width="575" valign="top" bgcolor="602121">
-      <table width="100" border="0" cellspacing="0" cellpadding="0">
-        <tr>
-          <td height="10"></td>
-        </tr>
-      </table>
-      <table width="564" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px;">
+    <td width="575" valign="top" bgcolor="#602121">
+    <table width="575" border="0" cellspacing="0" cellpadding="0" bgcolor="#602121">
+        <tr><td height="10"></td></tr>
+    </table>
+  	<table width="575" border="0" cellspacing="0" cellpadding="0" bgcolor="#602121">
+	  <tr><td width="10"></td>
+	  <td width="564">
+      <table width="564" border="0" cellspacing="0" cellpadding="0">
     	  <tr>
 			 <td width="188" height="130">
 			 	<c:if test="${fn:length(pageBean.items) > 0 }">
@@ -301,10 +302,14 @@ function focusStyle(target, className) {
 				</c:if>
 			</td>
       	</tr>
+      </table></td>
+	    </tr>
       </table>
-      <table width="500" border="0" align="center" cellpadding="0" cellspacing="0">
+      <table width="575" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
-            <td align="center" height="27" valign="bottom" class="STYLE14">${pageBean.curPage}/${pageBean.totalPages} 
+        	<td width="170"></td>
+        	<td align="center" height="27" valign="bottom" class="STYLE14" width="50">${pageBean.curPage}/${pageBean.totalPages}</td>
+            <td align="center" height="27" valign="bottom" class="STYLE14" width="90">
 			           　<c:choose>
 			           <c:when test="${pageBean.curPage > 1}">
 			           		<a href="${ctx }/crazyenglish/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage-1}&pageSize=9&channelId=2" class="STYLE14">上一页</a>
@@ -313,6 +318,8 @@ function focusStyle(target, className) {
 			           		上一页
 			           </c:otherwise>
 			      </c:choose>
+			 </td>
+			 <td align="center" height="27" valign="bottom" class="STYLE14" width="90">
 			           　<c:choose>
 			           <c:when test="${pageBean.curPage < pageBean.totalPages}">
 			           		<a href="${ctx }/crazyenglish/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage+1}&pageSize=9&channelId=2" class="STYLE14">下一页</a>
@@ -322,6 +329,7 @@ function focusStyle(target, className) {
 			           </c:otherwise>
 			      </c:choose>
            </td>
+           <td width="175"></td>
         </tr>
       </table></td>
     <td width="32"><img src="images/lyfkyy-3.jpg" width="32" height="434" /></td>
