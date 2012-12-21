@@ -112,7 +112,6 @@ function focusStyle_episode(target, className) {
 
 var epg_server = '${requestScope.localIp}';
 function goto_play(id,fileID,ztID,filmId){
-	var pay_confirm_url = "${ctx}/crazyenglish_hd/filmAction!orderConfirm.do?filmId="+filmId;
 	var currentPage = "${pageBean.curPage}";
 	var backUrl = "${ctx}/crazyenglish_hd/filmAction!listAsset.do?filmId="+filmId+"&curPage="+currentPage;
 	backUrl = escape(backUrl);
@@ -143,14 +142,18 @@ function goto_play(id,fileID,ztID,filmId){
 	      	<c:if test="${status.count == 1}">
 		      	<tr>
 		          <td width="1017" height="75" valign="top">
-				       <div id="t${status.count }" class="titleoff"><a href="javascript:goto_play(${result.id },'${result.fileId }','${requestScope.contentID }','${result.filmid }');" id="defaultFocus" onfocus="focusStyle_episode('t${status.count }','titleon');" onblur="focusStyle_episode('t${status.count }','titleoff');">第${(pageBean.curPage-1)*7+status.count }集   ${result.name }</a></div>
+		         	 <a href="javascript:goto_play(${result.id },'${result.fileId }','${requestScope.contentID }','${result.filmid }');" id="defaultFocus" onfocus="focusStyle_episode('t${status.count }','titleon');" onblur="focusStyle_episode('t${status.count }','titleoff');">
+				       <div id="t${status.count }" class="titleoff">第${(pageBean.curPage-1)*7+status.count }集   ${result.name }</div>
+				     </a>
 		          </td>
 		        </tr>
 	      	</c:if>
 	       <c:if test="${status.count != 1}">
 		      	<tr>
 		          <td width="1017" height="75" valign="top">
-				      <div id="t${status.count }" class="titleoff"><a href="javascript:goto_play(${result.id },'${result.fileId }','${requestScope.contentID }','${result.filmid }');" onfocus="focusStyle_episode('t${status.count }','titleon');" onblur="focusStyle_episode('t${status.count }','titleoff');">第${(pageBean.curPage-1)*7+status.count }集   ${result.name }</a></div>
+		         	  <a href="javascript:goto_play(${result.id },'${result.fileId }','${requestScope.contentID }','${result.filmid }');" onfocus="focusStyle_episode('t${status.count }','titleon');" onblur="focusStyle_episode('t${status.count }','titleoff');">
+				      	<div id="t${status.count }" class="titleoff">第${(pageBean.curPage-1)*7+status.count }集   ${result.name }</div>
+				      </a>
 		          </td>
 		        </tr>
 	      	</c:if>
