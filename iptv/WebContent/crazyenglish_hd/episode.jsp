@@ -17,41 +17,11 @@ body {
 	width: 1280px;
 	height:720px;
 }
-a:link{text-decoration:none;}
-a:hover{text-decoration:none;}
-a:VISITED {text-decoration:none;}
+a{text-decoration:none;}
 .STYLE12 {font-family: "黑体";color: #FF9900;font-size: 24px;}
 .STYLE14 {font-family: "黑体";color: #FFFFFF;font-size: 24px;}
-.STYLE17 {color: #FBB90B; font-size: 18px; font-family: "黑体"; }
-.STYLE18 {font-size: 24px}
-.titleon {
-	float: left;
-	width:973px; 
-	height:65px;
-	padding-left: 25px;
-	border-style: solid; 
-	border-width: 2px;
-	border-color: #FFA22F; 
-	color: #FFFFFF; 
-	font-size: 24px;
-	line-height: 70px;
-	background: url("images/bg-02.jpg");
-}
-.titleon a{ color: #FFFFFF; }
-.titleoff {
-	float: left;
-	width: 975px; 
-	height: 65px;
-	padding-left: 25px;
-	border-style: solid; 
-	border-width: 1px;
-	border-color: #CC7100; 
-	color: #FBB90B; 
-	font-size: 24px;
-	line-height: 70px;
-	background: url("images/bg-01.jpg");
-}
-.titleoff a{color: #FBB90B; }
+.titleon {float:left;width:973px; height:65px;padding-left: 25px;border-style: solid; border-width: 2px;border-color: #FFA22F;color: #FFFFFF;font-size: 24px;line-height: 70px;background: url("images/bg-02.jpg");}
+.titleoff {float:left;width: 975px; height: 65px;padding-left: 25px;border-style: solid;border-width: 1px;border-color: #CC7100; color: #FBB90B; font-size: 24px;line-height: 70px;background: url("images/bg-01.jpg");}
 </style>
 
 <script type="text/javascript" src="js/common.js"></script>
