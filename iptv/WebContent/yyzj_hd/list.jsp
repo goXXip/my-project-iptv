@@ -22,9 +22,7 @@ body {
 .STYLE17 {color: #FBB90B; font-size: 18px; font-family: "黑体"; }
 .STYLE18 {font-size: 24px;color: #FFFFFF;}
 .STYLE25 {color: #ffffff;font-size: 24px;font-family: "黑体";}
-a:link {text-decoration: none;}
-a:hover {text-decoration: none;}
-a:VISITED {text-decoration: none;}
+a{text-decoration: none;}
 </style>
 
 <script type="text/javascript" src="js/common.js"></script>
@@ -268,22 +266,12 @@ document.onkeypress = keyEvent;
       <table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
           <td height="100" align="center" class="STYLE14">${pageBean.curPage}/${pageBean.totalPages} 
-		           　<c:choose>
-		           <c:when test="${pageBean.curPage > 1}">
-		           		<a href="${ctx }/yyzj_hd/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage-1}&pageSize=10&channelId=1" class="STYLE12">上一页</a>
-		           </c:when>
-		           <c:otherwise>
-		           		上一页
-		           </c:otherwise>
-		      </c:choose>
-		           　<c:choose>
-		           <c:when test="${pageBean.curPage < pageBean.totalPages}">
-		           		<a href="${ctx }/yyzj_hd/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage+1}&pageSize=10&channelId=1" class="STYLE12">下一页</a>
-		           </c:when>
-		           <c:otherwise>
-		           		下一页
-		           </c:otherwise>
-		      </c:choose>
+		           <c:if test="${pageBean.curPage > 1}">
+		           		<a href="${ctx }/yyzj_hd/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage-1}&pageSize=10&channelId=1" class="STYLE14">上一页</a>
+		           </c:if>
+		           <c:if test="${pageBean.curPage < pageBean.totalPages}">
+		           		<a href="${ctx }/yyzj_hd/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage+1}&pageSize=10&channelId=1" class="STYLE14">下一页</a>
+		           </c:if>
 		  </td>
         </tr>
       </table></td>

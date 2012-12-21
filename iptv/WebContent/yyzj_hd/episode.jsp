@@ -132,10 +132,10 @@ document.onkeypress = keyEvent;
       </div>
       <div id="page_navigator" class="STYLE14" style="width: 1142px;text-align: center;">${pageBean.curPage}/${pageBean.totalPages} 
 		           <c:if test="${pageBean.curPage > 1}">
-		           		<a href="${ctx }/yyzj_hd/filmAction!listAsset.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage-1}&channelId=1" class="STYLE12">上一页</a>
+		           		<a href="${ctx }/yyzj_hd/filmAction!listAsset.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage-1}&channelId=1" class="STYLE14">上一页</a>
 		           </c:if>
 		           <c:if test="${pageBean.curPage < pageBean.totalPages}">
-		           		<a href="${ctx }/yyzj_hd/filmAction!listAsset.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage+1}&channelId=1" class="STYLE12">下一页</a>
+		           		<a href="${ctx }/yyzj_hd/filmAction!listAsset.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage+1}&channelId=1" class="STYLE14">下一页</a>
 		           </c:if>
       </div>
       </td>
