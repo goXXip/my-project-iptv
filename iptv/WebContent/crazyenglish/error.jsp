@@ -7,7 +7,6 @@
 <meta name="page-view-size" content="640*530" />
 <title>疯狂英语_错误页面</title>
 <style type="text/css">
-<!--
 body {
 	letter-spacing: -1px;
 	margin-left: 0px;
@@ -19,9 +18,8 @@ body {
 	height: 530px;
 	background: transparent;
 }
-a{display: inline-block;text-decoration:none;}
+a{text-decoration:none;}
 .msgDiv{margin: 0 auto;margin-top: 100px;width: 400px;color: #ffffff;font-size: 20px; }
--->
 </style>
 <script type="text/javascript" src="js/global.js"></script>
 
