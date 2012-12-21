@@ -17,53 +17,8 @@ body {
 	height: 530px;
 	font-family: "黑体";
 }
-a{display: inline-block;text-decoration:none;}
-.STYLE9 {color: #FFFFFF; font-size: 20px; font-family: "黑体";}
-.STYLE12 {font-family: "黑体";color: #FF9900;font-size: 16px;}
-.STYLE13 {font-family: "黑体"; font-size: 16px; color: #FFFFFF; }
+a{text-decoration:none;}
 .STYLE14 {font-family: "黑体";color:#ffffff;font-size: 16px;}/*color:#edff6f;*/
-.STYLE15 {
-	font-family: "黑体";
-	font-size: 16px;
-	color: #edff6f;
-}
-.table1 {
-	border-style: solid;
-	border-color: #8bf1e7;
-}
-
-.table2 {
-	border-style: solid;
-	border-color: #CC7100;
-}
-
-.table3 {
-	border-style: solid;
-	border-color: #602121;
-}
-
-.table4 {
-	border-style: solid;
-	border-color: #FFDC37;
-	background-color: #8E3131;
-}
-
-ul li {
-	list-style: none;
-	margin: 0px;
-	padding: 0px;
-}
-.listul {
-	padding: 0px;
-	margin: 0px 0px 0px 11px;
-	width: 564px;
-}
-.listtr {
-	float: left;
-	margin: 0px 0px 0px 10px;
-	padding: 0px;
-	height: 130px;
-}
 .liston {
 	float: left;
 	width: 128px;
@@ -181,39 +136,42 @@ function focusStyle(target, className) {
 <table width="640" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td width="33"><img src="images/zyzj-2.jpg" width="33" height="434" /></td>
-    <td width="575" valign="top" bgcolor="214c47">
-    <table width="100" border="0" cellspacing="0" cellpadding="0">
+    <td width="575" valign="top" bgcolor="#214c47">
+    <table width="575" border="0" cellspacing="0" cellpadding="0" bgcolor="#214c47">
         <tr>
           <td height="10"></td>
         </tr>
       </table>
+    <table width="575" border="0" cellspacing="0" cellpadding="0" bgcolor="#214c47">
+	  <tr><td width="10"></td>
+	  <td width="564">
       <table width="564" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px;">
         <tr>
     	   <td width="141" height="122">
 	    		 <c:if test="${fn:length(pageBean.items) > 0 }">
 	    		 	<c:forEach items="${pageBean.items}" begin="0" end="0" var="result" varStatus="status">
-	    				<div id="t_0" class="listoff"><a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" /><div class="listtitle">${result.name }</div></a></div>
+	    				<div id="t_0" class="listoff"><a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" /></a><div class="listtitle">${result.name }</div></div>
 	    			</c:forEach>
 	    		 </c:if>
 	       </td>
 	       <td width="141" height="122">
 	    		 <c:if test="${fn:length(pageBean.items) > 1 }">
 	    		 	<c:forEach items="${pageBean.items}" begin="1" end="1" var="result" varStatus="status">
-	    				<div id="t_1" class="listoff"><a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" /><div class="listtitle">${result.name }</div></a></div>
+	    				<div id="t_1" class="listoff"><a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" /></a><div class="listtitle">${result.name }</div></div>
 	    			</c:forEach>
 	    		 </c:if>
 	         </td>
 	       <td width="141" height="122">
 	    		 <c:if test="${fn:length(pageBean.items) > 2 }">
 	    		 	<c:forEach items="${pageBean.items}" begin="2" end="2" var="result" varStatus="status">
-	    				<div id="t_2" class="listoff"><a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" /><div class="listtitle">${result.name }</div></a></div>
+	    				<div id="t_2" class="listoff"><a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" /></a><div class="listtitle">${result.name }</div></div>
 	    			</c:forEach>
 	    		 </c:if>
 	         </td>
 	      <td width="141" height="122">
 	    		 <c:if test="${fn:length(pageBean.items) > 3 }">
 	    		 	<c:forEach items="${pageBean.items}" begin="3" end="3" var="result" varStatus="status">
-	    				<div id="t_3" class="listoff"><a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" /><div class="listtitle">${result.name }</div></a></div>
+	    				<div id="t_3" class="listoff"><a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" /></a><div class="listtitle">${result.name }</div></div>
 	    			</c:forEach>
 	    		 </c:if>
 	      </td>
@@ -222,28 +180,28 @@ function focusStyle(target, className) {
     	   <td width="141" height="122">
 	    		 <c:if test="${fn:length(pageBean.items) > 4 }">
 	    		 	<c:forEach items="${pageBean.items}" begin="4" end="4" var="result" varStatus="status">
-	    				<div id="t_4" class="listoff"><a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" /><div class="listtitle">${result.name }</div></a></div>
+	    				<div id="t_4" class="listoff"><a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" /></a><div class="listtitle">${result.name }</div></div>
 	    			</c:forEach>
 	    		 </c:if>
 	       </td>
 	       <td width="141" height="122">
 	    		 <c:if test="${fn:length(pageBean.items) > 5 }">
 	    		 	<c:forEach items="${pageBean.items}" begin="5" end="5" var="result" varStatus="status">
-	    				<div id="t_5" class="listoff"><a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" /><div class="listtitle">${result.name }</div></a></div>
+	    				<div id="t_5" class="listoff"><a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" /></a><div class="listtitle">${result.name }</div></div>
 	    			</c:forEach>
 	    		 </c:if>
 	         </td>
 	       <td width="141" height="122">
 	    		 <c:if test="${fn:length(pageBean.items) > 6 }">
 	    		 	<c:forEach items="${pageBean.items}" begin="6" end="6" var="result" varStatus="status">
-	    				<div id="t_6" class="listoff"><a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" /><div class="listtitle">${result.name }</div></a></div>
+	    				<div id="t_6" class="listoff"><a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" /></a><div class="listtitle">${result.name }</div></div>
 	    			</c:forEach>
 	    		 </c:if>
 	         </td>
 	      <td width="141" height="122">
 	    		 <c:if test="${fn:length(pageBean.items) > 7 }">
 	    		 	<c:forEach items="${pageBean.items}" begin="7" end="7" var="result" varStatus="status">
-	    				<div id="t_7" class="listoff"><a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" /><div class="listtitle">${result.name }</div></a></div>
+	    				<div id="t_7" class="listoff"><a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" /></a><div class="listtitle">${result.name }</div></div>
 	    			</c:forEach>
 	    		 </c:if>
 	      </td>
@@ -252,36 +210,40 @@ function focusStyle(target, className) {
     	   <td width="141" height="122">
 	    		 <c:if test="${fn:length(pageBean.items) > 8 }">
 	    		 	<c:forEach items="${pageBean.items}" begin="8" end="8" var="result" varStatus="status">
-	    				<div id="t_8" class="listoff"><a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" /><div class="listtitle">${result.name }</div></a></div>
+	    				<div id="t_8" class="listoff"><a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" /></a><div class="listtitle">${result.name }</div></div>
 	    			</c:forEach>
 	    		 </c:if>
 	       </td>
 	       <td width="141" height="122">
 	    		 <c:if test="${fn:length(pageBean.items) > 9 }">
 	    		 	<c:forEach items="${pageBean.items}" begin="9" end="9" var="result" varStatus="status">
-	    				<div id="t_9" class="listoff"><a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" /><div class="listtitle">${result.name }</div></a></div>
+	    				<div id="t_9" class="listoff"><a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" /></a><div class="listtitle">${result.name }</div></div>
 	    			</c:forEach>
 	    		 </c:if>
 	         </td>
 	       <td width="141" height="122">
 	    		 <c:if test="${fn:length(pageBean.items) > 10 }">
 	    		 	<c:forEach items="${pageBean.items}" begin="10" end="10" var="result" varStatus="status">
-	    				<div id="t_10" class="listoff"><a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" /><div class="listtitle">${result.name }</div></a></div>
+	    				<div id="t_10" class="listoff"><a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" /></a><div class="listtitle">${result.name }</div></div>
 	    			</c:forEach>
 	    		 </c:if>
 	         </td>
 	      <td width="141" height="122">
 	    		 <c:if test="${fn:length(pageBean.items) > 11 }">
 	    		 	<c:forEach items="${pageBean.items}" begin="11" end="11" var="result" varStatus="status">
-	    				<div id="t_11" class="listoff"><a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" /><div class="listtitle">${result.name }</div></a></div>
+	    				<div id="t_11" class="listoff"><a href="${ctx }/yyzj/filmAction!detail.do?filmId=${result.id}"><img src="${ctx }/uploadImages/${result.smallImage.id}.${result.smallImage.suffix}" border="0" width="128" height="87" /></a><div class="listtitle">${result.name }</div></div>
 	    			</c:forEach>
 	    		 </c:if>
 	      </td>
     	</tr>
       </table>
-      <table width="500"  border="0" align="center" cellpadding="0" cellspacing="0">
+      </td></tr>
+      </table>
+      <table width="575"  border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
-          <td align="center" height="27" valign="bottom" class="STYLE14">${pageBean.curPage}/${pageBean.totalPages} 
+          <td width="170"></td>
+          <td align="center" height="27" valign="bottom" class="STYLE14" width="50">${pageBean.curPage}/${pageBean.totalPages}</td>
+          <td align="center" height="27" valign="bottom" class="STYLE14" width="90">
 		           　<c:choose>
 		           <c:when test="${pageBean.curPage > 1}">
 		           		<a href="${ctx }/yyzj/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage-1}&pageSize=12&channelId=1" class="STYLE14">上一页</a>
@@ -290,6 +252,8 @@ function focusStyle(target, className) {
 		           		上一页
 		           </c:otherwise>
 		      </c:choose>
+		   </td>
+		   <td align="center" height="27" valign="bottom" class="STYLE14" width="90">
 		           　<c:choose>
 		           <c:when test="${pageBean.curPage < pageBean.totalPages}">
 		           		<a href="${ctx }/yyzj/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage+1}&pageSize=12&channelId=1" class="STYLE14">下一页</a>
@@ -299,6 +263,7 @@ function focusStyle(target, className) {
 		           </c:otherwise>
 		      </c:choose>
            </td>
+           <td width="175"></td>
         </tr>
       </table></td>
     <td width="32"><img src="images/zyzj-3.jpg" width="32" height="434" /></td>

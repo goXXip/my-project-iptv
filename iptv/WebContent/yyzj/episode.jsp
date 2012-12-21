@@ -110,7 +110,6 @@ document.onkeypress = keyEvent;
 
 	var epg_server = '${requestScope.localIp}';
 	function goto_play(id,fileID,ztID,filmId){
-		var pay_confirm_url = "${ctx}/yyzj/filmAction!orderConfirm.do?filmId="+filmId;
 		var backUrl = "${ctx}/yyzj/filmAction!listAsset.do?filmId="+filmId+"&curPage=${pageBean.curPage}";
 		backUrl = escape(backUrl);
 		var gotoUrl = epg_server + "play_pageControl.jsp?PROGID="+fileID;
@@ -134,12 +133,13 @@ document.onkeypress = keyEvent;
 <table width="640" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td width="33"><img src="images/zyzj-2.jpg" width="33" height="434" /></td>
-    <td width="575" valign="top" bgcolor="214c47"><table width="100" border="0" cellspacing="0" cellpadding="0">
+    <td width="575" valign="top" bgcolor="#214c47">
+    <table width="575" border="0" cellspacing="0" cellpadding="0" bgcolor="#214c47">
       <tr>
         <td height="10"></td>
       </tr>
     </table>
-    <div style="height: 385px;">
+    <div style="height: 385px;width: 575px;background-color:#214c47; ">
 	     <table width="550" border="0" align="center" cellpadding="0" cellspacing="0">
 	      <c:forEach items="${pageBean.items}" var="result" varStatus="status">
 	    			<c:if test="${status.count == 1}">
@@ -160,26 +160,16 @@ document.onkeypress = keyEvent;
 	      </c:forEach>
 	    </table>
     </div>
-     <div id="page_navigator" style="text-align: center;">
+     <div id="page_navigator" style="width: 575px;">
          <table width="500"  border="0" align="center" cellpadding="0" cellspacing="0">
 	        <tr>
 	          <td align="center" height="27" valign="bottom" class="STYLE14">${pageBean.curPage}/${pageBean.totalPages} 
-			           　<c:choose>
-			           <c:when test="${pageBean.curPage > 1}">
+			           <c:if test="${pageBean.curPage > 1}">
 			           		<a href="${ctx }/yyzj/filmAction!listAsset.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage-1}&channelId=1" class="STYLE14">上一页</a>
-			           </c:when>
-			           <c:otherwise>
-			           		上一页
-			           </c:otherwise>
-			      </c:choose>
-			           　<c:choose>
-			           <c:when test="${pageBean.curPage < pageBean.totalPages}">
+			           </c:if>
+			           <c:if test="${pageBean.curPage < pageBean.totalPages}">
 			           		<a href="${ctx }/yyzj/filmAction!listAsset.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage+1}&channelId=1" class="STYLE14">下一页</a>
-			           </c:when>
-			           <c:otherwise>
-			           		下一页
-			           </c:otherwise>
-			      </c:choose>
+			           </c:if>
 	           </td>
 	        </tr>
      	 </table>

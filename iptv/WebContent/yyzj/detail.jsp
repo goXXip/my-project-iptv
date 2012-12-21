@@ -17,7 +17,7 @@ body {
 	height: 530px;
 	font-family: "黑体";
 }
-a{display: inline-block;text-decoration:none;}
+a{text-decoration:none;}
 .STYLE9 {color: #FFFFFF; font-size: 20px; font-family: "黑体";}
 .STYLE13 {font-family: "黑体"; font-size: 16px; color: #FFFFFF; }
 .style15 {	font-size: 24px;
@@ -170,11 +170,10 @@ function focusStyle(target, className) {
 <table width="640" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td width="33"><img src="images/zyzj-2.jpg" width="33" height="434" /></td>
-    <td width="575" valign="top" bgcolor="214c47"><table width="575" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td height="10"></td>
-      </tr>
-    </table>
+    <td width="575" valign="top" bgcolor="#214c47">
+    <table width="575" border="0" cellspacing="0" cellpadding="0" bgcolor="#214c47">
+     <tr><td height="10"></td></tr>
+     <tr><td width="575">
       <table width="555" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
           <td width="144" rowspan="3" valign="top"><img src="${ctx }/uploadImages/${film.bigImage.id}.${film.bigImage.suffix}" width="128" height="170" /></td>
@@ -199,12 +198,17 @@ function focusStyle(target, className) {
           <td width="123" height="44" valign="top">&nbsp;</td>
         </tr>
       </table>
-      <table width="100" border="0" cellspacing="0" cellpadding="0">
+      </td></tr>
+     </table>
+      <table width="575" border="0" cellspacing="0" cellpadding="0" bgcolor="#214c47">
         <tr>
           <td height="10"></td>
         </tr>
       </table>
-      <table width="564" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px;">
+     <table width="575" border="0" cellspacing="0" cellpadding="0" bgcolor="#214c47">
+	 <tr><td width="10"></td>
+	 <td width="564">
+      <table width="564" border="0" cellspacing="0" cellpadding="0">
         <tr>
     		<td width="141" align="left">
     			 <c:if test="${fn:length(requestScope.relativeList) > 0 }">
@@ -256,6 +260,8 @@ function focusStyle(target, className) {
 	    		 </c:if>
 	    	</td>
     	</tr>
+     </table>
+     </td></tr>
      </table>
      </td>
     <td width="32"><img src="images/zyzj-3.jpg" width="32" height="434" /></td>
