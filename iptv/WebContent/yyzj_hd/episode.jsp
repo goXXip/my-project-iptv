@@ -17,45 +17,11 @@ body {
 	width: 1280px;
 	height:720px;
 }
-a:link{text-decoration:none;}
-a:hover{text-decoration:none;}
-a:VISITED {text-decoration:none;}
-.STYLE17 {color: #FBB90B; font-size: 18px; font-family: "黑体"; }
-.STYLE18 {font-size: 24px;color: #FFFFFF;}
-.STYLE15 {color: #edff6f;font-size: 24px;font-family: "黑体";}
+a{text-decoration:none;}
 .STYLE12 {font-family: "黑体";color: #FF9900;font-size: 24px;}
 .STYLE14 {font-family: "黑体";color:#ffffff;font-size: 24px;}/*color:#edff6f;*/
-
-.titleon {
-	float: left;
-	width:973px; 
-	height:65px;
-	overflow: hidden;
-	padding-left: 25px;
-	border-style: solid; 
-	border-width: 2px;
-	border-color: #C0F8F2; 
-	color: #FFFFFF; 
-	font-size: 24px;
-	line-height: 70px;
-	background: url("images/bg-02.jpg");
-}
-.titleon a{ color: #FFFFFF; }
-.titleoff {
-	float: left;
-	width: 975px; 
-	height: 65px;
-	overflow: hidden;
-	padding-left: 25px;
-	border-style: solid; 
-	border-width: 1px;
-	border-color: #8bf1e7; 
-	color: #edff6f; 
-	font-size: 24px;
-	line-height: 70px;
-	background: url("images/bg-01.jpg");
-}
-.titleoff a{color: #edff6f; }
+.titleon {float:left;width:973px; height:65px;overflow: hidden;padding-left: 25px;border-style:solid; border-width: 2px;border-color: #C0F8F2; color: #FFFFFF; font-size: 24px;line-height: 70px;background: url("images/bg-02.jpg");}
+.titleoff {float:left;width: 975px;height: 65px;overflow: hidden;padding-left: 25px;border-style:solid; border-width: 1px;border-color: #8bf1e7;color: #edff6f;font-size: 24px;line-height: 70px;background: url("images/bg-01.jpg");}
 </style>
 
 <script type="text/javascript" src="js/common.js"></script>
