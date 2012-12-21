@@ -18,7 +18,7 @@ body {
 	font-family: "黑体";
 	background-color: #214c47;
 }
-a{display: inline-block;text-decoration:none;}
+a{text-decoration:none;}
 .STYLE9 {color: #FFFFFF; font-size: 20px; font-family: "黑体";}
 .STYLE18 {color: #f7d400; font-size: 16px; font-family: "黑体"; }
 .msgDiv{margin: 0 auto;margin-top: 50px;width: 525px;color: #ffffff;font-size: 20px;}
