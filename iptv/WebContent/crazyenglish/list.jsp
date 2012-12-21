@@ -298,24 +298,14 @@ function focusStyle(target, className) {
         	<td width="170"></td>
         	<td align="center" height="27" valign="bottom" class="STYLE14" width="50">${pageBean.curPage}/${pageBean.totalPages}</td>
             <td align="center" height="27" valign="bottom" class="STYLE14" width="90">
-			           　<c:choose>
-			           <c:when test="${pageBean.curPage > 1}">
+			           <c:if test="${pageBean.curPage > 1}">
 			           		<a href="${ctx }/crazyenglish/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage-1}&pageSize=9&channelId=2" class="STYLE14">上一页</a>
-			           </c:when>
-			           <c:otherwise>
-			           		上一页
-			           </c:otherwise>
-			      </c:choose>
-			 </td>
-			 <td align="center" height="27" valign="bottom" class="STYLE14" width="90">
-			           　<c:choose>
-			           <c:when test="${pageBean.curPage < pageBean.totalPages}">
+			           </c:if>
+			</td>
+			<td align="center" height="27" valign="bottom" class="STYLE14" width="90">
+			           <c:if test="${pageBean.curPage < pageBean.totalPages}">
 			           		<a href="${ctx }/crazyenglish/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage+1}&pageSize=9&channelId=2" class="STYLE14">下一页</a>
-			           </c:when>
-			           <c:otherwise>
-			           		下一页
-			           </c:otherwise>
-			      </c:choose>
+			           </c:if>
            </td>
            <td width="175"></td>
         </tr>
