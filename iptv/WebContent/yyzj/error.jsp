@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/common/taglibs.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -27,9 +27,9 @@ a{display: inline-block;text-decoration:none;}
 
 <%@ include file="/yyzj/head.jsp" %>
 
-<table width="640" border="0" cellspacing="0" cellpadding="0">
+<table width="644" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td width="33"><img src="${ctx }/yyzj/images/zyzj-2.jpg" width="33" height="434" /></td>
+    <td width="35"><img src="${ctx }/yyzj/images/zyzj-2.jpg" width="35" height="434" /></td>
     <td width="575" valign="top"  bgcolor="#214c47">
    		<div class="msgDiv">
    		   	<c:choose>
@@ -38,10 +38,10 @@ a{display: inline-block;text-decoration:none;}
    			</c:choose>
    		</div>
     </td>
-    <td width="32"><img src="${ctx }/yyzj/images/zyzj-3.jpg" width="32" height="434" /></td>
+    <td width="34"><img src="${ctx }/yyzj/images/zyzj-3.jpg" width="34" height="434" /></td>
   </tr>
   <tr>
-    <td colspan="3"><img src="${ctx }/yyzj/images/zyzj-4.jpg" width="640" height="26" /></td>
+    <td colspan="3"><img src="${ctx }/yyzj/images/zyzj-4.jpg" width="644" height="28" /></td>
   </tr>
 </table>
 

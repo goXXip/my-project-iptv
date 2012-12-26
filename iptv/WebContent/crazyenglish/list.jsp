@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/common/taglibs.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -103,9 +103,9 @@ function focusStyle(target, className) {
 
 <body>
 <%@ include file="/crazyenglish/head.jsp" %>
-<table width="640" border="0" cellspacing="0" cellpadding="0">
+<table width="644" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td width="33"><img src="images/lyfkyy-2.jpg" width="33" height="434" /></td>
+    <td width="35"><img src="images/lyfkyy-2.jpg" width="35" height="434" /></td>
     <td width="575" valign="top" bgcolor="#602121">
     <table width="575" border="0" cellspacing="0" cellpadding="0" bgcolor="#602121">
         <tr><td height="10"></td></tr>
@@ -310,10 +310,10 @@ function focusStyle(target, className) {
            <td width="175"></td>
         </tr>
       </table></td>
-    <td width="32"><img src="images/lyfkyy-3.jpg" width="32" height="434" /></td>
+    <td width="34"><img src="images/lyfkyy-3.jpg" width="34" height="434" /></td>
   </tr>
   <tr>
-    <td colspan="3"><img src="images/lyfkyy-4.jpg" width="640" height="26" border="0"/></td>
+    <td colspan="3"><img src="images/lyfkyy-4.jpg" width="644" height="28" border="0"/></td>
   </tr>
 </table>
 

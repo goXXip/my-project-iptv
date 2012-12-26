@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
  <%@include file="/common/taglibs.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -130,9 +130,9 @@ document.onkeypress = keyEvent;
 
 <%@ include file="/yyzj/head.jsp" %>
 
-<table width="640" border="0" cellspacing="0" cellpadding="0">
+<table width="644" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td width="33"><img src="images/zyzj-2.jpg" width="33" height="434" /></td>
+    <td width="35"><img src="images/zyzj-2.jpg" width="35" height="434" /></td>
     <td width="575" valign="top" bgcolor="#214c47">
     <table width="575" border="0" cellspacing="0" cellpadding="0" bgcolor="#214c47">
       <tr>
@@ -161,24 +161,29 @@ document.onkeypress = keyEvent;
 	    </table>
     </div>
      <div id="page_navigator" style="width: 575px;">
-         <table width="500"  border="0" align="center" cellpadding="0" cellspacing="0">
+         <table width="575" border="0" align="center" cellpadding="0" cellspacing="0">
 	        <tr>
-	          <td align="center" height="27" valign="bottom" class="STYLE14">${pageBean.curPage}/${pageBean.totalPages} 
-			           <c:if test="${pageBean.curPage > 1}">
-			           		<a href="${ctx }/yyzj/filmAction!listAsset.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage-1}&channelId=1" class="STYLE14">上一页</a>
-			           </c:if>
-			           <c:if test="${pageBean.curPage < pageBean.totalPages}">
-			           		<a href="${ctx }/yyzj/filmAction!listAsset.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage+1}&channelId=1" class="STYLE14">下一页</a>
-			           </c:if>
-	           </td>
+	         <td width="170"></td>
+	         <td align="center" height="27" valign="bottom" class="STYLE14" width="50">${pageBean.curPage}/${pageBean.totalPages}</td>
+	         <td align="center" height="27" valign="bottom" class="STYLE14" width="90">
+		           <c:if test="${pageBean.curPage > 1}">
+		           		<a href="${ctx }/yyzj/filmAction!listAsset.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage-1}&channelId=1" class="STYLE14">上一页</a>
+		           </c:if>
+			 </td>
+			 <td align="center" height="27" valign="bottom" class="STYLE14" width="90">
+		           <c:if test="${pageBean.curPage < pageBean.totalPages}">
+		           		<a href="${ctx }/yyzj/filmAction!listAsset.do?filmId=${requestScope.filmID }&curPage=${pageBean.curPage+1}&channelId=1" class="STYLE14">下一页</a>
+		           </c:if>
+	          </td>
+	          <td width="175"></td>
 	        </tr>
      	 </table>
       </div>
       </td>
-    <td width="32"><img src="images/zyzj-3.jpg" width="32" height="434" /></td>
+    <td width="34"><img src="images/zyzj-3.jpg" width="34" height="434" /></td>
   </tr>
   <tr>
-    <td colspan="3"><img src="images/zyzj-4.jpg" width="640" height="26" /></td>
+    <td colspan="3"><img src="images/zyzj-4.jpg" width="644" height="28" /></td>
   </tr>
 </table>
 

@@ -93,7 +93,7 @@ document.onkeypress = keyEvent;
         <tr>
           <td valign="top" class="STYLE28">集数：${film.serialCount }集 </td>
           <td valign="top" class="STYLE28">适用：${film.audient }</td>
-          <td valign="top" class="STYLE28">订购方式：包月</td>
+          <td valign="top" class="STYLE28">&nbsp;</td>
         </tr>
         <tr>
           <td width="256" height="70">

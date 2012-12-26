@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/common/taglibs.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -133,9 +133,9 @@ function focusStyle(target, className) {
 
 <%@ include file="/yyzj/head.jsp" %>
 
-<table width="640" border="0" cellspacing="0" cellpadding="0">
+<table width="644" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td width="33"><img src="images/zyzj-2.jpg" width="33" height="434" /></td>
+    <td width="35"><img src="images/zyzj-2.jpg" width="35" height="434" /></td>
     <td width="575" valign="top" bgcolor="#214c47">
     <table width="575" border="0" cellspacing="0" cellpadding="0" bgcolor="#214c47">
         <tr>
@@ -256,10 +256,10 @@ function focusStyle(target, className) {
            <td width="175"></td>
         </tr>
       </table></td>
-    <td width="32"><img src="images/zyzj-3.jpg" width="32" height="434" /></td>
+    <td width="34"><img src="images/zyzj-3.jpg" width="34" height="434" /></td>
   </tr>
   <tr>
-    <td colspan="3"><img src="images/zyzj-4.jpg" width="640" height="26" /></td>
+    <td colspan="3"><img src="images/zyzj-4.jpg" width="644" height="28" /></td>
   </tr>
 </table>
 

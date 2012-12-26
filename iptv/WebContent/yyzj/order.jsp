@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/common/taglibs.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -43,9 +43,9 @@ a{text-decoration:none;}
 
 <%@ include file="/yyzj/head.jsp" %>
 
-<table width="640" border="0" cellspacing="0" cellpadding="0">
+<table width="644" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td width="33"><img src="${ctx }/yyzj/images/zyzj-2.jpg" width="33" height="434" /></td>
+    <td width="35"><img src="${ctx }/yyzj/images/zyzj-2.jpg" width="35" height="434" /></td>
     <td width="575" valign="top"  bgcolor="#214c47">
    		<div class="msgDiv">	   		
    			<table border="0" cellpadding="0" cellspacing="0">
@@ -72,13 +72,13 @@ a{text-decoration:none;}
 			</table>
 		</div>
 		<div class="messageinfo">
-    		温馨提示：您即将订购的是孕育早教产品包（含孕育保健、婴幼早教、少儿成长），成功订购后您可在一个月内不限次数观看孕育早教产品包内的所有节目。
+    		温馨提示：您即将订购的是孕育早教产品包（含孕育保健、婴幼早教、少儿成长），成功订购后您可在一个月内不限次数观看孕育早教产品包内的所有节目。如需取消包月服务，请在首页“帮助”中按提示操作“取消包月”。
     	</div>
     </td>
-    <td width="32"><img src="${ctx }/yyzj/images/zyzj-3.jpg" width="32" height="434" /></td>
+    <td width="34"><img src="${ctx }/yyzj/images/zyzj-3.jpg" width="34" height="434" /></td>
   </tr>
   <tr>
-    <td colspan="3"><img src="${ctx }/yyzj/images/zyzj-4.jpg" width="640" height="26" /></td>
+    <td colspan="3"><img src="${ctx }/yyzj/images/zyzj-4.jpg" width="644" height="28" /></td>
   </tr>
 </table>
 

@@ -114,7 +114,7 @@ function focusStyle(target, className) {
           <td height="138" colspan="3" valign="top" class="style15">${film.description }</td>
         </tr>
         <tr>
-          <td  valign="top" class="STYLE26">集数：${film.serialCount }集<br/>订购方式：包月 </td>
+          <td  valign="top" class="STYLE26">集数：${film.serialCount }集</td>
           <td  valign="top" class="STYLE26">主讲：${film.actor }</td>
           <td valign="top" class="STYLE26">适用：${film.audient }</td>
         </tr>
