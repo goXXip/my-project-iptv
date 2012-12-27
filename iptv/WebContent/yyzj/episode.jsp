@@ -227,8 +227,6 @@ document.onkeypress = keyEvent;
 			}
 		}	
 	}
-
-	initFocus();
 	
 </script>
 </head>
@@ -264,7 +262,7 @@ document.onkeypress = keyEvent;
 	      </c:forEach>
 	    </table>
     </div>
-     <div id="page_navigator" style="width: 500px;margin: 0 auto;text-align: center;overflow: hidden;">
+     <div id="page_navigator" style="width: 300px;margin: 0 auto;text-align: center;overflow: hidden;">
 	        <div class="STYLE14">${pageBean.curPage}/${pageBean.totalPages}</div>
 	           <c:if test="${pageBean.curPage > 1}">
 	           		<div class="STYLE14" id="t_2_0">上一页</div>
@@ -283,6 +281,8 @@ document.onkeypress = keyEvent;
     <td colspan="3"><img src="images/zyzj-4.jpg" width="644" height="28" /></td>
   </tr>
 </table>
-
+<script  type="text/javascript">
+	initFocus();
+</script>
 </body>
 </html>
