@@ -60,11 +60,6 @@ var $ = function(id){
 	var o = document.getElementById(id);
 	return o;
 };
-window.onload = function() {
-	if($("defaultFocus") != "undefined" && $("defaultFocus") != null) {
-		$("defaultFocus").focus();
-	}
-};
 function keyEvent() {
 	var keyCode = event.keyCode;
 	if(!keyCode||keyCode=="undefined"){
