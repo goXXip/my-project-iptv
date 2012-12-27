@@ -61,7 +61,7 @@ public class FilmHDAction extends BaseAction<Film>{
 			
 			Film fi = (Film) filmList.get(0);
 			List<Asset> assetList = fi.getAssetList();
-			if(assetList != null && len >0){
+			if(assetList != null && assetList.size() >0){
 				Asset asset = assetList.get(0);
 				Integer fileId  = asset.getFileId();
 				request.setAttribute("defaultPlayID", fileId);//默认播放视频ID

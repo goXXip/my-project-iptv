@@ -42,19 +42,49 @@ public class FilmAction extends BaseAction<Film>{
 		List<Object> filmList = pageBean.getItems();
 		request.setAttribute("filmList", filmList);
 		
+		String filmArray = "[";
 		if( filmList != null && filmList.size()> 0 ){
+			int len = filmList.size();
+			for (int i = 0; i < len; i++) {
+				Film film  = (Film) filmList.get(i);
+				Integer id = film.getId();
+				if(i < len -1){
+					filmArray += id +",";
+				}else{
+					filmArray += id;	
+				}
+			}
+			
 			Film fi = (Film) filmList.get(0);
 			List<Asset> assetList = fi.getAssetList();
-			if(assetList != null && assetList.size()>0){
+			if(assetList != null && assetList.size() >0){
 				Asset asset = assetList.get(0);
 				Integer fileId  = asset.getFileId();
 				request.setAttribute("defaultPlayID", fileId);//默认播放视频ID
 			}
 		}
+		filmArray +="]";
+		request.setAttribute("filmArray", filmArray);
 		
 		pageBean = filmService.findByPage(5, 2,"1");
 		List<Object> relativeList = pageBean.getItems();
 		request.setAttribute("relativeList", relativeList);
+		
+		String relativeArray = "[";
+		if( relativeList != null && relativeList.size()> 0 ){
+			int len  = relativeList.size();
+			for (int i = 0; i < len; i++) {
+				Film film  = (Film) relativeList.get(i);
+				Integer id = film.getId();
+				if(i < len -1){
+					relativeArray += id +",";
+				}else{
+					relativeArray += id;	
+				}
+			}
+		}
+		relativeArray += "]";
+		request.setAttribute("relativeArray", relativeArray);
 		
 		return "eduIndex";
 	}
@@ -80,19 +110,49 @@ public class FilmAction extends BaseAction<Film>{
 		List<Object> filmList = pageBean.getItems();
 		request.setAttribute("filmList", filmList);
 		
+		String filmArray = "[";
 		if( filmList != null && filmList.size()> 0 ){
+			int len = filmList.size();
+			for (int i = 0; i < len; i++) {
+				Film film  = (Film) filmList.get(i);
+				Integer id = film.getId();
+				if(i < len -1){
+					filmArray += id +",";
+				}else{
+					filmArray += id;	
+				}
+			}
+			
 			Film fi = (Film) filmList.get(0);
 			List<Asset> assetList = fi.getAssetList();
-			if(assetList != null && assetList.size()>0){
+			if(assetList != null && assetList.size() >0){
 				Asset asset = assetList.get(0);
 				Integer fileId  = asset.getFileId();
 				request.setAttribute("defaultPlayID", fileId);//默认播放视频ID
 			}
 		}
+		filmArray +="]";
+		request.setAttribute("filmArray", filmArray);
 		
 		pageBean = filmService.findByPage(5, 2,"2");
 		List<Object> relativeList = pageBean.getItems();
 		request.setAttribute("relativeList", relativeList);
+		
+		String relativeArray = "[";
+		if( relativeList != null && relativeList.size()> 0 ){
+			int len  = relativeList.size();
+			for (int i = 0; i < len; i++) {
+				Film film  = (Film) relativeList.get(i);
+				Integer id = film.getId();
+				if(i < len -1){
+					relativeArray += id +",";
+				}else{
+					relativeArray += id;	
+				}
+			}
+		}
+		relativeArray += "]";
+		request.setAttribute("relativeArray", relativeArray);
 		
 		return "engIndex";
 		
@@ -209,6 +269,7 @@ public class FilmAction extends BaseAction<Film>{
 		return "detail";
 	}
 	
+	@SuppressWarnings("unchecked")
 	public String listAsset(){
 		
 		try {
@@ -222,9 +283,37 @@ public class FilmAction extends BaseAction<Film>{
 			
 			AssetService assetService = (AssetService) BeanFactory.getBeanByName("assetService");
 			this.pageBean = assetService.findAssetListByFilmId(7,curPage,filmID);
+			List<Asset> assetList = pageBean.getItems();
+			String filmArray = "[";
+			if( assetList != null && assetList.size()> 0 ){
+				int len = assetList.size();
+				for (int i = 0; i < len; i++) {
+					Asset asset  = (Asset) assetList.get(i);
+					if(i < len -1){
+						filmArray += "{id:"+asset.getId() +",fileId:"+asset.getFileId()+",filmid:"+asset.getFilmid()+"},";
+					}else{
+						filmArray += "{id:"+asset.getId() +",fileId:"+asset.getFileId()+",filmid:"+asset.getFilmid()+"}";
+					}
+				}
+			}
+			filmArray +="]";
+			request.setAttribute("filmArray", filmArray);
+			
+			String relativeArray = "[";
+			if( pageBean!= null ){
+				if(pageBean.isHasPreviousPage()){
+					relativeArray += (pageBean.getCurPage()-1);
+					if(pageBean.isHasNextPage()){
+					  relativeArray += ","+(pageBean.getCurPage()+1);
+					}
+				}else{
+					relativeArray += (pageBean.getCurPage()+1);
+				}
+			}
+			relativeArray += "]";
+			request.setAttribute("relativeArray", relativeArray);
 			
 			String localIp = getLocalIp();
-			
 			String from = request.getParameter("from");
 			if("index".equals(from)){
 				request.setAttribute("from", "index");
