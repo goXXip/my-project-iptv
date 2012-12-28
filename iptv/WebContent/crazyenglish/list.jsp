@@ -8,17 +8,11 @@
 <title>李阳疯狂英语</title>
 <style type="text/css">
 body {
-	letter-spacing: -1px;
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	font-family: "黑体";
-    width: 640px;
-	height: 530px;
+	letter-spacing: -1px;margin: 0px;font-family: "黑体";
+    width: 640px;height: 530px;
 }
 a{text-decoration:none;}
-.STYLE14 {font-family: "黑体";color: #FFFFFF;font-size: 16px;}
+.STYLE14 {font-family: "黑体";color: #FFFFFF;font-size: 16px;padding: 0px 10px 0px 10px;float: left;}
 .STYLE13 {font-family: "黑体"; font-size: 16px; color: #FFFFFF; margin-top:10px;}
 .liston {
 	float: left;
@@ -28,7 +22,6 @@ a{text-decoration:none;}
 	border: solid 1px #FFDC37;
 	background-color: #8E3131;
 }
-
 .listoff {
 	float: left;
 	margin-right: 5px;
@@ -90,7 +83,6 @@ document.onkeypress = keyEvent;
 
 /**
  * 焦点时的样式
- * @param target 焦点目标
  */
 function focusStyle(target, className) {
 	if($(target) != "undefined") {
@@ -293,27 +285,24 @@ function focusStyle(target, className) {
       </table></td>
 	    </tr>
       </table>
-      <table width="575" border="0" align="center" cellpadding="0" cellspacing="0">
-        <tr>
-        	<td width="170"></td>
-        	<td align="center" height="27" valign="bottom" class="STYLE14" width="50">${pageBean.curPage}/${pageBean.totalPages}</td>
-            <td align="center" height="27" valign="bottom" class="STYLE14" width="90">
-			           <c:if test="${pageBean.curPage > 1}">
-			           		<a href="${ctx }/crazyenglish/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage-1}&pageSize=9&channelId=2" class="STYLE14">上一页</a>
-			           </c:if>
-			</td>
-			<td align="center" height="27" valign="bottom" class="STYLE14" width="90">
-			           <c:if test="${pageBean.curPage < pageBean.totalPages}">
-			           		<a href="${ctx }/crazyenglish/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage+1}&pageSize=9&channelId=2" class="STYLE14">下一页</a>
-			           </c:if>
-           </td>
-           <td width="175"></td>
-        </tr>
-      </table></td>
+       <div id="page_navigator" style="width: 300px;margin: 0 auto;text-align: center;overflow: hidden;">
+        	<div class="STYLE14">${pageBean.curPage}/${pageBean.totalPages}</div>
+	        <c:if test="${pageBean.curPage > 1}">
+	           <div class="STYLE14">
+	           		<a href="${ctx }/crazyenglish/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage-1}&pageSize=9&channelId=2" class="STYLE14">上一页</a>
+	           	</div>
+	        </c:if>
+	        <c:if test="${pageBean.curPage < pageBean.totalPages}">
+	            <div class="STYLE14">
+	           		<a href="${ctx }/crazyenglish/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage+1}&pageSize=9&channelId=2" class="STYLE14">下一页</a>
+	           	</div>
+	        </c:if>
+      </div>
+      </td>
     <td width="34"><img src="images/lyfkyy-3.jpg" width="34" height="434" /></td>
   </tr>
   <tr>
-    <td colspan="3"><img src="images/lyfkyy-4.jpg" width="644" height="28" border="0"/></td>
+    <td colspan="3"><img src="images/lyfkyy-4.jpg" width="644" height="26" border="0"/></td>
   </tr>
 </table>
 

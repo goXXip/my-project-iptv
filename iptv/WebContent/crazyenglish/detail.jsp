@@ -8,57 +8,21 @@
 <title>李阳疯狂英语</title>
 <style type="text/css">
 body {
-	letter-spacing: -1px;
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	width: 640px;
-	height: 530px;
-	font-family: "黑体";
+	letter-spacing: -1px;margin: 0px;
+	width: 640px;height: 530px;font-family: "黑体";
 }
 a{text-decoration:none;}
 .STYLE9 {color: #FFFFFF; font-size: 20px; font-family: "黑体";}
-.STYLE10 {color: #FFFFFF; font-size: 18px; font-family: "黑体"; }
-.STYLE11 {
-	font-family: "黑体";
-	font-size: 16px;
-	color: #FFFFFF;
-}
-.STYLE12 {
-	color: #FF9900;
-	font-size: 16px;
-}
 .STYLE13 {font-family: "黑体"; font-size: 16px; color: #FFFFFF; margin-top:10px;}
-.style15 {
-	font-size: 24px;
-	color: #FFFFFF;
-	font-family: "黑体";
-}
-.style16 {color: #FF9900; font-size: 16px; font-family: "黑体"; }
+.style15 {font-size: 24px;color: #FFFFFF;font-family: "黑体";}
 .style17 {color: #FF9900; font-size: 16px; font-family: "黑体"; line-height: 25px;}
-.style18 {color: #FF9900}
-
-.listtr {
-	float: left;
-	margin-left: 10px;
-	height: 130px;
-}
 .liston {
-	float: left;
-	margin-right: 5px;
-	width: 180px;
-	height: 120px;
-	border: solid 1px #FFDC37;
-	background-color: #8E3131;
+	float: left;margin-right: 5px;width: 180px;height: 120px;
+	border: solid 1px #FFDC37;background-color: #8E3131;
 }
-
 .listoff {
-	float: left;
-	margin-right: 5px;
-	width: 180px;
-	height: 120px;
-	border: solid 1px #b96400;
+	float: left;margin-right: 5px;width: 180px;
+	height: 120px;border: solid 1px #b96400;
 }
 </style>
 
@@ -232,7 +196,7 @@ function focusStyle(target, className) {
 	<td width="34"><img src="images/lyfkyy-3.jpg" width="34" height="434" /></td>
   </tr>
   <tr>
-    <td colspan="3"><img src="images/lyfkyy-4.jpg" width="644" height="28" /></td>
+    <td colspan="3"><img src="images/lyfkyy-4.jpg" width="644" height="26" /></td>
   </tr>
 </table>
 

@@ -8,15 +8,8 @@
 <title>疯狂英语</title>
 <style type="text/css">
 body {
-	letter-spacing: -1px;
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	font-family: "黑体";
-	width: 640px;
-	height: 530px;
-	background: transparent;
+	letter-spacing: -1px;margin: 0px;font-family: "黑体";
+	width: 640px;height: 530px;background: transparent;
 }
 .img{border-color:yellow;border-width:2px;}
 .STYLE13 {font-family: "黑体"; font-size: 16px; color: #FFFFFF;margin-top:10px;}
@@ -358,7 +351,7 @@ function doSelect(){
     <td width="34"><img src="images/lyfkyy-3.jpg" border="0" width="34" height="434" /></td>
   </tr>
   <tr>
-       <td colspan="3"><img src="images/lyfkyy-4.jpg" width="644" height="28" border="0"/></td>
+       <td colspan="3"><img src="images/lyfkyy-4.jpg" width="644" height="26" border="0"/></td>
   </tr>
 </table>
 

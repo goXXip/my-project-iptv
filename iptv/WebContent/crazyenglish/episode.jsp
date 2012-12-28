@@ -12,8 +12,8 @@ body {
 	margin-bottom: 0px;width: 640px;height: 530px;font-family: "黑体";
 }
 .img{border-color:yellow;border-width:2px;}
-.STYLE14 {font-family: "黑体";color: #FFFFFF;font-size: 16px;float: left;height: 27px;padding: 5px 10px 5px 30px;}
-.STYLE15 {font-family: "黑体";color: #FFFFFF;font-size: 16px;float: left;height: 27px;padding: 5px 10px 5px 30px;border: 2px solid yellow;}
+.STYLE14 {font-family: "黑体";color: #FFFFFF;font-size: 16px;float: left;padding: 5px 10px 5px 10px;}
+.STYLE15 {font-family: "黑体";color: #FFFFFF;font-size: 16px;float: left;padding: 5px 10px 5px 10px;border: 2px solid yellow;}
 .titleon {
 	float: left;width:533px; height:47px;padding-left: 18px;border-style: solid; 
 	border-width: 2px;border-color: #FFA22F; color: #FFFFFF; font-size: 20px;
@@ -266,7 +266,7 @@ function doSelect(){
     <td width="34"><img src="images/lyfkyy-3.jpg" width="34" height="434" /></td>
   </tr>
   <tr>
-    <td colspan="3"><img src="images/lyfkyy-4.jpg" width="644" height="28" /></td>
+    <td colspan="3"><img src="images/lyfkyy-4.jpg" width="644" height="26" /></td>
   </tr>
 </table>
 
