@@ -8,8 +8,7 @@
 <title>孕育早教</title>
 <style type="text/css">
 body {
-	letter-spacing: -1px;margin-left: 0px;margin-top: 0px;margin-right: 0px;
-	margin-bottom: 0px;font-family: "黑体";width: 640px;height: 530px;background: transparent;
+	letter-spacing: -1px;margin: 0px;font-family: "黑体";width: 640px;height: 530px;background: transparent;
 }
 .img{border-color:yellow;border-width:2px;}
 .titleon {
@@ -164,6 +163,10 @@ function verticalChan(_num){
 		}
 	}
 	else if( area == 1){
+		if(_num>0 && btn_pos >= filmArray.length -1 && relativeArray.length <= 0){
+			btn_pos = filmArray.length -1;
+			return;
+		}
 		$("t_1_"+btn_pos).className = "titleoff";
 		btn_pos += _num;
 		if(btn_pos < 0 ){
