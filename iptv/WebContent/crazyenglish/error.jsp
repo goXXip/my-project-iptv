@@ -8,15 +8,8 @@
 <title>疯狂英语_错误页面</title>
 <style type="text/css">
 body {
-	letter-spacing: -1px;
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	font-family: "黑体";
-	width: 640px;
-	height: 530px;
-	background: transparent;
+	letter-spacing: -1px;margin: 0px;font-family: "黑体";
+	width: 640px;height: 530px;background: transparent;
 }
 a{text-decoration:none;}
 .msgDiv{margin: 0 auto;margin-top: 100px;width: 400px;color: #ffffff;font-size: 20px; }

@@ -8,15 +8,8 @@
 <title>疯狂英语_订购确认</title>
 <style type="text/css">
 body {
-	letter-spacing: -1px;
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	width: 640px;
-	height: 530px;
-	font-family: "黑体";
-	background-color: #214c47;
+	letter-spacing: -1px;margin:0px;width: 640px;height: 530px;
+	font-family: "黑体";background-color: #214c47;
 }
 a{text-decoration:none;}
 .STYLE9 {color: #FFFFFF; font-size: 20px; font-family: "黑体";}

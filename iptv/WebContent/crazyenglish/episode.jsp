@@ -8,8 +8,8 @@
 <title>李阳疯狂英语</title>
 <style type="text/css">
 body {
-	letter-spacing: -1px;margin-left: 0px;margin-top: 0px;margin-right: 0px;
-	margin-bottom: 0px;width: 640px;height: 530px;font-family: "黑体";
+	letter-spacing: -1px;margin: 0px;
+	width: 640px;height: 530px;font-family: "黑体";
 }
 .img{border-color:yellow;border-width:2px;}
 .STYLE14 {font-family: "黑体";color: #FFFFFF;font-size: 16px;float: left;padding: 5px 10px 5px 10px;}
