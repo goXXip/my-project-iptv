@@ -145,6 +145,10 @@ function verticalChan(_num){
 		}
 	}
 	else if( area == 1){
+		if(_num>0 && btn_pos >= filmArray.length -1 && relativeArray.length <= 0){
+			btn_pos = filmArray.length -1;
+			return;
+		}
 		$("t_1_"+btn_pos).className = "titleoff";
 		btn_pos += _num;
 		if(btn_pos < 0 ){
