@@ -307,7 +307,9 @@ public class FilmAction extends BaseAction<Film>{
 					  relativeArray += ","+(pageBean.getCurPage()+1);
 					}
 				}else{
-					relativeArray += (pageBean.getCurPage()+1);
+					if(pageBean.isHasNextPage()){
+						relativeArray += (pageBean.getCurPage()+1);
+					}
 				}
 			}
 			relativeArray += "]";
