@@ -289,12 +289,12 @@ function focusStyle(target, className) {
         	<div class="STYLE14">${pageBean.curPage}/${pageBean.totalPages}</div>
 	        <c:if test="${pageBean.curPage > 1}">
 	           <div class="STYLE14">
-	           		<a href="${ctx }/crazyenglish/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage-1}&pageSize=9&channelId=2" class="STYLE14">上一页</a>
+	           		<a href="${ctx }/crazyenglish/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage-1}&pageSize=9&channelId=2" style="color: #ffffff;">上一页</a>
 	           	</div>
 	        </c:if>
 	        <c:if test="${pageBean.curPage < pageBean.totalPages}">
 	            <div class="STYLE14">
-	           		<a href="${ctx }/crazyenglish/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage+1}&pageSize=9&channelId=2" class="STYLE14">下一页</a>
+	           		<a href="${ctx }/crazyenglish/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage+1}&pageSize=9&channelId=2" style="color: #ffffff;">下一页</a>
 	           	</div>
 	        </c:if>
       </div>
