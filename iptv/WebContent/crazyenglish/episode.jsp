@@ -128,7 +128,7 @@ function horizonChan(_num){
 				return;
 			}
 		}
-		$("menu"+btn_pos).className = "";
+		unfocusMenu();
 		btn_pos += _num;
 		focusMenu();
 	}
@@ -154,13 +154,18 @@ function horizonChan(_num){
 	}
 }
 function focusMenu(){
-	$("menu"+btn_pos).className = "img";
+	var img_name = $("menu"+btn_pos).name;
+	$("menu"+btn_pos).src = "${ctx }/crazyenglish/images/"+img_name+"-2.jpg";
+}
+function unfocusMenu(){
+	var img_name = $("menu"+btn_pos).name;
+	$("menu"+btn_pos).src = "${ctx }/crazyenglish/images/"+img_name+".jpg";
 }
 //纵向移动
 function verticalChan(_num){
 	if( area == 0){
 		if(_num > 0 && filmArray.length >0){
-			$("menu"+btn_pos).className = "";
+			unfocusMenu();
 			area = 1;
 			btn_pos  = 0;
 			$("t_1_"+btn_pos).className = "titleon";
@@ -224,10 +229,10 @@ function doSelect(){
 <body>
 <table width="644" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><img src="${ctx }/crazyenglish/images/lyfkyy-1.jpg" width="179" height="72" name="Image5" border="0" id="menu0" /></td>
-    <td><img src="${ctx }/crazyenglish/images/lyfkyy-fkyy-2.jpg" name="Image9" width="180" height="72" border="0" id="menu1" /></td>
-    <td><img src="${ctx }/crazyenglish/images/lyfkyy-yufd-2.jpg" name="Image10" width="180" height="72" border="0" id="menu2" /></td>
-    <td><img src="${ctx }/crazyenglish/images/lyfkyy-1-4.jpg" width="105" height="72" /></td>
+    <td><img src="${ctx }/crazyenglish/images/menu0.jpg" width="179" height="70" name="menu0" border="0" id="menu0" /></td>
+    <td><c:choose><c:when test="${requestScope.columnID == 4}"><img src="${ctx }/crazyenglish/images/menu1-1.jpg" name="menu1-1" width="180" height="70" border="0" id="menu1" /></c:when><c:otherwise><img src="${ctx }/crazyenglish/images/menu1-2.jpg" name="Image9" width="180" height="70" border="0" id="menu1" /></c:otherwise></c:choose></td>
+    <td><c:choose><c:when test="${requestScope.columnID == 5}"><img src="${ctx }/crazyenglish/images/menu2-1.jpg" name="menu2-1" width="180" height="70" border="0" id="menu2" /></c:when><c:otherwise><img src="${ctx }/crazyenglish/images/menu2-2.jpg" name="Image10" width="180" height="70" border="0" id="menu2" /></c:otherwise></c:choose></td>
+    <td><img src="${ctx }/crazyenglish/images/lyfkyy-1-4.jpg" width="105" height="70" /></td>
   </tr>
 </table>
 <table width="644" border="0" cellspacing="0" cellpadding="0">
