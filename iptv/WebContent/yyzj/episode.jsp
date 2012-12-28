@@ -160,7 +160,12 @@ document.onkeypress = keyEvent;
 		}
 	}
 	function focusMenu(){
-		$("menu"+btn_pos).className = "img";
+		var img_name = $("menu"+btn_pos).name;
+		$("menu"+btn_pos).src = "${ctx }/yyzj/images/"+img_name+"-2.jpg";
+	}
+	function unfocusMenu(){
+		var img_name = $("menu"+btn_pos).name;
+		$("menu"+btn_pos).src = "${ctx }/yyzj/images/"+img_name+".jpg";
 	}
 	//纵向移动
 	function verticalChan(_num){
@@ -232,13 +237,12 @@ document.onkeypress = keyEvent;
 
 <table width="644" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><img src="${ctx }/yyzj/images/zyzj-1.jpg" width="184" height="72" name="Image5" border="0" id="menu0" /></td>
-    <td><img src="${ctx }/yyzj/images/zyzj-1-2.jpg" name="Image6" width="136" height="72" border="0" id="menu1" /></td>
-    <td><img src="${ctx }/yyzj/images/zyzj-1-3.jpg" name="Image7" width="129" height="72" border="0" id="menu2" /></td>
-    <td><img src="${ctx }/yyzj/images/zyzj-1-4.jpg" name="Image8" width="195" height="72" border="0" id="menu3" /></td>
+    <td><img src="${ctx }/yyzj/images/menu0.jpg" width="184" height="70" name="menu0" border="0" id="menu0" /></td>
+    <td><c:choose><c:when test="${requestScope.columnID == 1}"><img src="${ctx }/yyzj/images/menu1-2.jpg" name="menu1-2" width="136" height="70" border="0" id="menu1" /></c:when><c:otherwise><img src="${ctx }/yyzj/images/menu1-1.jpg" name="menu1-1" width="136" height="70" border="0" id="menu1" /></c:otherwise></c:choose></td>
+    <td><c:choose><c:when test="${requestScope.columnID == 2}"><img src="${ctx }/yyzj/images/menu2-2.jpg" name="menu2-2" width="129" height="70" border="0" id="menu2" /></c:when><c:otherwise><img src="${ctx }/yyzj/images/menu2-1.jpg" name="menu2-1" width="129" height="70" border="0" id="menu2" /></c:otherwise></c:choose></td>
+    <td><c:choose><c:when test="${requestScope.columnID == 3}"><img src="${ctx }/yyzj/images/menu3-2.jpg" name="menu3-2" width="195" height="70" border="0" id="menu3" /></c:when><c:otherwise><img src="${ctx }/yyzj/images/menu3-1.jpg" name="menu3-1" width="195" height="70" border="0" id="menu3" /></c:otherwise></c:choose></td>
   </tr>
 </table>
-
 <table width="644" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td width="35"><img src="images/zyzj-2.jpg" width="35" height="434" /></td>
