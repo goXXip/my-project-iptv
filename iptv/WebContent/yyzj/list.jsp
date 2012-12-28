@@ -18,7 +18,7 @@ body {
 	font-family: "黑体";
 }
 a{text-decoration:none;}
-.STYLE14 {font-family: "黑体";color:#ffffff;font-size: 16px;}/*color:#edff6f;*/
+.STYLE14 {font-family: "黑体";color:#ffffff;font-size: 16px;float: left;padding: 5px 10px 5px 10px;}/*color:#edff6f;*/
 .liston {
 	float: left;
 	width: 128px;
@@ -239,27 +239,24 @@ function focusStyle(target, className) {
       </table>
       </td></tr>
       </table>
-      <table width="575"  border="0" align="center" cellpadding="0" cellspacing="0">
-        <tr>
-          <td width="170"></td>
-          <td align="center" height="27" valign="bottom" class="STYLE14" width="50">${pageBean.curPage}/${pageBean.totalPages}</td>
-          <td align="center" height="27" valign="bottom" class="STYLE14" width="90">
-		           <c:if test="${pageBean.curPage > 1}">
-		           		<a href="${ctx }/yyzj/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage-1}&pageSize=12&channelId=1" class="STYLE14">上一页</a>
-		           </c:if>
-		   </td>
-		   <td align="center" height="27" valign="bottom" class="STYLE14" width="90">
-		           <c:if test="${pageBean.curPage < pageBean.totalPages}">
-		           		<a href="${ctx }/yyzj/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage+1}&pageSize=12&channelId=1" class="STYLE14">下一页</a>
-		           </c:if>
-           </td>
-           <td width="175"></td>
-        </tr>
-      </table></td>
+       <div id="page_navigator" style="width: 300px;margin: 0 auto;text-align: center;overflow: hidden;">
+         <div class="STYLE14">${pageBean.curPage}/${pageBean.totalPages}</div>
+         <c:if test="${pageBean.curPage > 1}">
+           	<div class="STYLE14">
+           		<a href="${ctx }/yyzj/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage-1}&pageSize=12&channelId=1" class="STYLE14">上一页</a>
+           	</div>
+         </c:if>
+          <c:if test="${pageBean.curPage < pageBean.totalPages}">
+	         <div class="STYLE14">
+	           	<a href="${ctx }/yyzj/filmAction!listFilmByColumnId.do?columnId=${requestScope.columnID }&curPage=${pageBean.curPage+1}&pageSize=12&channelId=1" class="STYLE14">下一页</a>
+	         </div>
+          </c:if>
+      </div>
+      </td>
     <td width="34"><img src="images/zyzj-3.jpg" width="34" height="434" /></td>
   </tr>
   <tr>
-    <td colspan="3"><img src="images/zyzj-4.jpg" width="644" height="28" /></td>
+    <td colspan="3"><img src="images/zyzj-4.jpg" width="644" height="26" /></td>
   </tr>
 </table>
 

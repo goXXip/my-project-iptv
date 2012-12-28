@@ -9,17 +9,14 @@
 <style type="text/css">
 body {
 	letter-spacing: -1px;
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
+	margin: 0px;
 	width: 640px;
 	height: 530px;
 	font-family: "黑体";
 }
 .img{border-color:yellow;border-width:2px;}
-.STYLE14 {font-family: "黑体";color:#ffffff;font-size: 16px;float: left;height: 27px;padding: 5px 10px 5px 30px;}/*color:#edff6f;*/
-.STYLE15 {font-family: "黑体";color: #FFFFFF;font-size: 16px;float: left;height: 27px;padding: 5px 10px 5px 30px;border: 2px solid yellow;}
+.STYLE14 {font-family: "黑体";color:#ffffff;font-size: 16px;float: left;padding: 5px 10px 5px 10px;}/*color:#edff6f;*/
+.STYLE15 {font-family: "黑体";color: #FFFFFF;font-size: 16px;float: left;padding: 5px 10px 5px 10px;border: 2px solid yellow;}
 .titleon {
 	float: left;width:533px; height:47px;overflow: hidden;
 	padding-left: 13px;border-style: solid; border-width: 2px;
@@ -263,22 +260,22 @@ document.onkeypress = keyEvent;
 	    </table>
     </div>
      <div id="page_navigator" style="width: 300px;margin: 0 auto;text-align: center;overflow: hidden;">
-	        <div class="STYLE14">${pageBean.curPage}/${pageBean.totalPages}</div>
-	           <c:if test="${pageBean.curPage > 1}">
-	           		<div class="STYLE14" id="t_2_0">上一页</div>
-	           </c:if>
-	           <c:if test="${pageBean.curPage < pageBean.totalPages}">
-	           		<c:choose>
-	           			<c:when test="${pageBean.curPage > 1}"><div class="STYLE14" id="t_2_1">下一页</div></c:when>
-	           			<c:otherwise><div class="STYLE14" id="t_2_0">下一页</div></c:otherwise>
-	           		</c:choose>
-	           </c:if>
+	       <div class="STYLE14">${pageBean.curPage}/${pageBean.totalPages}</div>
+           <c:if test="${pageBean.curPage > 1}">
+           		<div class="STYLE14" id="t_2_0">上一页</div>
+           </c:if>
+           <c:if test="${pageBean.curPage < pageBean.totalPages}">
+           		<c:choose>
+           			<c:when test="${pageBean.curPage > 1}"><div class="STYLE14" id="t_2_1">下一页</div></c:when>
+           			<c:otherwise><div class="STYLE14" id="t_2_0">下一页</div></c:otherwise>
+           		</c:choose>
+           </c:if>
     </div>  
       </td>
     <td width="34"><img src="images/zyzj-3.jpg" width="34" height="434" /></td>
   </tr>
   <tr>
-    <td colspan="3"><img src="images/zyzj-4.jpg" width="644" height="28" /></td>
+    <td colspan="3"><img src="images/zyzj-4.jpg" width="644" height="26" /></td>
   </tr>
 </table>
 <script  type="text/javascript">

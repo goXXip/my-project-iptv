@@ -40,7 +40,7 @@ body {
 	margin: 5px 0px 0px 0px;font-size: 16px;line-height: 25px;color: #edff6f;
 }
 .liston img {
-	border-style: solid;border-width: 2px;border-color: #C0F8F2;
+	border: solid 2px yellow;
 }
 </style>
 
@@ -356,7 +356,7 @@ function doSelect(){
     <td width="34"><img src="images/zyzj-3.jpg" width="34" height="434" /></td>
   </tr>
   <tr>
-    <td colspan="3"><img src="images/zyzj-4.jpg" width="644" height="28" /></td>
+    <td colspan="3"><img src="images/zyzj-4.jpg" width="644" height="26" /></td>
   </tr>
 </table>
 

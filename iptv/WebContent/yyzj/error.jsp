@@ -41,7 +41,7 @@ a{display: inline-block;text-decoration:none;}
     <td width="34"><img src="${ctx }/yyzj/images/zyzj-3.jpg" width="34" height="434" /></td>
   </tr>
   <tr>
-    <td colspan="3"><img src="${ctx }/yyzj/images/zyzj-4.jpg" width="644" height="28" /></td>
+    <td colspan="3"><img src="${ctx }/yyzj/images/zyzj-4.jpg" width="644" height="26" /></td>
   </tr>
 </table>
 

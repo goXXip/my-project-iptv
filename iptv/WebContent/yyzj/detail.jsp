@@ -9,10 +9,7 @@
 <style type="text/css">
 body {
 	letter-spacing: -1px;   
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
+	margin: 0px;
 	width: 640px;
 	height: 530px;
 	font-family: "黑体";
@@ -20,51 +17,8 @@ body {
 a{text-decoration:none;}
 .STYLE9 {color: #FFFFFF; font-size: 20px; font-family: "黑体";}
 .STYLE13 {font-family: "黑体"; font-size: 16px; color: #FFFFFF; }
-.style15 {	font-size: 24px;
-	color: #FFFFFF;
-	font-family: "黑体";
-}
-.style17 {color: #FF9900; font-size: 16px; font-family: "黑体"; }
+.style15 {	font-size: 24px;color: #FFFFFF;font-family: "黑体";}
 .STYLE18 {color: #f7d400; font-size: 16px; font-family: "黑体"; }
-.STYLE19 {font-family: "黑体"; font-size: 16px; color: #edff6f; }
-
-.table1 {
-	border-style: solid;
-	border-color: #8bf1e7;
-}
-
-.table2 {
-	border-style: solid;
-	border-color: #CC7100;
-}
-
-.table3 {
-	border-style: solid;
-	border-color: #602121;
-}
-
-.table4 {
-	border-style: solid;
-	border-color: #FFDC37;
-	background-color: #8E3131;
-}
-
-ul li {
-	list-style: none;
-	margin: 0px;
-	padding: 0px;
-}
-.listul {
-	padding: 0px;
-	margin: 0px 0px 0px 11px;
-	width: 564px;
-}
-.listtr {
-	float: left;
-	margin: 10px 0px 0px 10px;
-	padding: 0px;
-	height: 130px;
-}
 .liston {
 	float: left;
 	width: 128px;
@@ -267,7 +221,7 @@ function focusStyle(target, className) {
     <td width="34"><img src="images/zyzj-3.jpg" width="34" height="434" /></td>
   </tr>
   <tr>
-    <td colspan="3"><img src="images/zyzj-4.jpg" width="644" height="28" /></td>
+    <td colspan="3"><img src="images/zyzj-4.jpg" width="644" height="26" /></td>
   </tr>
 </table>
 
