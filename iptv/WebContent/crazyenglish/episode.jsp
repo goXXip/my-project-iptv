@@ -58,6 +58,10 @@ function keyEvent() {
 		horizonChan(1);
 		return 0;
 		break;
+	case 13:
+		doSelect();
+		return 0;
+		break;
 	case 8:
 	case 109:
 	case 283:
@@ -172,6 +176,10 @@ function verticalChan(_num){
 		}
 	}
 	else if( area == 1){
+		if(_num>0 && btn_pos >= filmArray.length -1 && relativeArray.length <= 0){
+			btn_pos = filmArray.length -1;
+			return;
+		}
 		$("t_1_"+btn_pos).className = "titleoff";
 		btn_pos += _num;
 		if(btn_pos < 0 ){
@@ -181,10 +189,10 @@ function verticalChan(_num){
 			return;
 		}
 		if(btn_pos > filmArray.length -1 && relativeArray.length >0 ){
-			area = 2 ;
-			btn_pos = 0;
-			$("t_2_"+btn_pos).className = "STYLE15";
-			return ;
+				area = 2 ;
+				btn_pos = 0;
+				$("t_2_"+btn_pos).className = "STYLE15";
+				return ;
 		}
 		$("t_1_"+btn_pos).className = "titleon";
 	}
@@ -230,8 +238,8 @@ function doSelect(){
 <table width="644" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td><img src="${ctx }/crazyenglish/images/menu0.jpg" width="179" height="70" name="menu0" border="0" id="menu0" /></td>
-    <td><c:choose><c:when test="${requestScope.columnID == 4}"><img src="${ctx }/crazyenglish/images/menu1-1.jpg" name="menu1-1" width="180" height="70" border="0" id="menu1" /></c:when><c:otherwise><img src="${ctx }/crazyenglish/images/menu1-2.jpg" name="Image9" width="180" height="70" border="0" id="menu1" /></c:otherwise></c:choose></td>
-    <td><c:choose><c:when test="${requestScope.columnID == 5}"><img src="${ctx }/crazyenglish/images/menu2-1.jpg" name="menu2-1" width="180" height="70" border="0" id="menu2" /></c:when><c:otherwise><img src="${ctx }/crazyenglish/images/menu2-2.jpg" name="Image10" width="180" height="70" border="0" id="menu2" /></c:otherwise></c:choose></td>
+    <td><c:choose><c:when test="${requestScope.columnID == 4}"><img src="${ctx }/crazyenglish/images/menu1-1.jpg" name="menu1-1" width="180" height="70" border="0" id="menu1" /></c:when><c:otherwise><img src="${ctx }/crazyenglish/images/menu1-2.jpg" name="menu1-2" width="180" height="70" border="0" id="menu1" /></c:otherwise></c:choose></td>
+    <td><c:choose><c:when test="${requestScope.columnID == 5}"><img src="${ctx }/crazyenglish/images/menu2-1.jpg" name="menu2-1" width="180" height="70" border="0" id="menu2" /></c:when><c:otherwise><img src="${ctx }/crazyenglish/images/menu2-2.jpg" name="menu2-2" width="180" height="70" border="0" id="menu2" /></c:otherwise></c:choose></td>
     <td><img src="${ctx }/crazyenglish/images/lyfkyy-1-4.jpg" width="105" height="70" /></td>
   </tr>
 </table>
