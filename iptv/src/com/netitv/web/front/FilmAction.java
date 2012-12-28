@@ -66,7 +66,7 @@ public class FilmAction extends BaseAction<Film>{
 		filmArray +="]";
 		request.setAttribute("filmArray", filmArray);
 		
-		pageBean = filmService.findByPage(5, 2,"1");
+		pageBean = filmService.findByPage(4, 2,"1");
 		List<Object> relativeList = pageBean.getItems();
 		request.setAttribute("relativeList", relativeList);
 		
@@ -134,7 +134,7 @@ public class FilmAction extends BaseAction<Film>{
 		filmArray +="]";
 		request.setAttribute("filmArray", filmArray);
 		
-		pageBean = filmService.findByPage(5, 2,"2");
+		pageBean = filmService.findByPage(3, 2,"2");
 		List<Object> relativeList = pageBean.getItems();
 		request.setAttribute("relativeList", relativeList);
 		
