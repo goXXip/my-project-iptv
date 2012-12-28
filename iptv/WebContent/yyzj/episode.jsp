@@ -64,6 +64,10 @@ function keyEvent() {
 		horizonChan(1);
 		return 0;
 		break;
+	case 13:
+		doSelect();
+		return 0;
+		break;
 	case 8:
 	case 109:
 	case 283:
@@ -134,7 +138,7 @@ document.onkeypress = keyEvent;
 					return;
 				}
 			}
-			$("menu"+btn_pos).className = "";
+			unfocusMenu();
 			btn_pos += _num;
 			focusMenu();
 		}
@@ -171,13 +175,17 @@ document.onkeypress = keyEvent;
 	function verticalChan(_num){
 		if( area == 0){
 			if(_num > 0 && filmArray.length >0){
-				$("menu"+btn_pos).className = "";
+				unfocusMenu();
 				area = 1;
 				btn_pos  = 0;
 				$("t_1_"+btn_pos).className = "titleon";
 			}
 		}
 		else if( area == 1){
+			if(_num>0 && btn_pos >= filmArray.length -1 && relativeArray.length <= 0){
+				btn_pos = filmArray.length -1;
+				return;
+			}
 			$("t_1_"+btn_pos).className = "titleoff";
 			btn_pos += _num;
 			if(btn_pos < 0 ){
@@ -186,11 +194,11 @@ document.onkeypress = keyEvent;
 				focusMenu();
 				return;
 			}
-			if(btn_pos > filmArray.length -1 && relativeArray.length >0 ){
-				area = 2 ;
-				btn_pos = 0;
-				$("t_2_"+btn_pos).className = "STYLE15";
-				return ;
+			if(btn_pos > filmArray.length -1 && relativeArray.length >0){
+					area = 2 ;
+					btn_pos = 0;
+					$("t_2_"+btn_pos).className = "STYLE15";
+					return ;
 			}
 			$("t_1_"+btn_pos).className = "titleon";
 		}
@@ -223,7 +231,7 @@ document.onkeypress = keyEvent;
 			if(relativeArray.length >0){
 				if( btn_pos < relativeArray.length){
 					var currentPage = relativeArray[btn_pos];
-					var url = "${ctx }/crazyenglish/filmAction!listAsset.do?filmId=${requestScope.filmID }&curPage="+currentPage+"&channelId=2";
+					var url = "${ctx }/yyzj/filmAction!listAsset.do?filmId=${requestScope.filmID }&curPage="+currentPage+"&channelId=1";
 					location.href = url;
 				}
 			}
