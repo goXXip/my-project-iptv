@@ -1,6 +1,10 @@
 package com.netitv.domain;
 
-public class Channel {
+import java.io.Serializable;
+
+public class Channel implements Serializable {
+
+	private static final long serialVersionUID = 4587738824122439885L;
 
 	private int id;
 	

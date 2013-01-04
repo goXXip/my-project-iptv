@@ -1,12 +1,16 @@
 package com.netitv.domain;
 
+import java.io.Serializable;
+
 /**
  * @Todo:栏目
  * @author: zhuqh
  * @CreateTime:2011-11-14 下午01:50:18
  */
-public class Column {
+public class Column  implements Serializable{
 	
+	private static final long serialVersionUID = 2794968347754259368L;
+
 	private int id;
 	
 	private String name;
