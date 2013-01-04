@@ -14,8 +14,8 @@ body {
 a{text-decoration:none;}
 .STYLE9 {color: #FFFFFF; font-size: 20px; font-family: "黑体";}
 .STYLE18 {color: #f7d400; font-size: 16px; font-family: "黑体"; }
-.msgDiv{margin: 0 auto;margin-top: 50px;width: 525px;color: #ffffff;font-size: 20px; }
-.messageinfo{margin: 0 auto;margin-top: 30px;width: 525px;color: #ffffff;font-size: 18px;line-height: 30px;text-align: left;}
+.msgDiv{margin: 0 auto;margin-top: 50px;width: 525px;color: #ffffff;font-size: 20px;padding-left: 20px; }
+.messageinfo{margin: 0 auto;margin-top: 30px;width: 525px;color: #ffffff;font-size: 18px;line-height: 30px;text-align: left;padding-left: 20px;}
 .tips{display:none;width:402px;height:200px;z-index:100;position:absolute;left: 119px;top:165px;background: url("${ctx}/images/fkyy_buy_tips_bq.png") no-repeat;}
 </style>
 <script type="text/javascript" src="js/global.js"></script>
@@ -79,7 +79,7 @@ a{text-decoration:none;}
 <jsp:include page="/crazyenglish/footer.jsp"></jsp:include>
 
 <div class="tips" id="second_confirm_div">
-	<div style="margin-top: 140px;">
+	<div style="margin-top: 100px;">
 		<table border="0" cellpadding="0" cellspacing="0" width="400px;">
 			<tr>
 				<td width="125">&nbsp;</td>
