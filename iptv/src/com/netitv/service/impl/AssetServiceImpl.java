@@ -23,26 +23,22 @@ public class AssetServiceImpl extends AbstractCacheProxy implements AssetService
 	}
 
 	public int delete(int id) {
-		// TODO Auto-generated method stub
 		int r = assetDao.delete(id);
 		this.cleanCache();
 		return r;
 	}
 
 	public Asset findById(int id) {
-		// TODO Auto-generated method stub
 		return assetDao.findById(id);
 	}
 
 	public int save(Asset asset) {
-		// TODO Auto-generated method stub
 		int r = assetDao.save(asset);
 		this.cleanCache();
 		return r;
 	}
 
 	public int update(Asset asset) {
-		// TODO Auto-generated method stub
 		int r =  assetDao.update(asset);
 		this.cleanCache();
 		return r;
@@ -53,7 +49,6 @@ public class AssetServiceImpl extends AbstractCacheProxy implements AssetService
 	}
 
 	public PageBean findAssetListByFilmId(int pageSize, int curPage,int filmId) {
-		// TODO Auto-generated method stub
 		List items =  (List) this.cache.get(ASSET_CACHE_KEY+"_page_"+filmId+"_"+curPage+"_"+pageSize);
 		if( items == null){
 			 items = assetDao.getRows(pageSize, curPage,filmId);
@@ -71,7 +66,6 @@ public class AssetServiceImpl extends AbstractCacheProxy implements AssetService
 	}
 
 	public List<Asset> findAssetListByFilmId(int filmId) {
-		// TODO Auto-generated method stub
 		List list =  (List) this.cache.get(ASSET_CACHE_KEY+"_assetlist_"+filmId);
 		
 		if( list == null){

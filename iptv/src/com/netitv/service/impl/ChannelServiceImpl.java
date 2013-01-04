@@ -11,22 +11,18 @@ public class ChannelServiceImpl implements ChannelService {
 	private ChannelDao channelDao;
 
 	public int delete(int id) {
-		// TODO Auto-generated method stub
 		return channelDao.delete(id);
 	}
 
 	public Channel findById(int id) {
-		// TODO Auto-generated method stub
 		return channelDao.findById(id);
 	}
 
 	public int save(Channel channel) {
-		// TODO Auto-generated method stub
 		return channelDao.save(channel);
 	}
 
 	public int update(Channel channel) {
-		// TODO Auto-generated method stub
 		return channelDao.update(channel);
 	}
 
@@ -35,7 +31,6 @@ public class ChannelServiceImpl implements ChannelService {
 	}
 
 	public List<Channel> findAll() {
-		// TODO Auto-generated method stub
 		return channelDao.findAll();
 	}
 

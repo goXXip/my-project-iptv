@@ -11,7 +11,6 @@ public class AdministratorInfoServiceImpl implements AdministratorInfoService {
 	private AdministratorInfoDao administratorInfoDao;
 
 	public List<AdministratorInfo> findByName(String username) {
-		// TODO Auto-generated method stub
 		return administratorInfoDao.findByName(username);
 	}
 

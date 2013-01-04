@@ -37,14 +37,12 @@ public class FilmServiceImpl extends AbstractCacheProxy implements FilmService{
 	}
 
 	public int delete(int id) {
-		// TODO Auto-generated method stub
 		int r =  filmDao.delete(id);
 		this.cleanCache();
 		return r;
 	}
 
 	public Film findById(int id) {
-		// TODO Auto-generated method stub
 		Object film  =  this.cache.get(FILM_CACHE_KEY+"_"+id);
 		if( film == null ){
 			film = filmDao.findById(id);
@@ -55,14 +53,12 @@ public class FilmServiceImpl extends AbstractCacheProxy implements FilmService{
 	}
 
 	public int save(Film film) {
-		// TODO Auto-generated method stub
 		int r =  filmDao.save(film);
 		this.cleanCache();
 		return r;
 	}
 
 	public int update(Film film) {
-		// TODO Auto-generated method stub
 		int r =  filmDao.update(film);
 		this.cleanCache();
 		return r;
@@ -73,7 +69,6 @@ public class FilmServiceImpl extends AbstractCacheProxy implements FilmService{
 	}
 
 	public PageBean findByPage(int pageSize, int curPage, String channelSelect) {
-		// TODO Auto-generated method stub
 		List items =  (List) this.cache.get(FILM_CACHE_KEY+"_channel_"+channelSelect+"_"+curPage+"_"+pageSize);
 		if( items == null){
 			items = filmDao.getRows(pageSize, curPage,channelSelect);
@@ -91,17 +86,14 @@ public class FilmServiceImpl extends AbstractCacheProxy implements FilmService{
 	}
 
 	public List<Column> findColumnsByChannelId(Integer channelID) {
-		// TODO Auto-generated method stub
 		return filmDao.findColumnsByChannelId(channelID);
 	}
 
 	public List<Channel> listAllChannel() {
-		// TODO Auto-generated method stub
 		return filmDao.listAllChannel();
 	}
 
 	public PageBean findByPage(int pageSize, int curPage, int columnid) {
-		// TODO Auto-generated method stub
 		List items =  (List) this.cache.get(FILM_CACHE_KEY+"_column_"+columnid+"_"+curPage+"_"+pageSize);
 		if( items == null){
 			items = filmDao.getRows(pageSize, curPage,columnid);
@@ -125,7 +117,6 @@ public class FilmServiceImpl extends AbstractCacheProxy implements FilmService{
 	 * @param filmId 影片ID
 	 */
 	public List<Film> listFilmByRand(int size,int columnID,int filmId) {
-		// TODO Auto-generated method stub
 		String key = Relative_CACHE_KEY+"_"+columnID+"_"+filmId+"_"+size;
 		Element obj = defaultCache.get(key);
 		if(obj == null){
@@ -144,7 +135,6 @@ public class FilmServiceImpl extends AbstractCacheProxy implements FilmService{
 	}
 
 	public Column findColumnByColumnid(int columnid) {
-		// TODO Auto-generated method stub
 		return filmDao.findColumnByColumnid(columnid);
 	}
 
@@ -154,7 +144,6 @@ public class FilmServiceImpl extends AbstractCacheProxy implements FilmService{
 	 * * @param flag 1：置顶  0:取消置顶
 	 */
 	public int updateTopStatus(int filmId, String flag) {
-		// TODO Auto-generated method stub
 		int r =  filmDao.updateTopStatus(filmId,flag);
 		this.cleanCache();
 		return r;

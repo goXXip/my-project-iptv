@@ -5,8 +5,10 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.netitv.domain.Asset;
+import com.netitv.domain.Column;
 import com.netitv.domain.Film;
 import com.netitv.service.AssetService;
+import com.netitv.service.ColumnService;
 import com.netitv.service.FilmService;
 import com.netitv.util.BaseAction;
 import com.netitv.util.BeanFactory;
@@ -24,7 +26,6 @@ public class FilmAction extends BaseAction<Film>{
 	/**
 	 *@Todo:孕育早教首页
 	 *@CreateTime:2012-2-6 上午09:36:56
-	 * @return
 	 */
 	@SuppressWarnings("unchecked")
 	public String eduIndex(){
@@ -233,11 +234,31 @@ public class FilmAction extends BaseAction<Film>{
 		FilmService filmService = (FilmService) BeanFactory.getBeanByName("filmService");
 		this.pageBean = filmService.findByPage(pageSize, curPage,columnID);
 		
+		convertToArray(pageBean,channelId);//将PageBean转化成Array
+		
+		/******************* 上下页导航 begin *********************/
+		String relativeArray = "[";
+		if( pageBean!= null ){
+			if(pageBean.isHasPreviousPage()){
+				relativeArray += (pageBean.getCurPage()-1);
+				if(pageBean.isHasNextPage()){
+				  relativeArray += ","+(pageBean.getCurPage()+1);
+				}
+			}else{
+				if(pageBean.isHasNextPage()){
+					relativeArray += (pageBean.getCurPage()+1);
+				}
+			}
+		}
+		relativeArray += "]";
+		request.setAttribute("relativeArray", relativeArray);
+		/******************* 上下页导航  end *********************/
+		
 		request.setAttribute("columnID", columnID);
 		
 		return "listByColumn";
 	}
-	
+
 	/**
 	 *@Todo:影片详情
 	 *@param filmId 影片ID
@@ -259,12 +280,38 @@ public class FilmAction extends BaseAction<Film>{
 		}else{
 			request.setAttribute("from", "column");
 		}
+		request.setAttribute("columnID", columnID);
 		
-		/**************** 查询相关影片   *********************/
-		List<Film>  relativeList = filmService.listFilmByRand(4,columnID,filmID);
+		/**************** 查询相关影片  begin *********************/
+		ColumnService columnService = (ColumnService)BeanFactory.getBeanByName("columnService");
+		Column column = columnService.findById(columnID);
+		int relativeList_size = 3;
+		if( column != null){
+			int  channelId = column.getChannelId();
+			if( 1 == channelId){
+				relativeList_size = 4;
+			}
+		}
+		List<Film>  relativeList = filmService.listFilmByRand(relativeList_size,columnID,filmID);
 		request.setAttribute("relativeList", relativeList);
 		
-		request.setAttribute("columnID", columnID);
+		String relativeArray = "[";
+		if( relativeList != null && relativeList.size()> 0 ){
+			int len  = relativeList.size();
+			for (int i = 0; i < len; i++) {
+				Film film  = (Film) relativeList.get(i);
+				Integer id = film.getId();
+				if(i < len -1){
+					relativeArray += id +",";
+				}else{
+					relativeArray += id;	
+				}
+			}
+		}
+		relativeArray += "]";
+		request.setAttribute("relativeArray", relativeArray);
+		/**************** 查询相关影片  end *********************/
+		
 	
 		return "detail";
 	}
@@ -299,6 +346,7 @@ public class FilmAction extends BaseAction<Film>{
 			filmArray +="]";
 			request.setAttribute("filmArray", filmArray);
 			
+			/******************* 上下页导航 begin *********************/
 			String relativeArray = "[";
 			if( pageBean!= null ){
 				if(pageBean.isHasPreviousPage()){
@@ -314,6 +362,7 @@ public class FilmAction extends BaseAction<Film>{
 			}
 			relativeArray += "]";
 			request.setAttribute("relativeArray", relativeArray);
+			/******************* 上下页导航 end *********************/
 			
 			String localIp = getLocalIp();
 			String from = request.getParameter("from");
@@ -372,6 +421,39 @@ public class FilmAction extends BaseAction<Film>{
 		return null;
 	}
 	
+	@SuppressWarnings("unchecked")
+	private void convertToArray(PageBean pageBean,String channelId) {
+		List filmList  = pageBean.getItems();
+		String filmArray = "[";
+		int size_row = 3;
+		if("1".equals(channelId)){
+			size_row = 4;
+		}
+		if( filmList != null && filmList.size()> 0 ){
+			int len = filmList.size();
+			int j = 1;
+			for (int i = 0; i < len; i++) {
+				if( i % size_row == 0){
+					if(i> 0){filmArray += ",";}
+					filmArray += "[";
+					 j = 1;
+				}
+				Film film  = (Film) filmList.get(i);
+				Integer id = film.getId();
+				if( j < size_row && i < len -1){
+					filmArray += id +",";
+				}else{
+					filmArray += id;	
+				}
+				if( (i+1) % size_row == 0 || i == len -1){
+					filmArray += "]";
+				}
+				j++;
+			}
+		}
+		filmArray +="]";
+		request.setAttribute("filmArray", filmArray);
+	}
 	
 	public Film getFilm() {
 		return film;
