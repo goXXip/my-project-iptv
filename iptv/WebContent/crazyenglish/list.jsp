@@ -12,6 +12,7 @@ body {
     width: 640px;height: 530px;
 }
 .STYLE14 {font-family: "黑体";color: #FFFFFF;font-size: 16px;padding: 0px 10px 0px 10px;float: left;}
+.STYLE15 {font-family: "黑体";color: #FFFFFF;font-size: 16px;float: left;padding: 0px 10px 0px 10px;border: 2px solid yellow;}
 .STYLE13 {font-family: "黑体"; font-size: 16px; color: #FFFFFF; margin-top:10px;}
 .liston {
 	float: left;margin-right: 5px;width: 180px;

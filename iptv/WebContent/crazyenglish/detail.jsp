@@ -11,7 +11,8 @@ body {
 	letter-spacing: -1px;margin: 0px;
 	width: 640px;height: 530px;font-family: "黑体";
 }
-.img{border-color:yellow;border-width:2px;}
+.btn_watch_focus{width: 100px;height: 40px;text-align: center;border: 2px solid yellow;}
+.btn_watch{width: 100px;height: 40px;text-align: center;}
 .STYLE9 {color: #FFFFFF; font-size: 20px; font-family: "黑体";}
 .STYLE13 {font-family: "黑体"; font-size: 16px; color: #FFFFFF; margin-top:10px;}
 .style15 {font-size: 24px;color: #FFFFFF;font-family: "黑体";}
@@ -87,7 +88,9 @@ var relativeArray = ${requestScope.relativeArray};//上下页导航
 var menuArray = ["${ctx }/crazyenglish/filmAction!engIndex.do","${ctx }/crazyenglish/filmAction!listFilmByColumnId.do?columnId=4&channelId=2","${ctx }/crazyenglish/filmAction!listFilmByColumnId.do?columnId=5&channelId=2"];
 
 function initFocus(){
-	$("defaultFocus").className = "img";
+	area = 1;
+	btn_pos = 0;
+	$("defaultFocus").className = "btn_watch_focus";
 }
 
 //横向移动
@@ -153,7 +156,7 @@ function verticalChan(_num){
 			btn_pos = 0;
 			return;
 		}
-		$("defaultFocus").className = "";
+		$("defaultFocus").className = "btn_watch";
 		btn_pos += _num;
 		if(btn_pos < 0 ){
 			area = 0 ;
@@ -238,7 +241,9 @@ function doSelect(){
 						<tr>
 							<td height="44" valign="top">&nbsp;</td>
 							<td valign="top">
-								<img src="images/anniu-02.jpg" name="Image12" width="90" height="38" border="0" id="defaultFocus"/>
+								<div id="defaultFocus" class="btn_watch">
+									<img src="images/anniu-02.jpg" name="Image12" width="90" height="38" border="0"/>
+								</div>
 							</td>
 							<td valign="top">&nbsp;</td>
 							<td valign="top">&nbsp;</td>
