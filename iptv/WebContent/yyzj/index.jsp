@@ -22,7 +22,7 @@ body {
 	font-size: 18px;line-height: 47px;background: url("images/bg-01.jpg");
 }
 .liston {
-	float: left;width: 128px;height: 122px;
+	float: left;width: 128px;height: 122px;background:#7baaa4;
 	/* border: solid 1px #214c47; */
 }
 .listoff {
@@ -36,7 +36,7 @@ body {
 .liston .listtitle {
 	float: left;width: 128px;height: 25px;
 	overflow: hidden;text-align: center;padding: 0px;
-	margin: 5px 0px 0px 0px;font-size: 16px;line-height: 25px;color: #edff6f;
+	margin: 5px 0px 0px 0px;font-size: 16px;line-height: 25px;/*color: #edff6f;*/color: #FFFFFF;
 }
 .liston img {
 	border: solid 2px yellow;

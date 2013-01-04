@@ -9,11 +9,13 @@
 <style type="text/css">
 body{letter-spacing: -1px;margin: 0px;width: 640px;height: 530px;font-family: "黑体";}
 .img{border-color:yellow;border-width:2px;}
+.btn_watch_focus{width: 100px;height: 40px;text-align: center;border: 2px solid yellow;}
+.btn_watch{width: 100px;height: 40px;text-align: center;}
 .STYLE9 {color: #FFFFFF; font-size: 20px; font-family: "黑体";}
 .STYLE13 {font-family: "黑体"; font-size: 16px; color: #FFFFFF; }
 .style15 {	font-size: 24px;color: #FFFFFF;font-family: "黑体";}
 .STYLE18 {color: #f7d400; font-size: 16px; font-family: "黑体"; }
-.liston {float: left;width: 128px;height: 122px;
+.liston {float: left;width: 128px;height: 122px;background:#7baaa4;
 	/* border: solid 1px #214c47; */
 }
 .listoff {
@@ -26,7 +28,7 @@ body{letter-spacing: -1px;margin: 0px;width: 640px;height: 530px;font-family: "�
 }
 .liston .listtitle {
 	float: left;width: 128px;height: 25px;overflow: hidden;text-align: center;padding: 0px;
-	margin: 5px 0px 0px 0px;font-size: 16px;line-height: 25px;color: #edff6f;
+	margin: 5px 0px 0px 0px;font-size: 16px;line-height: 25px;/*color: #edff6f;*/color: #FFFFFF;
 }
 .liston img {
 	border-style: solid;border-width: 2px;border-color: #C0F8F2;
@@ -94,7 +96,9 @@ var relativeArray = ${requestScope.relativeArray};//上下页导航
 var menuArray = ["${ctx }/yyzj/filmAction!eduIndex.do","${ctx }/yyzj/filmAction!listFilmByColumnId.do?columnId=1&channelId=1","${ctx }/yyzj/filmAction!listFilmByColumnId.do?columnId=2&channelId=1","${ctx }/yyzj/filmAction!listFilmByColumnId.do?columnId=3&channelId=1"];
 
 function initFocus(){
-	$("defaultFocus").className = "img";
+	area = 1;
+	btn_pos = 0;
+	$("defaultFocus").className = "btn_watch_focus";
 }
 
 //横向移动
@@ -160,7 +164,7 @@ function verticalChan(_num){
 			btn_pos = 0;
 			return;
 		}
-		$("defaultFocus").className = "";
+		$("defaultFocus").className = "btn_watch";
 		btn_pos += _num;
 		if(btn_pos < 0 ){
 			area = 0 ;
@@ -243,7 +247,9 @@ function doSelect(){
         <tr>
           <td height="44" valign="top">&nbsp;</td>
           <td width="142" height="44" valign="top">
-	          	<img src="images/anniu-02.jpg" name="Image13" width="90" height="38" border="0" id="defaultFocus" />
+          		<div id="defaultFocus" class="btn_watch">
+	          		<img src="images/anniu-02.jpg" name="Image13" width="90" height="38" border="0" />
+	          	</div>
           </td>
           <td width="146" height="44" valign="top">&nbsp;</td>
           <td width="123" height="44" valign="top">&nbsp;</td>

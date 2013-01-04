@@ -12,18 +12,17 @@ body {
 	width: 640px;height: 530px;font-family: "黑体";
 }
 .STYLE14 {font-family: "黑体";color:#ffffff;font-size: 16px;float: left;padding: 5px 10px 5px 10px;}/*color:#edff6f;*/
-.liston {float: left;width: 128px;height: 122px;
-	/* border: solid 1px #214c47; */
-}
+.STYLE15 {font-family: "黑体";color: #FFFFFF;font-size: 16px;float: left;padding: 5px 10px 5px 10px;border: 2px solid yellow;}
+.liston {float: left;width: 128px;height: 122px;/*border: solid 1px #214c47;*/background:#7baaa4;}
 .listoff {float: left;width: 128px;height: 122px;}
 .listoff .listtitle {float: left;width: 128px;height: 25px;overflow: hidden;
 	text-align: center;padding: 0px;margin: 5px 0px 0px 0px;font-size: 16px;line-height: 25px;color: #FFFFFF;
 }
 .liston .listtitle {float: left;width: 128px;height: 25px;
 	overflow: hidden;text-align: center;padding: 0px;
-	margin: 5px 0px 0px 0px;font-size: 16px;line-height: 25px;color: #edff6f;
+	margin: 5px 0px 0px 0px;font-size: 16px;line-height: 25px;/*color: #edff6f;*/color: #FFFFFF;
 }
-.liston img {border-style: solid;border-width: 2px;border-color: #C0F8F2;}
+.liston img {border: 2px solid yellow;}/*border-color: #C0F8F2;*/
 </style>
 
 <script type="text/javascript">
