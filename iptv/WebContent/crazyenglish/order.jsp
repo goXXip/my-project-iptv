@@ -130,6 +130,7 @@ function second_confirm(){
 }
 function close_confirm(){
 	document.getElementById("second_confirm_div").style.display = "none";
+	initFocus();
 }
 //纵向移动
 function verticalChan(_num){
