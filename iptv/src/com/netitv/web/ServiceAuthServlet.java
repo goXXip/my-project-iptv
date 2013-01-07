@@ -75,10 +75,10 @@ public class ServiceAuthServlet   extends HttpServlet{
 			 FailureUrl = getRequestPrefix(request)+"/crjy/filmAction!orderConfirm.do?filmId="+filmId;
 		}
 		
-//		if( request.getSession().getAttribute(userId+","+ProductID) != null){
-//				response.sendRedirect(SuccessUrl); //跳转到鉴权成功页面
-//		}
-//		else{
+		if( request.getSession().getAttribute(userId+","+ProductID) != null){
+				response.sendRedirect(SuccessUrl); //跳转到鉴权成功页面
+		}
+		else{
 			ServiceAuthReq serviceAuthReq = new ServiceAuthReq();
 			serviceAuthReq.setSPID(Constants.SPID);
 			serviceAuthReq.setUserID(userId);
@@ -111,7 +111,7 @@ public class ServiceAuthServlet   extends HttpServlet{
 				
 				logger.info(" ServiceAuth end ");
 			}
-//		}
+		}
 		
 	}
 
