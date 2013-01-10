@@ -57,7 +57,7 @@ public class OrderServlet  extends HttpServlet{
 		
 		String OrderMode = "1";
 		String Action = "1";
-		String ContinueType = "0";
+		String ContinueType = "1";
 		
 		String user_id = HttpUtil.getUserId(request);
 		String UserToken = null;
