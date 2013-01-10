@@ -243,7 +243,7 @@ document.onkeypress = keyEvent;
 
 <body>
 
-<table width="644" border="0" cellspacing="0" cellpadding="0">
+<table width="644" border="0" cellspacing="0" cellpadding="0" bgcolor="#006054">
   <tr>
     <td><img src="${ctx }/yyzj/images/menu0.jpg" width="184" height="70" name="menu0" border="0" id="menu0" /></td>
     <td><c:choose><c:when test="${requestScope.columnID == 1}"><img src="${ctx }/yyzj/images/menu1-2.jpg" name="menu1-2" width="136" height="70" border="0" id="menu1" /></c:when><c:otherwise><img src="${ctx }/yyzj/images/menu1-1.jpg" name="menu1-1" width="136" height="70" border="0" id="menu1" /></c:otherwise></c:choose></td>
@@ -293,5 +293,22 @@ document.onkeypress = keyEvent;
 <script  type="text/javascript">
 	initFocus();
 </script>
+
+<div style="display: none;">
+    <img src="${ctx }/yyzj/images/menu0.jpg" width="184" height="72"/>
+    <img src="${ctx }/yyzj/images/menu0-2.jpg" width="184" height="72"/>
+    <img src="${ctx }/yyzj/images/menu1-1.jpg" width="136" height="72"/>
+    <img src="${ctx }/yyzj/images/menu1-1-2.jpg" width="136" height="72"/>
+    <img src="${ctx }/yyzj/images/menu1-2.jpg" width="136" height="72"/>
+    <img src="${ctx }/yyzj/images/menu1-2-2.jpg" width="136" height="72"/>
+    <img src="${ctx }/yyzj/images/menu2-1.jpg" width="129" height="72"/>
+    <img src="${ctx }/yyzj/images/menu2-1-2.jpg" width="129" height="72"/>
+    <img src="${ctx }/yyzj/images/menu2-2.jpg" width="129" height="72"/>
+    <img src="${ctx }/yyzj/images/menu2-2-2.jpg" width="129" height="72"/>
+    <img src="${ctx }/yyzj/images/menu3-1.jpg" width="195" height="72"/>
+    <img src="${ctx }/yyzj/images/menu3-1-2.jpg" width="195" height="72"/>
+    <img src="${ctx }/yyzj/images/menu3-2.jpg" width="195" height="72"/>
+    <img src="${ctx }/yyzj/images/menu3-2-2.jpg" width="195" height="72"/>
+</div>
 </body>
 </html>

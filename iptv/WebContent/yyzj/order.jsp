@@ -127,6 +127,7 @@ function second_confirm(){
 	area = 2;
 	btn_pos  = 0;
 	$("t_2_0").className = "btn_watch_focus";
+	$("t_2_1").className = "btn_watch";
 }
 function close_confirm(){
 	document.getElementById("second_confirm_div").style.display = "none";
@@ -150,6 +151,7 @@ function verticalChan(_num){
 		if(_num < 0 ){
 			area = 0 ;
 			btn_pos = 0;
+			$("defaultFocus").className = "btn_watch";
 			focusMenu();
 			return;
 		}
@@ -184,7 +186,7 @@ function doSelect(){
 
 <body>
 
-<table width="644" border="0" cellspacing="0" cellpadding="0">
+<table width="644" border="0" cellspacing="0" cellpadding="0" bgcolor="#006054">
   <tr>
     <td><img src="${ctx }/yyzj/images/menu0.jpg" width="184" height="70" name="menu0" border="0" id="menu0" /></td>
     <td><c:choose><c:when test="${requestScope.columnID == 1}"><img src="${ctx }/yyzj/images/menu1-2.jpg" name="menu1-2" width="136" height="70" border="0" id="menu1" /></c:when><c:otherwise><img src="${ctx }/yyzj/images/menu1-1.jpg" name="menu1-1" width="136" height="70" border="0" id="menu1" /></c:otherwise></c:choose></td>
@@ -256,5 +258,23 @@ function doSelect(){
 <script  type="text/javascript">
 	initFocus();
 </script>
+
+<div style="display: none;">
+    <img src="${ctx }/yyzj/images/menu0.jpg" width="184" height="72"/>
+    <img src="${ctx }/yyzj/images/menu0-2.jpg" width="184" height="72"/>
+    <img src="${ctx }/yyzj/images/menu1-1.jpg" width="136" height="72"/>
+    <img src="${ctx }/yyzj/images/menu1-1-2.jpg" width="136" height="72"/>
+    <img src="${ctx }/yyzj/images/menu1-2.jpg" width="136" height="72"/>
+    <img src="${ctx }/yyzj/images/menu1-2-2.jpg" width="136" height="72"/>
+    <img src="${ctx }/yyzj/images/menu2-1.jpg" width="129" height="72"/>
+    <img src="${ctx }/yyzj/images/menu2-1-2.jpg" width="129" height="72"/>
+    <img src="${ctx }/yyzj/images/menu2-2.jpg" width="129" height="72"/>
+    <img src="${ctx }/yyzj/images/menu2-2-2.jpg" width="129" height="72"/>
+    <img src="${ctx }/yyzj/images/menu3-1.jpg" width="195" height="72"/>
+    <img src="${ctx }/yyzj/images/menu3-1-2.jpg" width="195" height="72"/>
+    <img src="${ctx }/yyzj/images/menu3-2.jpg" width="195" height="72"/>
+    <img src="${ctx }/yyzj/images/menu3-2-2.jpg" width="195" height="72"/>
+</div>
+
 </body>
 </html>
