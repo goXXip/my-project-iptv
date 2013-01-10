@@ -263,7 +263,7 @@ function doSelect(){
 </head>
 
 <body>
-<table width="644" border="0" cellspacing="0" cellpadding="0">
+<table width="644" border="0" cellspacing="0" cellpadding="0" bgcolor="#8f0100">
   <tr>
     <td><img src="${ctx }/crazyenglish/images/menu0.jpg" width="179" height="70" name="menu0" border="0" id="menu0" /></td>
     <td><c:choose><c:when test="${requestScope.columnID == 4}"><img src="${ctx }/crazyenglish/images/menu1-1.jpg" name="menu1-1" width="180" height="70" border="0" id="menu1" /></c:when><c:otherwise><img src="${ctx }/crazyenglish/images/menu1-2.jpg" name="menu1-2" width="180" height="70" border="0" id="menu1" /></c:otherwise></c:choose></td>
@@ -467,6 +467,17 @@ function doSelect(){
 <script  type="text/javascript">
 	initFocus();
 </script>
-
+<div style="display: none;">
+   <img src="${ctx }/crazyenglish/images/menu0.jpg" width="179" height="72" />
+   <img src="${ctx }/crazyenglish/images/menu0-2.jpg" width="179" height="72" />
+   <img src="${ctx }/crazyenglish/images/menu1-1.jpg" width="180" height="72"/>
+   <img src="${ctx }/crazyenglish/images/menu1-1-2.jpg" width="180" height="72"/>
+   <img src="${ctx }/crazyenglish/images/menu1-2.jpg" width="180" height="72"/>
+   <img src="${ctx }/crazyenglish/images/menu1-2-2.jpg" width="180" height="72"/>
+   <img src="${ctx }/crazyenglish/images/menu2-1.jpg" width="180" height="72"/>
+   <img src="${ctx }/crazyenglish/images/menu2-1-2.jpg" width="180" height="72"/>
+   <img src="${ctx }/crazyenglish/images/menu2-2.jpg" width="180" height="72"/>
+   <img src="${ctx }/crazyenglish/images/menu2-2-2.jpg" width="180" height="72"/>
+</div>
 </body>
 </html>

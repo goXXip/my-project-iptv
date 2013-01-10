@@ -207,7 +207,7 @@ function doSelect(){
 
 <body bgcolor="transparent">
 
-<table width="644" border="0" cellspacing="0" cellpadding="0">
+<table width="644" border="0" cellspacing="0" cellpadding="0" bgcolor="#8f0100">
   <tr>
     <td><img src="${ctx }/crazyenglish/images/menu0.jpg" width="179" height="72" name="menu0" border="0" id="menu0" /></td>
     <td><img src="${ctx }/crazyenglish/images/menu1-2.jpg" name="menu1-2" width="180" height="72" border="0" id="menu1" /></td>
@@ -376,5 +376,17 @@ function init(){
 
 	init();
 </script>
+<div style="display: none;">
+   <img src="${ctx }/crazyenglish/images/menu0.jpg" width="179" height="72" />
+   <img src="${ctx }/crazyenglish/images/menu0-2.jpg" width="179" height="72" />
+   <img src="${ctx }/crazyenglish/images/menu1-1.jpg" width="180" height="72"/>
+   <img src="${ctx }/crazyenglish/images/menu1-1-2.jpg" width="180" height="72"/>
+   <img src="${ctx }/crazyenglish/images/menu1-2.jpg" width="180" height="72"/>
+   <img src="${ctx }/crazyenglish/images/menu1-2-2.jpg" width="180" height="72"/>
+   <img src="${ctx }/crazyenglish/images/menu2-1.jpg" width="180" height="72"/>
+   <img src="${ctx }/crazyenglish/images/menu2-1-2.jpg" width="180" height="72"/>
+   <img src="${ctx }/crazyenglish/images/menu2-2.jpg" width="180" height="72"/>
+   <img src="${ctx }/crazyenglish/images/menu2-2-2.jpg" width="180" height="72"/>
+</div>
 </body>
 </html>
