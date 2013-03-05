@@ -3,6 +3,7 @@
 <%@page import="com.netitv.util.HttpUtil"%>
 <%@page import="com.netitv.util.CommonsUtil"%>
 <%@page import="com.netitv.util.LogUtil"%>
+<%@page import="org.apache.commons.lang.StringEscapeUtils"%>
 <%
 	LogUtil.logAccessInformation(request);//debug信息
 /***写cookie信息 ***/
@@ -21,7 +22,7 @@
 			if(backUrl.indexOf("%26") >= 0){
 				backUrl = "";
 			}
-			backUrl = CommonsUtil.htmlEncoder(backUrl);
+			backUrl = StringEscapeUtils.escapeHtml(backUrl);
 			session.setAttribute("iptv_backUrl",backUrl);
 			HttpUtil.addCookie(response,"backUrl",backUrl,null);
 		}
