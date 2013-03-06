@@ -234,6 +234,7 @@ function doSelect(){
 </table>
 
 <div class="tips" id="second_confirm_div">
+	<div style="height: 110px;"></div>
 	<div style="margin-top: 110px;">
 		<table border="0" cellpadding="0" cellspacing="0" width="400px;">
 			<tr>
