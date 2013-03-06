@@ -128,7 +128,7 @@ function second_confirm(){
 	btn_pos  = 0;
 	//$("t_2_0").className = "btn_watch_focus";
 	$("t_2_0").className = "btn_watch";
-	$("t_2_1").className = "btn_watch";
+	$("t_2_1").className = "btn_watch_focus";
 }
 function close_confirm(){
 	document.getElementById("second_confirm_div").style.display = "none";
