@@ -24,8 +24,8 @@ CREATE TABLE channel (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 insert into channel(id,name) values(1,'孕育早教');
-insert into channel(id,name) values(2,'疯狂英语');
-insert into channel(id,name) values(3,'成人教育');
+insert into channel(id,name) values(2,'疯狂英语','725','3220');
+insert into channel(id,name) values(3,'成人教育','726','3221');
 
 DROP TABLE IF EXISTS columninfo;
 CREATE TABLE columninfo (
