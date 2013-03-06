@@ -21,6 +21,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.lang.RandomStringUtils;
+import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.log4j.Logger;
 
 import sun.misc.BASE64Decoder;
@@ -390,16 +391,8 @@ public class CommonsUtil {
 		if (src == null || src.equals("")) {
 			return "";
 		}
-
-		String dst = src;
-		dst = dst.replaceAll("<", "&lt;");
-		dst = dst.replaceAll(">", "&rt;");
-		dst = dst.replaceAll("\"", "&quot;");
-		dst = dst.replaceAll("'", "&#039;");
-		dst = dst.replaceAll("&", "&amp;");
-		dst = dst.replaceAll("\\?","&#63;");
-		dst = dst.replaceAll("=", "&#61;");
-		dst = dst.replaceAll("%", "&#37;");
+		
+		String dst =StringEscapeUtils.escapeHtml("src");
 
 		return dst;
 	}
