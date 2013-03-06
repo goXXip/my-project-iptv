@@ -50,6 +50,7 @@ a:VISITED {text-decoration:none;}
 
     function close_confirm(){
 		document.getElementById("second_confirm_div").style.display = "none";
+		$("defaultFocus").focus();
     }
 </script>
 </head>
