@@ -32,7 +32,8 @@ a:VISITED {text-decoration:none;}
 
 	function second_confirm(){
 		document.getElementById("second_confirm_div").style.display = "block";
-		$("btn_second_orderconfirm").focus();
+		//$("btn_second_orderconfirm").focus();
+		$("btn_second_cancel").focus();
     }
 
     function close_confirm(){
@@ -104,7 +105,7 @@ a:VISITED {text-decoration:none;}
 			</a>
 		</span>
 		<span style="padding-left: 35px;">
-			<a href="#" onclick="close_confirm()">
+			<a href="#" onclick="close_confirm()"  id="btn_second_cancel">
 				<img src="${ctx }/images/nobuy_gq.png"/>
 		   </a>
 		</span>
