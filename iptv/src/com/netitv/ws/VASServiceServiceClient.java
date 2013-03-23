@@ -13,6 +13,9 @@ import com.huawei.vas.service.VASService;
 import com.huawei.vas.service.VASServiceService;
 import com.netitv.util.Constants;
 
+/**
+ *华为vas soap接口客户端总入口
+ */
 public class VASServiceServiceClient {
 	
 	private static Logger logger = Logger.getLogger(VASServiceServiceClient.class);
@@ -34,6 +37,11 @@ public class VASServiceServiceClient {
 		vasService = vasServiceService.getVASService();
 	}
 
+	/**
+	 * 调用入口
+	 * @param serviceAuthReq 传入的请求对象，返回 ServiceAuthResp对象
+	 * @return
+	 */
 	public static ServiceAuthResp serviceAuth(ServiceAuthReq serviceAuthReq) {
 		
 		try {
