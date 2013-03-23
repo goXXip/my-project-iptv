@@ -51,7 +51,8 @@ public class OrderServlet  extends HttpServlet{
 			}
 		}
 		
-		String hd_flag = request.getParameter("hd_flag");
+		String hd_flag = request.getParameter("hd_flag");//高清或标清的标识
+		//订购成功后返回本servlet进行处理
 		String Order_ReturnURL =getRequestPrefix(request)+"/servlet/orderResponse?channelId="+channelId+"&filmId="+filmId+"&hd_flag="+hd_flag;
 		Order_ReturnURL = URLEncoder.encode(Order_ReturnURL, "utf-8");
 		

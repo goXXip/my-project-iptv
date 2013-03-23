@@ -106,7 +106,7 @@ public class OrderResponseServlet  extends HttpServlet {
 			
 			OrderDetail orderDetail = buildOrderDetail(Description,UserID,ContentID,ServiceID,ProductID,ProductName,PurchaseType,Fee,SPID,TransactionID,ExpiredTime,OrderMode,AvailableIPTVRewardPoints,AvailableTeleRewardPoints,SerStartTime,SerEndTime,channelId);
 			OrderDetailService orderDetailService = (OrderDetailService) BeanFactory.getBeanByName("orderDetailService");
-			orderDetailService.saveOrderDetail(orderDetail);
+			orderDetailService.saveOrderDetail(orderDetail);//保存数据库
 			
 			logger.info("user_id==="+UserID+",订购产品ProductID:"+ProductID+"成功");
 			
@@ -126,6 +126,27 @@ public class OrderResponseServlet  extends HttpServlet {
 		logger.debug("=====OrderResponse end ========");
 	}
 
+	/**
+	 * 封装订购明细对象
+	 * @param description
+	 * @param userID
+	 * @param contentID
+	 * @param serviceID
+	 * @param productID
+	 * @param productName
+	 * @param purchaseType
+	 * @param fee
+	 * @param sPID
+	 * @param transactionID
+	 * @param expiredTime
+	 * @param orderMode
+	 * @param availableIPTVRewardPoints
+	 * @param availableTeleRewardPoints
+	 * @param serStartTime
+	 * @param serEndTime
+	 * @param channelId
+	 * @return
+	 */
 	private OrderDetail buildOrderDetail(String description, String userID,
 			String contentID, String serviceID, String productID,
 			String productName, String purchaseType, String fee, String sPID,
@@ -158,6 +179,12 @@ public class OrderResponseServlet  extends HttpServlet {
 		
 	}
 	
+	/**
+	 * 根据错误代码，提示前端页面错误信息
+	 * @param result 结果代码
+	 * @param index_url
+	 * @return
+	 */
 	private String buildReturnMsg(String result,String index_url) {
 		String returnMsg = "";
 		if( result != null){

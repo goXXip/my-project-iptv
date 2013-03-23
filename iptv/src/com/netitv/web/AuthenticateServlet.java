@@ -37,7 +37,7 @@ public class AuthenticateServlet  extends HttpServlet{
 		
 		String UserID = HttpUtil.getUserId(request);
 		String flag = request.getParameter("flag");//频道标识:(1:孕育早教  2:疯狂英语 3：成人教育)
-		String ReturnURL = getRequestPrefix(request)+"/servlet/authenticateResponse";
+		String ReturnURL = getRequestPrefix(request)+"/servlet/authenticateResponse";//表示本接口调用成功之后，跳转目标地址
 		String action_url = getRequestPrefix(request);
 		if("1".equals(flag)){
 			action_url += "/yyzj/filmAction!eduIndex.do";
@@ -67,6 +67,7 @@ public class AuthenticateServlet  extends HttpServlet{
 		doGet(request, response);
 	}
 	
+	//得到本应用的完整url地址前缀。形如http://ip:port/context 例如http://113.106.86.84:8080/iptv
 	private String getRequestPrefix(HttpServletRequest request){
 		return request.getScheme()+"://"+ request.getServerName()+":"+request.getServerPort()+request.getContextPath();
 	}

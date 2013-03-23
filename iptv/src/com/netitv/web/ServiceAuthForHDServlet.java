@@ -75,10 +75,6 @@ public class ServiceAuthForHDServlet extends HttpServlet{
 			 FailureUrl = getRequestPrefix(request)+"/crjy_hd/filmAction!orderConfirm.do?filmId="+filmId;
 		}
 		
-		if( request.getSession().getAttribute(userId+","+ProductID) != null){
-			response.sendRedirect(SuccessUrl); //跳转到鉴权成功页面
-		}
-		else{
 			ServiceAuthReq serviceAuthReq = new ServiceAuthReq();
 			serviceAuthReq.setSPID(Constants.SPID);
 			serviceAuthReq.setUserID(userId);
@@ -102,7 +98,6 @@ public class ServiceAuthForHDServlet extends HttpServlet{
 				
 				if("0".equals(Result)){
 					logger.info("userId="+userId+",ProductID="+ProductID+",ServiceID="+ServiceID+"鉴权成功。");
-					request.getSession().setAttribute(userId+","+ProductID, userId+","+ProductID);
 					response.sendRedirect(SuccessUrl); //跳转到鉴权成功页面
 				}else{
 					logger.error("userId="+userId+",ProductID="+ProductID+",ServiceID="+ServiceID+"鉴权失败。");
@@ -111,7 +106,6 @@ public class ServiceAuthForHDServlet extends HttpServlet{
 				
 				logger.info(" ServiceAuthForHD end ");
 			}
-		}
 		
 	}
 
