@@ -228,7 +228,7 @@ public class FilmAction extends BaseAction<Film>{
 			pageSize = Integer.parseInt(pageSizeStr);
 		}
 		
-		String columnId = request.getParameter("columnId");
+		String columnId = request.getParameter("columnId");//栏目ID
 		Integer columnID = Integer.parseInt(columnId);
 		
 		FilmService filmService = (FilmService) BeanFactory.getBeanByName("filmService");
@@ -316,6 +316,9 @@ public class FilmAction extends BaseAction<Film>{
 		return "detail";
 	}
 	
+	/**
+	 * 影片剧集列表
+	 */
 	@SuppressWarnings("unchecked")
 	public String listAsset(){
 		
@@ -421,11 +424,16 @@ public class FilmAction extends BaseAction<Film>{
 		return null;
 	}
 	
+	/**
+	 * 将pagebean里的数据转化为普通数组
+	 * @param pageBean
+	 * @param channelId
+	 */
 	@SuppressWarnings("unchecked")
 	private void convertToArray(PageBean pageBean,String channelId) {
 		List filmList  = pageBean.getItems();
 		String filmArray = "[";
-		int size_row = 3;
+		int size_row = 3;//每一行排列多少影片
 		if("1".equals(channelId)){
 			size_row = 4;
 		}
