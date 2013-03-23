@@ -96,6 +96,18 @@ function keyEvent() {
 }
 document.onirkeypress = keyEvent;
 document.onkeypress = keyEvent;
+//全屏播放：
+//localIp+ "epg_pageAction.jsp?action=addUrl&goUrl="+gotoUrl+"&backUrl="+backUrl; 
+
+//localIp为进入本应用时，从电信链接地址传入，表示EPG服务器地址
+
+//goUrl 为视频播放地址
+//var   gotoUrl = localIp + "play_pageControl.jsp?PROGID="+fileID;
+//fileID表示视频ID
+
+//backUrl 表示要返回的地址，用于从视频播放页面返回，一般为当前页面
+
+//注意backUrl   goUrl 两个参数需要escape编码后传给epg_pageAction.jsp页面
 
 
 	var epg_server = '${requestScope.localIp}';
